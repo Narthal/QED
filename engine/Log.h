@@ -10,6 +10,14 @@
 
 
 
+
+#ifdef MAKE_DLL
+#  define EXPORT __declspec(dllexport)
+#else
+#  define EXPORT __declspec(dllimport)
+#endif
+
+
 namespace QED
 {
 	namespace Common
@@ -56,18 +64,18 @@ namespace QED
 
 			}
 
-			class LogLine
+			class EXPORT LogLine
 			{
 			public:
 				LogLine(Severity severity = Severity::Info, std::ostream& outStream = std::cout) : outStream(outStream), severity(severity) {}
 				~LogLine()
 				{
 					// Severity
-					stringStreamBuffer << '[' << GetSeverityString(severity) << ']';
+					outStream << '[' << GetSeverityString(severity) << ']' << ' ';
 
-					// Tags
+					//TODO: Tags
 
-
+					// Move message to outBuf
 					stringStreamBuffer << "\n";
 					outStream << stringStreamBuffer.rdbuf();
 					outStream.flush();
