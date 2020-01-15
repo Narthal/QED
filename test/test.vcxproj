@@ -72,18 +72,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)build\$(ProjectName)\$(PlatformShortName)\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(ProjectName)\$(PlatformShortName)\$(Configuration)</IntDir>
+    <IncludePath>$(SolutionDir)\dependencies\Python37_64\include;$(SolutionDir)\dependencies\pybind11\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependencies\Python37_64\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)build\$(ProjectName)\$(PlatformShortName)\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(ProjectName)\$(PlatformShortName)\$(Configuration)</IntDir>
+    <IncludePath>$(SolutionDir)\dependencies\Python37_64\include;$(SolutionDir)\dependencies\pybind11\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependencies\Python37_64\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)build\$(ProjectName)\$(PlatformShortName)\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(ProjectName)\$(PlatformShortName)\$(Configuration)</IntDir>
+    <IncludePath>$(SolutionDir)\dependencies\Python37_64\include;$(SolutionDir)\dependencies\pybind11\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependencies\Python37_64\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)build\$(ProjectName)\$(PlatformShortName)\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(ProjectName)\$(PlatformShortName)\$(Configuration)</IntDir>
+    <IncludePath>$(SolutionDir)\dependencies\Python37_64\include;$(SolutionDir)\dependencies\pybind11\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\dependencies\Python37_64\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,6 +123,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +149,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="calc.py" />
+    <None Include="fastCalc.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

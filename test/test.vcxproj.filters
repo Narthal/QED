@@ -19,4 +19,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="calc.py" />
+    <None Include="fastCalc.py" />
+  </ItemGroup>
 </Project>
