@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Application">
-      <UniqueIdentifier>{D9DE78AF-4594-F1A4-CE88-EB7B3A3DE8A8}</UniqueIdentifier>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Log">
-      <UniqueIdentifier>{E704880B-530E-887C-DC89-9E7C4892937C}</UniqueIdentifier>
+    <Filter Include="Core\Application">
+      <UniqueIdentifier>{F1A4822F-DD9D-A181-06D0-8606F227818D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Registry">
-      <UniqueIdentifier>{1EE4737F-0AB1-CE8A-33CA-BC321FF60319}</UniqueIdentifier>
+    <Filter Include="Core\Log">
+      <UniqueIdentifier>{FF3299C2-EBFF-F3CD-1419-E2750045295C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Registry">
+      <UniqueIdentifier>{36A16DCE-A261-E904-6B9C-3282D71B2EE1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{2010880B-8C19-887C-1595-9E7C819D937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SQLite">
+      <UniqueIdentifier>{976C60CF-830E-8BA5-6CC9-9EF9580A12F6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application\Application.h">
-      <Filter>Application</Filter>
+      <Filter>Core\Application</Filter>
     </ClInclude>
     <ClInclude Include="Core\Application\EntryPoint.h">
-      <Filter>Application</Filter>
+      <Filter>Core\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Globals.h" />
+    <ClInclude Include="Core\Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="Core\Log\Log.h">
-      <Filter>Log</Filter>
+      <Filter>Core\Log</Filter>
     </ClInclude>
-    <ClInclude Include="Core\QED.h" />
-    <ClInclude Include="Core\QEDApi.h" />
+    <ClInclude Include="Core\QED.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\QEDApi.h">
+      <Filter>Core</Filter>
+    </ClInclude>
     <ClInclude Include="Core\Registry\Registry.h">
-      <Filter>Registry</Filter>
+      <Filter>Core\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="PCH\QEDpch.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite\Database.h">
+      <Filter>SQLite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
-      <Filter>Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Globals.cpp" />
-    <ClCompile Include="Core\Log\Log.cpp">
-      <Filter>Log</Filter>
+      <Filter>Core\Application</Filter>
     </ClCompile>
     <ClCompile Include="Core\Registry\Registry.cpp">
-      <Filter>Registry</Filter>
+      <Filter>Core\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="PCH\QEDpch.cpp">
+      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

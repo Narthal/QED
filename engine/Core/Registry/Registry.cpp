@@ -1,3 +1,4 @@
+#include "QEDpch.h"
 #include "Registry.h"
 
 

@@ -1,10 +1,6 @@
 #ifndef REGISTRY_H
 #define REGISTRY_H
 
-#include <map>
-#include <mutex>
-#include <string>
-#include <tuple>
 
 namespace QED
 {

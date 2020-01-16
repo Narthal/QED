@@ -29,6 +29,9 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 engineProjectName = "engine"
 sandboxProjectName = "sandbox"
 
+-- pch directory
+enginePchDir = engineProjectName .. "/" .. "PCH/"
+
 -- os data
 osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
@@ -50,10 +53,18 @@ project(engineProjectName)
 	targetdir(binDir .. outputDir .. "%{prj.name}")
 	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
+	pchheader("QEDpch.h")
+	pchsource(enginePchDir .. "QEDpch.cpp")
+
 	files
 	{
 		"%{prj.name}/**.h",
 		"%{prj.name}/**.cpp"
+	}
+
+	includedirs
+	{
+		enginePchDir
 	}
 
 	filter "system:Windows"
@@ -70,7 +81,7 @@ project(engineProjectName)
 
 		postbuildcommands
 		{
-			"{COPY} %{cfg.buildtarget.relpath} " ..  "../" .. binDir .. outputDir .. sandboxProjectName
+			"{COPY} %{cfg.buildtarget.relpath} " ..  "../" .. binDir .. outputDir .. sandboxProjectName,
 		}
 
 	filter "configurations:Debug"

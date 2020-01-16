@@ -1,6 +1,6 @@
+#include "QEDpch.h"
 #include "Application.h"
 
-#include <iostream>
 namespace QED
 {
 	namespace Engine
