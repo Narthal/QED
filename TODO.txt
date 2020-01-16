@@ -1,6 +1,4 @@
-# QED
-
-projects
+ projects
 	engine (+headless server mode)
 	precompiledHeaders
 	modules
