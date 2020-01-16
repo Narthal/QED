@@ -35,11 +35,11 @@
 	- [ ] ecs
 	- [ ] imgui debug tools
 	- [ ] profilers
-	- [ ] box2D
-	- [ ] chanels (arbitrary)
-	- [ ] sound
-	- [ ] headless server mode
-	- [ ] networking - p2p server, server only, cooperative servers
+- [ ] box2D
+- [ ] chanels (arbitrary)
+- [ ] sound
+- [ ] headless server mode
+- [ ] networking - p2p server, server only, cooperative servers
 
 ## openGLModule
 	- [ ] abstraction layer
