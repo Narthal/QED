@@ -29,6 +29,8 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 engineProjectName = "engine"
 sandboxProjectName = "sandbox"
 
+-- os data
+osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
 
 
@@ -62,7 +64,8 @@ project(engineProjectName)
 		defines
 		{
 			"MAKE_DLL",
-			"QED_ENGINE_WINDOWS"
+			"QED_ENGINE_WINDOWS",
+			"BUILD_OS=" .. '"' .. osVersion .. '"'
 		}
 
 		postbuildcommands
@@ -84,7 +87,11 @@ project(engineProjectName)
 
 	
 	filter { "system:windows", "configurations:Release" }
-		buildoptions "/MT"
+		buildoptions
+		{
+			"/MT",
+			"/sdl-"
+		}
 
 
 
@@ -109,7 +116,7 @@ project(sandboxProjectName)
 		
 	includedirs
 	{
-		engineProjectName
+		engineProjectName .. "/**"
 	}
 
 	links
@@ -142,4 +149,8 @@ project(sandboxProjectName)
 
 	
 	filter { "system:windows", "configurations:Release" }
-		buildoptions "/MT"
+		buildoptions
+		{
+			"/MT",
+			"/sdl-"
+		}

@@ -2,5 +2,5 @@
 	path = external/dependencies/pybind11
 	url = https://github.com/pybind/pybind11
 [submodule "external\\dependencies\\sqlite_amalgamation"]
-	path = external\\dependencies\\sqlite_amalgamation
+	path = external/dependencies/sqlite_amalgamation
 	url = https://github.com/azadkuh/sqlite-amalgamation
