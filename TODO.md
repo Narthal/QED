@@ -18,9 +18,9 @@
 ----------------------------------------------------------------------------------
 
 ## engine
-- [-] log
-- [-] registry
-- [-] client - engine setup
+- [x] log
+- [x] registry
+- [x] client - engine setup
 - [ ] sqlite
 - [ ] virtual file system	-many many loaders (?loaderAPI?)
 - [ ] moduleFramework		-DescriptorAPI	-ScriptingAPI	-RendererAPI
