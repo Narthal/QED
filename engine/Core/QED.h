@@ -13,6 +13,9 @@
 #include "Registry/Registry.h"
 #include "Globals.h"
 
+//TODO: remove
+#include "../Event/ApplicationEvent.h"
+
 
 
 #endif // !QED_H

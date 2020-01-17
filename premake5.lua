@@ -20,20 +20,20 @@ workspace "QED"
 
 
 -- build directories
-buildDir = "build/"
-binDir = (buildDir .. "bin/")
-intermediateDir = (buildDir .. "intermediate/")
+buildDir = "Build/"
+binDir = (buildDir .. "Bin/")
+intermediateDir = (buildDir .. "Intermediate/")
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 
 -- common directory
-common = "common"
+common = "Common"
 
 -- project names
-engineProjectName = "engine"
-sandboxProjectName = "sandbox"
+engineProjectName = "Engine"
+sandboxProjectName = "Sandbox"
 
 -- pch
-pchDirectory = "pch"
+pchDirectory = "PCH"
 pchName = "PCH"
 pchHeaderFile = pchName .. ".h"
 pchSourceFile = pchName .. ".cpp"
@@ -104,11 +104,11 @@ project(engineProjectName)
 		optimize "On"
 
 	
-	filter { "system:windows", "configurations:Release" }
+	filter { "system:windows" }
 		buildoptions
 		{
 			"/MT",
-			"/sdl-"
+			"/sdl-",
 		}
 
 
@@ -172,9 +172,9 @@ project(sandboxProjectName)
 		optimize "On"
 
 	
-	filter { "system:windows", "configurations:Release" }
+	filter { "system:windows" }
 		buildoptions
 		{
 			"/MT",
-			"/sdl-"
+			"/sdl-",
 		}

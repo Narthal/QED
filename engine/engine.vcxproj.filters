@@ -21,46 +21,56 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch\enginePCH.h">
-      <Filter>PCH</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Globals.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\QED.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\QEDApi.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="sqlite\Database.h">
-      <Filter>SQLite</Filter>
-    </ClInclude>
-    <ClInclude Include="core\application\Application.h">
+    <ClInclude Include="Core\Application\Application.h">
       <Filter>Core\Application</Filter>
     </ClInclude>
-    <ClInclude Include="core\application\EntryPoint.h">
+    <ClInclude Include="Core\Application\EntryPoint.h">
       <Filter>Core\Application</Filter>
     </ClInclude>
-    <ClInclude Include="core\log\Log.h">
+    <ClInclude Include="Core\Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Log\Log.h">
       <Filter>Core\Log</Filter>
     </ClInclude>
-    <ClInclude Include="core\registry\Registry.h">
+    <ClInclude Include="Core\QED.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\QEDApi.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Registry\Registry.h">
       <Filter>Core\Registry</Filter>
     </ClInclude>
+    <ClInclude Include="PCH\EnginePCH.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite\Database.h">
+      <Filter>SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\Event.h" />
+    <ClInclude Include="Event\ApplicationEvent.h" />
+    <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="Event\KeyEvent.h" />
+    <ClInclude Include="Event\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch\enginePCH.cpp">
-      <Filter>PCH</Filter>
-    </ClCompile>
-    <ClCompile Include="sqlite\Database.cpp">
-      <Filter>SQLite</Filter>
-    </ClCompile>
-    <ClCompile Include="core\application\Application.cpp">
+    <ClCompile Include="Core\Application\Application.cpp">
       <Filter>Core\Application</Filter>
     </ClCompile>
-    <ClCompile Include="core\registry\Registry.cpp">
+    <ClCompile Include="Core\Registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
     </ClCompile>
+    <ClCompile Include="PCH\EnginePCH.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="SQLite\Database.cpp">
+      <Filter>SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\Event.cpp" />
+    <ClCompile Include="Event\ApplicationEvent.cpp" />
+    <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Event\KeyEvent.cpp" />
+    <ClCompile Include="Event\MouseEvent.cpp" />
   </ItemGroup>
 </Project>

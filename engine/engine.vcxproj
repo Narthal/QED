@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FBDB78FB-E77D-A3D1-D038-B725BC792A22}</ProjectGuid>
+    <ProjectGuid>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>engine</RootNamespace>
+    <RootNamespace>Engine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -55,53 +55,54 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\build\bin\Debug-windows-x86_64\engine\</OutDir>
-    <IntDir>..\build\intermediate\Debug-windows-x86_64\engine\</IntDir>
-    <TargetName>engine</TargetName>
+    <OutDir>..\Build\Bin\Debug-windows-x86_64\Engine\</OutDir>
+    <IntDir>..\Build\Intermediate\Debug-windows-x86_64\Engine\</IntDir>
+    <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\build\bin\Release-windows-x86_64\engine\</OutDir>
-    <IntDir>..\build\intermediate\Release-windows-x86_64\engine\</IntDir>
-    <TargetName>engine</TargetName>
+    <OutDir>..\Build\Bin\Release-windows-x86_64\Engine\</OutDir>
+    <IntDir>..\Build\Intermediate\Release-windows-x86_64\Engine\</IntDir>
+    <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\build\bin\Distribution-windows-x86_64\engine\</OutDir>
-    <IntDir>..\build\intermediate\Distribution-windows-x86_64\engine\</IntDir>
-    <TargetName>engine</TargetName>
+    <OutDir>..\Build\Bin\Distribution-windows-x86_64\Engine\</OutDir>
+    <IntDir>..\Build\Intermediate\Distribution-windows-x86_64\Engine\</IntDir>
+    <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MT /sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>..\build\bin\Debug-windows-x86_64\engine\engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Bin\Debug-windows-x86_64\Engine\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\build\bin\Debug-windows-x86_64\engine\engine.dll\ (xcopy /Q /E /Y /I ..\build\bin\Debug-windows-x86_64\engine\engine.dll ..\build\bin\Debug-windows-x86_64\sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\build\bin\Debug-windows-x86_64\engine\engine.dll ..\build\bin\Debug-windows-x86_64\sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,55 +116,66 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\build\bin\Release-windows-x86_64\engine\engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Bin\Release-windows-x86_64\Engine\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\build\bin\Release-windows-x86_64\engine\engine.dll\ (xcopy /Q /E /Y /I ..\build\bin\Release-windows-x86_64\engine\engine.dll ..\build\bin\Release-windows-x86_64\sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\build\bin\Release-windows-x86_64\engine\engine.dll ..\build\bin\Release-windows-x86_64\sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MT /sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\build\bin\Distribution-windows-x86_64\engine\engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\build\bin\Distribution-windows-x86_64\engine\engine.dll\ (xcopy /Q /E /Y /I ..\build\bin\Distribution-windows-x86_64\engine\engine.dll ..\build\bin\Distribution-windows-x86_64\sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\build\bin\Distribution-windows-x86_64\engine\engine.dll ..\build\bin\Distribution-windows-x86_64\sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Distribution-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Distribution-windows-x86_64\Sandbox &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="core\application\Application.h" />
-    <ClInclude Include="core\application\EntryPoint.h" />
-    <ClInclude Include="core\Globals.h" />
-    <ClInclude Include="core\log\Log.h" />
-    <ClInclude Include="core\QED.h" />
-    <ClInclude Include="core\QEDApi.h" />
-    <ClInclude Include="core\registry\Registry.h" />
-    <ClInclude Include="pch\enginePCH.h" />
-    <ClInclude Include="sqlite\Database.h" />
+    <ClInclude Include="Core\Application\Application.h" />
+    <ClInclude Include="Core\Application\EntryPoint.h" />
+    <ClInclude Include="Core\Globals.h" />
+    <ClInclude Include="Core\Log\Log.h" />
+    <ClInclude Include="Core\QED.h" />
+    <ClInclude Include="Core\QEDApi.h" />
+    <ClInclude Include="Core\Registry\Registry.h" />
+    <ClInclude Include="Event\ApplicationEvent.h" />
+    <ClInclude Include="Event\Event.h" />
+    <ClInclude Include="Event\KeyEvent.h" />
+    <ClInclude Include="Event\MouseEvent.h" />
+    <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="PCH\EnginePCH.h" />
+    <ClInclude Include="SQLite\Database.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="core\application\Application.cpp" />
-    <ClCompile Include="core\registry\Registry.cpp" />
-    <ClCompile Include="pch\enginePCH.cpp">
+    <ClCompile Include="Core\Application\Application.cpp" />
+    <ClCompile Include="Core\Registry\Registry.cpp" />
+    <ClCompile Include="Event\ApplicationEvent.cpp" />
+    <ClCompile Include="Event\Event.cpp" />
+    <ClCompile Include="Event\KeyEvent.cpp" />
+    <ClCompile Include="Event\MouseEvent.cpp" />
+    <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="sqlite\Database.cpp" />
+    <ClCompile Include="SQLite\Database.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
