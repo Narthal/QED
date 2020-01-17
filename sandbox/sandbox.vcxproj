@@ -55,22 +55,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\Build\Bin\Debug-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Build\Intermediate\Debug-windows-x86_64\Sandbox\</IntDir>
+    <OutDir>..\Build\Sandbox\Debug-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Sandbox\Debug-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Bin\Release-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Build\Intermediate\Release-windows-x86_64\Sandbox\</IntDir>
+    <OutDir>..\Build\Sandbox\Release-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Sandbox\Release-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Bin\Distribution-windows-x86_64\Sandbox\</OutDir>
-    <IntDir>..\Build\Intermediate\Distribution-windows-x86_64\Sandbox\</IntDir>
+    <OutDir>..\Build\Sandbox\Distribution-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Sandbox\Distribution-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>

@@ -13,6 +13,9 @@
     <Filter Include="Core\Registry">
       <UniqueIdentifier>{36A16DCE-A261-E904-6B9C-3282D71B2EE1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{E70B220D-5320-4ABE-1CA2-ED1D887546EF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="PCH">
       <UniqueIdentifier>{2010880B-8C19-887C-1595-9E7C819D937C}</UniqueIdentifier>
     </Filter>
@@ -42,17 +45,27 @@
     <ClInclude Include="Core\Registry\Registry.h">
       <Filter>Core\Registry</Filter>
     </ClInclude>
+    <ClInclude Include="Event\ApplicationEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\Event.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\KeyEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\MouseEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Event\WindowEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
     <ClInclude Include="PCH\EnginePCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
     <ClInclude Include="SQLite\Database.h">
       <Filter>SQLite</Filter>
     </ClInclude>
-    <ClInclude Include="Event\Event.h" />
-    <ClInclude Include="Event\ApplicationEvent.h" />
-    <ClInclude Include="Event\WindowEvent.h" />
-    <ClInclude Include="Event\KeyEvent.h" />
-    <ClInclude Include="Event\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -61,16 +74,26 @@
     <ClCompile Include="Core\Registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
     </ClCompile>
+    <ClCompile Include="Event\ApplicationEvent.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\Event.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\KeyEvent.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\MouseEvent.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Event\WindowEvent.cpp">
+      <Filter>Event</Filter>
+    </ClCompile>
     <ClCompile Include="PCH\EnginePCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="SQLite\Database.cpp">
       <Filter>SQLite</Filter>
     </ClCompile>
-    <ClCompile Include="Event\Event.cpp" />
-    <ClCompile Include="Event\ApplicationEvent.cpp" />
-    <ClCompile Include="Event\WindowEvent.cpp" />
-    <ClCompile Include="Event\KeyEvent.cpp" />
-    <ClCompile Include="Event\MouseEvent.cpp" />
   </ItemGroup>
 </Project>

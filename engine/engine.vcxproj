@@ -55,22 +55,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\Build\Bin\Debug-windows-x86_64\Engine\</OutDir>
-    <IntDir>..\Build\Intermediate\Debug-windows-x86_64\Engine\</IntDir>
+    <OutDir>..\Build\Engine\Debug-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Engine\Debug-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Bin\Release-windows-x86_64\Engine\</OutDir>
-    <IntDir>..\Build\Intermediate\Release-windows-x86_64\Engine\</IntDir>
+    <OutDir>..\Build\Engine\Release-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Engine\Release-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Bin\Distribution-windows-x86_64\Engine\</OutDir>
-    <IntDir>..\Build\Intermediate\Distribution-windows-x86_64\Engine\</IntDir>
+    <OutDir>..\Build\Engine\Distribution-windows-x86_64\</OutDir>
+    <IntDir>..\Build\Engine\Distribution-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Engine</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
@@ -90,10 +90,11 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ImportLibrary>..\Build\Bin\Debug-windows-x86_64\Engine\Engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Engine\Debug-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Debug-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\Build\Sandbox\Debug-windows-x86_64 (mkdir ..\Build\Sandbox\Debug-windows-x86_64)
+IF EXIST ..\Build\Engine\Debug-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Engine\Debug-windows-x86_64\Engine.dll ..\Build\Sandbox\Debug-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Engine\Debug-windows-x86_64\Engine.dll ..\Build\Sandbox\Debug-windows-x86_64 &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -116,10 +117,11 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\Build\Bin\Release-windows-x86_64\Engine\Engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Engine\Release-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Release-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\Build\Sandbox\Release-windows-x86_64 (mkdir ..\Build\Sandbox\Release-windows-x86_64)
+IF EXIST ..\Build\Engine\Release-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Engine\Release-windows-x86_64\Engine.dll ..\Build\Sandbox\Release-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Engine\Release-windows-x86_64\Engine.dll ..\Build\Sandbox\Release-windows-x86_64 &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
@@ -142,10 +144,11 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.lib</ImportLibrary>
+      <ImportLibrary>..\Build\Engine\Distribution-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Distribution-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Bin\Distribution-windows-x86_64\Engine\Engine.dll ..\Build\Bin\Distribution-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF NOT EXIST ..\Build\Sandbox\Distribution-windows-x86_64 (mkdir ..\Build\Sandbox\Distribution-windows-x86_64)
+IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\Build\Engine\Distribution-windows-x86_64\Engine.dll ..\Build\Sandbox\Distribution-windows-x86_64 &gt; nul) ELSE (xcopy /Q /Y /I ..\Build\Engine\Distribution-windows-x86_64\Engine.dll ..\Build\Sandbox\Distribution-windows-x86_64 &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -176,6 +179,11 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SQLite\Database.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Automation\BuildGLFW\BuildGLFW.vcxproj">
+      <Project>{C5D4118A-313F-C600-7A7D-77A6E626A455}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

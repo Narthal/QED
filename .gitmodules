@@ -5,5 +5,5 @@
 	path = external/dependencies/sqlite_amalgamation
 	url = https://github.com/azadkuh/sqlite-amalgamation
 [submodule "External\\dependencies\\GLFW"]
-	path = External\\dependencies\\GLFW
+	path = External/dependencies/GLFW
 	url = https://github.com/glfw/glfw

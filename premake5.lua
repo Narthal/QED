@@ -21,8 +21,7 @@ workspace "QED"
 
 -- build directories
 buildDir = "Build/"
-binDir = (buildDir .. "Bin/")
-intermediateDir = (buildDir .. "Intermediate/")
+intermediateDir = ("Intermediate/")
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 
 -- common directory
@@ -31,6 +30,13 @@ common = "Common"
 -- project names
 engineProjectName = "Engine"
 sandboxProjectName = "Sandbox"
+
+-- automation project names
+GLFWBuildAutomation = "BuildGLFW"
+GLFWBuildAutomationLocation = "Automation/" .. GLFWBuildAutomation
+
+-- automation directory
+automationDir = "Automation"
 
 -- pch
 pchDirectory = "PCH"
@@ -43,9 +49,20 @@ osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion 
 
 
 
+group(automationDir)
 
+project(GLFWBuildAutomation)
 
+	location(GLFWBuildAutomationLocation)
+	kind "Utility"
 
+	filter "system:windows"
+		prebuildcommands
+		{
+			"../Scripts/rebuildGLFW.bat;"
+		}
+
+group ""	
 
 
 
@@ -56,8 +73,8 @@ project(engineProjectName)
 	kind "SharedLib"
 	language "C++"
 
-	targetdir(binDir .. outputDir .. "%{prj.name}")
-	objdir(intermediateDir .. outputDir .. "%{prj.name}")
+	targetdir(buildDir .. engineProjectName.. "/" .. outputDir)
+	objdir(buildDir .. engineProjectName.. "/" .. outputDir .. "/" .. intermediateDir)
 
 	pchheader(engineProjectName .. pchHeaderFile)
 	pchsource(engineProjectName .. "/" .. pchDirectory .. "/" .. engineProjectName .. pchSourceFile)
@@ -74,6 +91,11 @@ project(engineProjectName)
 		engineProjectName .. "/" .. pchDirectory	-- local PCH directory
 	}
 
+	links
+	{
+		GLFWBuildAutomation -- GLFW automation
+	}
+
 	filter "system:Windows"
 		cppdialect "C++17"
 		staticruntime "On"
@@ -88,7 +110,8 @@ project(engineProjectName)
 
 		postbuildcommands
 		{
-			"{COPY} %{cfg.buildtarget.relpath} " ..  "../" .. binDir .. outputDir .. sandboxProjectName,
+			"{MKDIR} " .. "../" .. buildDir .. sandboxProjectName .. "/" .. outputDir,
+			"{COPY} %{cfg.buildtarget.relpath} " ..  "../" .. buildDir .. sandboxProjectName .. "/" .. outputDir,
 		}
 
 	filter "configurations:Debug"
@@ -122,8 +145,8 @@ project(sandboxProjectName)
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir(binDir .. outputDir .. "%{prj.name}")
-	objdir(intermediateDir .. outputDir .. "%{prj.name}")
+	targetdir(buildDir .. sandboxProjectName .. "/" .. outputDir)
+	objdir(buildDir .. sandboxProjectName .. "/" .. outputDir .. "/" .. intermediateDir)
 
 	pchheader(sandboxProjectName .. pchHeaderFile)
 	pchsource(sandboxProjectName .. "/" .. pchDirectory .. "/" .. sandboxProjectName .. pchSourceFile)
