@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C5D4118A-313F-C600-7A7D-77A6E626A455}</ProjectGuid>
+    <ProjectGuid>{1106B785-FDD3-AA8B-E667-1BB2D2D486F0}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BuildGLFW</RootNamespace>
+    <RootNamespace>BUILD_Solution</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -60,18 +60,27 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PreBuildEvent>
-      <Command>../Scripts/rebuildGLFW.bat;</Command>
+      <Command>../Scripts/rebuildSolution.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>../Scripts/clean.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PreBuildEvent>
-      <Command>../Scripts/rebuildGLFW.bat;</Command>
+      <Command>../Scripts/rebuildSolution.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>../Scripts/clean.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <PreBuildEvent>
-      <Command>../Scripts/rebuildGLFW.bat;</Command>
+      <Command>../Scripts/rebuildSolution.bat</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>../Scripts/clean.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

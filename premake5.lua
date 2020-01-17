@@ -2,9 +2,16 @@
 -- root
 workspace "QED"
 
+
+---------------------------------------------------------------------
+	
+	-- PLATFORM
 	-- TODO: maybe x86
 	architecture "x64"
 
+---------------------------------------------------------------------
+
+	-- CONFIGURATION
 	-- confiurations: 
 	--		debug : debugging
 	--		release : no debugging, verbose logging
@@ -16,8 +23,9 @@ workspace "QED"
 		"Distribution"
 	}
 
+---------------------------------------------------------------------
 
-
+	-- VARIABLES
 
 -- build directories
 buildDir = "Build/"
@@ -32,11 +40,15 @@ engineProjectName = "Engine"
 sandboxProjectName = "Sandbox"
 
 -- automation project names
-GLFWBuildAutomation = "BuildGLFW"
-GLFWBuildAutomationLocation = "Automation/" .. GLFWBuildAutomation
+GLFWBuildAutomation = "BUILD_GLFW"
+ReloadSubmodules = "RELOAD_Submodules"
+RebuildSolution = "BUILD_Solution"
 
 -- automation directory
 automationDir = "Automation"
+GLFWBuildAutomationLocation = automationDir .. "/" .. GLFWBuildAutomation
+ReloadSubmodulesLocation = automationDir .. "/" .. ReloadSubmodules
+RebuildSolutionLocation = automationDir .. "/" ..RebuildSolution
 
 -- pch
 pchDirectory = "PCH"
@@ -47,26 +59,61 @@ pchSourceFile = pchName .. ".cpp"
 -- os data
 osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
+---------------------------------------------------------------------
 
+	-- AUTOMATION UTILITY TOOLS
 
 group(automationDir)
 
-project(GLFWBuildAutomation)
+	project(RebuildSolution)
+	
+		location(RebuildSolutionLocation)
+		kind "Utility"
 
-	location(GLFWBuildAutomationLocation)
-	kind "Utility"
+		filter "system:windows"
+			prebuildcommands
+			{
+				"../Scripts/rebuildSolution.bat"
+			}
 
-	filter "system:windows"
-		prebuildcommands
-		{
-			"../Scripts/rebuildGLFW.bat;"
-		}
+			postbuildcommands
+			{
+				"../Scripts/clean.bat"
+			}
+
+	project(ReloadSubmodules)
+
+		location(ReloadSubmodulesLocation)
+		kind "Utility"
+
+		filter "system:windows"
+			prebuildcommands
+			{
+				"../Scripts/clean.bat"
+			}
+
+			postbuildcommands
+			{
+				"../Scripts/reloadSubmodules.bat"
+			}
+
+	project(GLFWBuildAutomation)
+
+		location(GLFWBuildAutomationLocation)
+		kind "Utility"
+
+		filter "system:windows"
+			prebuildcommands
+			{
+				"../Scripts/rebuildGLFW.bat;"
+			}
 
 group ""	
 
+---------------------------------------------------------------------
 
+	-- ENGINE
 
--- engine
 project(engineProjectName)
 	
 	location(engineProjectName)
@@ -135,10 +182,10 @@ project(engineProjectName)
 		}
 
 
+---------------------------------------------------------------------
 
+	-- sandbox
 
-
--- sandbox
 project(sandboxProjectName)
 	
 	location(sandboxProjectName)

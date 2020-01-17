@@ -181,8 +181,8 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClCompile Include="SQLite\Database.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Automation\BuildGLFW\BuildGLFW.vcxproj">
-      <Project>{C5D4118A-313F-C600-7A7D-77A6E626A455}</Project>
+    <ProjectReference Include="..\Automation\BUILD_GLFW\BUILD_GLFW.vcxproj">
+      <Project>{C4AA46CC-B062-8819-196A-61750541230A}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
