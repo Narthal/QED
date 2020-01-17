@@ -26,6 +26,7 @@ intermediateDir = (buildDir .. "intermediate/")
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 
 -- project names
+pch = "sharedPCH"
 engineProjectName = "engine"
 sandboxProjectName = "sandbox"
 
@@ -36,11 +37,29 @@ enginePchDir = engineProjectName .. "/" .. "PCH/"
 osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
 
+project(pch)
+	location(pch)
+	kind "SharedLib"
+	language "C++"
 
+	targetdir(binDir .. outputDir .. "%{prj.name}")
+	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
+	pchheader("QEDpch.h")
+	pchsource(pch .. "/" .. "QEDpch.cpp")
 
+	files
+	{
+		"%{prj.name}/**.h",
+		"%{prj.name}/**.cpp"
+	}
 
-
+	filter { "system:windows" }
+		buildoptions
+		{
+			--"/MT",
+			"/sdl-"
+		}
 
 
 -- engine
@@ -54,7 +73,7 @@ project(engineProjectName)
 	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
 	pchheader("QEDpch.h")
-	pchsource(enginePchDir .. "QEDpch.cpp")
+	pchsource("QEDpch.cpp")
 
 	files
 	{
@@ -64,7 +83,8 @@ project(engineProjectName)
 
 	includedirs
 	{
-		enginePchDir
+		intermediateDir .. outputDir .. pch,		-- .pch file location
+		pch
 	}
 
 	filter "system:Windows"

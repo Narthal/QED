@@ -13,9 +13,6 @@
     <Filter Include="Core\Registry">
       <UniqueIdentifier>{36A16DCE-A261-E904-6B9C-3282D71B2EE1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PCH">
-      <UniqueIdentifier>{2010880B-8C19-887C-1595-9E7C819D937C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SQLite">
       <UniqueIdentifier>{976C60CF-830E-8BA5-6CC9-9EF9580A12F6}</UniqueIdentifier>
     </Filter>
@@ -42,9 +39,6 @@
     <ClInclude Include="Core\Registry\Registry.h">
       <Filter>Core\Registry</Filter>
     </ClInclude>
-    <ClInclude Include="PCH\QEDpch.h">
-      <Filter>PCH</Filter>
-    </ClInclude>
     <ClInclude Include="SQLite\Database.h">
       <Filter>SQLite</Filter>
     </ClInclude>
@@ -55,9 +49,6 @@
     </ClCompile>
     <ClCompile Include="Core\Registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
-    </ClCompile>
-    <ClCompile Include="PCH\QEDpch.cpp">
-      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

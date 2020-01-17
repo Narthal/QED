@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{145A6C82-8039-EB1D-8951-76F4F5AF517F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sharedPCH", "sharedPCH\sharedPCH.vcxproj", "{57C4DA7C-C32E-8FF3-0C6D-409978166D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +26,12 @@ Global
 		{145A6C82-8039-EB1D-8951-76F4F5AF517F}.Distribution|x64.Build.0 = Distribution|x64
 		{145A6C82-8039-EB1D-8951-76F4F5AF517F}.Release|x64.ActiveCfg = Release|x64
 		{145A6C82-8039-EB1D-8951-76F4F5AF517F}.Release|x64.Build.0 = Release|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Debug|x64.ActiveCfg = Debug|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Debug|x64.Build.0 = Debug|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Distribution|x64.ActiveCfg = Distribution|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Distribution|x64.Build.0 = Distribution|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Release|x64.ActiveCfg = Release|x64
+		{57C4DA7C-C32E-8FF3-0C6D-409978166D48}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
