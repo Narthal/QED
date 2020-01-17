@@ -1,9 +1,14 @@
-# Progress 
+# TODO
+- [x] common directory
+- [x] rework precompiled headers and underlying structure
+- [x] unify upper case directories
+- [ ] implement basic sqlite database wrapper class
+- [ ] implement sandboxed filesystem (PhysicalFileSystem)
 
-## TODO
-###### Projects
+
+## Projects
 - engine (+server)
-- precompiledHeaders
+- common
 - modules
   - openGLModule
   - pythonScriptingModule
@@ -15,8 +20,8 @@
 - ?news webpage host?
 - ?authentication server?
 
-----------------------------------------------------------------------------------
 
+# GOALS
 ## engine
 - [x] log
 - [x] registry

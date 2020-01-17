@@ -25,41 +25,28 @@ binDir = (buildDir .. "bin/")
 intermediateDir = (buildDir .. "intermediate/")
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 
+-- common directory
+common = "common"
+
 -- project names
-pch = "sharedPCH"
 engineProjectName = "engine"
 sandboxProjectName = "sandbox"
 
--- pch directory
-enginePchDir = engineProjectName .. "/" .. "PCH/"
+-- pch
+pchDirectory = "pch"
+pchName = "PCH"
+pchHeaderFile = pchName .. ".h"
+pchSourceFile = pchName .. ".cpp"
 
 -- os data
 osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
 
-project(pch)
-	location(pch)
-	kind "SharedLib"
-	language "C++"
 
-	targetdir(binDir .. outputDir .. "%{prj.name}")
-	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
-	pchheader("QEDpch.h")
-	pchsource(pch .. "/" .. "QEDpch.cpp")
 
-	files
-	{
-		"%{prj.name}/**.h",
-		"%{prj.name}/**.cpp"
-	}
 
-	filter { "system:windows" }
-		buildoptions
-		{
-			--"/MT",
-			"/sdl-"
-		}
+
 
 
 -- engine
@@ -72,8 +59,8 @@ project(engineProjectName)
 	targetdir(binDir .. outputDir .. "%{prj.name}")
 	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
-	pchheader("QEDpch.h")
-	pchsource("QEDpch.cpp")
+	pchheader(engineProjectName .. pchHeaderFile)
+	pchsource(engineProjectName .. "/" .. pchDirectory .. "/" .. engineProjectName .. pchSourceFile)
 
 	files
 	{
@@ -83,8 +70,8 @@ project(engineProjectName)
 
 	includedirs
 	{
-		intermediateDir .. outputDir .. pch,		-- .pch file location
-		pch
+		common,	-- common directory
+		engineProjectName .. "/" .. pchDirectory	-- local PCH directory
 	}
 
 	filter "system:Windows"
@@ -138,6 +125,9 @@ project(sandboxProjectName)
 	targetdir(binDir .. outputDir .. "%{prj.name}")
 	objdir(intermediateDir .. outputDir .. "%{prj.name}")
 
+	pchheader(sandboxProjectName .. pchHeaderFile)
+	pchsource(sandboxProjectName .. "/" .. pchDirectory .. "/" .. sandboxProjectName .. pchSourceFile)
+
 	files
 	{
 		"%{prj.name}/**.h",
@@ -147,6 +137,9 @@ project(sandboxProjectName)
 		
 	includedirs
 	{
+		common,	-- common directory
+		sandboxProjectName .. "/" .. pchDirectory,	-- local PCH directory
+
 		engineProjectName .. "/**"
 	}
 

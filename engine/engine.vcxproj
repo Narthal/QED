@@ -77,10 +77,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QEDpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\build\intermediate\Debug-windows-x86_64\sharedPCH;..\sharedPCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,10 +98,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QEDpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\build\intermediate\Release-windows-x86_64\sharedPCH;..\sharedPCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -124,10 +124,10 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>QEDpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>enginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\build\intermediate\Distribution-windows-x86_64\sharedPCH;..\sharedPCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\common;PCH;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -147,18 +147,23 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Application\Application.h" />
-    <ClInclude Include="Core\Application\EntryPoint.h" />
-    <ClInclude Include="Core\Globals.h" />
-    <ClInclude Include="Core\Log\Log.h" />
-    <ClInclude Include="Core\QED.h" />
-    <ClInclude Include="Core\QEDApi.h" />
-    <ClInclude Include="Core\Registry\Registry.h" />
-    <ClInclude Include="SQLite\Database.h" />
+    <ClInclude Include="core\application\Application.h" />
+    <ClInclude Include="core\application\EntryPoint.h" />
+    <ClInclude Include="core\Globals.h" />
+    <ClInclude Include="core\log\Log.h" />
+    <ClInclude Include="core\QED.h" />
+    <ClInclude Include="core\QEDApi.h" />
+    <ClInclude Include="core\registry\Registry.h" />
+    <ClInclude Include="pch\enginePCH.h" />
+    <ClInclude Include="sqlite\Database.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Application\Application.cpp" />
-    <ClCompile Include="Core\Registry\Registry.cpp" />
+    <ClCompile Include="core\application\Application.cpp" />
+    <ClCompile Include="core\registry\Registry.cpp" />
+    <ClCompile Include="pch\enginePCH.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="sqlite\Database.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

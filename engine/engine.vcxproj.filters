@@ -13,41 +13,53 @@
     <Filter Include="Core\Registry">
       <UniqueIdentifier>{36A16DCE-A261-E904-6B9C-3282D71B2EE1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{2010880B-8C19-887C-1595-9E7C819D937C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SQLite">
       <UniqueIdentifier>{976C60CF-830E-8BA5-6CC9-9EF9580A12F6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Application\Application.h">
-      <Filter>Core\Application</Filter>
+    <ClInclude Include="pch\enginePCH.h">
+      <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Application\EntryPoint.h">
-      <Filter>Core\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Globals.h">
+    <ClInclude Include="core\Globals.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Log\Log.h">
+    <ClInclude Include="core\QED.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\QEDApi.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\Database.h">
+      <Filter>SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="core\application\Application.h">
+      <Filter>Core\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="core\application\EntryPoint.h">
+      <Filter>Core\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="core\log\Log.h">
       <Filter>Core\Log</Filter>
     </ClInclude>
-    <ClInclude Include="Core\QED.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\QEDApi.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Registry\Registry.h">
+    <ClInclude Include="core\registry\Registry.h">
       <Filter>Core\Registry</Filter>
-    </ClInclude>
-    <ClInclude Include="SQLite\Database.h">
-      <Filter>SQLite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Application\Application.cpp">
+    <ClCompile Include="pch\enginePCH.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\Database.cpp">
+      <Filter>SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="core\application\Application.cpp">
       <Filter>Core\Application</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Registry\Registry.cpp">
+    <ClCompile Include="core\registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
     </ClCompile>
   </ItemGroup>

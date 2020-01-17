@@ -1,9 +1,6 @@
-// TODO remove this, solved by common pch project
-// Precompiled header
-#include "QEDpch.h"
-
 #ifndef QED_H
 #define QED_H
+
 
 // App entry point
 #include "Application/EntryPoint.h"
