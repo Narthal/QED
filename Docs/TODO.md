@@ -3,6 +3,7 @@
 - [x] rework precompiled headers and underlying structure
 - [x] unify upper case directories
 - [ ] reimplement shitty entry point hijeck mechanism
+- [ ] somehow tell cmake to use /MT & /MTd for GLFW generation
 - [ ] implement basic sqlite database wrapper class
 - [ ] implement sandboxed filesystem (PhysicalFileSystem)
 
