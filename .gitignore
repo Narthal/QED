@@ -1,7 +1,8 @@
 ## ignore build directory
 build/**
 
-
+## push docs regardless of filetypes
+!/Docs/*
 
 
 
