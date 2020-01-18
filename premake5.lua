@@ -32,8 +32,14 @@ buildDir = "Build/"
 intermediateDir = ("Intermediate/")
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 
--- common directory
+-- base structure directories
 common = "Common"
+external = "External"
+dependancies = external .. "/" .. "Dependencies"
+
+-- dependancy directory names
+GLFWDir = dependancies .. "/" .. "GLFW"
+GLFWInclude = GLFWDir .. "/" .. "include"
 
 -- project names
 engineProjectName = "Engine"
@@ -49,6 +55,10 @@ automationDir = "Automation"
 GLFWBuildAutomationLocation = automationDir .. "/" .. GLFWBuildAutomation
 ReloadSubmodulesLocation = automationDir .. "/" .. ReloadSubmodules
 RebuildSolutionLocation = automationDir .. "/" ..RebuildSolution
+
+-- automated builds
+GLFWBuildDir = buildDir .. "GLFW"
+GLFWLib = GLFWBuildDir .. "/" .. "glfw3.lib"
 
 -- pch
 pchDirectory = "PCH"
@@ -135,12 +145,14 @@ project(engineProjectName)
 	includedirs
 	{
 		common,	-- common directory
-		engineProjectName .. "/" .. pchDirectory	-- local PCH directory
+		engineProjectName .. "/" .. pchDirectory,	-- local PCH directory
+		GLFWInclude,	-- GLFW include directory
 	}
 
 	links
 	{
-		GLFWBuildAutomation -- GLFW automation
+		GLFWBuildAutomation, -- GLFW automation
+		GLFWLib,	-- glfw3.lib
 	}
 
 	filter "system:Windows"

@@ -19,7 +19,7 @@ namespace QED
 
 					void RunMainLoop();
 				private:
-
+					bool isRunning = true;
 				};
 
 				// Application implements this function

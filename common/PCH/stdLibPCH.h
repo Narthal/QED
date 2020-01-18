@@ -8,6 +8,9 @@
 // Sorting, range, etc
 #include <algorithm>
 
+// Functions, lambdas
+#include <functional>
+
 // Threading
 #include <mutex>
 
