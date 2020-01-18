@@ -183,6 +183,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Automation\BUILD_GLFW\BUILD_GLFW.vcxproj">

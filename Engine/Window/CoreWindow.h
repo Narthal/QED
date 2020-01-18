@@ -22,8 +22,9 @@ namespace QED
 				CoreWindow(int width = 1280, int height = 720, bool isVsync = true, bool isFullscreen = false)
 					: width(width), height(height), isVsync(isVsync), isFullscreen(isFullscreen) {}
 
-				virtual ~CoreWindow() = 0;
+				virtual ~CoreWindow() {};
 
+				virtual void Update() {};
 
 
 			private:
@@ -37,7 +38,7 @@ namespace QED
 				ContextType contextType;
 			};
 
-			CoreWindow::~CoreWindow() {}
+			//CoreWindow::~CoreWindow() {}
 		}
 	}
 }

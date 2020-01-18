@@ -101,5 +101,6 @@
     <ClCompile Include="PCH\EnginePCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
+    <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
 </Project>

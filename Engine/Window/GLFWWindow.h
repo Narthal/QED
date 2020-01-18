@@ -1,9 +1,7 @@
 #ifndef GLFW_WINDOW_H
 #define GLFW_WINDOW_H
 
-// Log
-#include "../Core/Log/Log.h"
-using namespace QED::Engine::Core::Log;
+
 
 // Inheritance
 #include "CoreWindow.h"
@@ -22,17 +20,12 @@ namespace QED
 			class GLFWWindow : public CoreWindow
 			{
 			public:
-				GLFWWindow()
-				{
-					glfwInit();
-					windowHandle = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
-				}
+				GLFWWindow();
 
-				virtual ~GLFWWindow() override
-				{
-					glfwDestroyWindow((GLFWwindow*)windowHandle);
-					LogLine() << "GLFW window is closing";
-				};
+				virtual ~GLFWWindow() override;
+
+				virtual void Update() override;
+
 
 			private:
 

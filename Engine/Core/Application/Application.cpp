@@ -23,6 +23,7 @@ namespace QED
 			{
 				while (isRunning)
 				{
+					window->Update();
 					std::cout << "a" << std::endl;
 				};
 			}
