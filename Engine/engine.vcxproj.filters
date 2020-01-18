@@ -22,6 +22,9 @@
     <Filter Include="SQLite">
       <UniqueIdentifier>{976C60CF-830E-8BA5-6CC9-9EF9580A12F6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application\Application.h">
@@ -66,6 +69,12 @@
     <ClInclude Include="SQLite\Database.h">
       <Filter>SQLite</Filter>
     </ClInclude>
+    <ClInclude Include="Window\CoreWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\GLFWWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -91,9 +100,6 @@
     </ClCompile>
     <ClCompile Include="PCH\EnginePCH.cpp">
       <Filter>PCH</Filter>
-    </ClCompile>
-    <ClCompile Include="SQLite\Database.cpp">
-      <Filter>SQLite</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

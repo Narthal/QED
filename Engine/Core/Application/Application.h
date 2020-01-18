@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include "../QEDApi.h"
+#include "../Window/CoreWindow.h"
 
 namespace QED
 {
@@ -14,12 +15,15 @@ namespace QED
 				class QED_API Application
 				{
 				public:
-					Application() {};
+					Application() { Initialize(); };
 					virtual ~Application() {};
+
+					void Initialize();
 
 					void RunMainLoop();
 				private:
 					bool isRunning = true;
+					Window::CoreWindow* window;
 				};
 
 				// Application implements this function

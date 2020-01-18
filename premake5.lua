@@ -58,7 +58,7 @@ RebuildSolutionLocation = automationDir .. "/" ..RebuildSolution
 
 -- automated builds
 GLFWBuildDir = buildDir .. "GLFW"
-GLFWLib = GLFWBuildDir .. "/" .. "glfw3.lib"
+GLFWLib = GLFWBuildDir .. "/src/Debug/" .. "glfw3.lib"
 
 -- pch
 pchDirectory = "PCH"
@@ -151,8 +151,10 @@ project(engineProjectName)
 
 	links
 	{
+		"opengl32.lib",	-- OpenGL
 		GLFWBuildAutomation, -- GLFW automation
 		GLFWLib,	-- glfw3.lib
+
 	}
 
 	filter "system:Windows"
@@ -189,7 +191,8 @@ project(engineProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			"/MT",
+			--"/MT",
+			"/MDd",
 			"/sdl-",
 		}
 
@@ -257,6 +260,7 @@ project(sandboxProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			"/MT",
+			--"/MT",
+			"/MD",
 			"/sdl-",
 		}
