@@ -191,8 +191,8 @@ project(engineProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			--"/MT",
-			"/MDd",
+			"/MT",
+			--"/MDd",
 			"/sdl-",
 		}
 
@@ -260,7 +260,7 @@ project(sandboxProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			--"/MT",
-			"/MD",
+			"/MT",
+			--"/MD",
 			"/sdl-",
 		}
