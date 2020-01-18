@@ -2,7 +2,7 @@
 - [x] common directory
 - [x] rework precompiled headers and underlying structure
 - [x] unify upper case directories
-- [x] reimplement shitty entry point hijeck mechanism
+- [ ] reimplement shitty entry point hijeck mechanism
 - [ ] implement basic sqlite database wrapper class
 - [ ] implement sandboxed filesystem (PhysicalFileSystem)
 
