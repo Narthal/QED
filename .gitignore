@@ -2,7 +2,7 @@
 build/**
 
 ## push docs regardless of filetypes
-!/Docs/*
+!/Docs/*.*
 
 
 
