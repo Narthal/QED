@@ -3,6 +3,7 @@
 
 #include "../QEDApi.h"
 #include "../Window/CoreWindow.h"
+#include "../Event/WindowEvent.h"
 
 namespace QED
 {
@@ -20,10 +21,14 @@ namespace QED
 
 					void Initialize();
 
+					void OnEvent(Event::Event& event);
+
 					void RunMainLoop();
 				private:
 					bool isRunning = true;
 					Window::CoreWindow* window;
+
+					bool OnWindowClose(Event::WindowCloseEvent& event);
 				};
 
 				// Application implements this function

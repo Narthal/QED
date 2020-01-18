@@ -58,7 +58,6 @@ namespace QED
 					return GetCategoryFlags() & (int)eventCategory;
 				}
 
-			protected:
 				bool handled = false;
 
 			private:
@@ -76,7 +75,7 @@ namespace QED
 				{
 					if (event.GetEventType() == T::GetStaticType())
 					{
-						event.Handled = func(static_cast<T&>(event));
+						event.handled = func(static_cast<T&>(event));
 						return true;
 					}
 					return false;

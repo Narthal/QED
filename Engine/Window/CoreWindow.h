@@ -1,7 +1,7 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
-
+#include "../Event/Event.h"
 
 namespace QED
 {
@@ -20,22 +20,39 @@ namespace QED
 			{
 			public:
 				CoreWindow(int width = 1280, int height = 720, bool isVsync = true, bool isFullscreen = false)
-					: width(width), height(height), isVsync(isVsync), isFullscreen(isFullscreen) {}
+				{
+					windowData.width = width;
+					windowData.height = height;
+					windowData.isVsync = isVsync;
+					windowData.isFullscreen = isFullscreen;
+				}
 
 				virtual ~CoreWindow() {};
 
 				virtual void Update() {};
 
-
-			private:
-				int width;
-				int height;
-				bool isVsync;
-				bool isFullscreen;
+				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) = 0;
 
 			protected:
+				struct WindowData
+				{
+					// Basic properties
+					int width;
+					int height;
+					bool isVsync;
+					bool isFullscreen;
+
+					// Event callback
+					std::function<void(Event::Event&)> callback;
+				};
+
+				// Basic data
+				WindowData windowData;
+
+				// Window implementation
 				void* windowHandle;
 				ContextType contextType;
+				
 			};
 
 			//CoreWindow::~CoreWindow() {}

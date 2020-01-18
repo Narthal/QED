@@ -26,6 +26,7 @@ namespace QED
 
 				virtual void Update() override;
 
+				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) override;
 
 			private:
 
