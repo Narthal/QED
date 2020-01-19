@@ -6,6 +6,7 @@
 - [ ] reimplement shitty entry point hijack mechanism
 - [ ] reimplement queue (asynchronous dispatch queue)
 - [ ] implement sandboxed filesystem (PhysicalFileSystem)
+- [ ] update registry to have templated static casts & allow multiple types
 - [ ] implement module framework
 - [ ] move GLFW to separate project (Window API, Input API)
 - [ ] implement basic sqlite database wrapper class
