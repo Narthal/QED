@@ -3,7 +3,8 @@
 - [x] rework precompiled headers and underlying structure
 - [x] unify upper case directories
 - [x] somehow tell cmake to use /MT & /MTd for GLFW generation
-- [ ] reimplement shitty entry point hijack mechanism
+- [x] reimplement shitty entry point hijack mechanism
+- [ ] layers
 - [ ] reimplement queue (asynchronous dispatch queue)
 - [ ] implement sandboxed filesystem (PhysicalFileSystem)
 - [ ] update registry to have templated static casts & allow multiple types
