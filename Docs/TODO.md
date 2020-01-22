@@ -2,10 +2,14 @@
 - [x] common directory
 - [x] rework precompiled headers and underlying structure
 - [x] unify upper case directories
-- [ ] reimplement shitty entry point hijeck mechanism
 - [x] somehow tell cmake to use /MT & /MTd for GLFW generation
-- [ ] implement basic sqlite database wrapper class
+- [ ] reimplement shitty entry point hijack mechanism
+- [ ] reimplement queue (asynchronous dispatch queue)
 - [ ] implement sandboxed filesystem (PhysicalFileSystem)
+- [ ] update registry to have templated static casts & allow multiple types
+- [ ] implement module framework
+- [ ] move GLFW to separate project (Window API, Input API)
+- [ ] implement basic sqlite database wrapper class
 
 
 ## Projects
