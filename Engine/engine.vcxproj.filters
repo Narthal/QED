@@ -30,9 +30,6 @@
     <ClInclude Include="Core\Application\Application.h">
       <Filter>Core\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Application\EntryPoint.h">
-      <Filter>Core\Application</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Globals.h">
       <Filter>Core</Filter>
     </ClInclude>

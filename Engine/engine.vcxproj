@@ -156,7 +156,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Core\Application\Application.h" />
-    <ClInclude Include="Core\Application\EntryPoint.h" />
     <ClInclude Include="Core\Globals.h" />
     <ClInclude Include="Core\Log\Log.h" />
     <ClInclude Include="Core\QED.h" />

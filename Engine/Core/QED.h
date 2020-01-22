@@ -3,7 +3,7 @@
 
 
 // App entry point
-#include "Application/EntryPoint.h"
+//#include "Application/EntryPoint.h"
 #include "Application/Application.h"
 
 // Log

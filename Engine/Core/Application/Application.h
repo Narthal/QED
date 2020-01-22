@@ -30,9 +30,6 @@ namespace QED
 
 					bool OnWindowClose(Event::WindowCloseEvent& event);
 				};
-
-				// Application implements this function
-				Application* CreateApplication();
 			}
 		}
 	}
