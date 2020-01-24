@@ -40,25 +40,44 @@ dependancies = external .. "/" .. "Dependencies"
 -- dependancy directory names
 GLFWDir = dependancies .. "/" .. "GLFW"
 GLFWInclude = GLFWDir .. "/" .. "include"
+GLADDir = dependancies .. "/" .. "GLAD"
+GLADInclude = GLADDir .. "/" .. "include"
+ImGuiDir = dependancies .. "/" .. "ImGui"
 
 -- project names
 engineProjectName = "Engine"
 sandboxProjectName = "Sandbox"
 
 -- automation project names
+ReloadSubmodules = "RELOAD_SUBMODULES"
+RebuildSolution = "BUILD_SOLUTION"
 GLFWBuildAutomation = "BUILD_GLFW"
-ReloadSubmodules = "RELOAD_Submodules"
-RebuildSolution = "BUILD_Solution"
+GLADBuildAutomation = "BUILD_GLAD"
+ImGuiBuildAutomation = "BUILD_IMGUI"
 
 -- automation directory
 automationDir = "Automation"
-GLFWBuildAutomationLocation = automationDir .. "/" .. GLFWBuildAutomation
-ReloadSubmodulesLocation = automationDir .. "/" .. ReloadSubmodules
-RebuildSolutionLocation = automationDir .. "/" ..RebuildSolution
+automationTools = "Tools"
+dependecyProjects = "DependencyProjects"
 
--- automated builds
+-- automation tools
+ReloadSubmodulesLocation = automationDir .. "/" ..ReloadSubmodules
+RebuildSolutionLocation = automationDir .. "/" .. RebuildSolution
+
+-- automation dependancy projects
+GLFWBuildAutomationLocation = automationDir .. "/" .. GLFWBuildAutomation
+GLADBuildAutomationLocation = automationDir .. "/" .. GLADBuildAutomation
+ImGuiBuildAutomationLocation = automationDir .. "/" .. ImGuiBuildAutomation
+
+-- dependecy projects
 GLFWBuildDir = buildDir .. "GLFW"
 GLFWLib = GLFWBuildDir .. "/src/Debug/" .. "glfw3.lib"
+GLADBuildDir = buildDir .. "GLAD"
+GLADObjDir = GLADBuildDir .. "/" .. intermediateDir
+GLADLib = GLADBuildDir .. "/" .. "glad.lib"
+ImGuiBuildDir = buildDir .. "ImGui"
+ImGuiObjDir = ImGuiBuildDir .. "/" .. intermediateDir
+ImGuiLib = ImGuiBuildDir .. "/" .. "imgui.lib"
 
 -- pch
 pchDirectory = "PCH"
@@ -73,7 +92,7 @@ osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion 
 
 	-- AUTOMATION UTILITY TOOLS
 
-group(automationDir)
+group(automationDir .. "/" .. automationTools)
 
 	project(RebuildSolution)
 	
@@ -106,7 +125,9 @@ group(automationDir)
 			{
 				"../Scripts/reloadSubmodules.bat"
 			}
+group ""
 
+group(automationDir .. "/" .. dependecyProjects)
 	project(GLFWBuildAutomation)
 
 		location(GLFWBuildAutomationLocation)
@@ -118,7 +139,61 @@ group(automationDir)
 				"../Scripts/rebuildGLFW.bat;"
 			}
 
-group ""	
+	project (GLADBuildAutomation)
+
+		location(GLADBuildAutomationLocation)
+		kind "StaticLib"
+		language "C++"
+
+		targetdir(GLADBuildDir)
+		objdir(GLADObjDir)
+		
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		targetname("glad")
+
+		files
+		{
+			GLADDir .. "/**.h",
+			GLADDir .. "/**.c",
+		}
+
+		includedirs
+		{
+			GLADInclude
+		}
+
+	project (ImGuiBuildAutomation)
+
+		location(ImGuiBuildAutomationLocation)
+		kind "StaticLib"
+		language "C++"
+
+		targetdir(ImGuiBuildDir)
+		objdir(ImGuiObjDir)
+
+		cppdialect "C++17"
+		staticruntime "On"
+		systemversion "latest"
+
+		targetname("imgui")
+
+		-- NOTE: do not recursively include files, as the files deeper are test, examples, etc
+		files
+		{
+			ImGuiDir .. "/*.h",
+			ImGuiDir .. "/*.cpp",
+		}
+
+		includedirs
+		{
+			ImGuiDir
+		}
+
+
+group ""
 
 ---------------------------------------------------------------------
 
@@ -144,17 +219,22 @@ project(engineProjectName)
 
 	includedirs
 	{
-		common,	-- common directory
+		common,										-- common directory
 		engineProjectName .. "/" .. pchDirectory,	-- local PCH directory
-		GLFWInclude,	-- GLFW include directory
+		GLFWInclude,								-- GLFW include directory
+		GLADInclude,								-- GLAD include
+		ImGuiDir,									-- ImGui include (no such dir, just ImGui root)
 	}
 
 	links
 	{
-		"opengl32.lib",	-- OpenGL
-		GLFWBuildAutomation, -- GLFW automation
-		GLFWLib,	-- glfw3.lib
-
+		"opengl32.lib",			-- OpenGL
+		GLFWBuildAutomation,	-- GLFW automation
+		GLFWLib,				-- glfw3.lib
+		GLADBuildAutomation,	-- GLAD automation
+		GLADLib,				-- glad.lib
+		ImGuiBuildAutomation,	-- ImGui automation
+		ImGuiLib,				-- imgui.lib
 	}
 
 	filter "system:Windows"
@@ -164,9 +244,10 @@ project(engineProjectName)
 
 		defines
 		{
-			"MAKE_DLL",
-			"QED_ENGINE_WINDOWS",
-			"BUILD_OS=" .. '"' .. osVersion .. '"'
+			"MAKE_DLL",									-- QED API
+			"QED_ENGINE_WINDOWS",						-- windows build
+			"BUILD_OS=" .. '"' .. osVersion .. '"',		-- os details
+			"GLFW_INCLUDE_NONE",						-- GLAD already includes OpenGL
 		}
 
 		postbuildcommands
@@ -176,7 +257,7 @@ project(engineProjectName)
 		}
 
 	filter "configurations:Debug"
-		defines { "QED_ENGINE_DEBUG" }
+		defines { "QED_ENGINE_DEBUG", "DEBUG" }
 		symbols "On"
 
 	filter "configurations:Release"

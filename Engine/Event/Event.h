@@ -4,6 +4,7 @@
 
 // TODO: move to utils or smg
 #define BIT(x) 1 << x
+#define BIND_EVENT_FUCTION(fn) std::bind(&fn, this, std::placeholders::_1)
 
 namespace QED
 {
@@ -18,7 +19,7 @@ namespace QED
 				/* App		*/	ApplicationTick,
 				/* Render	*/	Render,
 				/* Entity	*/	EntityTick, EntityBegin,
-				/* Keyboard */	KeyPressed, KeyReleased,
+				/* Keyboard */	KeyPressed, KeyReleased, KeyTyped,
 				/* Mouse	*/	MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled,
 			};
 

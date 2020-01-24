@@ -2,13 +2,14 @@
 #include "GLFWWindow.h"
 
 
-// Log
 #include "../Core/Log/Log.h"
-
 #include "../Event/Event.h"
 #include "../Event/WindowEvent.h"
 #include "../Event/KeyEvent.h"
 #include "../Event/MouseEvent.h"
+
+
+#include "glad/glad.h"
 
 namespace QED
 {
@@ -19,19 +20,22 @@ namespace QED
 			GLFWWindow::GLFWWindow()
 			{
 				glfwInit();
-				windowHandle = glfwCreateWindow(640, 480, "My Title", NULL, NULL);
+				// TODO: assert GLFW init
+
+				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
 				glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
+				
+				// GLAD
+				int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+				// TODO: assert status
 
-
-
-
-				// Set GLFW callbacks
+				#pragma region SetGLFWCallbacks
 
 				// Set GLFW error callback
 				glfwSetErrorCallback([](int error, const char* msg)
 				{
-						Engine::Core::Log::LogLine() << "GLFW error : " << error << ' ' << msg;
+						LOG << "GLFW error : " << error << ' ' << msg;
 				});
 
 				// Set GLFW resize event
@@ -83,6 +87,14 @@ namespace QED
 					}
 				});
 
+				// Set key typed event
+				glfwSetCharCallback((GLFWwindow*)windowHandle, [](GLFWwindow* handle, unsigned int keycode)
+				{
+					WindowData& data = *(WindowData*)glfwGetWindowUserPointer(handle);
+					Event::KeyTypedEvent event(keycode);
+					data.callback(event);
+				});
+
 				// Set GLFW mouse event
 				glfwSetMouseButtonCallback((GLFWwindow*)windowHandle, [](GLFWwindow* handle, int button, int action, int mods)
 				{
@@ -120,12 +132,14 @@ namespace QED
 					Event::MouseMovedEvent event((float)x, (float)y);
 					data.callback(event);
 				});
+
+				#pragma endregion
 			}
 
 			GLFWWindow::~GLFWWindow()
 			{
 				glfwDestroyWindow((GLFWwindow*)windowHandle);
-				Engine::Core::Log::LogLine() << "GLFW window is closing";
+				LOG << "GLFW window is closing";
 			}
 
 			void GLFWWindow::Update()

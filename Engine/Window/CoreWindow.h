@@ -33,6 +33,9 @@ namespace QED
 
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) = 0;
 
+				inline int GetWidth() { return windowData.width; }
+				inline int GetHeight() { return windowData.height; }
+
 			protected:
 				struct WindowData
 				{

@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1E13D900-8A29-D796-D3A0-62B83FF6A71E}</ProjectGuid>
+    <ProjectGuid>{FE81CEFC-6A98-CC92-B30F-58B41F659D1A}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>RELOAD_Submodules</RootNamespace>
+    <RootNamespace>RELOAD_SUBMODULES</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">

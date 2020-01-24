@@ -79,8 +79,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -90,7 +90,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;..\Build\GLAD\glad.lib;..\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\Build\Engine\Debug-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -103,8 +103,8 @@ IF EXIST ..\Build\Engine\Debug-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -118,7 +118,7 @@ IF EXIST ..\Build\Engine\Debug-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;..\Build\GLAD\glad.lib;..\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\Build\Engine\Release-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -131,8 +131,8 @@ IF EXIST ..\Build\Engine\Release-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I .
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";QED_ENGINE_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,7 +146,7 @@ IF EXIST ..\Build\Engine\Release-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I .
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;..\Build\GLFW\src\Debug\glfw3.lib;..\Build\GLAD\glad.lib;..\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\Build\Engine\Distribution-windows-x86_64\Engine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -166,8 +166,12 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClInclude Include="Event\KeyEvent.h" />
     <ClInclude Include="Event\MouseEvent.h" />
     <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="Layer\Layer.h" />
+    <ClInclude Include="Layer\LayerStack.h" />
     <ClInclude Include="PCH\EnginePCH.h" />
     <ClInclude Include="SQLite\Database.h" />
+    <ClInclude Include="UI\ImGuiLayer.h" />
+    <ClInclude Include="UI\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
     <ClInclude Include="Window\GLFWWindow.h" />
   </ItemGroup>
@@ -179,14 +183,24 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClCompile Include="Event\KeyEvent.cpp" />
     <ClCompile Include="Event\MouseEvent.cpp" />
     <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Layer\Layer.cpp" />
+    <ClCompile Include="Layer\LayerStack.cpp" />
     <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="UI\ImGuiLayer.cpp" />
+    <ClCompile Include="UI\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Automation\BUILD_GLFW\BUILD_GLFW.vcxproj">
       <Project>{C4AA46CC-B062-8819-196A-61750541230A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Automation\BUILD_GLAD\BUILD_GLAD.vcxproj">
+      <Project>{0CAA46CC-F861-8819-6169-61754D40230A}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Automation\BUILD_IMGUI\BUILD_IMGUI.vcxproj">
+      <Project>{EFC44055-5B7A-B94A-E46E-B3215023B04E}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

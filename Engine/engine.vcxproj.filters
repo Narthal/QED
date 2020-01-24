@@ -16,11 +16,17 @@
     <Filter Include="Event">
       <UniqueIdentifier>{E70B220D-5320-4ABE-1CA2-ED1D887546EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{6287950D-CE9B-BDBE-971D-611E03F1B9EF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="PCH">
       <UniqueIdentifier>{2010880B-8C19-887C-1595-9E7C819D937C}</UniqueIdentifier>
     </Filter>
     <Filter Include="SQLite">
       <UniqueIdentifier>{976C60CF-830E-8BA5-6CC9-9EF9580A12F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{83755900-6F01-880B-D8AF-880BC45A880B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window">
       <UniqueIdentifier>{3DEA79DA-298C-A4B0-1247-B804FE872B01}</UniqueIdentifier>
@@ -60,11 +66,23 @@
     <ClInclude Include="Event\WindowEvent.h">
       <Filter>Event</Filter>
     </ClInclude>
+    <ClInclude Include="Layer\Layer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer\LayerStack.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
     <ClInclude Include="PCH\EnginePCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
     <ClInclude Include="SQLite\Database.h">
       <Filter>SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ImGuiLayer.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ImGuiOpenGLRenderer.h">
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="Window\CoreWindow.h">
       <Filter>Window</Filter>
@@ -95,8 +113,20 @@
     <ClCompile Include="Event\WindowEvent.cpp">
       <Filter>Event</Filter>
     </ClCompile>
+    <ClCompile Include="Layer\Layer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer\LayerStack.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
     <ClCompile Include="PCH\EnginePCH.cpp">
       <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ImGuiLayer.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ImGuiOpenGLRenderer.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
