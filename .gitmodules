@@ -1,5 +1,5 @@
 [submodule "external/dependencies/pybind11"]
-	path = External/Dependencies/pybind11
+	path = External/Dependencies/PyBind11
 	url = https://github.com/pybind/pybind11
 [submodule "external\\dependencies\\sqlite_amalgamation"]
 	path = External/Dependencies/sqlite_amalgamation
