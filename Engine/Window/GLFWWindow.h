@@ -28,6 +28,8 @@ namespace QED
 
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) override;
 
+				inline virtual void* GetWindowHandle() const { return windowHandle; }
+
 			private:
 
 			};

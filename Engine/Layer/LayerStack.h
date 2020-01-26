@@ -13,7 +13,7 @@ namespace QED
 			class LayerStack
 			{
 			public:
-				LayerStack() : layerInsert(layers.begin()) {}
+				LayerStack() = default;
 				~LayerStack();
 
 				void PushLayer(Layer* layer);
@@ -27,7 +27,7 @@ namespace QED
 
 			private:
 				std::vector<Layer*> layers;
-				std::vector<Layer*>::iterator layerInsert;
+				unsigned int insertIndex = 0;
 			};
 		}
 	}

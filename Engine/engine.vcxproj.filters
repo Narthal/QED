@@ -16,6 +16,9 @@
     <Filter Include="Event">
       <UniqueIdentifier>{E70B220D-5320-4ABE-1CA2-ED1D887546EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{6287950D-CE9B-BDBE-971D-611E03F1B9EF}</UniqueIdentifier>
     </Filter>
@@ -66,6 +69,15 @@
     <ClInclude Include="Event\WindowEvent.h">
       <Filter>Event</Filter>
     </ClInclude>
+    <ClInclude Include="Input\CoreInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\GLFWInput.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Keycodes.h">
+      <Filter>Input</Filter>
+    </ClInclude>
     <ClInclude Include="Layer\Layer.h">
       <Filter>Layer</Filter>
     </ClInclude>
@@ -112,6 +124,12 @@
     </ClCompile>
     <ClCompile Include="Event\WindowEvent.cpp">
       <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\CoreInput.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\GLFWInput.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Layer\Layer.cpp">
       <Filter>Layer</Filter>

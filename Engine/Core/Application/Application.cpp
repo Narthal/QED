@@ -4,7 +4,7 @@
 
 #include "../Log/Log.h"
 #include "../Window/GLFWWindow.h"
-
+#include "../Input/CoreInput.h"
 
 
 #include "glad/glad.h"
@@ -21,10 +21,15 @@ namespace QED
 		{
 			void Application::Application::Initialize()
 			{
+				// Set up main loop variable
 				isRunning = true;
 
+				// Create window
 				window = new Window::GLFWWindow();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
+
+				// Initialize input
+				Input::CoreInput::GetInstance();
 
 				LOG << "init";
 			}

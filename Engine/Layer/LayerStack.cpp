@@ -21,7 +21,8 @@ namespace QED
 
 			void LayerStack::PushLayer(Layer* layer)
 			{
-				layerInsert = layers.emplace(layerInsert, layer);
+				layers.emplace(layers.begin() + insertIndex, layer);
+				insertIndex++;
 				layer->OnAttach();
 			}
 
@@ -34,19 +35,21 @@ namespace QED
 
 			void LayerStack::PopLayer(Layer* layer)
 			{
-				auto it = std::find(layers.begin(), layers.end(), layer);
+				auto it = std::find(layers.begin(), layers.begin() + insertIndex, layer);
 				if (it != layers.end())
 				{
+					layer->OnDetach();
 					layers.erase(it);
-					layerInsert--;
+					insertIndex--;
 				}
 			}
 
 			void LayerStack::PopOverlay(Layer* overlay)
 			{
-				auto it = std::find(layers.begin(), layers.end(), overlay);
+				auto it = std::find(layers.begin() + insertIndex, layers.end(), overlay);
 				if (it != layers.end())
 				{
+					overlay->OnDetach();
 					layers.erase(it);
 				}
 			}

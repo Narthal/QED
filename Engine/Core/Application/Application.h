@@ -1,6 +1,16 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+// TODO: Make memory leak detection its own set of files
+// TODO: make premake switch for this
+// TODO: find a better place for this
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
+
+
+
 #include "../QEDApi.h"
 #include "../Window/CoreWindow.h"
 #include "../Event/WindowEvent.h"
@@ -17,22 +27,31 @@ namespace QED
 			{
 				class QED_API Application
 				{
-				public:
+					protected:
+					// Singleton istance
+					Application() { Initialize(); }
+
+					private:
+					void Initialize();
+
+					public:
+					// Magic singleton
 					inline static Application& GetInstance()
 					{
 						static Application instance;
 						return instance;
 					}
+					// Default destructor
+					virtual ~Application() = default;
+					
 
-					virtual ~Application() {};
+
 
 					// Delete copy and move constructors and assign operators
 					Application(Application const&) = delete;				// Copy construct
 					Application(Application&&) = delete;					// Move construct
 					Application& operator=(Application const&) = delete;	// Copy assign
 					Application& operator=(Application&&) = delete;			// Move assign
-
-					void Initialize();
 
 					void OnEvent(Event::Event& event);
 
@@ -47,16 +66,10 @@ namespace QED
 
 
 
-				private:
-					// Singleton istance
-					Application() { Initialize(); }
-
+					private:
 					bool isRunning;
 					Window::CoreWindow* window;
 					Layer::LayerStack layerStack;
-
-
-
 				};
 			}
 		}

@@ -88,6 +88,9 @@ pchSourceFile = pchName .. ".cpp"
 -- os data
 osVersion = os.getversion().majorversion .. ' ' .. os.getversion().minorversion .. ' ' .. os.getversion().revision .. ' ' .. os.getversion().description
 
+-- Set startup project
+	startproject(sandboxProjectName)
+
 ---------------------------------------------------------------------
 
 	-- AUTOMATION UTILITY TOOLS
@@ -204,6 +207,9 @@ project(engineProjectName)
 	location(engineProjectName)
 	kind "SharedLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+	systemversion "latest"
 
 	targetdir(buildDir .. engineProjectName.. "/" .. outputDir)
 	objdir(buildDir .. engineProjectName.. "/" .. outputDir .. "/" .. intermediateDir)
@@ -238,9 +244,6 @@ project(engineProjectName)
 	}
 
 	filter "system:Windows"
-		cppdialect "C++17"
-		staticruntime "On"
-		systemversion "latest"
 
 		defines
 		{
@@ -259,10 +262,12 @@ project(engineProjectName)
 	filter "configurations:Debug"
 		defines { "QED_ENGINE_DEBUG", "DEBUG" }
 		symbols "On"
+		runtime "Debug"
 
 	filter "configurations:Release"
 		defines { "QED_ENGINE_RELEASE" }
 		optimize "On"
+		runtime "Release"
 
 	filter "configurations:Distribution"
 		defines { "QED_ENGINE_DISTRIBUTION" }
@@ -272,8 +277,6 @@ project(engineProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			"/MT",
-			--"/MDd",
 			"/sdl-",
 		}
 
@@ -287,6 +290,9 @@ project(sandboxProjectName)
 	location(sandboxProjectName)
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+	systemversion "latest"
 
 	targetdir(buildDir .. sandboxProjectName .. "/" .. outputDir)
 	objdir(buildDir .. sandboxProjectName .. "/" .. outputDir .. "/" .. intermediateDir)
@@ -316,9 +322,6 @@ project(sandboxProjectName)
 
 
 	filter "system:Windows"
-		cppdialect "C++17"
-		staticruntime "On"
-		systemversion "latest"
 
 		defines
 		{
@@ -326,12 +329,14 @@ project(sandboxProjectName)
 		}
 
 	filter "configurations:Debug"
-		defines { "QED_SANDBOX_DEBUG" }
+		defines { "QED_SANDBOX_DEBUG", "DEBUG" }
 		symbols "On"
+		runtime "Debug"
 
 	filter "configurations:Release"
 		defines { "QED_SANDBOX_RELEASE" }
 		optimize "On"
+		runtime "Release"
 
 	filter "configurations:Distribution"
 		defines { "QED_SANDBOX_DISTRIBUTION" }
@@ -341,7 +346,5 @@ project(sandboxProjectName)
 	filter { "system:windows" }
 		buildoptions
 		{
-			"/MT",
-			--"/MD",
 			"/sdl-",
 		}

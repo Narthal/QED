@@ -84,7 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/MT /sdl- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -111,7 +111,7 @@ IF EXIST ..\Build\Engine\Debug-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I ..\
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MT /sdl- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@ IF EXIST ..\Build\Engine\Release-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y /I .
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/MT /sdl- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -166,6 +166,9 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClInclude Include="Event\KeyEvent.h" />
     <ClInclude Include="Event\MouseEvent.h" />
     <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="Input\CoreInput.h" />
+    <ClInclude Include="Input\GLFWInput.h" />
+    <ClInclude Include="Input\Keycodes.h" />
     <ClInclude Include="Layer\Layer.h" />
     <ClInclude Include="Layer\LayerStack.h" />
     <ClInclude Include="PCH\EnginePCH.h" />
@@ -183,6 +186,8 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClCompile Include="Event\KeyEvent.cpp" />
     <ClCompile Include="Event\MouseEvent.cpp" />
     <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Input\CoreInput.cpp" />
+    <ClCompile Include="Input\GLFWInput.cpp" />
     <ClCompile Include="Layer\Layer.cpp" />
     <ClCompile Include="Layer\LayerStack.cpp" />
     <ClCompile Include="PCH\EnginePCH.cpp">
@@ -206,4 +211,4 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 

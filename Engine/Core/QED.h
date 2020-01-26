@@ -2,8 +2,7 @@
 #define QED_H
 
 
-// App entry point
-//#include "Application/EntryPoint.h"
+// Application
 #include "Application/Application.h"
 
 // Log
@@ -12,6 +11,10 @@
 // Globals
 #include "Registry/Registry.h"
 #include "Globals.h"
+
+// Input
+#include "../Input/CoreInput.h"
+#include "../Input/Keycodes.h"
 
 //TODO: remove
 #include "../Event/ApplicationEvent.h"

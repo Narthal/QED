@@ -16,6 +16,18 @@ namespace QED
 				Other
 			};
 
+			struct WindowData
+			{
+				// Basic properties
+				int width;
+				int height;
+				bool isVsync;
+				bool isFullscreen;
+
+				// Event callback
+				std::function<void(Event::Event&)> callback;
+			};
+
 			class CoreWindow
 			{
 			public:
@@ -29,26 +41,16 @@ namespace QED
 
 				virtual ~CoreWindow() {};
 
-				virtual void Update() {};
+				virtual void Update() = 0;
 
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) = 0;
 
-				inline int GetWidth() { return windowData.width; }
-				inline int GetHeight() { return windowData.height; }
+				inline int GetWidth() const { return windowData.width; }
+				inline int GetHeight() const { return windowData.height; }
+
+				virtual void* GetWindowHandle() const = 0;
 
 			protected:
-				struct WindowData
-				{
-					// Basic properties
-					int width;
-					int height;
-					bool isVsync;
-					bool isFullscreen;
-
-					// Event callback
-					std::function<void(Event::Event&)> callback;
-				};
-
 				// Basic data
 				WindowData windowData;
 
@@ -57,8 +59,6 @@ namespace QED
 				ContextType contextType;
 				
 			};
-
-			//CoreWindow::~CoreWindow() {}
 		}
 	}
 }
