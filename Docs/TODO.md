@@ -1,17 +1,6 @@
 # TODO
-- [x] common directory
-- [x] rework precompiled headers and underlying structure
-- [x] unify upper case directories
-- [x] somehow tell cmake to use /MT & /MTd for GLFW generation
-- [x] reimplement shitty entry point hijack mechanism
-- [ ] make application constructor private
-- [ ] layers
-- [ ] reimplement queue (asynchronous dispatch queue)
-- [ ] implement sandboxed filesystem (PhysicalFileSystem)
-- [ ] update registry to have templated static casts & allow multiple types
-- [ ] implement module framework
-- [ ] move GLFW to separate project (Window API, Input API)
-- [ ] implement basic sqlite database wrapper class
+
+
 
 
 ## Projects
@@ -24,35 +13,47 @@
 - utility
 - launcher
 
-- ?steam workshop integration?
-- ?news webpage host?
-- ?authentication server?
-
+## premake
+- [ ] bat. scripts to be replaced with cross platform commands embedded in premake
 
 # GOALS
 ## engine
+##### Core
 - [x] log
 - [x] registry
 - [x] client - engine setup
-- [ ] sqlite
-- [ ] virtual file system	-many many loaders (?loaderAPI?)
-- [ ] moduleFramework		-DescriptorAPI	-ScriptingAPI	-RendererAPI
-- [ ] event system
-- [ ] window abstraction
-- [ ] input events
-- [ ] ?layers?
-- [ ] imgui
-- [ ] camera
-- [ ] allocator
+- [ ] update registry to have templated static casts & allow multiple types
+- [ ] move GLFW to separate project (Window API, Input API)
+##### virtual file system	(VFS, PFS)
+- [ ] implement basic sqlite database wrapper class
+##### Event system
+- [x] input events
+- [x] layers
+- [ ] event queue (asynchronous dispatch queue)
+- [ ] thread safe
+##### Module framework
+- [ ] implement module framework
+##### System manager
+- [ ] threading
 - [ ] thread pool
-- [ ] ecs
+- [ ] memory allocation
+##### UI
+- [x] imgui
+- [ ] docking imgui
+##### Renderer
+- [ ] shader class
+- [ ] camera
+- [ ] module api integration & move to openGLModule
+##### ECS
+##### Tools
 - [ ] imgui debug tools
 - [ ] profilers
+##### Stuff to integrate
 - [ ] box2D
-- [ ] chanels (arbitrary)
-- [ ] sound
-- [ ] headless server mode
-- [ ] networking - p2p server, server only, cooperative servers
+- [ ] sound lib
+- [ ] networking lib
+##### Stuff to implement
+- [ ] headless server mode (layers)
 
 ## openGLModule
 - [ ] abstraction layer
@@ -65,7 +66,6 @@
 - [ ] shadows (layered and raytraced)
 
 ## utility
-- [ ] bat. scripts to be replaced with this
 - [ ] restart engine
 - [ ] cli for management & debug
 - [ ] error / crash handler
