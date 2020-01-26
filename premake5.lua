@@ -1,4 +1,17 @@
 
+--TODO: make tables for common include dirs (imgui, glm, etc)
+
+
+
+
+
+
+
+
+
+
+
+
 -- root
 workspace "QED"
 
@@ -43,6 +56,7 @@ GLFWInclude = GLFWDir .. "/" .. "include"
 GLADDir = dependancies .. "/" .. "GLAD"
 GLADInclude = GLADDir .. "/" .. "include"
 ImGuiDir = dependancies .. "/" .. "ImGui"
+GLMDir = dependancies .. "/" .. "GLM"
 
 -- project names
 engineProjectName = "Engine"
@@ -230,6 +244,7 @@ project(engineProjectName)
 		GLFWInclude,								-- GLFW include directory
 		GLADInclude,								-- GLAD include
 		ImGuiDir,									-- ImGui include (no such dir, just ImGui root)
+		GLMDir,										-- GLM headers
 	}
 
 	links
@@ -309,10 +324,13 @@ project(sandboxProjectName)
 		
 	includedirs
 	{
-		common,	-- common directory
+		common,										-- common directory
 		sandboxProjectName .. "/" .. pchDirectory,	-- local PCH directory
 
-		engineProjectName .. "/**"
+		engineProjectName .. "/**",					-- the Engine
+
+		ImGuiDir,									-- ImGui include (no such dir, just ImGui root)
+		GLMDir,										-- GLM headers
 	}
 
 	links
