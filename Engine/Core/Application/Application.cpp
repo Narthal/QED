@@ -2,12 +2,18 @@
 #include "Application.h"
 
 
+#include "glad/glad.h"
+
+
+
 #include "../Log/Log.h"
 #include "../Window/GLFWWindow.h"
 #include "../Input/CoreInput.h"
+#include "../../UI/ImGuiLayer.h"
 
 
-#include "glad/glad.h"
+
+
 
 
 
@@ -19,6 +25,8 @@ namespace QED
 	{
 		namespace Core
 		{
+			//Application::Application* Application::Application::instance;
+
 			void Application::Application::Initialize()
 			{
 				// Set up main loop variable
@@ -30,6 +38,9 @@ namespace QED
 
 				// Initialize input
 				Input::CoreInput::GetInstance();
+
+				// Add ImGui layer to layer stack
+				PushOverlay(new UI::ImGuiLayer());
 
 				LOG << "init";
 			}
@@ -64,7 +75,10 @@ namespace QED
 
 					for (Layer::Layer* layer : layerStack)
 					{
+						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->Begin();
 						layer->OnUpdate();
+						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->OnUIRender();
+						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->End();
 					}
 
 					window->Update();

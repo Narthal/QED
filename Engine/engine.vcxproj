@@ -174,7 +174,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     <ClInclude Include="PCH\EnginePCH.h" />
     <ClInclude Include="SQLite\Database.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
-    <ClInclude Include="UI\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
     <ClInclude Include="Window\GLFWWindow.h" />
   </ItemGroup>
@@ -195,7 +194,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.dll\ (xcopy /Q /E /Y
     </ClCompile>
     <ClCompile Include="UI\ImGuiBuild.cpp" />
     <ClCompile Include="UI\ImGuiLayer.cpp" />
-    <ClCompile Include="UI\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
   <ItemGroup>

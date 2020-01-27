@@ -29,13 +29,13 @@ namespace QED
 				{
 					protected:
 					// Singleton istance
-					Application() { Initialize(); }
+					Application() {}
 
-					private:
+					public:
 					void Initialize();
 
 					public:
-					// Magic singleton
+					// Magic static singleton
 					inline static Application& GetInstance()
 					{
 						static Application instance;
@@ -65,8 +65,9 @@ namespace QED
 					bool OnWindowClose(Event::WindowCloseEvent& event);
 
 
-
 					private:
+					//static Application* instance;
+
 					bool isRunning;
 					Window::CoreWindow* window;
 					Layer::LayerStack layerStack;

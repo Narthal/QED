@@ -93,9 +93,6 @@
     <ClInclude Include="UI\ImGuiLayer.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="UI\ImGuiOpenGLRenderer.h">
-      <Filter>UI</Filter>
-    </ClInclude>
     <ClInclude Include="Window\CoreWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
@@ -144,9 +141,6 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UI\ImGuiLayer.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UI\ImGuiOpenGLRenderer.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Window\GLFWWindow.cpp">

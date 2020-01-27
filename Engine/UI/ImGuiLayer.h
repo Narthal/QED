@@ -20,28 +20,15 @@ namespace QED
 				ImGuiLayer();
 				~ImGuiLayer();
 
-				void OnAttach() override;
-				void OnDetach() override;
-				void OnUpdate() override;
-				void OnEvent(Event::Event& event) override;
+				virtual void OnAttach() override;
+				virtual void OnDetach() override;
+				virtual void OnUIRender() override;
+
+				void Begin();
+				void End();
 
 			private:
 				float time = 0.0f;
-
-			private:
-				// Mouse events
-				bool OnMouseButtonPressedEvent(Event::MouseButtonPressedEvent& event);
-				bool OnMouseButtonReleasedEvent(Event::MouseButtonReleasedEvent& event);
-				bool OnMouseScrolledEvent(Event::MouseScrolledEvent& event);
-				bool OnMouseMovedEvent(Event::MouseMovedEvent& event);
-
-				// Keyboar events
-				bool OnKeyPressedEvent(Event::KeyPressedEvent& event);
-				bool OnKeyReleasedEvent(Event::KeyReleasedEvent& event);
-				bool OnKeyTypedEvent(Event::KeyTypedEvent& event);
-
-				// Window events
-				bool OnWindowResizedEvent(Event::WindowResizeEvent& event);
 			};
 		}
 	}

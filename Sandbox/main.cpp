@@ -31,8 +31,8 @@ private:
 int main(int argc, char argv)
 {
 	auto& app = QED::Engine::Core::Application::Application::GetInstance();
-	
-	app.PushOverlay(new QED::Engine::UI::ImGuiLayer);
+	app.Initialize();
+
 	app.PushLayer(new SandboxLayer);
 
 	app.RunMainLoop();
