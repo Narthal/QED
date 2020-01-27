@@ -10,6 +10,7 @@
 [submodule "External\\Dependencies\\ImGui"]
 	path = External/Dependencies/ImGui
 	url = https://github.com/ocornut/imgui
+	branch = docking
 [submodule "External\\Dependencies\\GLM"]
 	path = External/Dependencies/GLM
 	url = https://github.com/g-truc/glm

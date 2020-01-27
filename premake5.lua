@@ -216,7 +216,7 @@ group(automationDir .. "/" .. dependecyProjects)
 
 		defines
 		{
-			--"IMGUI_API=__declspec(dllexport)"
+			"IMGUI_API=__declspec(dllexport)"
 		}
 
 
