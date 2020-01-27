@@ -1,3 +1,4 @@
 cd ../../
 git submodule update --init --recursive
-git submodule foreach git pull origin HEAD
+REM git submodule foreach git pull origin master
+git pull --recurse-submodules --jobs=10
