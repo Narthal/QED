@@ -1,7 +1,7 @@
 # TODO
 
-
-
+- [ ] finish imgui docking
+- [ ] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
 
 ## Projects
 - engine (+server)
