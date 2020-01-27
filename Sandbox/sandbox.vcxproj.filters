@@ -16,4 +16,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\premake5.lua" />
+  </ItemGroup>
 </Project>

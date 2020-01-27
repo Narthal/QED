@@ -124,6 +124,9 @@
     <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_draw.cpp" />
     <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\premake5.lua" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

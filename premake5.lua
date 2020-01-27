@@ -15,6 +15,10 @@
 -- root
 workspace "QED"
 
+	files
+	{
+		"premake5.lua",
+	}
 
 ---------------------------------------------------------------------
 	
@@ -37,6 +41,7 @@ workspace "QED"
 	}
 
 ---------------------------------------------------------------------
+
 
 	-- VARIABLES
 
@@ -207,6 +212,11 @@ group(automationDir .. "/" .. dependecyProjects)
 		includedirs
 		{
 			ImGuiDir
+		}
+
+		defines
+		{
+			--"IMGUI_API=__declspec(dllexport)"
 		}
 
 

@@ -146,6 +146,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\premake5.lua" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</Project>
     </ProjectReference>

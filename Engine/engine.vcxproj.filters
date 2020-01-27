@@ -140,6 +140,9 @@
     <ClCompile Include="PCH\EnginePCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
+    <ClCompile Include="UI\ImGuiBuild.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
     <ClCompile Include="UI\ImGuiLayer.cpp">
       <Filter>UI</Filter>
     </ClCompile>
@@ -149,5 +152,8 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\premake5.lua" />
   </ItemGroup>
 </Project>
