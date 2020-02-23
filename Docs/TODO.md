@@ -10,6 +10,7 @@
 - [ ] textures
 - [ ] movement, zoom, rotation
 
+## Engine sanity
 - [ ] Visual Studio memory check integration
 - [ ] Valgrind integration
 
