@@ -13,20 +13,33 @@ namespace QED
         {
             public TestDirectory()
             {
-                Console.WriteLine("test");
+                FileGroup sources = new FileGroup(this, "HelloSrc");
+                sources.AddFile("Main.cpp");
 
-                File file = new File(this, "Engine", FileType.Source);
-                file.AddFile("Program.cs");
+                FileGroup headers = new FileGroup(this, "HelloHeader");
+                headers.AddFile("Main.h");
             }
         }
 
-        [TargetConfig]
-        public class TargetConfig : Targets
+        [RegisterProject]
+        public class TestProject : Project
         {
-            public TargetConfig()
+            public TestProject()
             {
-                Architecture = Architecture.x64;
-                Platform = Platform.Windows | Platform.Linux;
+                Name = "Hello";
+
+                OutputType = OutputType.Application;
+                OutputDirectory = BuildTool.GetDirectory("TestDirectory");
+                SourceFileGroups.Add("HelloSrc");
+                HeaderFileGroups.Add("HelloHeader");
+
+                Targets = new Targets()
+                {
+                    Architecture = Architecture.x86 | Architecture.x64,
+                    Platform = Platform.Windows,
+                    Configuration = Configuration.Debug | Configuration.Release,
+                };
+
             }
         }
     }

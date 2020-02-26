@@ -8,7 +8,11 @@ namespace QED
     {
         namespace Core
         {
-            public abstract class BuildToolObject {}
+
+            public abstract class ProjectGroup
+            {
+
+            }
         }
     }
 }

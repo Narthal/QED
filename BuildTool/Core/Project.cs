@@ -8,7 +8,7 @@ namespace QED
     {
         namespace Core
         {
-            public enum BinaryType
+            public enum OutputType
             {
                 Application,
                 SharedLibrary,
@@ -16,9 +16,19 @@ namespace QED
             }
             public abstract class Project
             {
-                public BinaryType BinaryType { get; protected set; }
-                public FileGroup SourceFileGroup { get; protected set; }
-                public FileGroup HeaderFileGroup { get; protected set; }
+                public Project()
+                {
+                    SourceFileGroups = new List<string>();
+                    HeaderFileGroups = new List<string>();
+                }
+                public string Name { get; protected set; }
+
+                public Directory OutputDirectory { get; protected set; }
+                public OutputType OutputType { get; protected set; }
+                public List<string> SourceFileGroups { get; protected set; }
+                public List<string> HeaderFileGroups { get; protected set; }
+
+                public Targets Targets { get; protected set; }
             }
         }
     }

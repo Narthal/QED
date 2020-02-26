@@ -20,12 +20,11 @@ namespace QED
                 Core.Attributes.RegisterAttributes();
 
                 int i = BuildTool.directories.Count;
-                int j = BuildTool.fileGroups.Count;
-                int k = BuildTool.fileGroupNames.Count;
-                string l = BuildTool.TargetConfig.ToString();
+                int k = BuildTool.fileGroups.Count;
+                int m = BuildTool.projects.Count;
 
-                //VisualStudio.Project project = new VisualStudio.Project();
-                //project.Generate();
+                VisualStudio.Project project = new VisualStudio.Project();
+                project.Generate(BuildTool.projects[0]);
 
                 //VisualStudio.Solution solution = new VisualStudio.Solution();
                 //solution.Generate();

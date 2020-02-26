@@ -23,7 +23,8 @@ namespace QED
             }
 
             [AttributeUsage(AttributeTargets.Class)]
-            public class TargetConfigAttribute : UserDefinedAttribute {}
+            public class RegisterProjectAttribute : UserDefinedAttribute {}
+
             public static class Attributes
             {
                 public static void RegisterAttributes()
@@ -37,7 +38,7 @@ namespace QED
                     Console.WriteLine("Searching in assembly : " + assembly.Location);
 
                     // Get custom attributes
-                    Console.WriteLine("Found custom attributes : ");
+                    Console.WriteLine("Found build tool attributes : ");
                     List<Type> userDefinedAttributes = new List<Type>();
                     foreach (Type type in types)
                     {
@@ -50,43 +51,49 @@ namespace QED
 
                     // Iterate through all types and all custom attributes in each type
                     Console.WriteLine("Found {0} user defined types", types.Length);
-                    Console.WriteLine("Found types : ");
+                    Console.WriteLine("Found build tool types : ");
+                    // Count build tool types too
+                    int buildTypeCounter = 0;
                     foreach (Type type in types)
                     {
                         foreach (CustomAttributeData item in type.CustomAttributes)
                         {
-                            // True when found a type with RegisterPath attribute
-                            if (item.AttributeType == typeof(RegisterPathAttribute))
+                            switch (item.AttributeType)
                             {
-                                // Write found type
-                                Console.WriteLine('\t' + type.ToString());
+                                case Type registerPathAttribute when registerPathAttribute == typeof(RegisterPathAttribute):
+                                    // Write found type
+                                    Console.WriteLine('\t' + type.ToString());
 
-                                // Create instance and add to list
-                                BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
+                                    // Create instance and add to list
+                                    BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
 
-                                // Stop if there is at least one user defined attribute
-                                break;
-                            }
-                            else if(item.AttributeType == typeof(TargetConfigAttribute))
-                            {
-                                // Write found type
-                                Console.WriteLine('\t' + type.ToString());
+                                    // Increment build type counter
+                                    buildTypeCounter++;
 
-                                // Create instance and add to list, throw error if multiple target configs are defined
-                                if (BuildTool.TargetConfig != null)
-                                {
-                                    Console.WriteLine("Can not define architecture configurations in multiple classes");
-                                    throw new Exception("Can not define architecture configurations in multiple classes");
-                                }
-                                BuildTool.TargetConfig = ((TargetConfig)Activator.CreateInstance(type));
+                                    // Stop if there is at least one user defined attribute
+                                    break;
 
-                                // Stop if there is at least one user defined attribute
-                                break;
+                                case Type registerProjectAttribute when registerProjectAttribute == typeof(RegisterProjectAttribute):
+                                    // Write found type
+                                    Console.WriteLine('\t' + type.ToString());
+
+                                    // Create instance and add to list
+                                    BuildTool.projects.Add((Project)Activator.CreateInstance(type));
+
+                                    // Increment build type counter
+                                    buildTypeCounter++;
+
+                                    // Stop if there is at least one user defined attribute
+                                    break;
+
+                                default:
+                                    break;
                             }
                         }
                     }
-                    // Return directory instances
-                    Console.WriteLine("Found {0} build tool objects that has user defined attributes", BuildTool.directories.Count);
+                    // Write summary
+                    Console.WriteLine("Created {0} build tool objects", buildTypeCounter);
+                    Console.WriteLine("Created {0} build tool directory objects", BuildTool.directories.Count);
                 }
             }
         }

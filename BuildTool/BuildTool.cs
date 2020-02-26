@@ -8,14 +8,37 @@ namespace QED
     {
         public static class BuildTool
         {
+            #region Data
+
             // Registered directories
             public static List<Core.Directory> directories = new List<Core.Directory>();
 
-            public static Dictionary<string, Core.FileGroup> fileGroupNames = new Dictionary<string, Core.FileGroup>();
+            // Registered file group names
+            public static Dictionary<string, List<string>> fileGroups = new Dictionary<string, List<string>>();
 
-            public static Dictionary<Tuple<Core.FileGroup, Core.FileType>, List<string>> fileGroups = new Dictionary<Tuple<Core.FileGroup, Core.FileType>, List<string>>();
+            // Registered projects
+            public static List<Core.Project> projects = new List<Core.Project>();
 
-            public static TargetConfig TargetConfig = null;
+            #endregion
+
+            #region Helper methods
+
+            public static Core.Directory GetDirectory(string name)
+            {
+                foreach (Core.Directory directory in directories)
+                {
+                    if (directory.GetType().Name == name)
+                    {
+                        return directory;
+                    }
+                }
+
+                throw new Exception("No such directory : " + name);
+                return null;
+            }
+
+            #endregion  
+
         }
     }
 }
