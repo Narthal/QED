@@ -2,7 +2,7 @@
 
 ## General
 - [x] finish imgui docking
-- [ ] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
+- [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
 
 ## Engine
 - [ ] Basic renderer implementation
