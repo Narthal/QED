@@ -16,9 +16,12 @@
 
 ## Build Tool
 - [ ] Add c++ standard
+- [ ] Static std library switch
+- [ ] std library debug switch
 - [ ] Conditionals
 - [ ] Defines
 - [ ] Links (to other projects too)
+- [ ] Default values config file (JSON / XML)
 - [ ] Hook up pre/post build events
 - [ ] Write first Build Tool extension : build increment header generator
 - [ ] Complete migration from premake to BT
