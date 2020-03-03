@@ -11,10 +11,11 @@ namespace QED
             [Flags]
             public enum FileType
             {
-                None    = 0,
-                Source  = 1,
-                Header  = 2,
-                Other   = 4,
+                None                = 0,
+                Source              = 1,
+                Header              = 2,
+                PrecompiledHeader   = 4,
+                Other               = 8
             }
             public class FileGroup : BuildToolObject
             {

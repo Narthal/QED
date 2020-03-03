@@ -36,6 +36,12 @@ namespace QED
                     /*18*/   "F8E8F25A-FA85-49CF-B28C-88AA8D79777D",
                     /*19*/   "9E867A66-3E40-4983-BE9C-D47A8650B186",
                 };
+
+                static int counter = 0;
+                public static string GetGUID()
+                {
+                    return predefinedGUIDs[counter++];
+                }
             }
         }
     }

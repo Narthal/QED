@@ -1,6 +1,7 @@
 #ifndef LAYER_H
 #define LAYER_H
 
+#include "../Core/QEDApi.h"
 #include "../Event/Event.h"
 
 namespace QED
@@ -9,7 +10,7 @@ namespace QED
 	{
 		namespace Layer
 		{
-			class Layer
+			class QED_API Layer
 			{
 				public:
 				Layer(const std::string& name = "layer", const bool isUI = false) : name(name), isUI(isUI) {}
@@ -25,7 +26,7 @@ namespace QED
 
 				bool IsUI() { return isUI; }
 
-				private:
+				protected:
 				bool isUI;
 
 			protected:

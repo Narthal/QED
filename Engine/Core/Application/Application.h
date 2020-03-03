@@ -1,12 +1,6 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-// TODO: Make memory leak detection its own set of files
-// TODO: make premake switch for this
-// TODO: find a better place for this
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
 
 
 
@@ -16,6 +10,7 @@
 #include "../Event/WindowEvent.h"
 #include "../Layer/Layer.h"
 #include "../Layer/LayerStack.h"
+#include "../UI/ImGuiLayer.h"
 
 namespace QED
 {
@@ -29,7 +24,7 @@ namespace QED
 				{
 					protected:
 					// Singleton istance
-					Application() {}
+					Application() { }
 
 					public:
 					void Initialize();
@@ -68,9 +63,10 @@ namespace QED
 					private:
 					//static Application* instance;
 
-					bool isRunning;
-					Window::CoreWindow* window;
+					bool isRunning = false;
+					Window::CoreWindow* window = nullptr;
 					Layer::LayerStack layerStack;
+					UI::ImGuiLayer* UILayer = nullptr;
 				};
 			}
 		}

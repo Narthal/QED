@@ -25,8 +25,6 @@ namespace QED
 	{
 		namespace Core
 		{
-			//Application::Application* Application::Application::instance;
-
 			void Application::Application::Initialize()
 			{
 				// Set up main loop variable
@@ -40,7 +38,8 @@ namespace QED
 				Input::CoreInput::GetInstance();
 
 				// Add ImGui layer to layer stack
-				PushOverlay(new UI::ImGuiLayer());
+				UILayer = new UI::ImGuiLayer();
+				PushOverlay(UILayer);
 
 				LOG << "init";
 			}
@@ -73,14 +72,21 @@ namespace QED
 					glClearColor(0, 0, 0, 1);
 					glClear(GL_COLOR_BUFFER_BIT);
 
+					// OnUpdate loop
 					for (Layer::Layer* layer : layerStack)
 					{
-						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->Begin();
 						layer->OnUpdate();
-						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->OnUIRender();
-						if (layer->IsUI() == true) ((UI::ImGuiLayer*)layer)->End();
 					}
 
+					// OnUIRender loop
+					UILayer->Begin();
+					for (Layer::Layer* layer : layerStack)
+					{
+						layer->OnUIRender();
+					}
+					UILayer->End();
+
+					// Window update tick
 					window->Update();
 				};
 			}

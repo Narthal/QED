@@ -23,7 +23,7 @@ namespace QED
                 int k = BuildTool.fileGroups.Count;
                 int m = BuildTool.projects.Count;
 
-                VisualStudio.Project project = new VisualStudio.Project();
+                VisualStudio.ProjectGenerator project = new VisualStudio.ProjectGenerator();
                 project.Generate(BuildTool.projects[0]);
 
                 //VisualStudio.Solution solution = new VisualStudio.Solution();

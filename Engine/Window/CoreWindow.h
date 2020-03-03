@@ -19,13 +19,13 @@ namespace QED
 			struct WindowData
 			{
 				// Basic properties
-				int width;
-				int height;
-				bool isVsync;
-				bool isFullscreen;
+				int width = 0;
+				int height = 0;
+				bool isVsync = true;
+				bool isFullscreen = false;
 
 				// Event callback
-				std::function<void(Event::Event&)> callback;
+				std::function<void(Event::Event&)> callback = nullptr;
 			};
 
 			class CoreWindow
@@ -55,8 +55,8 @@ namespace QED
 				WindowData windowData;
 
 				// Window implementation
-				void* windowHandle;
-				ContextType contextType;
+				void* windowHandle = nullptr;
+				ContextType contextType = ContextType::None;
 				
 			};
 		}

@@ -9,7 +9,7 @@
 
 
 // HACK: temporary
-#include <GLFW\glfw3.h>
+#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
 namespace QED
@@ -18,15 +18,9 @@ namespace QED
 	{
 		namespace UI
 		{
-			ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer", true)
-			{
+			ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer", true) {}
 
-			}
-
-			ImGuiLayer::~ImGuiLayer()
-			{
-
-			}
+			ImGuiLayer::~ImGuiLayer() {}
 
 			void ImGuiLayer::OnAttach()
 			{
@@ -90,7 +84,7 @@ namespace QED
 				// Get Application
 				Core::Application::Application& app = Core::Application::Application::GetInstance();
 				// Set display size in io
-				io.DisplaySize = ImVec2(app.GetInstance().GetWindow()->GetWidth(), app.GetInstance().GetWindow()->GetHeight());
+				io.DisplaySize = ImVec2((float)app.GetInstance().GetWindow()->GetWidth(), (float)app.GetInstance().GetWindow()->GetHeight());
 
 				// Rendering
 				ImGui::Render();
