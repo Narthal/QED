@@ -23,19 +23,19 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
@@ -58,21 +58,21 @@
     <OutDir>..\Build\Sandbox\Debug-windows-x86_64\</OutDir>
     <IntDir>..\Build\Sandbox\Debug-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\Build\Sandbox\Release-windows-x86_64\</OutDir>
     <IntDir>..\Build\Sandbox\Release-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\Build\Sandbox\Distribution-windows-x86_64\</OutDir>
     <IntDir>..\Build\Sandbox\Distribution-windows-x86_64\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
-    <TargetExt>.exe</TargetExt>
+    <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,8 +88,10 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\Build\Engine\Debug-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\Build\Sandbox\Debug-windows-x86_64\Sandbox.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -98,7 +100,7 @@
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -109,9 +111,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\Build\Engine\Release-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\Build\Sandbox\Release-windows-x86_64\Sandbox.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
@@ -120,7 +124,7 @@
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>QED_SANDBOX_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -131,9 +135,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\Build\Engine\Distribution-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\Build\Sandbox\Distribution-windows-x86_64\Sandbox.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -143,15 +149,10 @@
     <ClCompile Include="PCH\SandboxPCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Engine\Engine.vcxproj">
-      <Project>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

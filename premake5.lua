@@ -229,7 +229,7 @@ group ""
 project(engineProjectName)
 	
 	location(engineProjectName)
-	kind "SharedLib"
+	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
@@ -313,7 +313,7 @@ project(engineProjectName)
 project(sandboxProjectName)
 	
 	location(sandboxProjectName)
-	kind "ConsoleApp"
+	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
@@ -345,7 +345,7 @@ project(sandboxProjectName)
 
 	links
 	{
-		engineProjectName
+		buildDir .. engineProjectName.. "/" .. outputDir .. "/Engine.lib"
 	}
 
 

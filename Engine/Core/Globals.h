@@ -2,7 +2,7 @@
 #define GLOBALS_H
 
 
-#include "QEDApi.h"
+#include "../Module/QEDApi.h"
 
 namespace QED
 {

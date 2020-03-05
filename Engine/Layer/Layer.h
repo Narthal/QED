@@ -1,7 +1,7 @@
 #ifndef LAYER_H
 #define LAYER_H
 
-#include "../Core/QEDApi.h"
+#include "../Module/QEDApi.h"
 #include "../Event/Event.h"
 
 namespace QED

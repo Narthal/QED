@@ -3,14 +3,14 @@
 
 
 // Application
-#include "Application/Application.h"
+#include "../Core/Application/Application.h"
 
 // Log
-#include "Log/Log.h"
+#include "../Core/Log/Log.h"
 
 // Globals
-#include "Registry/Registry.h"
-#include "Globals.h"
+#include "../Core/Registry/Registry.h"
+#include "../Core/Globals.h"
 
 // Input
 #include "../Input/CoreInput.h"

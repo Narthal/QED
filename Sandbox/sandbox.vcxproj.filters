@@ -14,7 +14,7 @@
     <ClCompile Include="PCH\SandboxPCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sandbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />
