@@ -23,21 +23,22 @@ class SandboxLayer : public Layer::Layer
 
 	public:
 	// Get name for module interface
-	QED_MODULE_API virtual const std::string& GetName() const override
+	QED_MODULE_API virtual const char* GetName() const override
 	{
-		static std::string sName("SandboxLayer");
-		return sName;
+		return "SandboxLayer";
 	}
 
+	public:
 	// Override layer's OnUpdate method
 	virtual void OnUpdate() override
 	{
 		if (Input::CoreInput::IsKeyPressed(Input::key_SPACE))
 		{
-			//LOG << "Space!";
+			LOG << "Space!";
 		}
 	}
 
+	public:
 	// Override layer's OnUIRender method
 	virtual void OnUIRender() override
 	{
@@ -55,6 +56,7 @@ extern "C" QED_MODULE_API void Register(QED::Engine::Module::Module& module)
 	module.moduleName = "Sandbox";
 
 	// Send back interface instances
-	Module::Interfaces::ModuleInterface* newModule(new SandboxLayer());
-	module.interfaces.emplace_back(newModule);
+	SandboxLayer* sandboxLayer = new SandboxLayer();
+	sandboxLayer->Initialize();
+	module.interfaces.emplace_back((Module::Interfaces::ModuleInterface*)sandboxLayer);
 }

@@ -11,15 +11,19 @@ namespace QED
 		{
 			namespace Interfaces
 			{
-				QED_ENGINE_API class ModuleInterface
+				class ModuleInterface
 				{
 					public:
 					// Releases resources of a module
-					virtual ~ModuleInterface() {};
+					virtual ~ModuleInterface() = 0;
 
 					public:
 					// Gets the name of the module
-					virtual const std::string& GetName() const = 0;
+					virtual const char* GetName() const = 0;
+
+					public:
+					// Initialize
+					virtual void Initialize() = 0;
 
 				};
 			}

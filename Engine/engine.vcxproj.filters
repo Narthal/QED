@@ -152,6 +152,9 @@
     <ClCompile Include="Layer\LayerStack.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="Module\Interfaces\ModuleInterface.cpp">
+      <Filter>Module\Interfaces</Filter>
+    </ClCompile>
     <ClCompile Include="Module\Kernel.cpp">
       <Filter>Module</Filter>
     </ClCompile>
@@ -170,7 +173,6 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="Module\Interfaces\ModuleInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

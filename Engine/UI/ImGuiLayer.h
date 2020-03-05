@@ -27,6 +27,11 @@ namespace QED
 				void Begin();
 				void End();
 
+				// Define name as imguiLayer is inheriting from module interface
+				const char* GetName() const override { return "ImGuiLayerInterface"; }
+
+				void Initialize() override {}
+
 			private:
 				float time = 0.0f;
 			};

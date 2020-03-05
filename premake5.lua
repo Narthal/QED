@@ -345,6 +345,7 @@ project(sandboxProjectName)
 
 	links
 	{
+		engineProjectName,
 		buildDir .. engineProjectName.. "/" .. outputDir .. "/Engine.lib"
 	}
 

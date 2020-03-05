@@ -20,11 +20,11 @@ namespace QED
 		{
 			namespace Application
 			{
-				class QED_ENGINE_API Application
+				class Application
 				{
 					protected:
 					// Singleton istance
-					Application() { Module::Kernel kernel; }
+					Application() {  }
 
 					public:
 					void Initialize();

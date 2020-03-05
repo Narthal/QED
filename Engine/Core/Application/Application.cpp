@@ -42,6 +42,8 @@ namespace QED
 				PushOverlay(UILayer);
 
 				LOG << "init";
+
+				Module::Kernel kernel;
 			}
 
 			void Application::Application::OnEvent(Event::Event& event)
