@@ -9,7 +9,7 @@ namespace QED
 	{
 		namespace Input
 		{
-			class QED_API CoreInput
+			class QED_ENGINE_API CoreInput
 			{			
 			public:
 				static CoreInput& GetInstance();

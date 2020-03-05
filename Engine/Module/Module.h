@@ -1,7 +1,7 @@
-#ifndef LOAD_MODULE_H
-#define LOAD_MODULE_H
+#ifndef MODULE_H
+#define MODULE_H
 
-#if QED_ENGINE_WINDOWS
+#if QED_WINDOWS
 #include <Windows.h>
 #else
 #error "Didnt implement linux loader"
@@ -13,15 +13,46 @@ namespace QED
 	{
 		namespace Module
 		{
+			namespace Interfaces
+			{
+				class ModuleInterface;
+			}
+
 			class Module
 			{
 				public:
 				// Handle by which DLLs are referenced
 				typedef HMODULE HandleType;
+				// Store handle for unload & function lookup
+				HandleType handle;
 
 				public:
+				std::string moduleName;
+
+				public:
+				// Signature for the modules's registration function
+				typedef void Register(Module&);
+
+				public:
+				// Collection of implemented interfaces in module
+				std::vector<Interfaces::ModuleInterface*> interfaces;
+
+				public:
+				// Constructor with string path arg
+				Module(const std::string& path)
+				{
+					// Load module
+					handle = Load(path);
+
+					// Register module
+					std::function func = GetFunctionPointer<Register>(handle, "Register");
+					func(*this);
+				}
+
+
+				private:
 				// Loads the DLL from the specified path
-				static HandleType Load(const std::string& path)
+				HandleType Load(const std::string& path)
 				{
 					std::string pathWithExtension = path + ".dll";
 
@@ -36,7 +67,7 @@ namespace QED
 
 				public:
 				// Unloads the DLL with the specified handle
-				static void Unload(HandleType sharedLibraryHandle)
+				void Unload(HandleType sharedLibraryHandle)
 				{
 					BOOL result = FreeLibrary(sharedLibraryHandle);
 					if (result == FALSE)
@@ -45,10 +76,10 @@ namespace QED
 					}
 				}
 
-
+				public:
 				// Looks up a function exported by the DLL
-				template<typename TSignature>
-				static TSignature* GetFunctionPointer (HandleType sharedLibraryHandle, const std::string& functionName)
+				template<typename TFunctionSigniture>
+				TFunctionSigniture* GetFunctionPointer (HandleType sharedLibraryHandle, const std::string& functionName)
 				{
 					FARPROC functionAddress = GetProcAddress(sharedLibraryHandle, functionName.c_str());
 
@@ -57,7 +88,7 @@ namespace QED
 						throw std::runtime_error("Could not find exported function");
 					}
 
-					return reinterpret_cast<TSignature*>(functionAddress);
+					return reinterpret_cast<TFunctionSigniture*>(functionAddress);
 				}
 			};
 		}
@@ -65,4 +96,4 @@ namespace QED
 }
 
 
-#endif // !LOAD_MODULE_H
+#endif // !MODULE_H

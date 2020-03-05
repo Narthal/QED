@@ -2,6 +2,7 @@
 #define LAYER_H
 
 #include "../Module/QEDApi.h"
+#include "../Module/Interfaces/ModuleInterface.h"
 #include "../Event/Event.h"
 
 namespace QED
@@ -10,7 +11,7 @@ namespace QED
 	{
 		namespace Layer
 		{
-			class QED_API Layer
+			class QED_ENGINE_API Layer : public Module::Interfaces::ModuleInterface
 			{
 				public:
 				Layer(const std::string& name = "layer", const bool isUI = false) : name(name), isUI(isUI) {}

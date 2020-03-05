@@ -272,8 +272,8 @@ project(engineProjectName)
 
 		defines
 		{
-			"MAKE_DLL",									-- QED API
-			"QED_ENGINE_WINDOWS",						-- windows build
+			"MAKE_ENGINE",									-- QED API
+			"QED_WINDOWS",						-- windows build
 			"BUILD_OS=" .. '"' .. osVersion .. '"',		-- os details
 			"GLFW_INCLUDE_NONE",						-- GLAD already includes OpenGL
 		}
@@ -353,7 +353,8 @@ project(sandboxProjectName)
 
 		defines
 		{
-			QED_SANDBOX_WINDOWS
+			"MAKE_MODULE",									-- QED API
+			"QED_WINDOWS"
 		}
 
 	filter "configurations:Debug"

@@ -79,7 +79,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -99,7 +99,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -123,7 +123,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>QED_SANDBOX_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

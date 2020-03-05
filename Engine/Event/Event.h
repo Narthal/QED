@@ -71,12 +71,12 @@ namespace QED
 				EventDispatcher(Event& event) : event(event) {}
 
 				// F will be deduced by the compiler
-				template<typename T, typename F>
+				template<typename TFunctionSigniture, typename F>
 				bool Dispatch(const F& func)
 				{
-					if (event.GetEventType() == T::GetStaticType())
+					if (event.GetEventType() == TFunctionSigniture::GetStaticType())
 					{
-						event.handled = func(static_cast<T&>(event));
+						event.handled = func(static_cast<TFunctionSigniture&>(event));
 						return true;
 					}
 					return false;

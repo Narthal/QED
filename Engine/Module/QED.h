@@ -20,5 +20,8 @@
 #include "../Event/ApplicationEvent.h"
 #include "../UI/ImGuiLayer.h"
 
+// Module interfaces
+#include "ModuleInterface.h"
+
 
 #endif // !QED_H

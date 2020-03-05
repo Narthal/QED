@@ -3,7 +3,7 @@
 
 
 
-
+#include "../Module/Kernel.h"
 
 #include "../Module/QEDApi.h"
 #include "../Window/CoreWindow.h"
@@ -20,11 +20,11 @@ namespace QED
 		{
 			namespace Application
 			{
-				class QED_API Application
+				class QED_ENGINE_API Application
 				{
 					protected:
 					// Singleton istance
-					Application() { }
+					Application() { Module::Kernel kernel; }
 
 					public:
 					void Initialize();

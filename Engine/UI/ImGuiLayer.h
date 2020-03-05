@@ -14,7 +14,7 @@ namespace QED
 	{
 		namespace UI
 		{
-			class QED_API ImGuiLayer : public Layer::Layer
+			class QED_ENGINE_API ImGuiLayer : public Layer::Layer
 			{
 			public:
 				ImGuiLayer();

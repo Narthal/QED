@@ -1,6 +1,8 @@
 #ifndef MODULE_INTERFACE_H
 #define MODULE_INTERFACE_H
 
+#include "../QEDApi.h"
+
 namespace QED
 {
 	namespace Engine
@@ -9,15 +11,15 @@ namespace QED
 		{
 			namespace Interfaces
 			{
-				class ModuleInterface
+				QED_ENGINE_API class ModuleInterface
 				{
 					public:
 					// Releases resources of a module
-					virtual ~ModuleInterface() = 0;
+					virtual ~ModuleInterface() {};
 
 					public:
 					// Gets the name of the module
-					virtual const char* GetName() const = 0;
+					virtual const std::string& GetName() const = 0;
 
 				};
 			}
