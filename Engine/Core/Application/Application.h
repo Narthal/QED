@@ -67,6 +67,7 @@ namespace QED
 					Window::CoreWindow* window = nullptr;
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
+					Module::Kernel* kernel = nullptr;
 				};
 			}
 		}

@@ -13,15 +13,21 @@ namespace QED
 		{
 			class Kernel
 			{
-	
+				Module* mod = nullptr;
+
 				public:
 				Kernel()
 				{
-					Module* mod = new Module("C:\\Users\\balas\\source\\GitHubRepos\\QED\\Build\\Sandbox\\Debug-windows-x86_64\\Sandbox");
-					mod->interfaces[0]->Initialize();
+					mod = new Module("C:\\Users\\balas\\source\\GitHubRepos\\QED\\Build\\Sandbox\\Debug-windows-x86_64\\Sandbox");
 					std::string name = mod->interfaces[0]->GetName();
 					std::cout << "Module name : " << mod->moduleName << std::endl;
 					std::cout << "Module interface name : " << name << std::endl;
+				}
+
+				public:
+				~Kernel()
+				{
+					delete mod;
 				}
 			};
 		}

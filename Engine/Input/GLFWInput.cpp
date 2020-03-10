@@ -2,10 +2,11 @@
 #include "GLFWInput.h"
 
 
+// NOTE: define windows before GLFW to avoid macro redefinition warnings
+// TODO: move windows.h to PCH
+#include <windows.h>
 
-
-
-
+// GLFW
 #include "GLFW/glfw3.h"
 
 

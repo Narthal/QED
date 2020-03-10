@@ -15,11 +15,17 @@ class SandboxLayer : public Layer::Layer
 {
 	public:
 	// Construtor
-	SandboxLayer() : Layer::Layer("SandboxLayer", true) {}
+	SandboxLayer() : Layer::Layer("SandboxLayer", true)
+	{
+		std::cout << "Sandbox layer ctor" << std::endl;
+	}
 
 	public:
 	// Override inherited pure virtual destructor
-	virtual ~SandboxLayer() override = default;
+	virtual ~SandboxLayer() override
+	{
+		std::cout << "Sandbox layer dtor" << std::endl;
+	};
 
 	public:
 	// Get name for module interface

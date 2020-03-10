@@ -2,6 +2,9 @@
 #include "GLFWWindow.h"
 
 
+// GLFW
+#include "GLFW/glfw3.h"
+
 #include "../Core/Log/Log.h"
 #include "../Event/Event.h"
 #include "../Event/WindowEvent.h"

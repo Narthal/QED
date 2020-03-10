@@ -43,7 +43,7 @@ namespace QED
 
 				LOG << "init";
 
-				Module::Kernel kernel;
+				kernel = new Module::Kernel;
 			}
 
 			void Application::Application::OnEvent(Event::Event& event)
@@ -105,7 +105,17 @@ namespace QED
 
 			bool Application::Application::OnWindowClose(Event::WindowCloseEvent& event)
 			{
+				// Set running flag to false (closing main loop)
 				isRunning = false;
+
+				// Clear layers
+				layerStack.~LayerStack();
+
+				// Unload modules (thus destructing all interface instances contained)
+				delete kernel;
+
+
+
 				return true;
 			}
 		}

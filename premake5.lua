@@ -166,12 +166,13 @@ group(automationDir .. "/" .. dependecyProjects)
 		location(GLADBuildAutomationLocation)
 		kind "StaticLib"
 		language "C++"
+		staticruntime "off"
 
 		targetdir(GLADBuildDir)
 		objdir(GLADObjDir)
 		
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "off"
 		systemversion "latest"
 
 		targetname("glad")
@@ -187,17 +188,29 @@ group(automationDir .. "/" .. dependecyProjects)
 			GLADInclude
 		}
 
+		filter "configurations:Debug"
+			symbols "On"
+			runtime "Debug"
+
+		filter "configurations:Release"
+			optimize "On"
+			runtime "Release"
+
+		filter "configurations:Distribution"
+			optimize "On"
+
 	project (ImGuiBuildAutomation)
 
 		location(ImGuiBuildAutomationLocation)
 		kind "StaticLib"
 		language "C++"
+		staticruntime "off"
 
 		targetdir(ImGuiBuildDir)
 		objdir(ImGuiObjDir)
 
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "off"
 		systemversion "latest"
 
 		targetname("imgui")
@@ -219,6 +232,17 @@ group(automationDir .. "/" .. dependecyProjects)
 			"IMGUI_API=__declspec(dllexport)"
 		}
 
+		filter "configurations:Debug"
+			symbols "On"
+			runtime "Debug"
+
+		filter "configurations:Release"
+			optimize "On"
+			runtime "Release"
+
+		filter "configurations:Distribution"
+			optimize "On"
+
 
 group ""
 
@@ -232,7 +256,7 @@ project(engineProjectName)
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 	systemversion "latest"
 
 	targetdir(buildDir .. engineProjectName.. "/" .. outputDir)
@@ -316,7 +340,7 @@ project(sandboxProjectName)
 	kind "SharedLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 	systemversion "latest"
 
 	targetdir(buildDir .. sandboxProjectName .. "/" .. outputDir)

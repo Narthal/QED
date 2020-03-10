@@ -99,7 +99,7 @@
     <ClInclude Include="Module\QEDApi.h">
       <Filter>Module</Filter>
     </ClInclude>
-    <ClInclude Include="PCH\EnginePCH.h">
+    <ClInclude Include="PCH\enginePCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
     <ClInclude Include="SQLite\Database.h">

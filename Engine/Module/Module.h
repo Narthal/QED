@@ -7,17 +7,14 @@
 #error "Didnt implement linux loader"
 #endif
 
+#include "Interfaces/ModuleInterface.h"
+
 namespace QED
 {
 	namespace Engine
 	{
 		namespace Module
 		{
-			namespace Interfaces
-			{
-				class ModuleInterface;
-			}
-
 			class Module
 			{
 				public:
@@ -49,6 +46,10 @@ namespace QED
 					func(*this);
 				}
 
+				public:
+				// Destructor for module
+				~Module();
+
 
 				private:
 				// Loads the DLL from the specified path
@@ -67,9 +68,9 @@ namespace QED
 
 				public:
 				// Unloads the DLL with the specified handle
-				void Unload(HandleType sharedLibraryHandle)
+				void Unload()
 				{
-					BOOL result = FreeLibrary(sharedLibraryHandle);
+					BOOL result = FreeLibrary(handle);
 					if (result == FALSE)
 					{
 						throw std::runtime_error("Could not unload DLL");
