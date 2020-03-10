@@ -29,6 +29,6 @@
 - [ ] Complete migration from premake to BT
 - [ ] Make file generator for linux builds
 - [ ] ?Premake fallback/generator?
-
+- [ ] cmake wrapper project (command line settings generator)
 
 
