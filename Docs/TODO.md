@@ -3,6 +3,8 @@
 ## General
 - [x] finish imgui docking
 - [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
+- [ ] create os specific PCH
+- [ ] create PCH for each project
 
 ## Engine
 - [ ] Basic renderer implementation
