@@ -5,6 +5,7 @@
 - [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
 - [ ] create os specific PCH
 - [ ] create PCH for each project
+- [ ] merge coreWindow and glfwWindow, remove support for multiple window creation
 
 ## Engine
 - [ ] Basic renderer implementation
