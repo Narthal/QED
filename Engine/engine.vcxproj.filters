@@ -114,6 +114,8 @@
     <ClInclude Include="Window\GLFWWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="Renderer\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Renderer\Context.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -173,6 +175,7 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

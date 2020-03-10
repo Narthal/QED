@@ -1,7 +1,11 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
+// Events
 #include "../Event/Event.h"
+
+// Renderer
+#include "../Renderer/Context.h"
 
 namespace QED
 {
@@ -41,7 +45,7 @@ namespace QED
 
 				virtual ~CoreWindow() {};
 
-				virtual void Update() = 0;
+				virtual void OnUpdate() = 0;
 
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) = 0;
 
@@ -53,6 +57,7 @@ namespace QED
 			protected:
 				// Basic data
 				WindowData windowData;
+				Renderer::Context* context;
 
 				// Window implementation
 				void* windowHandle = nullptr;

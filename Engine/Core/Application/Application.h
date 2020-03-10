@@ -61,8 +61,6 @@ namespace QED
 
 
 					private:
-					//static Application* instance;
-
 					bool isRunning = false;
 					Window::CoreWindow* window = nullptr;
 					Layer::LayerStack layerStack;

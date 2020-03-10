@@ -8,8 +8,6 @@
 
 
 
-
-
 namespace QED
 {
 	namespace Engine
@@ -23,7 +21,7 @@ namespace QED
 
 				virtual ~GLFWWindow() override;
 
-				virtual void Update() override;
+				virtual void OnUpdate() override;
 
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) override;
 

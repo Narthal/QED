@@ -17,7 +17,7 @@ class SandboxLayer : public Layer::Layer
 	// Construtor
 	SandboxLayer() : Layer::Layer("SandboxLayer", true)
 	{
-		std::cout << "Sandbox layer ctor" << std::endl;
+		LOG << "Sandbox layer ctor";
 	}
 
 	public:

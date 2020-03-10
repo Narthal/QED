@@ -5,14 +5,22 @@
 // GLFW
 #include "GLFW/glfw3.h"
 
+
+
+// Renderer
+#include "../Renderer/OpenGL/OpenGLContext.h"
+
+// Engine utils
 #include "../Core/Log/Log.h"
+
+// Events
 #include "../Event/Event.h"
 #include "../Event/WindowEvent.h"
 #include "../Event/KeyEvent.h"
 #include "../Event/MouseEvent.h"
 
 
-#include "glad/glad.h"
+
 
 namespace QED
 {
@@ -22,16 +30,22 @@ namespace QED
 		{
 			GLFWWindow::GLFWWindow()
 			{
-				glfwInit();
-				// TODO: assert GLFW init
+				// Initialize GLFW
+				bool success = glfwInit();
+				if (!success)
+				{
+					// TODO: assert GLFW init
+					//glfwSetErrorCallback()
+				}
 
+				// Create window
 				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
 				glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
 				
-				// GLAD
-				int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-				// TODO: assert status
+				// Create context
+				context = new Renderer::OpenGL::OpenGLContext((GLFWwindow*)windowHandle);
+				context->Init();
 
 				#pragma region SetGLFWCallbacks
 
@@ -145,10 +159,10 @@ namespace QED
 				LOG << "GLFW window is closing";
 			}
 
-			void GLFWWindow::Update()
+			void GLFWWindow::OnUpdate()
 			{
-				glfwSwapBuffers((GLFWwindow*)windowHandle);
 				glfwPollEvents();
+				context->SwapBuffers();
 			}
 
 			void GLFWWindow::SetEventCallback(std::function<void(Event::Event&)> callback)

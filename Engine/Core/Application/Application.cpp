@@ -71,6 +71,7 @@ namespace QED
 			{
 				while (isRunning)
 				{
+					// Clear
 					glClearColor(0, 0, 0, 1);
 					glClear(GL_COLOR_BUFFER_BIT);
 
@@ -89,7 +90,7 @@ namespace QED
 					UILayer->End();
 
 					// Window update tick
-					window->Update();
+					window->OnUpdate();
 				};
 			}
 
