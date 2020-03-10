@@ -6,6 +6,7 @@
 - [ ] create os specific PCH
 - [ ] create PCH for each project
 - [ ] merge coreWindow and glfwWindow, remove support for multiple window creation
+- [ ] remove external tools unneccessary docs & files
 
 ## Engine
 - [ ] Basic renderer implementation
