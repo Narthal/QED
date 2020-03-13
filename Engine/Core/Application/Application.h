@@ -24,7 +24,7 @@ namespace QED
 				{
 					protected:
 					// Singleton istance
-					Application() {  }
+					Application() {}
 
 					public:
 					void Initialize();
@@ -66,6 +66,10 @@ namespace QED
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
+
+					unsigned int vertexArrayID;
+					unsigned int vertexBufferID;
+					unsigned int indexBufferID;
 				};
 			}
 		}

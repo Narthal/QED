@@ -7,6 +7,8 @@
 // GLAD
 #include "glad/glad.h"
 
+#include "../Core/Log/Log.h"
+
 namespace QED
 {
 	namespace Engine
@@ -28,6 +30,17 @@ namespace QED
 					// GLAD
 					int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 					// TODO: assert status
+
+					// Log OpenGL vendor
+					LOG << Core::Log::Severity::Info << "OpenGL vendor : " << glGetString(GL_VENDOR);
+
+					// Log OpenGL renderer
+					LOG << Core::Log::Severity::Info << "OpenGL renderer : " << glGetString(GL_RENDERER);
+
+					// Log OpenGL version
+					LOG << Core::Log::Severity::Info << "OpenGL version : " << glGetString(GL_VERSION);
+
+
 				}
 
 				void OpenGLContext::SwapBuffers()

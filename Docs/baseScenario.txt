@@ -1,0 +1,15 @@
+[TUTORIAL SCENARIO]
+- no signal
+- viewport and log is visible
+- LOG:SURVIVOR
+	Hey! Can you read me?
+	*fire and shooting sounds in the background*
+	Hmm.. let me see if I can hook you up to a camera
+	*New device appears in log*
+- LOG:SURVIVOR
+	Please tell me if you see me.
+	*multiple choice*
+	
+- tutorial arrows show how to open node editor
+- tutorial for hooking up camera to viewport 1
+

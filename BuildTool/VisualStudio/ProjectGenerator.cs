@@ -132,7 +132,7 @@ namespace QED
                 private void WriteGlobals(XmlWriter writer, Core.Project project)
                 {
                     // Start itemgroup
-                    writer.WriteStartElement("ItemGroup");
+                    writer.WriteStartElement("PropertyGroup");
                     writer.WriteAttributeString("Label", "Globals");
 
                     writer.WriteElementString("ProjectGuid", GUID.GetGUID());
