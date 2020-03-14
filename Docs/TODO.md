@@ -10,6 +10,8 @@
 - [x] index buffer abstraction
 - [x] shader abstraction
 - [ ] vertex buffer layout abstraction
+- [ ] maintenance : unify accessors
+- [ ] maintenace : delete / create constructors
 
 ## Engine
 - [ ] Basic renderer implementation
