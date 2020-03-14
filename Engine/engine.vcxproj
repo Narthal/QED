@@ -174,6 +174,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="PCH\enginePCH.h" />
     <ClInclude Include="Renderer\Context.h" />
     <ClInclude Include="Renderer\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Renderer\Shader.h" />
     <ClInclude Include="SQLite\Database.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
@@ -199,6 +200,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Renderer\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Renderer\Shader.cpp" />
     <ClCompile Include="UI\ImGuiBuild.cpp" />
     <ClCompile Include="UI\ImGuiLayer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />

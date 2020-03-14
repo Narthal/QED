@@ -116,6 +116,7 @@
     </ClInclude>
     <ClInclude Include="Renderer\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Renderer\Context.h" />
+    <ClInclude Include="Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -176,6 +177,7 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="Renderer\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Renderer\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

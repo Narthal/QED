@@ -12,6 +12,8 @@
 #include "../Layer/LayerStack.h"
 #include "../UI/ImGuiLayer.h"
 
+#include "../Renderer/Shader.h"
+
 namespace QED
 {
 	namespace Engine
@@ -70,6 +72,7 @@ namespace QED
 					unsigned int vertexArrayID;
 					unsigned int vertexBufferID;
 					unsigned int indexBufferID;
+					std::unique_ptr<Renderer::Shader> shader;
 				};
 			}
 		}
