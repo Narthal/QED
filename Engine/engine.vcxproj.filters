@@ -87,6 +87,9 @@
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\OpenGL\OpenGLShader.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
@@ -177,6 +180,9 @@
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp">

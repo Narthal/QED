@@ -104,8 +104,7 @@ namespace QED
 					}
 				)";
 
-
-				shader = std::make_unique<Graphics::Shader>(vertexSource, fragmentSource);
+				shader.reset(Graphics::Shader::Create(vertexSource, fragmentSource));
 			}
 
 			void Application::Application::OnEvent(Event::Event& event)

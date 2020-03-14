@@ -12,19 +12,16 @@ namespace QED
 			class Shader
 			{
 				public:
-				Shader(const std::string& vertexSource, const std::string& fragmentSource);
-				
-				public:
-				~Shader();
+				virtual ~Shader() {}
 
 				public:
-				void Bind() const;
-				
+				virtual void Bind() const = 0;
+
 				public:
-				void Unbind() const;
-			
-				private:
-				unsigned int rendererID;
+				virtual void Unbind() const = 0;
+
+				public:
+				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);
 			};
 		}
 	}

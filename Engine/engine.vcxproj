@@ -165,6 +165,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\Shader.h" />
@@ -197,6 +198,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\IndexBuffer.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\Shader.cpp" />
