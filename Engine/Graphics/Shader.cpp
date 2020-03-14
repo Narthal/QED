@@ -11,7 +11,7 @@ namespace QED
 {
 	namespace Engine
 	{
-		namespace Renderer
+		namespace Graphics
 		{
 			Shader::Shader(const std::string& vertexSource, const std::string& fragmentSource)
 			{

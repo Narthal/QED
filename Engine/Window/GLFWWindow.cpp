@@ -8,7 +8,7 @@
 
 
 // Renderer
-#include "../Renderer/OpenGL/OpenGLContext.h"
+#include "../Graphics/OpenGL/OpenGLContext.h"
 
 // Engine utils
 #include "../Core/Log/Log.h"
@@ -44,7 +44,7 @@ namespace QED
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
 				
 				// Create context
-				context = new Renderer::OpenGL::OpenGLContext((GLFWwindow*)windowHandle);
+				context = new Graphics::OpenGL::OpenGLContext((GLFWwindow*)windowHandle);
 				context->Init();
 
 				#pragma region SetGLFWCallbacks

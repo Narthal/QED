@@ -5,7 +5,7 @@
 #include "../Event/Event.h"
 
 // Renderer
-#include "../Renderer/Context.h"
+#include "../Graphics/Context.h"
 
 namespace QED
 {
@@ -57,7 +57,7 @@ namespace QED
 			protected:
 				// Basic data
 				WindowData windowData;
-				Renderer::Context* context;
+				Graphics::Context* context;
 
 				// Window implementation
 				void* windowHandle = nullptr;

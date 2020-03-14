@@ -13,7 +13,7 @@ namespace QED
 {
 	namespace Engine
 	{
-		namespace Renderer
+		namespace Graphics
 		{
 			namespace OpenGL
 			{

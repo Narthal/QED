@@ -12,7 +12,10 @@
 #include "../Layer/LayerStack.h"
 #include "../UI/ImGuiLayer.h"
 
-#include "../Renderer/Shader.h"
+// Renderer
+#include "../Graphics/VertexBuffer.h"
+#include "../Graphics/IndexBuffer.h"
+#include "../Graphics/Shader.h"
 
 namespace QED
 {
@@ -70,9 +73,9 @@ namespace QED
 					Module::Kernel* kernel = nullptr;
 
 					unsigned int vertexArrayID;
-					unsigned int vertexBufferID;
-					unsigned int indexBufferID;
-					std::unique_ptr<Renderer::Shader> shader;
+					std::unique_ptr<Graphics::VertexBuffer> vertexBuffer;
+					std::unique_ptr<Graphics::IndexBuffer> indexBuffer;
+					std::unique_ptr<Graphics::Shader> shader;
 				};
 			}
 		}

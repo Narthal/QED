@@ -161,6 +161,14 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Event\KeyEvent.h" />
     <ClInclude Include="Event\MouseEvent.h" />
     <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="Graphics\Context.h" />
+    <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
+    <ClInclude Include="Graphics\Renderer.h" />
+    <ClInclude Include="Graphics\Shader.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
     <ClInclude Include="Input\CoreInput.h" />
     <ClInclude Include="Input\GLFWInput.h" />
     <ClInclude Include="Input\Keycodes.h" />
@@ -172,9 +180,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Module\QED.h" />
     <ClInclude Include="Module\QEDApi.h" />
     <ClInclude Include="PCH\enginePCH.h" />
-    <ClInclude Include="Renderer\Context.h" />
-    <ClInclude Include="Renderer\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="Renderer\Shader.h" />
     <ClInclude Include="SQLite\Database.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
@@ -189,6 +194,13 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Event\KeyEvent.cpp" />
     <ClCompile Include="Event\MouseEvent.cpp" />
     <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Graphics\IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\VertexBuffer.cpp" />
     <ClCompile Include="Input\CoreInput.cpp" />
     <ClCompile Include="Input\GLFWInput.cpp" />
     <ClCompile Include="Layer\Layer.cpp" />
@@ -199,8 +211,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Renderer\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="Renderer\Shader.cpp" />
     <ClCompile Include="UI\ImGuiBuild.cpp" />
     <ClCompile Include="UI\ImGuiLayer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
