@@ -3,10 +3,15 @@
 ## General
 - [x] finish imgui docking
 - [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
-- [ ] create os specific PCH
-- [ ] create PCH for each project
+- [ ] remove visual studio region pch include
 - [ ] merge coreWindow and glfwWindow, remove support for multiple window creation
 - [ ] remove external tools unneccessary docs & files
+- [x] vertex buffer abstraction
+- [x] index buffer abstraction
+- [x] shader abstraction
+- [ ] vertex buffer layout abstraction
+- [ ] maintenance : unify accessors
+- [ ] maintenace : delete / create constructors
 
 ## Engine
 - [ ] Basic renderer implementation
