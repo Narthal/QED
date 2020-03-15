@@ -161,6 +161,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Event\KeyEvent.h" />
     <ClInclude Include="Event\MouseEvent.h" />
     <ClInclude Include="Event\WindowEvent.h" />
+    <ClInclude Include="Graphics\BufferLayout.h" />
     <ClInclude Include="Graphics\Context.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
@@ -195,6 +196,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Event\KeyEvent.cpp" />
     <ClCompile Include="Event\MouseEvent.cpp" />
     <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Graphics\BufferLayout.cpp" />
     <ClCompile Include="Graphics\IndexBuffer.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />

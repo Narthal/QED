@@ -20,13 +20,22 @@ namespace QED
 					virtual ~OpenGLVertexBuffer();
 
 					public:
-					virtual void Bind() const;
+					virtual void Bind() const override;
 
 					public:
-					virtual void Unbind() const;
+					virtual void Unbind() const override;
 
 					private:
 					unsigned int rendererID;
+
+					public:
+					inline virtual void SetLayout(const BufferLayout& layout) override { this->layout = layout; };
+
+					public:
+					inline virtual const BufferLayout& GetLayout() const override { return layout; };
+
+					private:
+					BufferLayout layout;
 				};
 			}
 		}
