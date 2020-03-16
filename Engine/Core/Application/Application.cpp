@@ -211,9 +211,6 @@ namespace QED
 					vertexArray->Bind();
 					glDrawElements(GL_TRIANGLES, squareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
-					// Window update tick
-					window->OnUpdate();
-
 					// OnUpdate loop
 					for (Layer::Layer* layer : layerStack)
 					{
@@ -227,6 +224,9 @@ namespace QED
 						layer->OnUIRender();
 					}
 					UILayer->End();
+
+					// Window update tick
+					window->OnUpdate();
 				};
 			}
 
