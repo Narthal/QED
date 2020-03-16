@@ -55,6 +55,11 @@ namespace QED
 					glCreateVertexArrays(1, &rendererID);
 				}
 
+				OpenGLVertexArray::~OpenGLVertexArray()
+				{
+					glDeleteVertexArrays(1, &rendererID);
+				}
+
 				void OpenGLVertexArray::Bind() const
 				{
 					glBindVertexArray(rendererID);

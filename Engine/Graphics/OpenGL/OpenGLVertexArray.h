@@ -17,7 +17,7 @@ namespace QED
 					OpenGLVertexArray();
 
 					public:
-					~OpenGLVertexArray() {}
+					~OpenGLVertexArray();
 
 					public:
 					virtual void Bind() const override;
@@ -30,6 +30,12 @@ namespace QED
 
 					public:
 					virtual void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) override;
+
+					public:
+					inline virtual const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
+
+					public:
+					inline virtual const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
 					private:
 					uint32_t rendererID;

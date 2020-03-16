@@ -73,10 +73,11 @@ namespace QED
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
 
-					std::shared_ptr<Graphics::VertexArray> vertexArray;
-					std::shared_ptr<Graphics::VertexBuffer> vertexBuffer;
-					std::shared_ptr<Graphics::IndexBuffer> indexBuffer;
+					std::shared_ptr<Graphics::VertexArray> vertexArray; 
 					std::shared_ptr<Graphics::Shader> shader;
+
+					std::shared_ptr<Graphics::VertexArray> squareVA;
+					std::shared_ptr<Graphics::Shader> squareShader;
 				};
 			}
 		}

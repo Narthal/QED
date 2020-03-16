@@ -63,6 +63,8 @@ namespace QED
 					 0.5f, -0.5f,  0.0f,	0.0f, 1.0f,  1.0f, 1.0f,
 					 0.0f,  0.5f,  0.0f,	1.0f, 1.0f,  0.0f, 1.0f,
 				};
+
+				std::shared_ptr<Graphics::VertexBuffer> vertexBuffer;
 				vertexBuffer.reset(Graphics::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 				{
@@ -78,9 +80,63 @@ namespace QED
 				vertexArray->AddVertexBuffer(vertexBuffer);
 
 				unsigned int indices[3] = { 0, 1, 2 };
+				std::shared_ptr<Graphics::IndexBuffer> indexBuffer;
 				indexBuffer.reset(Graphics::IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
 				vertexArray->SetIndexBuffer(indexBuffer);
 
+				// square
+				squareVA.reset(Graphics::VertexArray::Create());
+				float squareVertices[3 * 4] =
+				{
+					-0.5f, -0.5f,  0.0f,
+					 0.5f, -0.5f,  0.0f,
+					 0.5f,  0.5f,  0.0f,
+					-0.5f,  0.5f,  0.0f,
+				};
+				
+				std::shared_ptr<Graphics::VertexBuffer> squareVB;
+				squareVB.reset(Graphics::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+				squareVB->SetLayout
+				({
+					{ Graphics::ShaderDataType::Float3, "aPosition" },
+				});
+				squareVA->AddVertexBuffer(squareVB);
+
+				unsigned int squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+				std::shared_ptr<Graphics::IndexBuffer> squareIB;
+				squareIB.reset(Graphics::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+				squareVA->SetIndexBuffer(squareIB);
+
+
+				std::string squareVertexSource =
+					R"(
+					#version 330 core
+					
+					layout(location = 0) in vec3 aPosition;
+
+					out vec3 vPosition;
+
+					void main()
+					{
+						vPosition = aPosition;
+
+						gl_Position = vec4(aPosition, 1.0);
+					}
+				)";
+
+				std::string squareFragmentSource =
+					R"(
+					#version 330 core
+					
+					layout(location = 0) out vec4 color;
+
+					in vec3 vPosition;
+
+					void main()
+					{
+						color = vec4((vPosition + 1) / 2, 1.0);
+					}
+				)";
 
 				std::string vertexSource =
 				R"(
@@ -118,6 +174,7 @@ namespace QED
 				)";
 
 				shader.reset(Graphics::Shader::Create(vertexSource, fragmentSource));
+				squareShader.reset(Graphics::Shader::Create(squareVertexSource, squareFragmentSource));
 			}
 
 			void Application::Application::OnEvent(Event::Event& event)
@@ -149,9 +206,13 @@ namespace QED
 					glClear(GL_COLOR_BUFFER_BIT);
 
 					// Test
+					squareShader->Bind();
+					squareVA->Bind();
+					glDrawElements(GL_TRIANGLES, squareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+
 					shader->Bind();
 					vertexArray->Bind();
-					glDrawElements(GL_TRIANGLES, indexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+					glDrawElements(GL_TRIANGLES, squareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 					// OnUpdate loop
 					for (Layer::Layer* layer : layerStack)

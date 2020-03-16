@@ -28,6 +28,12 @@ namespace QED
 				virtual void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) = 0;
 
 				public:
+				virtual const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const = 0;
+
+				public:
+				virtual const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const = 0;
+
+				public:
 				static VertexArray* Create();
 			};
 		}
