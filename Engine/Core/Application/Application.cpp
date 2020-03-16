@@ -33,44 +33,6 @@ namespace QED
 	{
 		namespace Core
 		{
-			static GLenum ShdaerDataTypeToOpenGL(Graphics::ShaderDataType shaderDataType)
-			{
-				switch (shaderDataType)
-				{
-					// NONE
-					case QED::Engine::Graphics::ShaderDataType::NONE:
-					// TODO: crash here
-					break;
-
-					// Floats
-					case QED::Engine::Graphics::ShaderDataType::Float:		return GL_FLOAT;
-					case QED::Engine::Graphics::ShaderDataType::Float2:		return GL_FLOAT;
-					case QED::Engine::Graphics::ShaderDataType::Float3:		return GL_FLOAT;
-					case QED::Engine::Graphics::ShaderDataType::Float4:		return GL_FLOAT;
-
-					// Matrices
-					case QED::Engine::Graphics::ShaderDataType::Mat3:		return GL_FLOAT;
-					case QED::Engine::Graphics::ShaderDataType::Mat4:		return GL_FLOAT;
-
-					// Integers
-					case QED::Engine::Graphics::ShaderDataType::Int:		return GL_INT;
-					case QED::Engine::Graphics::ShaderDataType::Int2:		return GL_INT;
-					case QED::Engine::Graphics::ShaderDataType::Int3:		return GL_INT;
-					case QED::Engine::Graphics::ShaderDataType::Int4:		return GL_INT;
-
-					// Boolean
-					case QED::Engine::Graphics::ShaderDataType::Bool:		return GL_BOOL;
-
-					// Default
-					default:
-					// TODO: crash here
-					break;
-				}
-
-				// TODO: crash here
-				return -1;
-			}
-
 			void Application::Application::Initialize()
 			{
 				// Set up main loop variable
@@ -93,10 +55,7 @@ namespace QED
 
 
 				// Test
-				glGenVertexArrays(1, &vertexArrayID);
-				glBindVertexArray(vertexArrayID);
-
-
+				vertexArray.reset(Graphics::VertexArray::Create());
 
 				float vertices[3 * (3 + 4)] =
 				{
@@ -116,27 +75,11 @@ namespace QED
 					vertexBuffer->SetLayout(layout);
 				}
 
-				uint32_t index = 0;
-				for (const auto& element : vertexBuffer->GetLayout())
-				{
-					glEnableVertexAttribArray(index);
-					glVertexAttribPointer
-					(
-						index,
-						element.GetComponentCount(),
-						ShdaerDataTypeToOpenGL(element.shaderDataType),
-						element.normalized ? GL_TRUE : GL_FALSE,
-						vertexBuffer->GetLayout().GetStride(),
-						(const void*)element.offset
-					);
-					index++;
-				}
-
-
+				vertexArray->AddVertexBuffer(vertexBuffer);
 
 				unsigned int indices[3] = { 0, 1, 2 };
 				indexBuffer.reset(Graphics::IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
-
+				vertexArray->SetIndexBuffer(indexBuffer);
 
 
 				std::string vertexSource =
@@ -207,7 +150,7 @@ namespace QED
 
 					// Test
 					shader->Bind();
-					glBindVertexArray(vertexArrayID);
+					vertexArray->Bind();
 					glDrawElements(GL_TRIANGLES, indexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 					// OnUpdate loop
@@ -249,12 +192,6 @@ namespace QED
 
 				// Unload modules (thus destructing all interface instances contained)
 				delete kernel;
-
-				// Test
-				// TODO: remove
-				shader.release();
-				vertexBuffer.release();
-				indexBuffer.release();
 
 				return true;
 			}

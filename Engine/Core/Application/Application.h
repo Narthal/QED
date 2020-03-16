@@ -13,6 +13,7 @@
 #include "../UI/ImGuiLayer.h"
 
 // Renderer
+#include "../Graphics/VertexArray.h"
 #include "../Graphics/VertexBuffer.h"
 #include "../Graphics/IndexBuffer.h"
 #include "../Graphics/Shader.h"
@@ -72,10 +73,10 @@ namespace QED
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
 
-					unsigned int vertexArrayID;
-					std::unique_ptr<Graphics::VertexBuffer> vertexBuffer;
-					std::unique_ptr<Graphics::IndexBuffer> indexBuffer;
-					std::unique_ptr<Graphics::Shader> shader;
+					std::shared_ptr<Graphics::VertexArray> vertexArray;
+					std::shared_ptr<Graphics::VertexBuffer> vertexBuffer;
+					std::shared_ptr<Graphics::IndexBuffer> indexBuffer;
+					std::shared_ptr<Graphics::Shader> shader;
 				};
 			}
 		}
