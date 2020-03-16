@@ -30,7 +30,7 @@ namespace QED
 				{
 					protected:
 					// Singleton istance
-					Application() {}
+					Application() { }
 
 					public:
 					void Initialize();
@@ -61,14 +61,14 @@ namespace QED
 					void PushLayer(Layer::Layer* layer);
 					void PushOverlay(Layer::Layer* overlay);
 
-					inline Window::CoreWindow* GetWindow() { return window; }
+					inline Window::CoreWindow* GetWindow() { return window.get(); }
 
 					bool OnWindowClose(Event::WindowCloseEvent& event);
 
 
 					private:
 					bool isRunning = false;
-					Window::CoreWindow* window = nullptr;
+					std::shared_ptr<Window::CoreWindow> window = nullptr;
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;

@@ -150,6 +150,7 @@
     <ClInclude Include="Graphics\BufferLayout.h" />
     <ClInclude Include="Graphics\VertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="Core\MemoryLeakDetection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">

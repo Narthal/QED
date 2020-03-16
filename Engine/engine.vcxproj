@@ -164,6 +164,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\BufferLayout.h" />
     <ClInclude Include="Graphics\Context.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Core\MemoryLeakDetection.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
