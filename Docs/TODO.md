@@ -9,9 +9,13 @@
 - [x] vertex buffer abstraction
 - [x] index buffer abstraction
 - [x] shader abstraction
-- [ ] vertex buffer layout abstraction
+- [x] vertex buffer layout abstraction
+- [x] vertex array abstraction
 - [ ] maintenance : unify accessors
 - [ ] maintenace : delete / create constructors
+- [ ] utility : abort function
+- [ ] utility : assert function
+- [ ] utility : stack trace (through return macro)
 
 ## Engine
 - [ ] Basic renderer implementation
