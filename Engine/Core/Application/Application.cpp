@@ -1,11 +1,6 @@
 #include "EnginePCH.h"
 #include "Application.h"
 
-// OpenGL
-#include <glad/glad.h>
-
-
-
 // Log
 #include "../Log/Log.h"
 
@@ -20,7 +15,8 @@
 
 // Graphics
 #include "../Graphics/BufferLayout.h"
-
+#include "../Graphics/Renderer.h"
+#include "../Graphics/RenderCommand.h"
 
 
 
@@ -199,17 +195,19 @@ namespace QED
 				while (isRunning)
 				{
 					// Clear
-					glClearColor(0, 0, 0, 1);
-					glClear(GL_COLOR_BUFFER_BIT);
+					Graphics::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1.0f });
+					Graphics::RenderCommand::Clear();
 
 					// Test
+					Graphics::Renderer::BeginScene();
+
 					squareShader->Bind();
-					squareVA->Bind();
-					glDrawElements(GL_TRIANGLES, squareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+					Graphics::Renderer::Submit(squareVA);
 
 					shader->Bind();
-					vertexArray->Bind();
-					glDrawElements(GL_TRIANGLES, squareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+					Graphics::Renderer::Submit(vertexArray);
+					
+					Graphics::Renderer::EndScene();
 
 					// OnUpdate loop
 					for (Layer::Layer* layer : layerStack)

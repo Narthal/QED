@@ -1,25 +1,29 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include "RendererAPI.h"
+#include "VertexArray.h"
+
+
 namespace QED
 {
 	namespace Engine
 	{
 		namespace Graphics
 		{
-			enum class RendererAPI
-			{
-				NONE = 0,
-				OpenGL = 1,
-			};
-
 			class Renderer
 			{
 				public:
-				inline static RendererAPI GetAPI() { return rendererAPI; }
+				static void BeginScene();
 
-				private:
-				static RendererAPI rendererAPI;
+				public:
+				static void EndScene();
+
+				public:
+				static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
+
+				public:
+				inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 			};
 		}
 	}

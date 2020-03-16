@@ -15,12 +15,12 @@ namespace QED
 			{
 				switch (Renderer::GetAPI())
 				{
-					case RendererAPI::NONE:
+					case RendererAPI::API::NONE:
 					// TODO: crash here
 					return nullptr;
 					break;
 
-					case RendererAPI::OpenGL:
+					case RendererAPI::API::OpenGL:
 					return new OpenGL::OpenGLVertexArray();
 					break;
 

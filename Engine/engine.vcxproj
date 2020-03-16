@@ -86,6 +86,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,10 +167,13 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
+    <ClInclude Include="Graphics\RenderCommand.h" />
     <ClInclude Include="Graphics\Renderer.h" />
+    <ClInclude Include="Graphics\RendererAPI.h" />
     <ClInclude Include="Graphics\Shader.h" />
     <ClInclude Include="Graphics\VertexArray.h" />
     <ClInclude Include="Graphics\VertexBuffer.h" />
@@ -190,7 +194,9 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Window\GLFWWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Application\Application.cpp" />
+    <ClCompile Include="Core\Application\Application.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ShowIncludes>
+    </ClCompile>
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Registry\Registry.cpp" />
     <ClCompile Include="Event\ApplicationEvent.cpp" />
@@ -202,10 +208,13 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\IndexBuffer.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="Graphics\RenderCommand.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\RendererAPI.cpp" />
     <ClCompile Include="Graphics\Shader.cpp" />
     <ClCompile Include="Graphics\VertexArray.cpp" />
     <ClCompile Include="Graphics\VertexBuffer.cpp" />

@@ -150,6 +150,9 @@
     <ClInclude Include="Graphics\BufferLayout.h" />
     <ClInclude Include="Graphics\VertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="Graphics\RendererAPI.h" />
+    <ClInclude Include="Graphics\RenderCommand.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -236,6 +239,9 @@
     <ClCompile Include="Graphics\BufferLayout.cpp" />
     <ClCompile Include="Graphics\VertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="Graphics\RendererAPI.cpp" />
+    <ClCompile Include="Graphics\RenderCommand.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />
