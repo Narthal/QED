@@ -164,7 +164,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\BufferLayout.h" />
     <ClInclude Include="Graphics\Context.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
-    <ClInclude Include="Core\MemoryLeakDetection.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
@@ -220,8 +219,12 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UI\ImGuiBuild.cpp" />
-    <ClCompile Include="UI\ImGuiLayer.cpp" />
+    <ClCompile Include="UI\ImGuiBuild.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UI\ImGuiLayer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -155,6 +155,7 @@ namespace QED
 
 			GLFWWindow::~GLFWWindow()
 			{
+				delete context;
 				glfwDestroyWindow((GLFWwindow*)windowHandle);
 				LOG << "GLFW window is closing";
 			}

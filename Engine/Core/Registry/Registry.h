@@ -1,7 +1,6 @@
 #ifndef REGISTRY_H
 #define REGISTRY_H
 
-
 namespace QED
 {
 	namespace Engine

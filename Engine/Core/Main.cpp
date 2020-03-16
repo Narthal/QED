@@ -1,11 +1,5 @@
 #include "EnginePCH.h"
 
-#define _DEBUG
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-
-#include "MemoryLeakDetection.h"
-
 #include "Application/Application.h"
 
 
@@ -26,8 +20,6 @@ int main(int argc, char argv)
 
 	// Destroy application and all its components on exit
 	app.~Application();
-
-	_CrtMemDumpAllObjectsSince(NULL);
 
 	return 0;
 }

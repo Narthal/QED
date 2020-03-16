@@ -23,9 +23,6 @@
 
 
 
-#include "../MemoryLeakDetection.h"
-
-
 
 namespace QED
 {
