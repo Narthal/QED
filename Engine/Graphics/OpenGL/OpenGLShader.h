@@ -13,19 +13,17 @@ namespace QED
 			{
 				class OpenGLShader : public Shader
 				{
-					public:
+				public:
 					OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource);
-
-					public:
 					virtual ~OpenGLShader();
 
-					public:
-					virtual void Bind() const;
+				public:
+					virtual void Bind() const override;
+					virtual void Unbind() const override;
 
-					public:
-					virtual void Unbind() const;
+					virtual void UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix) override;
 
-					private:
+				private:
 					unsigned int rendererID;
 				};
 			}

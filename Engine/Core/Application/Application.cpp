@@ -107,13 +107,15 @@ namespace QED
 					
 					layout(location = 0) in vec3 aPosition;
 
+					uniform mat4 uViewProjection;
+
 					out vec3 vPosition;
 
 					void main()
 					{
 						vPosition = aPosition;
 
-						gl_Position = vec4(aPosition, 1.0);
+						gl_Position = uViewProjection * vec4(aPosition, 1.0);
 					}
 				)";
 
@@ -138,6 +140,8 @@ namespace QED
 					layout(location = 0) in vec3 aPosition;
 					layout(location = 1) in vec4 aColor;
 
+					uniform mat4 uViewProjection;
+
 					out vec3 vPosition;
 					out vec4 vColor;
 
@@ -146,7 +150,7 @@ namespace QED
 						vPosition = aPosition;
 						vColor = aColor;
 
-						gl_Position = vec4(aPosition, 1.0);
+						gl_Position = uViewProjection * vec4(aPosition, 1.0);
 					}
 				)";
 
@@ -189,7 +193,6 @@ namespace QED
 				LOG << event;
 			}
 
-
 			void Application::Application::RunMainLoop()
 			{
 				while (isRunning)
@@ -198,14 +201,14 @@ namespace QED
 					Graphics::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1.0f });
 					Graphics::RenderCommand::Clear();
 
+					camera.SetPosition({ 0.5f, 0.5f, 0.0f });
+					camera.SetRotation(camera.GetRotation() + 0.1f);
+
 					// Test
-					Graphics::Renderer::BeginScene();
+					Graphics::Renderer::BeginScene(camera);
 
-					squareShader->Bind();
-					Graphics::Renderer::Submit(squareVA);
-
-					shader->Bind();
-					Graphics::Renderer::Submit(vertexArray);
+					Graphics::Renderer::Submit(squareShader, squareVA);
+					Graphics::Renderer::Submit(shader, vertexArray);
 					
 					Graphics::Renderer::EndScene();
 

@@ -3,6 +3,8 @@
 
 #include "RendererAPI.h"
 #include "VertexArray.h"
+#include "OrthographicCamera.h"
+#include "Shader.h"
 
 
 namespace QED
@@ -13,17 +15,20 @@ namespace QED
 		{
 			class Renderer
 			{
-				public:
-				static void BeginScene();
-
-				public:
+			public:
+				static void BeginScene(OrthographicCamera& camera);
 				static void EndScene();
+				static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray);
 
-				public:
-				static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
-
-				public:
+			public:
 				inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
+
+			private:
+				struct SceneData
+				{
+					glm::mat4 viewProjectionMatrix;
+				};
+				static SceneData* sceneData;
 			};
 		}
 	}

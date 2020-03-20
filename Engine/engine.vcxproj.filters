@@ -75,6 +75,9 @@
     <ClInclude Include="Event\WindowEvent.h">
       <Filter>Event</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\BufferLayout.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\Context.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -87,16 +90,34 @@
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\OpenGL\OpenGLRendererAPI.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\OrthographicCamera.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\RenderCommand.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\Renderer.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\RendererAPI.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\Shader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\VertexArray.h">
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\VertexBuffer.h">
@@ -147,12 +168,6 @@
     <ClInclude Include="Window\GLFWWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\BufferLayout.h" />
-    <ClInclude Include="Graphics\VertexArray.h" />
-    <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="Graphics\RendererAPI.h" />
-    <ClInclude Include="Graphics\RenderCommand.h" />
-    <ClInclude Include="Graphics\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -179,6 +194,9 @@
     <ClCompile Include="Event\WindowEvent.cpp">
       <Filter>Event</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\BufferLayout.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\IndexBuffer.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -188,16 +206,31 @@
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\RenderCommand.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\Renderer.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\RendererAPI.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\VertexArray.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\VertexBuffer.cpp">
@@ -236,12 +269,7 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\BufferLayout.cpp" />
-    <ClCompile Include="Graphics\VertexArray.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="Graphics\RendererAPI.cpp" />
-    <ClCompile Include="Graphics\RenderCommand.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="Graphics\OrthographicCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

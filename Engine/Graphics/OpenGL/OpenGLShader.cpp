@@ -4,6 +4,10 @@
 // OpenGL
 #include <glad/glad.h>
 
+// GLM
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 // Log
 #include "../../Core/Log/Log.h"
 
@@ -137,6 +141,13 @@ namespace QED
 				void OpenGLShader::Unbind() const
 				{
 					glUseProgram(0);
+				}
+
+				void OpenGLShader::UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix)
+				{
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					// TODO: assert if location == -1
+					glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 				}
 			}
 		}

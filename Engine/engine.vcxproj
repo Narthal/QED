@@ -86,7 +86,6 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,6 +170,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
+    <ClInclude Include="Graphics\OrthographicCamera.h" />
     <ClInclude Include="Graphics\RenderCommand.h" />
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\RendererAPI.h" />
@@ -194,9 +194,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Window\GLFWWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Application\Application.cpp">
-      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ShowIncludes>
-    </ClCompile>
+    <ClCompile Include="Core\Application\Application.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Registry\Registry.cpp" />
     <ClCompile Include="Event\ApplicationEvent.cpp" />
@@ -212,6 +210,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="Graphics\OrthographicCamera.cpp" />
     <ClCompile Include="Graphics\RenderCommand.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\RendererAPI.cpp" />
@@ -228,12 +227,8 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="PCH\EnginePCH.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UI\ImGuiBuild.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="UI\ImGuiLayer.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="UI\ImGuiBuild.cpp" />
+    <ClCompile Include="UI\ImGuiLayer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
   </ItemGroup>
   <ItemGroup>

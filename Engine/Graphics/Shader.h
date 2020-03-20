@@ -1,7 +1,7 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-
+#include <glm/glm.hpp>
 
 namespace QED
 {
@@ -11,17 +11,15 @@ namespace QED
 		{
 			class Shader
 			{
-				public:
+			public:
+				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);
 				virtual ~Shader() {}
 
-				public:
+			public:
 				virtual void Bind() const = 0;
-
-				public:
 				virtual void Unbind() const = 0;
 
-				public:
-				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);
+				virtual void UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix) = 0;
 			};
 		}
 	}

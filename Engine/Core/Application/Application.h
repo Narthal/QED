@@ -17,6 +17,7 @@
 #include "../Graphics/VertexBuffer.h"
 #include "../Graphics/IndexBuffer.h"
 #include "../Graphics/Shader.h"
+#include "../Graphics/OrthographicCamera.h"
 
 namespace QED
 {
@@ -30,7 +31,7 @@ namespace QED
 				{
 					protected:
 					// Singleton istance
-					Application() { }
+					Application() : camera(-1.6f, 1.6f, -0.9f, 0.9f) { }
 
 					public:
 					void Initialize();
@@ -78,6 +79,8 @@ namespace QED
 
 					std::shared_ptr<Graphics::VertexArray> squareVA;
 					std::shared_ptr<Graphics::Shader> squareShader;
+
+					Graphics::OrthographicCamera camera;
 				};
 			}
 		}
