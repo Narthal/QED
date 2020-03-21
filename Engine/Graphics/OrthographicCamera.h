@@ -1,7 +1,10 @@
 #ifndef ORTHOGRAPHIC_CAMERA_H
 #define ORTHOGRAPHIC_CAMERA_H
 
+// GLM
 #include <glm/glm.hpp>
+
+#include "../Module/QEDApi.h"
 
 namespace QED
 {
@@ -9,7 +12,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class OrthographicCamera
+			class QED_ENGINE_API OrthographicCamera
 			{
 			public: // Ctor
 				OrthographicCamera(float left, float right, float bottom, float top);

@@ -218,6 +218,9 @@
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\OrthographicCamera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\RenderCommand.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -269,7 +272,6 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\OrthographicCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

@@ -25,13 +25,13 @@ namespace QED
 
 			enum class EventCategory
 			{
-				None = 0,
-				Window = BIT(0),
-				Application = BIT(1),
-				Render = BIT(2),
-				Entity = BIT(3),
-				Keyboard = BIT(4),
-				Mouse = BIT(5),
+				None =			0,
+				Window =		BIT(0),
+				Application =	BIT(1),
+				Render =		BIT(2),
+				Entity =		BIT(3),
+				Keyboard =		BIT(4),
+				Mouse =			BIT(5),
 			};
 
 

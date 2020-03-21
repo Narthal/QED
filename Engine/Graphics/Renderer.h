@@ -1,6 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include "../Module/QEDApi.h"
+
 #include "RendererAPI.h"
 #include "VertexArray.h"
 #include "OrthographicCamera.h"
@@ -13,7 +15,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class Renderer
+			class QED_ENGINE_API Renderer
 			{
 			public:
 				static void BeginScene(OrthographicCamera& camera);

@@ -29,58 +29,54 @@ namespace QED
 			{
 				class Application
 				{
-					protected:
+				protected:
 					// Singleton istance
-					Application() : camera(-1.6f, 1.6f, -0.9f, 0.9f) { }
+					Application() {};
 
-					public:
+				public:
+					// Initialization code must be run after ctor and before other methods
 					void Initialize();
 
-					public:
 					// Magic static singleton
 					inline static Application& GetInstance()
 					{
 						static Application instance;
 						return instance;
 					}
+
 					// Default destructor
 					virtual ~Application() = default;
 					
-
-
-
 					// Delete copy and move constructors and assign operators
 					Application(Application const&) = delete;				// Copy construct
 					Application(Application&&) = delete;					// Move construct
 					Application& operator=(Application const&) = delete;	// Copy assign
 					Application& operator=(Application&&) = delete;			// Move assign
 
+					// Event dispatcher
 					void OnEvent(Event::Event& event);
 
+					// Main loop executor
 					void RunMainLoop();
-
+				
+					// Add layer to update stack
 					void PushLayer(Layer::Layer* layer);
+					// Add UI layer to update stack
 					void PushOverlay(Layer::Layer* overlay);
 
+					// Window GET
 					inline Window::CoreWindow* GetWindow() { return window.get(); }
 
+					// Run on event window close
 					bool OnWindowClose(Event::WindowCloseEvent& event);
 
 
-					private:
+				private:
 					bool isRunning = false;
 					std::shared_ptr<Window::CoreWindow> window = nullptr;
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
-
-					std::shared_ptr<Graphics::VertexArray> vertexArray; 
-					std::shared_ptr<Graphics::Shader> shader;
-
-					std::shared_ptr<Graphics::VertexArray> squareVA;
-					std::shared_ptr<Graphics::Shader> squareShader;
-
-					Graphics::OrthographicCamera camera;
 				};
 			}
 		}

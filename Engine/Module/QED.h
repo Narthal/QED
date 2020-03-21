@@ -23,5 +23,20 @@
 // Module interfaces
 #include "ModuleInterface.h"
 
+// UI
+#include "imgui.h"
+#include "ImGuiLayer.h"
+
+// Graphics
+#include "../Graphics/Renderer.h"
+#include "../Graphics/RenderCommand.h"
+
+#include "../Graphics/VertexBuffer.h"
+#include "../Graphics/IndexBuffer.h"
+#include "../Graphics/Shader.h"
+#include "../Graphics/VertexArray.h"
+
+#include "../Graphics/OrthographicCamera.h"
+
 
 #endif // !QED_H

@@ -16,10 +16,11 @@ namespace QED
 
 			class QED_ENGINE_API Layer : public Module::Interfaces::ModuleInterface
 			{
-				public:
+			public:
 				Layer(const char* name = "layer", const bool isUI = false);
 				virtual ~Layer() = 0;
 
+			public:
 				virtual void OnAttach() {}
 				virtual void OnDetach() {}
 				virtual void OnUpdate() {}
@@ -30,10 +31,10 @@ namespace QED
 
 				bool IsUI() { return isUI; }
 
-				protected:
+			protected:
 				bool isUI;
 
-				public:
+			public:
 				virtual void Initialize() override;
 
 			protected:

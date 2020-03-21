@@ -1,6 +1,7 @@
 #ifndef VERTEX_BUFFER_H
 #define VERTEX_BUFFER_H
 
+#include "../Module/QEDApi.h"
 #include "BufferLayout.h"
 
 namespace QED
@@ -9,7 +10,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class VertexBuffer
+			class QED_ENGINE_API VertexBuffer
 			{
 				public:
 				virtual ~VertexBuffer() {}

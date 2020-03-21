@@ -1,6 +1,7 @@
 #ifndef VERTEX_ARRAY_H
 #define VERTEX_ARRAY_H
 
+#include "../Module/QEDApi.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 
@@ -10,7 +11,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class VertexArray
+			class QED_ENGINE_API VertexArray
 			{
 				public:
 				~VertexArray() {}

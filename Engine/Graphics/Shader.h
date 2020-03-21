@@ -1,7 +1,10 @@
 #ifndef SHADER_H
 #define SHADER_H
 
+// GLM
 #include <glm/glm.hpp>
+
+#include "../Module/QEDApi.h"
 
 namespace QED
 {
@@ -9,7 +12,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class Shader
+			class QED_ENGINE_API Shader
 			{
 			public:
 				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);

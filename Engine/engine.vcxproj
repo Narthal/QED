@@ -235,6 +235,9 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <None Include="..\premake5.lua" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sandbox\Sandbox.vcxproj">
+      <Project>{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Automation\BUILD_GLFW\BUILD_GLFW.vcxproj">
       <Project>{C4AA46CC-B062-8819-196A-61750541230A}</Project>
     </ProjectReference>

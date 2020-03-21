@@ -1,13 +1,15 @@
 #ifndef INDEX_BUFFER_H
 #define INDEX_BUFFER_H
 
+#include "../Module/QEDApi.h"
+
 namespace QED
 {
 	namespace Engine
 	{
 		namespace Graphics
 		{
-			class IndexBuffer
+			class QED_ENGINE_API IndexBuffer
 			{
 				public:
 				virtual ~IndexBuffer() {}
