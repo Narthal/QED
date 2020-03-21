@@ -16,6 +16,8 @@
 - [ ] utility : abort function
 - [ ] utility : assert function
 - [ ] utility : stack trace (through return macro)
+- [ ] move : input dir to event
+- [ ] rename : coreinput to input
 
 ## Engine
 - [ ] Basic renderer implementation
