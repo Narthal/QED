@@ -156,6 +156,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Core\Globals.h" />
     <ClInclude Include="Core\Log\Log.h" />
     <ClInclude Include="Core\Registry\Registry.h" />
+    <ClInclude Include="Core\Time\TimeStep.h" />
     <ClInclude Include="Event\ApplicationEvent.h" />
     <ClInclude Include="Event\Event.h" />
     <ClInclude Include="Event\KeyEvent.h" />

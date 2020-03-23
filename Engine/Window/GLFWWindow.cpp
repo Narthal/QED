@@ -42,10 +42,13 @@ namespace QED
 				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
 				glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
-				
+			
+
 				// Create context
 				context = new Graphics::OpenGL::OpenGLContext((GLFWwindow*)windowHandle);
 				context->Init();
+
+
 
 				#pragma region SetGLFWCallbacks
 

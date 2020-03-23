@@ -4,7 +4,7 @@
 #include "../Module/QEDApi.h"
 #include "../Module/Interfaces/ModuleInterface.h"
 #include "../Event/Event.h"
-
+#include "../Core/Time/TimeStep.h"
 
 namespace QED
 {
@@ -23,7 +23,7 @@ namespace QED
 			public:
 				virtual void OnAttach() {}
 				virtual void OnDetach() {}
-				virtual void OnUpdate() {}
+				virtual void OnUpdate(Core::Time::TimeStep timeStep) {}
 				virtual void OnUIRender() {}
 				virtual void OnEvent(Event::Event& event) {}
 

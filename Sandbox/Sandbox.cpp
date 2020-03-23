@@ -154,36 +154,38 @@ namespace QED
 			}
 
 			// Override layer's OnUpdate method
-			virtual void OnUpdate() override
+			virtual void OnUpdate(Engine::Core::Time::TimeStep timeStep) override
 			{
+				LOG << "Delta time : " << timeStep.GetSeconds();
+
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_A))
 				{
-					cameraPos.x -= cameraSpeed;
+					cameraPos.x -= cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_D))
 				{
-					cameraPos.x += cameraSpeed;
+					cameraPos.x += cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_W))
 				{
-					cameraPos.y -= cameraSpeed;
+					cameraPos.y -= cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_S))
 				{
-					cameraPos.y += cameraSpeed;
+					cameraPos.y += cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_Q))
 				{
-					cameraRot -= cameraRotSpeed;
+					cameraRot -= cameraRotSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_E))
 				{
-					cameraRot += cameraRotSpeed;
+					cameraRot += cameraRotSpeed * timeStep;
 				}
 
 				// Clear
@@ -221,9 +223,9 @@ namespace QED
 
 			Engine::Graphics::OrthographicCamera camera;
 			glm::vec3 cameraPos;
-			float cameraSpeed = 0.1f;
+			float cameraSpeed = 5.0f;
 			float cameraRot = 0.0f;
-			float cameraRotSpeed = 2.0f;
+			float cameraRotSpeed = 20.0f;
 		};
 	}
 }

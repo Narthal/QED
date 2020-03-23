@@ -1,11 +1,17 @@
 #include "EnginePCH.h"
 #include "Application.h"
 
+// TODO: move this
+#include <GLFW\glfw3.h>
+
 // Log
 #include "../Log/Log.h"
 
 // Window
 #include "../Window/GLFWWindow.h"
+
+// Time
+#include "../Time/TimeStep.h"
 
 // Events
 #include "../Input/CoreInput.h"
@@ -17,6 +23,7 @@
 #include "../Graphics/BufferLayout.h"
 #include "../Graphics/Renderer.h"
 #include "../Graphics/RenderCommand.h"
+
 
 
 
@@ -70,10 +77,14 @@ namespace QED
 			{
 				while (isRunning)
 				{
+					float time = (float)glfwGetTime();
+					Time::TimeStep timeStep = time - lastFrameTime;
+					lastFrameTime = time;
+
 					// OnUpdate loop
 					for (Layer::Layer* layer : layerStack)
 					{
-						layer->OnUpdate();
+						layer->OnUpdate(timeStep);
 					}
 
 					// OnUIRender loop

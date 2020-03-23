@@ -168,6 +168,7 @@
     <ClInclude Include="Window\GLFWWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Time\TimeStep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">

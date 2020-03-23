@@ -77,6 +77,7 @@ namespace QED
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
+					float lastFrameTime = 0.0f;
 				};
 			}
 		}
