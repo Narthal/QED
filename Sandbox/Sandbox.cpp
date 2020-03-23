@@ -2,6 +2,9 @@
 
 #include "QED.h"
 
+// TODO: move this
+#include <glm\ext\matrix_transform.hpp>
+
 namespace QED
 {
 	namespace Sandbox
@@ -10,7 +13,7 @@ namespace QED
 		{
 		public:
 			// Construtor
-			SandboxLayer() : Engine::Layer::Layer("SandboxLayer", true), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPos(0.0f)
+			SandboxLayer() : Engine::Layer::Layer("SandboxLayer", true), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPos(0.0f), squarePosition(0.0f)
 			{
 				LOG << "Sandbox layer ctor";
 
@@ -75,6 +78,7 @@ namespace QED
 					layout(location = 0) in vec3 aPosition;
 
 					uniform mat4 uViewProjection;
+					uniform mat4 uTransform;
 
 					out vec3 vPosition;
 
@@ -82,7 +86,7 @@ namespace QED
 					{
 						vPosition = aPosition;
 
-						gl_Position = uViewProjection * vec4(aPosition, 1.0);
+						gl_Position = uViewProjection * uTransform * vec4(aPosition, 1.0);
 					}
 				)";
 
@@ -108,6 +112,7 @@ namespace QED
 					layout(location = 1) in vec4 aColor;
 
 					uniform mat4 uViewProjection;
+					uniform mat4 uTransform;
 
 					out vec3 vPosition;
 					out vec4 vColor;
@@ -117,7 +122,7 @@ namespace QED
 						vPosition = aPosition;
 						vColor = aColor;
 
-						gl_Position = uViewProjection * vec4(aPosition, 1.0);
+						gl_Position = uViewProjection * uTransform * vec4(aPosition, 1.0);
 					}
 				)";
 
@@ -158,6 +163,8 @@ namespace QED
 			{
 				LOG << "Delta time : " << timeStep.GetSeconds();
 
+				// Move camera
+
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_A))
 				{
 					cameraPos.x -= cameraSpeed * timeStep;
@@ -170,12 +177,12 @@ namespace QED
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_W))
 				{
-					cameraPos.y -= cameraSpeed * timeStep;
+					cameraPos.y += cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_S))
 				{
-					cameraPos.y += cameraSpeed * timeStep;
+					cameraPos.y -= cameraSpeed * timeStep;
 				}
 
 				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_Q))
@@ -188,6 +195,28 @@ namespace QED
 					cameraRot += cameraRotSpeed * timeStep;
 				}
 
+				// Move square
+
+				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_LEFT))
+				{
+					squarePosition.x -= squareSpeed * timeStep;
+				}
+
+				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_RIGHT))
+				{
+					squarePosition.x += squareSpeed * timeStep;
+				}
+
+				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_UP))
+				{
+					squarePosition.y += squareSpeed * timeStep;
+				}
+
+				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_DOWN))
+				{
+					squarePosition.y -= squareSpeed * timeStep;
+				}
+
 				// Clear
 				Engine::Graphics::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1.0f });
 				Engine::Graphics::RenderCommand::Clear();
@@ -198,7 +227,18 @@ namespace QED
 				// Test
 				Engine::Graphics::Renderer::BeginScene(camera);
 
-				Engine::Graphics::Renderer::Submit(squareShader, squareVA);
+				glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.08f));
+
+				for (size_t i = 0; i < 10; i++)
+				{
+					for (size_t j = 0; j < 10; j++)
+					{
+						glm::vec3 pos(i * 0.1f, j * 0.1f, 0.0f);
+						glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos + squarePosition) * scale;
+						Engine::Graphics::Renderer::Submit(squareShader, squareVA, transform);
+					}
+				}
+
 				Engine::Graphics::Renderer::Submit(shader, vertexArray);
 
 				Engine::Graphics::Renderer::EndScene();
@@ -226,6 +266,9 @@ namespace QED
 			float cameraSpeed = 5.0f;
 			float cameraRot = 0.0f;
 			float cameraRotSpeed = 20.0f;
+
+			float squareSpeed = 5.0f;
+			glm::vec3 squarePosition;
 		};
 	}
 }

@@ -20,11 +20,13 @@ namespace QED
 			{
 			}
 
-			void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
+			void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& transform)
 			{
 				// Shader
 				shader->Bind();
 				shader->UploadUniformMat4("uViewProjection", sceneData->viewProjectionMatrix);
+
+				shader->UploadUniformMat4("uTransform", transform);
 
 				// VAO
 				vertexArray->Bind();
