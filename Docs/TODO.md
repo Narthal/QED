@@ -18,6 +18,7 @@
 - [ ] utility : stack trace (through return macro)
 - [ ] move : input dir to event
 - [ ] rename : coreinput to input
+- [ ] glfw vsync disable is absolute dogshit
 
 ## Engine
 - [ ] Basic renderer implementation
