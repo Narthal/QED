@@ -14,3 +14,6 @@
 [submodule "External/Dependencies/GLM"]
 	path = External/Dependencies/GLM
 	url = https://github.com/g-truc/glm
+[submodule "External\\Dependencies\\stb"]
+	path = External\\Dependencies\\stb
+	url = https://github.com/nothings/stb
