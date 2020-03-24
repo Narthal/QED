@@ -62,6 +62,7 @@ GLADDir = dependancies .. "/" .. "GLAD"
 GLADInclude = GLADDir .. "/" .. "include"
 ImGuiDir = dependancies .. "/" .. "ImGui"
 GLMDir = dependancies .. "/" .. "GLM"
+STBDir = dependancies .. "/" .. "stb"
 
 -- project names
 engineProjectName = "Engine"
@@ -150,6 +151,7 @@ group(automationDir .. "/" .. automationTools)
 group ""
 
 group(automationDir .. "/" .. dependecyProjects)
+
 	project(GLFWBuildAutomation)
 
 		location(GLFWBuildAutomationLocation)
@@ -279,6 +281,7 @@ project(engineProjectName)
 		GLADInclude,								-- GLAD include
 		ImGuiDir,									-- ImGui include (no such dir, just ImGui root)
 		GLMDir,										-- GLM headers
+		STBDir,										-- stb
 	}
 
 	links

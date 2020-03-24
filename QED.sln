@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29424.173
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 16
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Automation", "Automation", "{AD2701AD-9920-20FF-C252-0584AEAAFF0A}"
@@ -84,8 +82,5 @@ Global
 		{EDB9EE41-D9B3-1794-C220-AEA4AEB97D00} = {AD2701AD-9920-20FF-C252-0584AEAAFF0A}
 		{31317599-1DFF-689F-0693-D9C5F2FF4404} = {EDB9EE41-D9B3-1794-C220-AEA4AEB97D00}
 		{FE81CEFC-6A98-CC92-B30F-58B41F659D1A} = {EDB9EE41-D9B3-1794-C220-AEA4AEB97D00}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3B649AB5-75FA-4B19-85AC-B0C8978D5739}
 	EndGlobalSection
 EndGlobal

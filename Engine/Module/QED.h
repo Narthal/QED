@@ -40,9 +40,11 @@
 #include "../Graphics/VertexBuffer.h"
 #include "../Graphics/IndexBuffer.h"
 #include "../Graphics/Shader.h"
+#include "../Graphics/Texture2D.h"
 #include "../Graphics/VertexArray.h"
 
 #include "../Graphics/OrthographicCamera.h"
+
 
 
 #endif // !QED_H

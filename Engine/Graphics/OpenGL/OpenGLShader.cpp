@@ -161,6 +161,14 @@ namespace QED
 					// TODO: assert if location == -1
 					glUniform3f(location, vector.x, vector.y, vector.z);
 				}
+
+				void OpenGLShader::UploadUniformInt(const std::string& uniformName, const uint32_t value)
+				{
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					// TODO: assert if location == -1
+					glUniform1i(location, value);
+				}
+
 			}
 		}
 	}

@@ -13,6 +13,12 @@
     <Filter Include="Core\Registry">
       <UniqueIdentifier>{36A16DCE-A261-E904-6B9C-3282D71B2EE1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Time">
+      <UniqueIdentifier>{8CDDC315-F847-788C-4186-2932AD2F56E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Type">
+      <UniqueIdentifier>{FF21C415-6B8C-788C-B4CA-2932207456E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Event">
       <UniqueIdentifier>{E70B220D-5320-4ABE-1CA2-ED1D887546EF}</UniqueIdentifier>
     </Filter>
@@ -60,6 +66,12 @@
     <ClInclude Include="Core\Registry\Registry.h">
       <Filter>Core\Registry</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Time\TimeStep.h">
+      <Filter>Core\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Type\Type.h">
+      <Filter>Core\Type</Filter>
+    </ClInclude>
     <ClInclude Include="Event\ApplicationEvent.h">
       <Filter>Event</Filter>
     </ClInclude>
@@ -96,6 +108,9 @@
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\OpenGL\OpenGLTexture2D.h">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h">
       <Filter>Graphics\OpenGL</Filter>
     </ClInclude>
@@ -115,6 +130,12 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Shader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Texture.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Texture2D.h">
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\VertexArray.h">
@@ -168,8 +189,6 @@
     <ClInclude Include="Window\GLFWWindow.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Time\TimeStep.h" />
-    <ClInclude Include="Core\Type\Type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -180,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="Core\Registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Type\Type.cpp">
+      <Filter>Core\Type</Filter>
     </ClCompile>
     <ClCompile Include="Event\ApplicationEvent.cpp">
       <Filter>Event</Filter>
@@ -214,6 +236,9 @@
     <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>Graphics\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
@@ -233,6 +258,12 @@
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Texture.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Texture2D.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\VertexArray.cpp">
@@ -274,7 +305,6 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Type\Type.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

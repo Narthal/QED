@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_ENGINE;QED_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;..\External\Dependencies\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,7 +103,7 @@ IF EXIST ..\Build\Engine\Debug-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y /I ..\
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_ENGINE;QED_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;..\External\Dependencies\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@ IF EXIST ..\Build\Engine\Release-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y /I .
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MAKE_ENGINE;QED_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;..\External\Dependencies\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -157,6 +157,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Core\Log\Log.h" />
     <ClInclude Include="Core\Registry\Registry.h" />
     <ClInclude Include="Core\Time\TimeStep.h" />
+    <ClInclude Include="Core\Type\Type.h" />
     <ClInclude Include="Event\ApplicationEvent.h" />
     <ClInclude Include="Event\Event.h" />
     <ClInclude Include="Event\KeyEvent.h" />
@@ -169,6 +170,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\OpenGL\OpenGLIndexBuffer.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="Graphics\OpenGL\OpenGLTexture2D.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="Graphics\OrthographicCamera.h" />
@@ -176,6 +178,8 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\RendererAPI.h" />
     <ClInclude Include="Graphics\Shader.h" />
+    <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Graphics\Texture2D.h" />
     <ClInclude Include="Graphics\VertexArray.h" />
     <ClInclude Include="Graphics\VertexBuffer.h" />
     <ClInclude Include="Input\CoreInput.h" />
@@ -190,7 +194,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Module\QEDApi.h" />
     <ClInclude Include="PCH\enginePCH.h" />
     <ClInclude Include="SQLite\Database.h" />
-    <ClInclude Include="Core\Type\Type.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
     <ClInclude Include="Window\GLFWWindow.h" />
@@ -211,6 +214,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLTexture2D.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="Graphics\OrthographicCamera.cpp" />
@@ -218,6 +222,8 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\RendererAPI.cpp" />
     <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\Texture.cpp" />
+    <ClCompile Include="Graphics\Texture2D.cpp" />
     <ClCompile Include="Graphics\VertexArray.cpp" />
     <ClCompile Include="Graphics\VertexBuffer.cpp" />
     <ClCompile Include="Input\CoreInput.cpp" />
@@ -238,9 +244,6 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <None Include="..\premake5.lua" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sandbox\Sandbox.vcxproj">
-      <Project>{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Automation\BUILD_GLFW\BUILD_GLFW.vcxproj">
       <Project>{C4AA46CC-B062-8819-196A-61750541230A}</Project>
     </ProjectReference>

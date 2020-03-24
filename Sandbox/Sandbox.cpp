@@ -50,12 +50,12 @@ namespace QED
 
 				// square
 				squareVA.reset(Engine::Graphics::VertexArray::Create());
-				float squareVertices[3 * 4] =
+				float squareVertices[(3 + 2) * 4] =
 				{
-					-0.5f, -0.5f,  0.0f,
-					 0.5f, -0.5f,  0.0f,
-					 0.5f,  0.5f,  0.0f,
-					-0.5f,  0.5f,  0.0f,
+					-0.5f, -0.5f,  0.0f, 0.0f, 0.0f,
+					 0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+					 0.5f,  0.5f,  0.0f, 1.0f, 1.0f,
+					-0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
 				};
 
 				Ref<Engine::Graphics::VertexBuffer> squareVB;
@@ -63,6 +63,7 @@ namespace QED
 				squareVB->SetLayout
 				({
 					{ Engine::Graphics::ShaderDataType::Float3, "aPosition" },
+					{ Engine::Graphics::ShaderDataType::Float2, "aTextureCoordinate" },
 				});
 				squareVA->AddVertexBuffer(squareVB);
 
@@ -108,6 +109,44 @@ namespace QED
 					}
 				)";
 
+				std::string textureVertexSource =
+					R"(
+					#version 330 core
+					
+					layout(location = 0) in vec3 aPosition;
+					layout(location = 1) in vec2 aTextureCoordinate;
+
+					uniform mat4 uViewProjection;
+					uniform mat4 uTransform;
+
+					out vec3 vPosition;
+					out vec2 vTextureCoordinate;
+
+					void main()
+					{
+						vPosition = aPosition;
+						vTextureCoordinate = aTextureCoordinate;
+						gl_Position = uViewProjection * uTransform * vec4(aPosition, 1.0);
+					}
+				)";
+
+				std::string textureFragmentSource =
+					R"(
+					#version 330 core
+					
+					layout(location = 0) out vec4 color;
+
+					in vec3 vPosition;
+					in vec2 vTextureCoordinate;
+
+					uniform sampler2D uTexture;
+
+					void main()
+					{
+						color = texture(uTexture, vTextureCoordinate);
+					}
+				)";
+
 				std::string vertexSource =
 					R"(
 					#version 330 core
@@ -148,6 +187,11 @@ namespace QED
 
 				shader.reset(Engine::Graphics::Shader::Create(vertexSource, fragmentSource));
 				squareShader.reset(Engine::Graphics::Shader::Create(squareVertexSource, squareFragmentSource));
+				textureShader.reset(Engine::Graphics::Shader::Create(textureVertexSource, textureFragmentSource));
+
+				texture = Engine::Graphics::Texture2D::Create("missingTexture.png");
+				textureShader->Bind();
+				textureShader->UploadUniformInt("uTexture", 0);
 			}
 
 			// Override inherited pure virtual destructor
@@ -248,7 +292,12 @@ namespace QED
 					}
 				}
 
-				Engine::Graphics::Renderer::Submit(shader, vertexArray);
+				texture->Bind();
+
+				Engine::Graphics::Renderer::Submit(textureShader, squareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.2f)));
+
+				// Triangle
+				//Engine::Graphics::Renderer::Submit(shader, vertexArray);
 
 				Engine::Graphics::Renderer::EndScene();
 			}
@@ -272,6 +321,10 @@ namespace QED
 
 			Ref<Engine::Graphics::VertexArray> squareVA;
 			Ref<Engine::Graphics::Shader> squareShader;
+
+			Ref<Engine::Graphics::Shader> textureShader;
+
+			Ref<Engine::Graphics::Texture2D> texture;
 
 			Engine::Graphics::OrthographicCamera camera;
 			glm::vec3 cameraPos;
