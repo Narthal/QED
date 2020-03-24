@@ -19,6 +19,7 @@
 - [ ] move : input dir to event
 - [ ] rename : coreinput to input
 - [ ] glfw vsync disable is absolute dogshit
+- [ ] create QED Commons lib that statically links to the engine and the client application (log, QED globals, memory allocator for both exe and each dll, etc)
 
 ## Engine
 - [ ] Basic renderer implementation
