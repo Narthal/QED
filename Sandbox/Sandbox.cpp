@@ -4,6 +4,7 @@
 
 // TODO: move this
 #include <glm\ext\matrix_transform.hpp>
+#include <glm\gtc\type_ptr.hpp>
 
 namespace QED
 {
@@ -98,9 +99,12 @@ namespace QED
 
 					in vec3 vPosition;
 
+					uniform vec3 uColor;
+
 					void main()
 					{
-						color = vec4((vPosition + 1) / 2, 1.0);
+						//color = vec4((vPosition + 1) / 2, 1.0);
+						color = vec4(uColor, 1.0f);
 					}
 				)";
 
@@ -218,7 +222,7 @@ namespace QED
 				}
 
 				// Clear
-				Engine::Graphics::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1.0f });
+				Engine::Graphics::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
 				Engine::Graphics::RenderCommand::Clear();
 
 				camera.SetPosition(cameraPos);
@@ -227,8 +231,13 @@ namespace QED
 				// Test
 				Engine::Graphics::Renderer::BeginScene(camera);
 
+				squareShader->Bind();
+				squareShader->UploadUniformFloat3("uColor", squareColor);
+
 				glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.08f));
 
+				glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
+				glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
 				for (size_t i = 0; i < 10; i++)
 				{
 					for (size_t j = 0; j < 10; j++)
@@ -247,6 +256,9 @@ namespace QED
 			// Override layer's OnUIRender method
 			virtual void OnUIRender() override
 			{
+				ImGui::Begin("Settings");
+				ImGui::ColorEdit3("Square color", glm::value_ptr(squareColor));
+				ImGui::End();
 			}
 
 			// Override layer's OnEvent method
@@ -269,6 +281,8 @@ namespace QED
 
 			float squareSpeed = 5.0f;
 			glm::vec3 squarePosition;
+
+			glm::vec3 squareColor = { 0.2f, 0.3f, 0.8f };
 		};
 	}
 }

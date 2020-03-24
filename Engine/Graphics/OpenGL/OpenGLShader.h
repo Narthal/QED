@@ -22,6 +22,8 @@ namespace QED
 					virtual void Unbind() const override;
 
 					virtual void UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix) override;
+					virtual void UploadUniformFloat4(const std::string& uniformName, const glm::vec4& vector) override;
+					virtual void UploadUniformFloat3(const std::string& uniformName, const glm::vec3& vector) override;
 
 				private:
 					unsigned int rendererID;

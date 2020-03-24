@@ -23,6 +23,8 @@ namespace QED
 				virtual void Unbind() const = 0;
 
 				virtual void UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix) = 0;
+				virtual void UploadUniformFloat4(const std::string& uniformName, const glm::vec4& vector) = 0;
+				virtual void UploadUniformFloat3(const std::string& uniformName, const glm::vec3& vector) = 0;
 			};
 		}
 	}

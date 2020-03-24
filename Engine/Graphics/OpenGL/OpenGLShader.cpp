@@ -149,6 +149,18 @@ namespace QED
 					// TODO: assert if location == -1
 					glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 				}
+				void OpenGLShader::UploadUniformFloat4(const std::string& uniformName, const glm::vec4& vector)
+				{
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					// TODO: assert if location == -1
+					glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
+				}
+				void OpenGLShader::UploadUniformFloat3(const std::string& uniformName, const glm::vec3& vector)
+				{
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					// TODO: assert if location == -1
+					glUniform3f(location, vector.x, vector.y, vector.z);
+				}
 			}
 		}
 	}
