@@ -8,6 +8,9 @@
 // Log
 #include "../Core/Log/Log.h"
 
+// Type
+#include "../Core/Type/Type.h"
+
 // Time
 #include "../Core/Time/TimeStep.h"
 

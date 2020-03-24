@@ -28,7 +28,7 @@ namespace QED
 					 0.0f,  0.5f,  0.0f,	1.0f, 1.0f,  0.0f, 1.0f,
 				};
 
-				std::shared_ptr<Engine::Graphics::VertexBuffer> vertexBuffer;
+				Ref<Engine::Graphics::VertexBuffer> vertexBuffer;
 				vertexBuffer.reset(Engine::Graphics::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 				{
@@ -44,7 +44,7 @@ namespace QED
 				vertexArray->AddVertexBuffer(vertexBuffer);
 
 				unsigned int indices[3] = { 0, 1, 2 };
-				std::shared_ptr<Engine::Graphics::IndexBuffer> indexBuffer;
+				Ref<Engine::Graphics::IndexBuffer> indexBuffer;
 				indexBuffer.reset(Engine::Graphics::IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
 				vertexArray->SetIndexBuffer(indexBuffer);
 
@@ -58,7 +58,7 @@ namespace QED
 					-0.5f,  0.5f,  0.0f,
 				};
 
-				std::shared_ptr<Engine::Graphics::VertexBuffer> squareVB;
+				Ref<Engine::Graphics::VertexBuffer> squareVB;
 				squareVB.reset(Engine::Graphics::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 				squareVB->SetLayout
 				({
@@ -67,7 +67,7 @@ namespace QED
 				squareVA->AddVertexBuffer(squareVB);
 
 				unsigned int squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-				std::shared_ptr<Engine::Graphics::IndexBuffer> squareIB;
+				Ref<Engine::Graphics::IndexBuffer> squareIB;
 				squareIB.reset(Engine::Graphics::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 				squareVA->SetIndexBuffer(squareIB);
 
@@ -267,11 +267,11 @@ namespace QED
 			}
 
 		private:
-			std::shared_ptr<Engine::Graphics::VertexArray> vertexArray;
-			std::shared_ptr<Engine::Graphics::Shader> shader;
+			Ref<Engine::Graphics::VertexArray> vertexArray;
+			Ref<Engine::Graphics::Shader> shader;
 
-			std::shared_ptr<Engine::Graphics::VertexArray> squareVA;
-			std::shared_ptr<Engine::Graphics::Shader> squareShader;
+			Ref<Engine::Graphics::VertexArray> squareVA;
+			Ref<Engine::Graphics::Shader> squareShader;
 
 			Engine::Graphics::OrthographicCamera camera;
 			glm::vec3 cameraPos;

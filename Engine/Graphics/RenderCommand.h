@@ -2,6 +2,7 @@
 #define RENDER_COMMAND_H
 
 #include "../Module/QEDApi.h"
+#include "../Core/Type/Type.h"
 
 #include "Renderer.h"
 
@@ -20,7 +21,7 @@ namespace QED
 				inline static void Clear() { rendererAPI->Clear(); }
 
 				public:
-				inline static void Draw(const std::shared_ptr<VertexArray>& vertexArray)
+				inline static void Draw(const Ref<VertexArray>& vertexArray)
 				{
 					rendererAPI->Draw(vertexArray);
 				}

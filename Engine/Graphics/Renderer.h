@@ -2,6 +2,7 @@
 #define RENDERER_H
 
 #include "../Module/QEDApi.h"
+#include "../Core/Type/Type.h"
 
 #include "RendererAPI.h"
 #include "VertexArray.h"
@@ -20,7 +21,7 @@ namespace QED
 			public:
 				static void BeginScene(OrthographicCamera& camera);
 				static void EndScene();
-				static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
+				static void Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
 
 			public:
 				inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }

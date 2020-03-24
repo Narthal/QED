@@ -169,6 +169,7 @@
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="Core\Time\TimeStep.h" />
+    <ClInclude Include="Core\Type\Type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -273,6 +274,7 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Type\Type.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

@@ -21,7 +21,7 @@ namespace QED
 					glClearColor(color.r, color.g, color.g, color.a);
 				}
 
-				void OpenGLRendererAPI::Draw(const std::shared_ptr<VertexArray>& vertexArray)
+				void OpenGLRendererAPI::Draw(const Ref<VertexArray>& vertexArray)
 				{
 					glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 				}

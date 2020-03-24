@@ -190,6 +190,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Module\QEDApi.h" />
     <ClInclude Include="PCH\enginePCH.h" />
     <ClInclude Include="SQLite\Database.h" />
+    <ClInclude Include="Core\Type\Type.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
     <ClInclude Include="Window\GLFWWindow.h" />
@@ -198,6 +199,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Core\Application\Application.cpp" />
     <ClCompile Include="Core\Main.cpp" />
     <ClCompile Include="Core\Registry\Registry.cpp" />
+    <ClCompile Include="Core\Type\Type.cpp" />
     <ClCompile Include="Event\ApplicationEvent.cpp" />
     <ClCompile Include="Event\Event.cpp" />
     <ClCompile Include="Event\KeyEvent.cpp" />

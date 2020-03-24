@@ -2,9 +2,8 @@
 #define APPLICATION_H
 
 
-
+#include "../Type/Type.h"
 #include "../Module/Kernel.h"
-
 #include "../Module/QEDApi.h"
 #include "../Window/CoreWindow.h"
 #include "../Event/WindowEvent.h"
@@ -73,7 +72,7 @@ namespace QED
 
 				private:
 					bool isRunning = false;
-					std::shared_ptr<Window::CoreWindow> window = nullptr;
+					Ref<Window::CoreWindow> window = nullptr;
 					Layer::LayerStack layerStack;
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;

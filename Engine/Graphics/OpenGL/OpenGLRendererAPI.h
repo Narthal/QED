@@ -2,6 +2,7 @@
 #define OPENGL_RENDERER_API_H
 
 #include "../RendererAPI.h"
+#include "../Core/Type/Type.h"
 
 namespace QED
 {
@@ -20,7 +21,7 @@ namespace QED
 					virtual void SetClearColor(const glm::vec4 color) override;
 
 					public:
-					virtual void Draw(const std::shared_ptr<VertexArray>& vertexArray) override;
+					virtual void Draw(const Ref<VertexArray>& vertexArray) override;
 
 				};
 			}

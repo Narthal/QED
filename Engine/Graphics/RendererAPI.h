@@ -4,6 +4,7 @@
 // GLM
 #include <glm/glm.hpp>
 
+#include "../Core/Type/Type.h"
 #include "VertexArray.h"
 
 namespace QED
@@ -28,7 +29,7 @@ namespace QED
 				virtual void SetClearColor(const glm::vec4 color) = 0;
 
 				public:
-				virtual void Draw(const std::shared_ptr<VertexArray>& vertexArray) = 0;
+				virtual void Draw(const Ref<VertexArray>& vertexArray) = 0;
 
 				public:
 				inline static API GetAPI() { return api; }

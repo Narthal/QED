@@ -2,6 +2,7 @@
 #define OPENGL_VERTEX_ARRAY_H
 
 #include "../VertexArray.h"
+#include "../Core/Type/Type.h"
 
 namespace QED
 {
@@ -26,25 +27,25 @@ namespace QED
 					virtual void Unbind() const override;
 
 					public:
-					virtual void AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer) override;
+					virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) override;
 
 					public:
-					virtual void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) override;
+					virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) override;
 
 					public:
-					inline virtual const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
+					inline virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
 
 					public:
-					inline virtual const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
+					inline virtual const Ref<IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
 					private:
 					uint32_t rendererID;
 
 					private:
-					std::vector<std::shared_ptr<VertexBuffer>> vertexBuffers;
+					std::vector<Ref<VertexBuffer>> vertexBuffers;
 
 					private:
-					std::shared_ptr<IndexBuffer> indexBuffer;
+					Ref<IndexBuffer> indexBuffer;
 				};
 			}
 		}
