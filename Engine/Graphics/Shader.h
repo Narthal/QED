@@ -15,6 +15,7 @@ namespace QED
 			class QED_ENGINE_API Shader
 			{
 			public:
+				static Shader* Create(const std::string& path);
 				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);
 				virtual ~Shader() {}
 

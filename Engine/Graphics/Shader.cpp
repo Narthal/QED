@@ -10,6 +10,29 @@ namespace QED
 	{
 		namespace Graphics
 		{
+			Shader* Shader::Create(const std::string& path)
+			{
+				switch (Renderer::GetAPI())
+				{
+					case RendererAPI::API::NONE:
+					// TODO: crash here
+					return nullptr;
+					break;
+
+					case RendererAPI::API::OpenGL:
+					return new OpenGL::OpenGLShader(path);
+					break;
+
+					default:
+					// TODO: crash here
+					return nullptr;
+					break;
+				}
+
+				// TODO: crash here
+				return nullptr;
+			}
+
 			Shader* Shader::Create(const std::string& vertexSource, const std::string& fragmentSource)
 			{
 				switch (Renderer::GetAPI())

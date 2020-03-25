@@ -7,6 +7,7 @@
 // Streams
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 // Sorting, range, etc
 #include <algorithm>

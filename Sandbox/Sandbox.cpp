@@ -187,7 +187,8 @@ namespace QED
 
 				shader.reset(Engine::Graphics::Shader::Create(vertexSource, fragmentSource));
 				squareShader.reset(Engine::Graphics::Shader::Create(squareVertexSource, squareFragmentSource));
-				textureShader.reset(Engine::Graphics::Shader::Create(textureVertexSource, textureFragmentSource));
+				//textureShader.reset(Engine::Graphics::Shader::Create(textureVertexSource, textureFragmentSource));
+				textureShader.reset(Engine::Graphics::Shader::Create("texture.glsl"));
 
 				texture1 = Engine::Graphics::Texture2D::Create("missingTexture.png");
 				texture2 = Engine::Graphics::Texture2D::Create("glider.png");
