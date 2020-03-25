@@ -96,7 +96,7 @@ namespace QED
 				std::string OpenGLShader::ReadFile(const std::string& path)
 				{
 					std::string result;
-					std::ifstream in(path, std::ios::in, std::ios::binary);
+					std::ifstream in(path, std::ios::in | std::ios::binary);
 
 					// Error handling
 					if (!in)

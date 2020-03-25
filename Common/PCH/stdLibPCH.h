@@ -21,6 +21,7 @@
 // Basic types
 #include <string>
 #include <vector>
+#include <array>
 #include <map>
 #include <unordered_map>
 #include <tuple>
