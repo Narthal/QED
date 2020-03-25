@@ -14,13 +14,12 @@ namespace QED
 			{
 				class OpenGLRendererAPI : public RendererAPI
 				{
-					public:
+				public:
+					virtual void Initialize() override;
+
+				public:
 					virtual void Clear() override;
-
-					public:
 					virtual void SetClearColor(const glm::vec4 color) override;
-
-					public:
 					virtual void Draw(const Ref<VertexArray>& vertexArray) override;
 
 				};

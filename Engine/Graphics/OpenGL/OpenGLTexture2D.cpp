@@ -19,7 +19,7 @@ namespace QED
 				OpenGLTexture2D::OpenGLTexture2D(const std::string& path) : path(path)
 				{
 					stbi_uc* data;
-
+					int channels;
 					// Scoped so local width, heigh can not be used (only the member width, height)
 					{
 						// Default image load of stb is top to bottom,
@@ -27,7 +27,7 @@ namespace QED
 						// stb will flip images after load if this is set to true;
 						stbi_set_flip_vertically_on_load(true);
 
-						int width, height, channels;
+						int width, height;
 						data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 						// TODO: assert here if data is null
 
@@ -36,15 +36,33 @@ namespace QED
 						this->height = height;
 					}
 
+					// Set format data
+					GLenum internalFormat = 0;
+					GLenum dataFormat = 0;
+					if (channels == 4)
+					{
+						internalFormat = GL_RGBA8;
+						dataFormat = GL_RGBA;
+					}
+					else if (channels == 3)
+					{
+						internalFormat = GL_RGB8;
+						dataFormat = GL_RGB;
+					}
+					else
+					{
+						// TODO: throw here!
+					}
+
 					// Create OpenGL texture
 					glCreateTextures(GL_TEXTURE_2D, 1, &RendererID);
-					glTextureStorage2D(RendererID, 1, GL_RGB8, width, height);
+					glTextureStorage2D(RendererID, 1, internalFormat, width, height);
 
 					glTextureParameteri(RendererID, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 					glTextureParameteri(RendererID, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 					// TODO: use GL_RGB / GL_RGBA based on channels == 3 or channels == 4
-					glTextureSubImage2D(RendererID, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+					glTextureSubImage2D(RendererID, 0, 0, 0, width, height, dataFormat, GL_UNSIGNED_BYTE, data);
 
 					// Release data after OpenGL upload
 					stbi_image_free(data);

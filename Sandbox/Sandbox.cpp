@@ -189,7 +189,9 @@ namespace QED
 				squareShader.reset(Engine::Graphics::Shader::Create(squareVertexSource, squareFragmentSource));
 				textureShader.reset(Engine::Graphics::Shader::Create(textureVertexSource, textureFragmentSource));
 
-				texture = Engine::Graphics::Texture2D::Create("missingTexture.png");
+				texture1 = Engine::Graphics::Texture2D::Create("missingTexture.png");
+				texture2 = Engine::Graphics::Texture2D::Create("glider.png");
+
 				textureShader->Bind();
 				textureShader->UploadUniformInt("uTexture", 0);
 			}
@@ -292,8 +294,10 @@ namespace QED
 					}
 				}
 
-				texture->Bind();
+				texture1->Bind();
+				Engine::Graphics::Renderer::Submit(textureShader, squareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.2f)));
 
+				texture2->Bind();
 				Engine::Graphics::Renderer::Submit(textureShader, squareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.2f)));
 
 				// Triangle
@@ -324,7 +328,8 @@ namespace QED
 
 			Ref<Engine::Graphics::Shader> textureShader;
 
-			Ref<Engine::Graphics::Texture2D> texture;
+			Ref<Engine::Graphics::Texture2D> texture1;
+			Ref<Engine::Graphics::Texture2D> texture2;
 
 			Engine::Graphics::OrthographicCamera camera;
 			glm::vec3 cameraPos;

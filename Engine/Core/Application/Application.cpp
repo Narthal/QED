@@ -42,8 +42,8 @@ namespace QED
 				window = std::make_unique<Window::GLFWWindow>();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
 
-				// Initialize input
-				Input::CoreInput::GetInstance();
+				// Initialize renderer
+				Graphics::Renderer::Initialize();
 
 				// Add ImGui layer to layer stack
 				UILayer = new UI::ImGuiLayer();

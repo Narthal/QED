@@ -14,19 +14,15 @@ namespace QED
 		{
 			class QED_ENGINE_API RenderCommand
 			{
-				public:
+			public:
+				inline static void Initialize() { rendererAPI->Initialize(); }
+
+			public:
 				inline static void SetClearColor(const glm::vec4& color) { rendererAPI->SetClearColor(color); }
-
-				public:
 				inline static void Clear() { rendererAPI->Clear(); }
+				inline static void Draw(const Ref<VertexArray>& vertexArray) { rendererAPI->Draw(vertexArray); }
 
-				public:
-				inline static void Draw(const Ref<VertexArray>& vertexArray)
-				{
-					rendererAPI->Draw(vertexArray);
-				}
-
-				private:
+			private:
 				static RendererAPI* rendererAPI;
 			};
 		}

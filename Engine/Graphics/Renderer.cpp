@@ -11,6 +11,11 @@ namespace QED
 		{
 			Renderer::SceneData* Renderer::sceneData = new Renderer::SceneData;
 
+			void Renderer::Initialize()
+			{
+				RenderCommand::Initialize();
+			}
+
 			void Renderer::BeginScene(OrthographicCamera& camera)
 			{
 				sceneData->viewProjectionMatrix = camera.GetViewProjectionMatrix();

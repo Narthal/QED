@@ -15,26 +15,25 @@ namespace QED
 		{
 			class RendererAPI
 			{
-				public:
+			public:
 				enum class API
 				{
 					NONE = 0,
 					OpenGL = 1,
 				};
 
-				public:
+			public:
+				virtual void Initialize() = 0;
+
+			public:
 				virtual void Clear() = 0;
-
-				public:
 				virtual void SetClearColor(const glm::vec4 color) = 0;
-
-				public:
 				virtual void Draw(const Ref<VertexArray>& vertexArray) = 0;
 
-				public:
+			public:
 				inline static API GetAPI() { return api; }
 
-				private:
+			private:
 				static API api;
 			};
 		}
