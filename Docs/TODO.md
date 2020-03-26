@@ -1,5 +1,14 @@
 # TODO
 
+## Projects
+- [x] [c++] Engine as exe & static lib
+- [x] [c++] Client as dynamic lib
+- [ ] [c++] Common as static lib
+- [ ] [c#] BuildTool as dynamic lib
+- [ ] [c#] ConductorTool as exe
+- [ ] [c#] ReflectionTool as dll
+- [ ] [c#] ConfigTool as dll
+
 ## General
 - [x] finish imgui docking
 - [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
