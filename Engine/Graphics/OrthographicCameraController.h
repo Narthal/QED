@@ -31,6 +31,9 @@ namespace QED
 				inline OrthographicCamera& GetCamera() { return camera; }
 				inline const OrthographicCamera& GetCamera() const { return camera; }
 
+				inline float GetZoomLevel() { return zoomLevel; }
+				inline void SetZoomLevel(float zoomLevel) { this->zoomLevel = zoomLevel; }
+
 			private:
 				bool OnMouseScrolled(Event::MouseScrolledEvent& event);
 				bool OnWindowResized(Event::WindowResizeEvent& event);

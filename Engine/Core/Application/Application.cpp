@@ -59,6 +59,7 @@ namespace QED
 				// Handle window close
 				Event::EventDispatcher dispatcher(event);
 				dispatcher.Dispatch<Event::WindowCloseEvent>(BIND_EVENT_FUCTION(Application::OnWindowClose));
+				dispatcher.Dispatch<Event::WindowResizeEvent>(BIND_EVENT_FUCTION(Application::OnWindowResize));
 
 				// Handle layers
 				for (auto it = layerStack.end(); it != layerStack.begin();)
@@ -80,9 +81,12 @@ namespace QED
 					lastFrameTime = time;
 
 					// OnUpdate loop
-					for (Layer::Layer* layer : layerStack)
+					if (!minimized)
 					{
-						layer->OnUpdate(timeStep);
+						for (Layer::Layer* layer : layerStack)
+						{
+							layer->OnUpdate(timeStep);
+						}
 					}
 
 					// OnUIRender loop
@@ -120,6 +124,20 @@ namespace QED
 				delete kernel;
 
 				return true;
+			}
+
+			bool Application::Application::OnWindowResize(Event::WindowResizeEvent& event)
+			{
+				if (event.GetWidth() == 0 || event.GetHeight() == 0)
+				{
+					minimized = true;
+					return false;
+				}
+
+				Graphics::Renderer::OnWindowResize(event.GetWidth(), event.GetHeight());
+
+				minimized = false;
+				return false;
 			}
 		}
 	}

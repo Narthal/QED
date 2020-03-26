@@ -69,6 +69,8 @@ namespace QED
 					// Run on event window close
 					bool OnWindowClose(Event::WindowCloseEvent& event);
 
+					bool OnWindowResize(Event::WindowResizeEvent& event);
+
 
 				private:
 					bool isRunning = false;
@@ -77,6 +79,7 @@ namespace QED
 					UI::ImGuiLayer* UILayer = nullptr;
 					Module::Kernel* kernel = nullptr;
 					float lastFrameTime = 0.0f;
+					bool minimized = false;
 				};
 			}
 		}
