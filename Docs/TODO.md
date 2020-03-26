@@ -18,14 +18,11 @@
 - [ ] utility : stack trace (through return macro)
 - [ ] move : input dir to event
 - [ ] rename : coreinput to input
-- [ ] glfw vsync disable is absolute dogshit
 - [ ] create QED Commons lib that statically links to the engine and the client application (log, QED globals, memory allocator for both exe and each dll, etc)
+- [ ] separate shader functionality to separate preprocessor file
 
-## Engine
-- [ ] Basic renderer implementation
-- [ ] imgui viewport
-- [ ] textures
-- [ ] movement, zoom, rotation
+## Have no idea
+- [ ] glfw vsync disable is absolute dogshit
 
 ## Engine sanity
 - [ ] Visual Studio memory check integration
