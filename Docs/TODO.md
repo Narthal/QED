@@ -31,6 +31,7 @@
 - [ ] rename : coreinput to input
 - [ ] create QED Commons lib that statically links to the engine and the client application (log, QED globals, memory allocator for both exe and each dll, etc)
 - [ ] separate shader functionality to separate preprocessor file
+- [ ] maintenance : make include paths absolute from project root
 
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
