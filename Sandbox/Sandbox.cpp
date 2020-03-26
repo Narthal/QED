@@ -6,6 +6,7 @@
 #include <glm\ext\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
 
+
 namespace QED
 {
 	namespace Sandbox
@@ -14,7 +15,7 @@ namespace QED
 		{
 		public:
 			// Construtor
-			SandboxLayer() : Engine::Layer::Layer("SandboxLayer", true), camera(-1.6f, 1.6f, -0.9f, 0.9f), cameraPos(0.0f), squarePosition(0.0f)
+			SandboxLayer() : Engine::Layer::Layer("SandboxLayer", true), cameraController(1280.0f / 720.0f, true)
 			{
 				LOG << "Sandbox layer ctor";
 
@@ -173,71 +174,14 @@ namespace QED
 			// Override layer's OnUpdate method
 			virtual void OnUpdate(Engine::Core::Time::TimeStep timeStep) override
 			{
-				LOG << "Delta time : " << timeStep.GetSeconds();
-
-				// Move camera
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_A))
-				{
-					cameraPos.x -= cameraSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_D))
-				{
-					cameraPos.x += cameraSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_W))
-				{
-					cameraPos.y += cameraSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_S))
-				{
-					cameraPos.y -= cameraSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_Q))
-				{
-					cameraRot -= cameraRotSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_E))
-				{
-					cameraRot += cameraRotSpeed * timeStep;
-				}
-
-				// Move square
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_LEFT))
-				{
-					squarePosition.x -= squareSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_RIGHT))
-				{
-					squarePosition.x += squareSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_UP))
-				{
-					squarePosition.y += squareSpeed * timeStep;
-				}
-
-				if (Engine::Input::CoreInput::IsKeyPressed(Engine::Input::key_DOWN))
-				{
-					squarePosition.y -= squareSpeed * timeStep;
-				}
+				cameraController.OnUpdate(timeStep);
 
 				// Clear
 				Engine::Graphics::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
 				Engine::Graphics::RenderCommand::Clear();
 
-				camera.SetPosition(cameraPos);
-				camera.SetRotation(cameraRot);
-
 				// Test
-				Engine::Graphics::Renderer::BeginScene(camera);
+				Engine::Graphics::Renderer::BeginScene(cameraController.GetCamera());
 
 				squareShader->Bind();
 				squareShader->UploadUniformFloat3("uColor", squareColor);
@@ -251,7 +195,7 @@ namespace QED
 					for (size_t j = 0; j < 10; j++)
 					{
 						glm::vec3 pos(i * 0.1f, j * 0.1f, 0.0f);
-						glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos + squarePosition) * scale;
+						glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
 						Engine::Graphics::Renderer::Submit(squareShader, squareVA, transform);
 					}
 				}
@@ -280,6 +224,7 @@ namespace QED
 			// Override layer's OnEvent method
 			virtual void OnEvent(Engine::Event::Event& event) override
 			{
+				cameraController.OnEvent(event);
 			}
 
 		private:
@@ -294,14 +239,7 @@ namespace QED
 			Ref<Engine::Graphics::Texture2D> texture1;
 			Ref<Engine::Graphics::Texture2D> texture2;
 
-			Engine::Graphics::OrthographicCamera camera;
-			glm::vec3 cameraPos;
-			float cameraSpeed = 5.0f;
-			float cameraRot = 0.0f;
-			float cameraRotSpeed = 20.0f;
-
-			float squareSpeed = 5.0f;
-			glm::vec3 squarePosition;
+			Engine::Graphics::OrthographicCameraController cameraController;
 
 			glm::vec3 squareColor = { 0.2f, 0.3f, 0.8f };
 		};

@@ -190,6 +190,7 @@
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\ShaderLibrary.h" />
+    <ClInclude Include="Graphics\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -307,6 +308,7 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\ShaderLibrary.cpp" />
+    <ClCompile Include="Graphics\OrthographicCameraController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\premake5.lua" />

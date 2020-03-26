@@ -174,6 +174,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="Graphics\OrthographicCamera.h" />
+    <ClInclude Include="Graphics\OrthographicCameraController.h" />
     <ClInclude Include="Graphics\RenderCommand.h" />
     <ClInclude Include="Graphics\Renderer.h" />
     <ClInclude Include="Graphics\RendererAPI.h" />
@@ -219,6 +220,7 @@ IF EXIST ..\Build\Engine\Distribution-windows-x86_64\Engine.exe\ (xcopy /Q /E /Y
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="Graphics\OrthographicCamera.cpp" />
+    <ClCompile Include="Graphics\OrthographicCameraController.cpp" />
     <ClCompile Include="Graphics\RenderCommand.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
     <ClCompile Include="Graphics\RendererAPI.cpp" />

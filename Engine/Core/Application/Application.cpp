@@ -69,8 +69,6 @@ namespace QED
 						break;
 					}
 				}
-
-				LOG << event;
 			}
 
 			void Application::Application::RunMainLoop()

@@ -3,6 +3,7 @@
 
 // GLM
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "../Module/QEDApi.h"
 
@@ -31,6 +32,8 @@ namespace QED
 
 				// Get projectionMatrix
 				inline const glm::mat4& GetProjectionMatrix() const { return projectionMatrix; }
+				// Set projectionMatrix
+				inline void SetProjection(float left, float right, float bottom, float top) { projectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f); viewProjectionMatrix = projectionMatrix * viewMatrix; }
 
 				// Get viewMatrix
 				inline const glm::mat4& GetViewMatrix() const { return viewMatrix; }

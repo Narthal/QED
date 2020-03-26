@@ -45,7 +45,7 @@
 #include "../Graphics/VertexArray.h"
 
 #include "../Graphics/OrthographicCamera.h"
-
+#include <OrthographicCameraController.h>
 
 
 #endif // !QED_H

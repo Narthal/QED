@@ -1,8 +1,6 @@
 #include "EnginePCH.h"
 #include "OrthographicCamera.h"
 
-#include <glm/gtc/matrix_transform.hpp>
-
 namespace QED
 {
 	namespace Engine
