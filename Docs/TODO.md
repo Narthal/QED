@@ -1,5 +1,10 @@
 # TODO
 
+## Priority list
+- [ ] replace premake with build tool
+- [ ] generate build log file from vs
+- [ ] store build log in sqlite
+
 ## Projects
 - [x] [c++] Engine as exe & static lib
 - [x] [c++] Client (sandbox) as dynamic lib
