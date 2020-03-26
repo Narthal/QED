@@ -4,6 +4,7 @@
 - [x] [c++] Engine as exe & static lib
 - [x] [c++] Client as dynamic lib
 - [ ] [c++] Common as static lib
+- [ ] [c#] AssetPipelineTool as dynamic lib
 - [ ] [c#] BuildTool as dynamic lib
 - [ ] [c#] ConductorTool as exe
 - [ ] [c#] ReflectionTool as dll
