@@ -2,7 +2,8 @@
 
 ## Projects
 - [x] [c++] Engine as exe & static lib
-- [x] [c++] Client as dynamic lib
+- [x] [c++] Client (sandbox) as dynamic lib
+- [ ] [c++] Client (game core) as dynamic lib
 - [ ] [c++] Common as static lib
 - [ ] [c#] AssetPipelineTool as dynamic lib
 - [ ] [c#] BuildTool as dynamic lib
