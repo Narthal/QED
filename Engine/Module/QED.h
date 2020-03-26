@@ -40,6 +40,7 @@
 #include "../Graphics/VertexBuffer.h"
 #include "../Graphics/IndexBuffer.h"
 #include "../Graphics/Shader.h"
+#include "../Graphics/ShaderLibrary.h"
 #include "../Graphics/Texture2D.h"
 #include "../Graphics/VertexArray.h"
 

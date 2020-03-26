@@ -40,9 +40,16 @@ namespace QED
 					std::string source = ReadFile(path);
 					auto shaderSources = PreProcess(source);
 					Compile(shaderSources);
+
+					// Set name by filename
+					size_t lastSlash = path.find_last_of("/\\");
+					lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+					auto lastDot = path.rfind('.');
+					auto count = lastDot == std::string::npos ? path.size() - lastSlash : lastDot - lastSlash;
+					name = path.substr(lastSlash, count);
 				}
 
-				OpenGLShader::OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource)
+				OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource) : name(name)
 				{
 					std::unordered_map<GLenum, std::string> shaderSources;
 					shaderSources[GL_VERTEX_SHADER] = vertexSource;

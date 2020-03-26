@@ -10,7 +10,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Shader* Shader::Create(const std::string& path)
+			Ref<Shader> Shader::Create(const std::string& path)
 			{
 				switch (Renderer::GetAPI())
 				{
@@ -20,7 +20,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return new OpenGL::OpenGLShader(path);
+					return std::make_shared<OpenGL::OpenGLShader>(path);
 					break;
 
 					default:
@@ -33,7 +33,7 @@ namespace QED
 				return nullptr;
 			}
 
-			Shader* Shader::Create(const std::string& vertexSource, const std::string& fragmentSource)
+			Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
 			{
 				switch (Renderer::GetAPI())
 				{
@@ -43,7 +43,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return new OpenGL::OpenGLShader(vertexSource, fragmentSource);
+					return std::make_shared<OpenGL::OpenGLShader>(name, vertexSource, fragmentSource);
 					break;
 
 					default:

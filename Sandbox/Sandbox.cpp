@@ -109,44 +109,6 @@ namespace QED
 					}
 				)";
 
-				std::string textureVertexSource =
-					R"(
-					#version 330 core
-					
-					layout(location = 0) in vec3 aPosition;
-					layout(location = 1) in vec2 aTextureCoordinate;
-
-					uniform mat4 uViewProjection;
-					uniform mat4 uTransform;
-
-					out vec3 vPosition;
-					out vec2 vTextureCoordinate;
-
-					void main()
-					{
-						vPosition = aPosition;
-						vTextureCoordinate = aTextureCoordinate;
-						gl_Position = uViewProjection * uTransform * vec4(aPosition, 1.0);
-					}
-				)";
-
-				std::string textureFragmentSource =
-					R"(
-					#version 330 core
-					
-					layout(location = 0) out vec4 color;
-
-					in vec3 vPosition;
-					in vec2 vTextureCoordinate;
-
-					uniform sampler2D uTexture;
-
-					void main()
-					{
-						color = texture(uTexture, vTextureCoordinate);
-					}
-				)";
-
 				std::string vertexSource =
 					R"(
 					#version 330 core
@@ -185,10 +147,9 @@ namespace QED
 					}
 				)";
 
-				shader.reset(Engine::Graphics::Shader::Create(vertexSource, fragmentSource));
-				squareShader.reset(Engine::Graphics::Shader::Create(squareVertexSource, squareFragmentSource));
-				//textureShader.reset(Engine::Graphics::Shader::Create(textureVertexSource, textureFragmentSource));
-				textureShader.reset(Engine::Graphics::Shader::Create("texture.glsl"));
+				shader = Engine::Graphics::Shader::Create("shader", vertexSource, fragmentSource);
+				squareShader = Engine::Graphics::Shader::Create("square", squareVertexSource, squareFragmentSource);
+				auto textureShader = shaderLibrary.Load("texture.glsl");
 
 				texture1 = Engine::Graphics::Texture2D::Create("missingTexture.png");
 				texture2 = Engine::Graphics::Texture2D::Create("glider.png");
@@ -295,6 +256,7 @@ namespace QED
 					}
 				}
 
+				auto textureShader = shaderLibrary.Get("texture");
 				texture1->Bind();
 				Engine::Graphics::Renderer::Submit(textureShader, squareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.2f)));
 
@@ -321,13 +283,13 @@ namespace QED
 			}
 
 		private:
+			Engine::Graphics::ShaderLibrary shaderLibrary;
+
 			Ref<Engine::Graphics::VertexArray> vertexArray;
 			Ref<Engine::Graphics::Shader> shader;
 
 			Ref<Engine::Graphics::VertexArray> squareVA;
 			Ref<Engine::Graphics::Shader> squareShader;
-
-			Ref<Engine::Graphics::Shader> textureShader;
 
 			Ref<Engine::Graphics::Texture2D> texture1;
 			Ref<Engine::Graphics::Texture2D> texture2;

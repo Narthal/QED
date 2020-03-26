@@ -19,10 +19,12 @@ namespace QED
 				{
 				public:
 					OpenGLShader(const std::string& path);
-					OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource);
+					OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource);
 					virtual ~OpenGLShader();
 
 				public:
+					inline virtual const std::string& GetName() const override { return name; }
+
 					virtual void Bind() const override;
 					virtual void Unbind() const override;
 
@@ -38,6 +40,7 @@ namespace QED
 
 				private:
 					unsigned int rendererID;
+					std::string name;
 				};
 			}
 		}

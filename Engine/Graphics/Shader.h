@@ -4,7 +4,10 @@
 // GLM
 #include <glm/glm.hpp>
 
+// Module
 #include "../Module/QEDApi.h"
+
+#include "../Core/Type/Type.h"
 
 namespace QED
 {
@@ -15,11 +18,13 @@ namespace QED
 			class QED_ENGINE_API Shader
 			{
 			public:
-				static Shader* Create(const std::string& path);
-				static Shader* Create(const std::string& vertexSource, const std::string& fragmentSource);
+				static Ref<Shader> Create(const std::string& path);
+				static Ref<Shader> Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource);
 				virtual ~Shader() {}
 
 			public:
+				virtual const std::string& GetName() const = 0;
+
 				virtual void Bind() const = 0;
 				virtual void Unbind() const = 0;
 
