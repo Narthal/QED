@@ -45,7 +45,7 @@ namespace QED
                 {
                     Architecture = Architecture.x86 | Architecture.x64,
                     Platform = Platform.Windows,
-                    Configuration = Configuration.Debug //| Configuration.Release,
+                    Configuration = Configuration.Debug | Configuration.Release
                 };
 
                 // Conditionals
@@ -57,7 +57,7 @@ namespace QED
                         // TODO: try this when conditionals are resolved into filters
                         Architecture.x86 | Architecture.x64,
                         Platform.Windows,
-                        Configuration.Debug
+                        Configuration.Debug | Configuration.Release
                     )
                     {
                         // Configuration
@@ -65,7 +65,7 @@ namespace QED
                         // Basic configuration
                         EnableOptimizations = false,
                         UseDebugStdLibrary = true,
-                        StaticLinkStdLibrary = true,
+                        StaticLinkStdLibrary = false,
 
                         // Precompiled headers
                         EnablePrecompiledHeaders = true,
@@ -77,6 +77,9 @@ namespace QED
 
                         // Preprocessor
                         PreprocessorDefinitions = new List<string>() { "DEBUG" },
+
+                        // Additional
+                        AdditionalOptions = new List<string>() { "/sdl-" },
                     }
                 };
             }

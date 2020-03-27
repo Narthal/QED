@@ -74,6 +74,10 @@ namespace QED
                         WriteIncludedHeaderFiles(writer, project);
 
                         // 12
+                        // Add links to other projects
+                        WriteProjectReferences(writer, project);
+
+                        // 13
                         // Import cpp targets
                         WriteImportCppTargets(writer);
 
@@ -143,7 +147,7 @@ namespace QED
                     writer.WriteStartElement("PropertyGroup");
                     writer.WriteAttributeString("Label", "Globals");
 
-                    writer.WriteElementString("ProjectGuid", '{' + GUID.GetGUID() + '}');
+                    writer.WriteElementString("ProjectGuid", '{' + GUID.predefinedGUIDs[project.ProjectID] + '}');
                     writer.WriteElementString("IgnoreWarnCompileDuplicatedFilename", "true");
                     writer.WriteElementString("Keyword", "Win32Proj");
                     writer.WriteElementString("RootNamespace", project.Name);
@@ -193,6 +197,10 @@ namespace QED
                         writer.WriteStartElement("PropertyGroup");
                         writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter) + '\'');
                         writer.WriteElementString("LinkIncremental", filter.EnableIncrementalLinking.ToString());
+                        writer.WriteElementString("OutDir", project.OutputDirectory.DirectoryPath + '\\');
+                        writer.WriteElementString("IntDir", project.OutputDirectory.DirectoryPath + "\\Intermediate\\");
+                        writer.WriteElementString("TargetName", project.Name);
+                        writer.WriteElementString("TargetExt", ConversionUtils.GetTargetExtensionString(project.OutputType));
                         writer.WriteEndElement();
                     }
                 }
@@ -219,7 +227,7 @@ namespace QED
                         // <DebugInformationFormat> EditAndContinue / ProgramDatabase </DebugInformationFormat>
 
                         writer.WriteElementString("Optimization", ConversionUtils.GetOptimizationString(filter.EnableOptimizations));
-                        writer.WriteElementString("RuntimeLibrary", ConversionUtils.GetRuntimeLibraryString(filter.ConfigurationFilter));
+                        writer.WriteElementString("RuntimeLibrary", ConversionUtils.GetRuntimeLibraryString(filter.StaticLinkStdLibrary, filter.ConfigurationFilter));
 
                         string definitions = "";
                         foreach (string definition in filter.PreprocessorDefinitions)
@@ -228,12 +236,37 @@ namespace QED
                             definitions += ';';
                         }
                         writer.WriteElementString("PreprocessorDefinitions", definitions + "%(PreprocessorDefinitions)");
+
+                        string additionalIncludePaths = "";
+                        foreach (string includePath in filter.AdditionalIncludeDirs)
+                        {
+                            additionalIncludePaths += includePath + ';';
+                        }
+                        writer.WriteElementString("AdditionalIncludeDirectories", additionalIncludePaths + "%(AdditionalIncludeDirectories)");
+
+                        string options = "";
+                        foreach (var option in filter.AdditionalOptions)
+                        {
+                            options += option + ';';
+                        }
+                        writer.WriteElementString("AdditionalOptions", options + "%(AdditionalOptions)");
+
+                        writer.WriteElementString("LanguageStandard", ConversionUtils.GetLanguageStandardString(project.CppVersion));
+
                         writer.WriteEndElement();
 
                         // Link
                         writer.WriteStartElement("Link");
                         writer.WriteElementString("SubSystem", "Console"); // TODO: hardcoded console subsystem
                         writer.WriteElementString("GenerateDebugInformation", "true");
+
+                        string references = "";
+                        foreach (var reference in filter.AdditionalReferences)
+                        {
+                            references += reference + ';';
+                        }
+                        writer.WriteElementString("AdditionalDependencies", references + "%(AdditionalDependencies)");
+
                         writer.WriteEndElement();
 
                         writer.WriteEndElement();
@@ -289,38 +322,27 @@ namespace QED
                     writer.WriteEndElement();
                 }
 
+                private void WriteProjectReferences(XmlWriter writer, Core.Project project)
+                {
+                    writer.WriteStartElement("ItemGroup");
+
+                    foreach (int projectID in project.ReferencedProjectIDs)
+                    {
+                        writer.WriteStartElement("ProjectReference");
+                        writer.WriteAttributeString("Include", BuildTool.projects[projectID].Path);
+                        writer.WriteElementString("Project", '{' + GUID.predefinedGUIDs[projectID] + '}');
+                        writer.WriteEndElement();
+                    }
+
+                    writer.WriteEndElement();
+                }
+
                 private void WriteImportCppTargets(XmlWriter writer)
                 {
                     writer.WriteStartElement("Import");
                     writer.WriteAttributeString("Project", @"$(VCTargetsPath)\Microsoft.Cpp.Targets");
                     writer.WriteEndElement();
                 }
-
-
-                // TODO:
-                // [ ] Precompiled header
-                // [ ] Warning level (VS)
-                // [ ] Preprocessor defs
-                // [ ] Additional include dirs (VS)
-                // [ ] Optimizations switch
-                // [ ] STD lib linkage switch
-                // [ ] STD lib debug switch
-                // [ ] Additional options (per use case)
-                // [ ] Language standard
-
-                // TODO: write vs project generator extensions
-
-                // Cheat sheet
-                //<PrecompiledHeader>Use</PrecompiledHeader>
-                //<PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
-                //<WarningLevel>Level3</WarningLevel>
-                //<PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-                //<AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-                //<DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-                //<Optimization>Disabled</Optimization>
-                //<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-                //<AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
-                //<LanguageStandard>stdcpp17</LanguageStandard>
             }
         }
     }

@@ -14,6 +14,9 @@ namespace QED
                 {
                     CompilerOptions = new List<string>();
                     PreprocessorDefinitions = new List<string>();
+                    AdditionalReferences = new List<string>();
+                    AdditionalIncludeDirs = new List<string>();
+                    AdditionalOptions = new List<string>();
                 }
 
                 // Basic configuration
@@ -31,6 +34,11 @@ namespace QED
 
                 // Preprocessor
                 public List<string> PreprocessorDefinitions { get; set; }
+
+                // Additional
+                public List<string> AdditionalReferences { get; set; }
+                public List<string> AdditionalIncludeDirs { get; set; }
+                public List<string> AdditionalOptions { get; set; }
             }
         }
     }

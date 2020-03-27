@@ -26,6 +26,8 @@ namespace QED
             {
                 public Project()
                 {
+                    ProjectID = BuildTool.projects.Count;
+
                     // Directories
                     SourceFileGroups = new List<string>();
                     HeaderFileGroups = new List<string>();
@@ -33,6 +35,7 @@ namespace QED
                     // Conditionals
                     Conditionals = new List<Conditional>();
 
+                    ReferencedProjectIDs = new List<int>();
                 }
 
 
@@ -57,54 +60,16 @@ namespace QED
 
                 #endregion
 
-                #region Conditionals
+                #region Config
 
                 public List<Conditional> Conditionals { get; protected set; }
                 public List<Filter> Filters { get; set; }
-
-                public ConditionalConfigurationData GetConditionalData(Conditional conditional)
-                {
-                    // Create return value with project's default values
-                    ConditionalConfigurationData conditionalConfigurationData = new ConditionalConfigurationData()
-                    {
-                        // Basic configuration
-                        EnableOptimizations = this.EnableOptimizations,
-                        UseDebugStdLibrary = this.UseDebugStdLibrary,
-                        StaticLinkStdLibrary = this.StaticLinkStdLibrary,
-
-                        // Precompiled headers
-                        EnablePrecompiledHeaders = this.EnablePrecompiledHeaders,
-                        PrecompiledHeaderFileGroup = this.PrecompiledHeaderFileGroup,
-
-                        // Compiler options
-                        CompilerOptions = this.CompilerOptions,
-
-                        // Preprocessor
-                        PreprocessorDefinitions = this.PreprocessorDefinitions,
-                    };
-
-                    // Update fields if filter contains definition for it
-
-                    // Basic configuration
-                    if (conditional.EnableOptimizations     != null) conditionalConfigurationData.EnableOptimizations   = conditional.EnableOptimizations;
-                    if (conditional.UseDebugStdLibrary      != null) conditionalConfigurationData.UseDebugStdLibrary    = conditional.UseDebugStdLibrary;
-                    if (conditional.StaticLinkStdLibrary    != null) conditionalConfigurationData.StaticLinkStdLibrary  = conditional.StaticLinkStdLibrary;
-
-                    // Precompiled headers
-                    if (conditional.EnablePrecompiledHeaders    != null) conditionalConfigurationData.EnablePrecompiledHeaders      = conditional.EnablePrecompiledHeaders;
-                    if (conditional.PrecompiledHeaderFileGroup  != null) conditionalConfigurationData.PrecompiledHeaderFileGroup    = conditional.PrecompiledHeaderFileGroup;
-
-                    // Compiler options
-                    if (conditional.CompilerOptions != null) conditionalConfigurationData.CompilerOptions = conditional.CompilerOptions;
-
-                    // Preprocessor
-                    if (conditional.PreprocessorDefinitions != null) conditionalConfigurationData.PreprocessorDefinitions = conditional.PreprocessorDefinitions;
-
-
-                    return conditionalConfigurationData;
-                }
+                public List<int> ReferencedProjectIDs { get; set; }
 
                 #endregion
+
+                public int ProjectID { get; private set; }
+                public string Path { get; private set; }
             }
         }
     }

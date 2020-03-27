@@ -50,18 +50,31 @@ namespace QED
                     }
                 }
 
-                public static string GetRuntimeLibraryString(Core.Configuration? configuration)
+                public static string GetRuntimeLibraryString(bool? staticLinkRuntimeLibrary, Core.Configuration? configuration)
                 {
-                    switch (configuration)
+                    bool lStaticLink = false;
+                    if (staticLinkRuntimeLibrary.HasValue)
                     {
-                        case Core.Configuration.Debug:
-                            return "MultiThreadedDebugDLL";
-                        case Core.Configuration.Release:
-                            return "MultiThreadedDLL";
-                        case Core.Configuration.Distribution:
-                            return "MultiThreadedDLL";
-                        default:
-                            throw new Exception("invalid configuration");
+                        lStaticLink = staticLinkRuntimeLibrary.Value;
+                    }
+
+                    if (lStaticLink)
+                    {
+                        throw new Exception("get keyword and implement this");
+                    }
+                    else
+                    {
+                        switch (configuration)
+                        {
+                            case Core.Configuration.Debug:
+                                return "MultiThreadedDebugDLL";
+                            case Core.Configuration.Release:
+                                return "MultiThreadedDLL";
+                            case Core.Configuration.Distribution:
+                                return "MultiThreadedDLL";
+                            default:
+                                throw new Exception("invalid configuration");
+                        }
                     }
                 }
 
@@ -69,7 +82,36 @@ namespace QED
                 {
                     return Enum.GetName(outputType.GetType(), outputType);
                 }
-            
+
+                public static string GetLanguageStandardString(Core.CppVersion cppVersion)
+                {
+                    switch (cppVersion)
+                    {
+                        case Core.CppVersion.cpp11:
+                            return "stdcpp11";
+                        case Core.CppVersion.cpp14:
+                            return "stdcpp14";
+                        case Core.CppVersion.cpp17:
+                            return "stdcpp17";
+                        default:
+                            throw new Exception("unknown cpp version");
+                    }
+                }
+
+                public static string GetTargetExtensionString(Core.OutputType outputType)
+                {
+                    switch (outputType)
+                    {
+                        case Core.OutputType.Application:
+                            return ".exe";
+                        case Core.OutputType.SharedLibrary:
+                            return ".dll";
+                        case Core.OutputType.StaticLibrary:
+                            return ".lib";
+                        default:
+                            throw new Exception("unknown outputType");
+                    }
+                }
             }
         }
     }

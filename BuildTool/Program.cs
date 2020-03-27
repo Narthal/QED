@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace QED
 {
@@ -43,14 +44,16 @@ namespace QED
                                             (conditional.ConfigurationFilters.HasValue == false || conditional.ConfigurationFilters.Value.HasFlag(configuration))
                                         )
                                     {
-                                        project.Filters[project.Filters.Count - 1].EnableOptimizations = conditional.EnableOptimizations;
-                                        project.Filters[project.Filters.Count - 1].UseDebugStdLibrary = conditional.UseDebugStdLibrary;
-                                        project.Filters[project.Filters.Count - 1].StaticLinkStdLibrary = conditional.StaticLinkStdLibrary;
-                                        project.Filters[project.Filters.Count - 1].EnablePrecompiledHeaders = conditional.EnablePrecompiledHeaders;
-                                        project.Filters[project.Filters.Count - 1].PrecompiledHeaderFileGroup = conditional.PrecompiledHeaderFileGroup;
-                                        project.Filters[project.Filters.Count - 1].CompilerOptions = conditional.CompilerOptions;
-                                        project.Filters[project.Filters.Count - 1].EnableIncrementalLinking = conditional.EnableIncrementalLinking;
-                                        project.Filters[project.Filters.Count - 1].PreprocessorDefinitions = conditional.PreprocessorDefinitions;
+                                        foreach (PropertyInfo filterPropertyInfo in project.Filters.GetType().GetGenericArguments()[0].GetProperties())
+                                        {
+                                            foreach (PropertyInfo conditionalPropertyInfo in conditional.GetType().GetProperties())
+                                            {
+                                                if (filterPropertyInfo.Name == conditionalPropertyInfo.Name)
+                                                {
+                                                    filterPropertyInfo.SetValue(project.Filters[project.Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
