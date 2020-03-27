@@ -101,6 +101,7 @@ namespace QED
                     {
                         file.Write(sb.ToString());
                     }
+                    project.Path = path;
                     Console.WriteLine("Done writing project file at " + path);
                 }
 

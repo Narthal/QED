@@ -64,8 +64,8 @@ namespace QED
                 VisualStudio.Project vsproject = new VisualStudio.Project();
                 vsproject.Generate(BuildTool.projects[0]);
 
-                //VisualStudio.Solution solution = new VisualStudio.Solution();
-                //solution.Generate();
+                VisualStudio.Solution solution = new VisualStudio.Solution();
+                solution.Generate(new List<int> { 0 });
 
                 Console.ReadKey();
             }

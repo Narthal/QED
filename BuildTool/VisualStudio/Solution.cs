@@ -11,51 +11,81 @@ namespace QED
         {
             class Solution
             {
-                public async void Generate()
+                public void Generate(List<int> projectIDs)
                 {
-                    using (StreamWriter writer = File.CreateText("solution.sln"))
-                    //using (StreamWriter writer = new StreamWriter(Console.OpenStandardOutput()))
+                    StringBuilder stringBuilder = new StringBuilder();
+                    using (StringWriter writer = new StringWriter(stringBuilder))
                     {
                         // Write Visual studio version specific header
-                        await writer.WriteLineAsync("Microsoft Visual Studio Solution File, Format Version 12.00");
-                        await writer.WriteLineAsync("# Visual Studio 16");
+                        writer.WriteLine("Microsoft Visual Studio Solution File, Format Version 12.00");
+                        writer.WriteLine("# Visual Studio 16");
 
                         // Define projects
-                        await writer.WriteLineAsync(String.Format("Project(\"{{{0}}}\") = \"project\", \"project.vcxproj\", \"{{{1}}}\"", GUID.ProjectGUID, GUID.predefinedGUIDs[0]));
-                        await writer.WriteLineAsync("EndProject");
+                        foreach (int projectID in projectIDs)
+                        {
+                            writer.WriteLine(String.Format("Project(\"{{{0}}}\") = \"" + BuildTool.projects[projectID].Name + "\", \"" + BuildTool.projects[projectID].Path + "\", \"{{{1}}}\"", GUID.ProjectGUID, GUID.predefinedGUIDs[projectID]));
+                            writer.WriteLine("EndProject");
+                        }
+
 
                         // Start global area
-                        await writer.WriteLineAsync("Global");
+                        writer.WriteLine("Global");
 
                         // Define architecture / platform
-                        await writer.WriteLineAsync("\tGlobalSection(SolutionConfigurationPlatforms) = preSolution");
+                        writer.WriteLine("\tGlobalSection(SolutionConfigurationPlatforms) = preSolution");
 
-                        await writer.WriteLineAsync("\t\tDebug|Win32 = Debug|Win32");
-                        await writer.WriteLineAsync("\t\tRelease|Win32 = Release|Win32");
-                        
-                        await writer.WriteLineAsync("\tEndGlobalSection");
+                        foreach (Core.Filter filter in BuildTool.projects[0].Filters)
+                        {
+                            string configurationArchitecture = ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter);
+                            writer.WriteLine("\t\t" + configurationArchitecture + " = " + configurationArchitecture);
+                        }
+
+                        writer.WriteLine("\tEndGlobalSection");
 
                         // List all possible configs for all projects
-                        await writer.WriteLineAsync("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
+                        writer.WriteLine("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
 
-                        await writer.WriteLineAsync(String.Format("\t\t{{{0}}}.Debug|Win32.ActiveCfg = Debug|Win32", GUID.predefinedGUIDs[0]));
-                        await writer.WriteLineAsync(String.Format("\t\t{{{0}}}.Debug|Win32.Build.0 = Debug|Win32", GUID.predefinedGUIDs[0]));
-                        await writer.WriteLineAsync(String.Format("\t\t{{{0}}}.Release|Win32.ActiveCfg = Release|Win32", GUID.predefinedGUIDs[0]));
-                        await writer.WriteLineAsync(String.Format("\t\t{{{0}}}.Release|Win32.ActiveCfg = Release|Win32", GUID.predefinedGUIDs[0]));
+                        foreach (int projectID in projectIDs)
+                        {
+                            foreach (Core.Filter filter in BuildTool.projects[projectID].Filters)
+                            {
+                                string configurationArchitecture = ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter);
 
-                        await writer.WriteLineAsync("\tEndGlobalSection");
+                                writer.WriteLine("\t\t{{{0}}}." + configurationArchitecture + ".ActiveCfg = " + configurationArchitecture, GUID.predefinedGUIDs[projectID]);
+                            }
+                        }
+
+                        writer.WriteLine("\tEndGlobalSection");
 
                         // Disable hide solution flag
-                        await writer.WriteLineAsync("\tGlobalSection(SolutionProperties) = preSolution");
-                        await writer.WriteLineAsync("\t\tHideSolutionNode = FALSE");
-                        await writer.WriteLineAsync("\tEndGlobalSection");
+                        writer.WriteLine("\tGlobalSection(SolutionProperties) = preSolution");
+                        writer.WriteLine("\t\tHideSolutionNode = FALSE");
+                        writer.WriteLine("\tEndGlobalSection");
 
                         // Assign projects to virtual folders
                         //TODO: Assign projects to virtual folders
 
                         // End file
-                        await writer.WriteLineAsync("EndGlobal");
+                        writer.WriteLine("EndGlobal");
+
+                        // End
+                        writer.Flush();
                     }
+
+                    // Write solution to console
+                    Console.WriteLine("Solution generated : ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(stringBuilder);
+                    Console.WriteLine();
+                    Console.ResetColor();
+
+                    // Write solution to file
+                    string path = "../../../HelloSolution" + ".sln";
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(path))
+                    {
+                        file.Write(stringBuilder.ToString());
+                    }
+                    Console.WriteLine("Done writing project file at " + path);
                 }
             }
         }

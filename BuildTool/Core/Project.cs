@@ -69,7 +69,7 @@ namespace QED
                 #endregion
 
                 public int ProjectID { get; private set; }
-                public string Path { get; private set; }
+                public string Path { get; set; }
             }
         }
     }
