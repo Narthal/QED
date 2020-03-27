@@ -48,6 +48,6 @@
 ## Build Tool
 - [x] precompiled heaers
 - [x] preprocessor defs
-- [ ] sort conditionals to filters
+- [x] sort conditionals to filters
 
 
