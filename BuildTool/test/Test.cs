@@ -20,8 +20,7 @@ namespace QED
                 headers.AddFile("Main.h");
 
                 FileGroup pch = new FileGroup(this, "PCH");
-                pch.AddFile("pch.cpp");
-                pch.AddFile("pch.h");
+                pch.AddFiles("pch*");
             }
         }
 

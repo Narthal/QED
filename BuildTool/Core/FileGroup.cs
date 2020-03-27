@@ -52,6 +52,26 @@ namespace QED
 
                     BuildTool.fileGroups[FileGroupName].Add(compinedPath);
                 }
+
+                public void AddFiles(string searchString, bool recursive = false)
+                {
+                    System.IO.SearchOption searchOption;
+                    if (recursive)
+                    {
+                        searchOption = System.IO.SearchOption.AllDirectories;
+                    }
+                    else
+                    {
+                        searchOption = System.IO.SearchOption.TopDirectoryOnly;
+                    }
+
+                    string[] files = System.IO.Directory.GetFiles(Directory.DirectoryPath, searchString, searchOption);
+
+                    foreach (string file in files)
+                    {
+                        BuildTool.fileGroups[FileGroupName].Add(file);
+                    }
+                }
             }
         }
     }
