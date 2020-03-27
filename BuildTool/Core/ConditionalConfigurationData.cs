@@ -39,6 +39,10 @@ namespace QED
                 public List<string> AdditionalReferences { get; set; }
                 public List<string> AdditionalIncludeDirs { get; set; }
                 public List<string> AdditionalOptions { get; set; }
+
+                // Pre / Post build command
+                public string PreBuildCommand { get; set; }
+                public string PostBuildCommand { get; set; }
             }
         }
     }

@@ -270,6 +270,14 @@ namespace QED
 
                         writer.WriteEndElement();
 
+                        writer.WriteStartElement("PostBuildEvent");
+                        writer.WriteElementString("Command", filter.PostBuildCommand);
+                        writer.WriteEndElement();
+
+                        writer.WriteStartElement("PreBuildEvent");
+                        writer.WriteElementString("Command", filter.PreBuildCommand);
+                        writer.WriteEndElement();
+
                         writer.WriteEndElement();
                     }
                 }
