@@ -18,6 +18,10 @@ namespace QED
 
                 FileGroup headers = new FileGroup(this, "HelloHeader");
                 headers.AddFile("Main.h");
+
+                FileGroup pch = new FileGroup(this, "PCH");
+                pch.AddFile("pch.cpp");
+                pch.AddFile("pch.h");
             }
         }
 
@@ -39,9 +43,9 @@ namespace QED
                 // Targets
                 Targets = new Targets()
                 {
-                    Architecture = Architecture.x86 | Architecture.x64,
+                    Architecture = Architecture.x86, //| Architecture.x64,
                     Platform = Platform.Windows,
-                    Configuration = Configuration.Debug | Configuration.Release,
+                    Configuration = Configuration.Debug //| Configuration.Release,
                 };
 
                 // Conditionals
@@ -50,7 +54,8 @@ namespace QED
                     new Conditional
                     (
                         // Filters
-                        Architecture.x86 | Architecture.x64,
+                        // TODO: try this when conditionals are resolved into filters
+                        Architecture.x86,// | Architecture.x64,
                         Platform.Windows,
                         Configuration.Debug
                     )
@@ -68,6 +73,7 @@ namespace QED
 
                         // Compiler options
                         CompilerOptions = new List<string>() { "/sdl-" },
+                        EnableIncrementalLinking = true,
 
                         // Preprocessor
                         PreprocessorDefinitions = new List<string>() { "DEBUG" },

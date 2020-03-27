@@ -27,7 +27,7 @@ namespace QED
 
                 // Compiler options
                 public List<string> CompilerOptions { get; set; }
-
+                public bool? EnableIncrementalLinking { get; set; }
 
                 // Preprocessor
                 public List<string> PreprocessorDefinitions { get; set; }

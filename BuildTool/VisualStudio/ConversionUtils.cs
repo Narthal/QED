@@ -31,10 +31,45 @@ namespace QED
                     }
                 }
 
+                public static string GetOptimizationString(bool? enabled)
+                {
+                    // If not defined, default to false
+                    bool lEnabled = false;
+                    if (enabled != null)
+                    {
+                       lEnabled = enabled.Value;
+                    }
+
+                    if (lEnabled)
+                    {
+                        return "MaxSpeed";
+                    }
+                    else
+                    {
+                        return "Disabled";
+                    }
+                }
+
+                public static string GetRuntimeLibraryString(Core.Configuration configuration)
+                {
+                    switch (configuration)
+                    {
+                        case Core.Configuration.Debug:
+                            return "MultiThreadedDebugDLL";
+                        case Core.Configuration.Release:
+                            return "MultiThreadedDLL";
+                        case Core.Configuration.Distribution:
+                            return "MultiThreadedDLL";
+                        default:
+                            throw new Exception("invalid configuration");
+                    }
+                }
+
                 public static string GetOutputTypeString(Core.OutputType outputType)
                 {
                     return Enum.GetName(outputType.GetType(), outputType);
                 }
+            
             }
         }
     }

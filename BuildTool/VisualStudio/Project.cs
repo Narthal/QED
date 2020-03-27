@@ -9,7 +9,7 @@ namespace QED
     {
         namespace VisualStudio
         {
-            public class ProjectGenerator
+            public class Project
             {
                 public void Generate(Core.Project project)
                 {
@@ -58,14 +58,22 @@ namespace QED
                         WriteImportCppProperties(writer);
 
                         // 8
+                        // Set incremental linking to project value
+                        WriteIncrementCompileSetting(writer, project);
+
+                        // 9
+                        // Set compiler options such as runtme lib
+                        WriteCompilerConfig(writer, project);
+
+                        // 10
                         // Compiled files
                         WriteIncludedSourceFiles(writer, project);
 
-                        // 9
+                        // 11
                         // Included files
                         WriteIncludedHeaderFiles(writer, project);
 
-                        // 10
+                        // 12
                         // Import cpp targets
                         WriteImportCppTargets(writer);
 
@@ -135,7 +143,7 @@ namespace QED
                     writer.WriteStartElement("PropertyGroup");
                     writer.WriteAttributeString("Label", "Globals");
 
-                    writer.WriteElementString("ProjectGuid", GUID.GetGUID());
+                    writer.WriteElementString("ProjectGuid", '{' + GUID.GetGUID() + '}');
                     writer.WriteElementString("IgnoreWarnCompileDuplicatedFilename", "true");
                     writer.WriteElementString("Keyword", "Win32Proj");
                     writer.WriteElementString("RootNamespace", project.Name);
@@ -154,12 +162,20 @@ namespace QED
 
                 private void WriteOutputTypeAndToolset(XmlWriter writer, Core.Project project, string toolset = "v142")
                 {
-                    foreach (Core.Conditional conditional in project.Conditionals)
+                    foreach (Core.Architecture architecture in project.Targets.GetArchitectureFlags())
                     {
-                        writer.WriteStartElement("PropertyGroup");
-                        writer.WriteElementString("ConfigurationType", ConversionUtils.GetOutputTypeString(project.OutputType));
-                        writer.WriteElementString("PlatformToolset", toolset);
-                        writer.WriteEndElement();
+                        foreach (Core.Platform platform in project.Targets.GetPlatformFlags())
+                        {
+                            foreach (Core.Configuration configuration in project.Targets.GetConfigurationFlags())
+                            {
+                                writer.WriteStartElement("PropertyGroup");
+                                writer.WriteAttributeString("Label", "Configuration");
+                                writer.WriteElementString("ConfigurationType", ConversionUtils.GetOutputTypeString(project.OutputType));
+                                writer.WriteElementString("PlatformToolset", toolset);
+                                writer.WriteElementString("CharacterSet", "Unicode");
+                                writer.WriteEndElement();
+                            }
+                        }
                     }
                 }
 
@@ -170,6 +186,60 @@ namespace QED
                     writer.WriteEndElement();
                 }
 
+                private void WriteIncrementCompileSetting(XmlWriter writer, Core.Project project)
+                {
+                    foreach (Core.Conditional conditional in project.Conditionals)
+                    {
+                        writer.WriteStartElement("PropertyGroup");
+                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(conditional.ConfigurationFilters) + '|' + ConversionUtils.GetArchitectureString(conditional.ArchitectureFilters) + '\'');
+                        writer.WriteElementString("LinkIncremental", conditional.EnableIncrementalLinking.ToString());
+                        writer.WriteEndElement();
+                    }
+                }
+
+                private void WriteCompilerConfig(XmlWriter writer, Core.Project project)
+                {
+                    foreach (Core.Conditional conditional in project.Conditionals)
+                    {
+                        writer.WriteStartElement("ItemDefinitionGroup");
+
+                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(conditional.ConfigurationFilters) + '|' + ConversionUtils.GetArchitectureString(conditional.ArchitectureFilters) + '\'');
+                        
+                        // CLcompile
+                        writer.WriteStartElement("ClCompile");
+                        writer.WriteElementString("WarningLevel", "Level3"); // TODO: default value here, expose to project data
+
+                        if (conditional.EnablePrecompiledHeaders == true)
+                        {
+                            writer.WriteElementString("PrecompiledHeader", "Use");
+                        }
+                        writer.WriteElementString("PrecompiledHeaderFile", "pch.h"); // TODO: hardcoded pch name
+
+                        // TODO: implement debug data handling
+                        // <DebugInformationFormat> EditAndContinue / ProgramDatabase </DebugInformationFormat>
+
+                        writer.WriteElementString("Optimization", ConversionUtils.GetOptimizationString(conditional.EnableOptimizations));
+                        writer.WriteElementString("RuntimeLibrary", ConversionUtils.GetRuntimeLibraryString(conditional.ConfigurationFilters));
+
+                        string definitions = "";
+                        foreach (string definition in conditional.PreprocessorDefinitions)
+                        {
+                            definitions += definition;
+                            definitions += ';';
+                        }
+                        writer.WriteElementString("PreprocessorDefinitions", definitions + "%(PreprocessorDefinitions)");
+                        writer.WriteEndElement();
+
+                        // Link
+                        writer.WriteStartElement("Link");
+                        writer.WriteElementString("SubSystem", "Console"); // TODO: hardcoded console subsystem
+                        writer.WriteElementString("GenerateDebugInformation", "true");
+                        writer.WriteEndElement();
+
+                        writer.WriteEndElement();
+                    }
+                }
+                
                 private void WriteIncludedSourceFiles(XmlWriter writer, Core.Project project)
                 {
                     // Start itemgroup
@@ -184,6 +254,12 @@ namespace QED
                             writer.WriteEndElement();
                         }
                     }
+
+                    string pchcpp = BuildTool.fileGroups[project.Conditionals[0].PrecompiledHeaderFileGroup][0];    // TODO: super bad, get pch.cpp 
+                    writer.WriteStartElement("ClCompile");
+                    writer.WriteAttributeString("Include", pchcpp);
+                    writer.WriteElementString("PrecompiledHeader", "Create");
+                    writer.WriteEndElement();
 
                     // End itemgroup
                     writer.WriteEndElement();
@@ -202,6 +278,11 @@ namespace QED
                             writer.WriteAttributeString("Include", filePath);
                             writer.WriteEndElement();
                         }
+
+                        string pchcpp = BuildTool.fileGroups[project.Conditionals[0].PrecompiledHeaderFileGroup][1];    // TODO: super bad, get pch.cpp 
+                        writer.WriteStartElement("ClInclude");
+                        writer.WriteAttributeString("Include", pchcpp);
+                        writer.WriteEndElement();
                     }
 
                     // End itemgroup
@@ -217,29 +298,29 @@ namespace QED
 
 
                 // TODO:
-                // Precompiled header
-                // Warning level (VS)
-                // Preprocessor defs
-                // Additional include dirs (VS)
-                // Optimizations switch
-                // STD lib linkage switch
-                // STD lib debug switch
-                // Additional options (per use case)
-                // Language standard
+                // [ ] Precompiled header
+                // [ ] Warning level (VS)
+                // [ ] Preprocessor defs
+                // [ ] Additional include dirs (VS)
+                // [ ] Optimizations switch
+                // [ ] STD lib linkage switch
+                // [ ] STD lib debug switch
+                // [ ] Additional options (per use case)
+                // [ ] Language standard
 
                 // TODO: write vs project generator extensions
 
                 // Cheat sheet
-                  //<PrecompiledHeader>Use</PrecompiledHeader>
-                  //<PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
-                  //<WarningLevel>Level3</WarningLevel>
-                  //<PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-                  //<AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-                  //<DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-                  //<Optimization>Disabled</Optimization>
-                  //<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-                  //<AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
-                  //<LanguageStandard>stdcpp17</LanguageStandard>
+                //<PrecompiledHeader>Use</PrecompiledHeader>
+                //<PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
+                //<WarningLevel>Level3</WarningLevel>
+                //<PreprocessorDefinitions>MAKE_DLL;QED_ENGINE_WINDOWS;BUILD_OS="10.0 0.0 18362.0 Windows 10 Home";GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+                //<AdditionalIncludeDirectories>..\Common;PCH;..\External\Dependencies\GLFW\include;..\External\Dependencies\GLAD\include;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+                //<DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+                //<Optimization>Disabled</Optimization>
+                //<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+                //<AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
+                //<LanguageStandard>stdcpp17</LanguageStandard>
             }
         }
     }
