@@ -172,13 +172,13 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\Main.cpp" />
+    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\main.cpp" />
     <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\Main.h" />
+    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\main.h" />
     <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\BuildTool\test\pch.h" />
   </ItemGroup>
   <ItemGroup />

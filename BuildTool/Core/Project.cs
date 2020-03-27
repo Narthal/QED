@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace QED
@@ -72,6 +73,49 @@ namespace QED
 
                 public int ProjectID { get; private set; }
                 public string Path { get; set; }
+
+                #region Utility
+
+                public void CreateFilters()
+                {
+                    // Create filters after conditionals are set
+                    Filters = new List<Core.Filter>();
+                    foreach (Core.Architecture architecture in Targets.GetArchitectureFlags())
+                    {
+                        foreach (Core.Platform platform in Targets.GetPlatformFlags())
+                        {
+                            foreach (Core.Configuration configuration in Targets.GetConfigurationFlags())
+                            {
+                                Filters.Add(new Core.Filter(architecture, platform, configuration));
+                                foreach (var conditional in Conditionals)
+                                {
+                                    if
+                                        (
+                                            (conditional.ArchitectureFilters.HasValue == false || conditional.ArchitectureFilters.Value.HasFlag(architecture)) &&
+                                            (conditional.PlatformFilters.HasValue == false || conditional.PlatformFilters.Value.HasFlag(platform)) &&
+                                            (conditional.ConfigurationFilters.HasValue == false || conditional.ConfigurationFilters.Value.HasFlag(configuration))
+                                        )
+                                    {
+                                        foreach (PropertyInfo filterPropertyInfo in Filters.GetType().GetGenericArguments()[0].GetProperties())
+                                        {
+                                            foreach (PropertyInfo conditionalPropertyInfo in conditional.GetType().GetProperties())
+                                            {
+                                                if (filterPropertyInfo.Name == conditionalPropertyInfo.Name)
+                                                {
+                                                    filterPropertyInfo.SetValue(Filters[Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    return;
+                }
+
+                #endregion
             }
         }
     }
