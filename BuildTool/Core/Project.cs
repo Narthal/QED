@@ -52,6 +52,8 @@ namespace QED
                 public List<string> SourceFileGroups { get; protected set; }
                 public List<string> HeaderFileGroups { get; protected set; }
 
+                public string PreCompiledHeaderGroup { get; set; }
+
                 #endregion
 
                 #region Target definitions

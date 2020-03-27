@@ -297,7 +297,11 @@ namespace QED
                         }
                     }
 
-                    string pchcpp = BuildTool.fileGroups[project.Conditionals[0].PrecompiledHeaderFileGroup][0];    // TODO: super bad, get pch.cpp 
+                    if (BuildTool.fileGroups[project.PreCompiledHeaderGroup].Count != 1)
+                    {
+                        throw new Exception("Only one pch.cpp is allowed");
+                    }
+                    string pchcpp = BuildTool.fileGroups[project.PreCompiledHeaderGroup][0];
                     writer.WriteStartElement("ClCompile");
                     writer.WriteAttributeString("Include", pchcpp);
                     writer.WriteElementString("PrecompiledHeader", "Create");
@@ -320,11 +324,6 @@ namespace QED
                             writer.WriteAttributeString("Include", filePath);
                             writer.WriteEndElement();
                         }
-
-                        string pchcpp = BuildTool.fileGroups[project.Conditionals[0].PrecompiledHeaderFileGroup][1];    // TODO: super bad, get pch.cpp 
-                        writer.WriteStartElement("ClInclude");
-                        writer.WriteAttributeString("Include", pchcpp);
-                        writer.WriteEndElement();
                     }
 
                     // End itemgroup

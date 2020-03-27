@@ -14,13 +14,13 @@ namespace QED
             public TestDirectory()
             {
                 FileGroup sources = new FileGroup(this, "HelloSrc");
-                sources.AddFile("Main.cpp");
+                sources.AddFiles("*.cpp", true, "pch.cpp");
 
                 FileGroup headers = new FileGroup(this, "HelloHeader");
-                headers.AddFile("Main.h");
+                headers.AddFiles("*.h");
 
                 FileGroup pch = new FileGroup(this, "PCH");
-                pch.AddFiles("pch*");
+                pch.AddFile("pch.cpp");
             }
         }
 
@@ -38,6 +38,7 @@ namespace QED
                 OutputDirectory = BuildTool.GetDirectory("TestDirectory");
                 SourceFileGroups.Add("HelloSrc");
                 HeaderFileGroups.Add("HelloHeader");
+                PreCompiledHeaderGroup = "PCH";
 
                 // Targets
                 Targets = new Targets()
@@ -68,7 +69,6 @@ namespace QED
 
                         // Precompiled headers
                         EnablePrecompiledHeaders = true,
-                        PrecompiledHeaderFileGroup = "PCH",
 
                         // Compiler options
                         CompilerOptions = new List<string>() { "/sdl-" },

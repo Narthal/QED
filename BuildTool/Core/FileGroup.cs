@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace QED
 {
@@ -25,7 +26,7 @@ namespace QED
                 private Directory Directory { get; set; }
                 private string FileGroupName { get; set; }
 
-                public List<string> files { get; private set; }
+                public List<string> Files { get; private set; }
 
                 public FileGroup(Directory directory, string fileGroupName)
                 {
@@ -53,7 +54,7 @@ namespace QED
                     BuildTool.fileGroups[FileGroupName].Add(compinedPath);
                 }
 
-                public void AddFiles(string searchString, bool recursive = false)
+                public void AddFiles(string searchString, bool recursive = false, string exceptString = "")
                 {
                     System.IO.SearchOption searchOption;
                     if (recursive)
@@ -66,11 +67,31 @@ namespace QED
                     }
 
                     string[] files = System.IO.Directory.GetFiles(Directory.DirectoryPath, searchString, searchOption);
+                    List<string> exceptFiles = new List<string>(System.IO.Directory.GetFiles(Directory.DirectoryPath, exceptString, searchOption));
 
                     foreach (string file in files)
                     {
-                        BuildTool.fileGroups[FileGroupName].Add(file);
+                        if (!exceptFiles.Contains(file) || exceptString == "")
+                        {
+                            BuildTool.fileGroups[FileGroupName].Add(file);
+                        }
                     }
+                }
+
+                public List<string> GetFiles(string searchString)
+                {
+                    List<string> files = new List<string>();
+
+                    foreach (string file in Files)
+                    {
+                        Match m = Regex.Match(file, searchString, RegexOptions.IgnoreCase);
+                        if (m.Success)
+                        {
+                            files.Add(file);
+                        }
+                    }
+
+                    return files;
                 }
             }
         }

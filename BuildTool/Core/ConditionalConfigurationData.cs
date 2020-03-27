@@ -26,7 +26,6 @@ namespace QED
 
                 // Precompiled headers
                 public bool? EnablePrecompiledHeaders { get; set; }
-                public string? PrecompiledHeaderFileGroup { get; set; }
 
                 // Compiler options
                 public List<string> CompilerOptions { get; set; }
