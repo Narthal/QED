@@ -188,28 +188,28 @@ namespace QED
 
                 private void WriteIncrementCompileSetting(XmlWriter writer, Core.Project project)
                 {
-                    foreach (Core.Conditional conditional in project.Conditionals)
+                    foreach (Core.Filter filter in project.Filters)
                     {
                         writer.WriteStartElement("PropertyGroup");
-                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(conditional.ConfigurationFilters) + '|' + ConversionUtils.GetArchitectureString(conditional.ArchitectureFilters) + '\'');
-                        writer.WriteElementString("LinkIncremental", conditional.EnableIncrementalLinking.ToString());
+                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter) + '\'');
+                        writer.WriteElementString("LinkIncremental", filter.EnableIncrementalLinking.ToString());
                         writer.WriteEndElement();
                     }
                 }
 
                 private void WriteCompilerConfig(XmlWriter writer, Core.Project project)
                 {
-                    foreach (Core.Conditional conditional in project.Conditionals)
+                    foreach (Core.Filter filter in project.Filters)
                     {
                         writer.WriteStartElement("ItemDefinitionGroup");
 
-                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(conditional.ConfigurationFilters) + '|' + ConversionUtils.GetArchitectureString(conditional.ArchitectureFilters) + '\'');
+                        writer.WriteAttributeString("Condition", "'$(Configuration)|$(Platform)'=='" + ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter) + '\'');
                         
                         // CLcompile
                         writer.WriteStartElement("ClCompile");
                         writer.WriteElementString("WarningLevel", "Level3"); // TODO: default value here, expose to project data
 
-                        if (conditional.EnablePrecompiledHeaders == true)
+                        if (filter.EnablePrecompiledHeaders == true)
                         {
                             writer.WriteElementString("PrecompiledHeader", "Use");
                         }
@@ -218,11 +218,11 @@ namespace QED
                         // TODO: implement debug data handling
                         // <DebugInformationFormat> EditAndContinue / ProgramDatabase </DebugInformationFormat>
 
-                        writer.WriteElementString("Optimization", ConversionUtils.GetOptimizationString(conditional.EnableOptimizations));
-                        writer.WriteElementString("RuntimeLibrary", ConversionUtils.GetRuntimeLibraryString(conditional.ConfigurationFilters));
+                        writer.WriteElementString("Optimization", ConversionUtils.GetOptimizationString(filter.EnableOptimizations));
+                        writer.WriteElementString("RuntimeLibrary", ConversionUtils.GetRuntimeLibraryString(filter.ConfigurationFilter));
 
                         string definitions = "";
-                        foreach (string definition in conditional.PreprocessorDefinitions)
+                        foreach (string definition in filter.PreprocessorDefinitions)
                         {
                             definitions += definition;
                             definitions += ';';

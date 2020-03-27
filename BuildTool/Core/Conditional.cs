@@ -10,7 +10,7 @@ namespace QED
         {
             public class Conditional : ConditionalConfigurationData
             {
-                public Conditional(Architecture architecture, Platform platform, Configuration configuration)
+                public Conditional(Architecture? architecture, Platform? platform, Configuration? configuration)
                 {
                     ArchitectureFilters = architecture;
                     PlatformFilters = platform;
@@ -19,9 +19,9 @@ namespace QED
 
                 #region Filter settings
 
-                public Architecture ArchitectureFilters { get; private set; }
-                public Platform PlatformFilters { get; private set; }
-                public Configuration ConfigurationFilters { get; private set; }
+                public Architecture? ArchitectureFilters { get; private set; }
+                public Platform? PlatformFilters { get; private set; }
+                public Configuration? ConfigurationFilters { get; private set; }
 
                 #endregion
         }

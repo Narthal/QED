@@ -43,7 +43,7 @@ namespace QED
                 // Targets
                 Targets = new Targets()
                 {
-                    Architecture = Architecture.x86, //| Architecture.x64,
+                    Architecture = Architecture.x86 | Architecture.x64,
                     Platform = Platform.Windows,
                     Configuration = Configuration.Debug //| Configuration.Release,
                 };
@@ -55,7 +55,7 @@ namespace QED
                     (
                         // Filters
                         // TODO: try this when conditionals are resolved into filters
-                        Architecture.x86,// | Architecture.x64,
+                        Architecture.x86 | Architecture.x64,
                         Platform.Windows,
                         Configuration.Debug
                     )

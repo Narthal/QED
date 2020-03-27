@@ -78,7 +78,8 @@ namespace QED
                                     Console.WriteLine('\t' + type.ToString());
 
                                     // Create instance and add to list
-                                    BuildTool.projects.Add((Project)Activator.CreateInstance(type));
+                                    Project project = (Project)Activator.CreateInstance(type);
+                                    BuildTool.projects.Add(project);
 
                                     // Increment build type counter
                                     buildTypeCounter++;

@@ -10,12 +10,12 @@ namespace QED
         {
             public static class ConversionUtils
             {
-                public static string GetConfigurationString(Core.Configuration configuration)
+                public static string GetConfigurationString(Core.Configuration? configuration)
                 {
                     return Enum.GetName(configuration.GetType(), configuration);
                 }
 
-                public static string GetArchitectureString(Core.Architecture architecture)
+                public static string GetArchitectureString(Core.Architecture? architecture)
                 {
                     switch (architecture)
                     {
@@ -50,7 +50,7 @@ namespace QED
                     }
                 }
 
-                public static string GetRuntimeLibraryString(Core.Configuration configuration)
+                public static string GetRuntimeLibraryString(Core.Configuration? configuration)
                 {
                     switch (configuration)
                     {

@@ -32,7 +32,9 @@ namespace QED
 
                     // Conditionals
                     Conditionals = new List<Conditional>();
+
                 }
+
 
                 #region Basic configuration
 
@@ -58,6 +60,7 @@ namespace QED
                 #region Conditionals
 
                 public List<Conditional> Conditionals { get; protected set; }
+                public List<Filter> Filters { get; set; }
 
                 public ConditionalConfigurationData GetConditionalData(Conditional conditional)
                 {
