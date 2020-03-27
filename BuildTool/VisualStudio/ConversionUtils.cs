@@ -108,6 +108,8 @@ namespace QED
                             return ".dll";
                         case Core.OutputType.StaticLibrary:
                             return ".lib";
+                        case Core.OutputType.Utility:
+                            return "";
                         default:
                             throw new Exception("unknown outputType");
                     }

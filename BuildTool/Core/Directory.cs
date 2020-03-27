@@ -14,7 +14,21 @@ namespace QED
             {
                 public RegisterPathAttribute PathAttribute { get; protected set; }
                 public string DirectoryPath { get; private set; }
+
+                public string SubDirectory = "";
+                
+                public void SetSubDirectory(string subDirectory)
+                {
+                    RetrieveDirectoryPath();
+                    DirectoryPath += '\\' + SubDirectory;
+                }
+
                 protected Directory()
+                {
+                    RetrieveDirectoryPath();
+                }
+
+                private void RetrieveDirectoryPath()
                 {
                     object[] customAttributes = GetType().GetCustomAttributes(true);
                     foreach (Attribute attribute in customAttributes)

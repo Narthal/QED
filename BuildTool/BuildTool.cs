@@ -19,6 +19,9 @@ namespace QED
             // Registered projects
             public static List<Core.Project> projects = new List<Core.Project>();
 
+            // Registered project groups
+            public static List<Core.ProjectGroup> projectGroups = new List<Core.ProjectGroup>();
+
             #endregion
 
             #region Helper methods
@@ -34,6 +37,20 @@ namespace QED
                 }
 
                 throw new Exception("No such directory : " + name);
+                return null;
+            }
+
+            public static Core.Project GetProject(string name)
+            {
+                foreach (Core.Project project in projects)
+                {
+                    if (project.GetType().Name == name)
+                    {
+                        return project;
+                    }
+                }
+
+                throw new Exception("No such project : " + name);
                 return null;
             }
 

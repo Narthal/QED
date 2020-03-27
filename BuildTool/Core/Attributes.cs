@@ -25,6 +25,9 @@ namespace QED
             [AttributeUsage(AttributeTargets.Class)]
             public class RegisterProjectAttribute : UserDefinedAttribute {}
 
+            [AttributeUsage(AttributeTargets.Class)]
+            public class RegisterProjectGroupAttribute : UserDefinedAttribute { }
+
             public static class Attributes
             {
                 public static void RegisterAttributes()
@@ -49,53 +52,80 @@ namespace QED
                         }
                     }
 
+                    InstantiateType(types, typeof(RegisterPathAttribute));
+                    InstantiateType(types, typeof(RegisterProjectAttribute));
+                    InstantiateType(types, typeof(RegisterProjectGroupAttribute));
+
                     // Iterate through all types and all custom attributes in each type
                     Console.WriteLine("Found {0} user defined types", types.Length);
                     Console.WriteLine("Found build tool types : ");
                     // Count build tool types too
-                    int buildTypeCounter = 0;
-                    foreach (Type type in types)
-                    {
-                        foreach (CustomAttributeData item in type.CustomAttributes)
-                        {
-                            switch (item.AttributeType)
-                            {
-                                case Type registerPathAttribute when registerPathAttribute == typeof(RegisterPathAttribute):
-                                    // Write found type
-                                    Console.WriteLine('\t' + type.ToString());
-
-                                    // Create instance and add to list
-                                    BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
-
-                                    // Increment build type counter
-                                    buildTypeCounter++;
-
-                                    // Stop if there is at least one user defined attribute
-                                    break;
-
-                                case Type registerProjectAttribute when registerProjectAttribute == typeof(RegisterProjectAttribute):
-                                    // Write found type
-                                    Console.WriteLine('\t' + type.ToString());
-
-                                    // Create instance and add to list
-                                    Project project = (Project)Activator.CreateInstance(type);
-                                    BuildTool.projects.Add(project);
-
-                                    // Increment build type counter
-                                    buildTypeCounter++;
-
-                                    // Stop if there is at least one user defined attribute
-                                    break;
-
-                                default:
-                                    break;
-                            }
-                        }
-                    }
+                    
                     // Write summary
                     Console.WriteLine("Created {0} build tool objects", buildTypeCounter);
                     Console.WriteLine("Created {0} build tool directory objects", BuildTool.directories.Count);
                 }
+
+                private static void InstantiateType(Type[] types, Type attributeType)
+                {
+                    foreach (Type type in types)
+                    {
+                        foreach (CustomAttributeData item in type.CustomAttributes)
+                        {
+                            if (item.AttributeType == attributeType)
+                            {
+                                switch (item.AttributeType)
+                                {
+                                    case Type registerPathAttribute when registerPathAttribute == typeof(RegisterPathAttribute):
+                                        // Write found type
+                                        Console.WriteLine('\t' + type.ToString());
+
+                                        // Create instance and add to list
+                                        BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
+
+                                        // Increment build type counter
+                                        buildTypeCounter++;
+
+                                        // Stop if there is at least one user defined attribute
+                                        break;
+
+                                    case Type registerProjectAttribute when registerProjectAttribute == typeof(RegisterProjectAttribute):
+                                        // Write found type
+                                        Console.WriteLine('\t' + type.ToString());
+
+                                        // Create instance and add to list
+                                        Project project = (Project)Activator.CreateInstance(type);
+                                        BuildTool.projects.Add(project);
+
+                                        // Increment build type counter
+                                        buildTypeCounter++;
+
+                                        // Stop if there is at least one user defined attribute
+                                        break;
+
+                                    case Type registerProjectGroupAttribute when registerProjectGroupAttribute == typeof(RegisterProjectGroupAttribute):
+                                        // Write found type
+                                        Console.WriteLine('\t' + type.ToString());
+
+                                        // Create instance and add to list
+                                        ProjectGroup projectGroup = (ProjectGroup)Activator.CreateInstance(type);
+                                        BuildTool.projectGroups.Add(projectGroup);
+
+                                        // Increment build type counter
+                                        buildTypeCounter++;
+
+                                        // Stop if there is at least one user defined attribute
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                private static int buildTypeCounter = 0;
             }
         }
     }

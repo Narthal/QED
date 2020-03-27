@@ -5,4 +5,11 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\BuildScripts\BuildScripts.cs" Link="BuildScripts.cs" />
+    <Compile Include="..\Build\BuildDirectory.cs" Link="BuildDirectory.cs" />
+    <Compile Include="..\Dependencies\GLFW\GLFW.cs" Link="GLFW.cs" />
+    <Compile Include="..\QED.cs" Link="QED.cs" />
+  </ItemGroup>
+
 </Project>

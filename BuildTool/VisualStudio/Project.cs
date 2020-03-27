@@ -297,15 +297,19 @@ namespace QED
                         }
                     }
 
-                    if (BuildTool.fileGroups[project.PreCompiledHeaderGroup].Count != 1)
+                    if (project.PreCompiledHeaderGroup != null)
                     {
-                        throw new Exception("Only one pch.cpp is allowed");
+                        if (BuildTool.fileGroups[project.PreCompiledHeaderGroup].Count != 1)
+                        {
+                            throw new Exception("Only one pch.cpp is allowed");
+                        }
+                        string pchcpp = BuildTool.fileGroups[project.PreCompiledHeaderGroup][0];
+                        writer.WriteStartElement("ClCompile");
+                        writer.WriteAttributeString("Include", pchcpp);
+                        writer.WriteElementString("PrecompiledHeader", "Create");
+                        writer.WriteEndElement();
                     }
-                    string pchcpp = BuildTool.fileGroups[project.PreCompiledHeaderGroup][0];
-                    writer.WriteStartElement("ClCompile");
-                    writer.WriteAttributeString("Include", pchcpp);
-                    writer.WriteElementString("PrecompiledHeader", "Create");
-                    writer.WriteEndElement();
+
 
                     // End itemgroup
                     writer.WriteEndElement();

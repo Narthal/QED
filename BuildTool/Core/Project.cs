@@ -14,6 +14,7 @@ namespace QED
                 Application,
                 SharedLibrary,
                 StaticLibrary,
+                Utility
             }
 
             public enum CppVersion
