@@ -37,7 +37,6 @@ namespace QED
                 }
 
                 throw new Exception("No such directory : " + name);
-                return null;
             }
 
             public static Core.Project GetProject(string name)
@@ -51,7 +50,19 @@ namespace QED
                 }
 
                 throw new Exception("No such project : " + name);
-                return null;
+            }
+
+            public static Core.ProjectGroup GetProjectGroup(string name)
+            {
+                foreach (Core.ProjectGroup projectGroup in projectGroups)
+                {
+                    if (projectGroup.GetType().Name == name)
+                    {
+                        return projectGroup;
+                    }
+                }
+
+                throw new Exception("No such project group : " + name);
             }
 
             #endregion  

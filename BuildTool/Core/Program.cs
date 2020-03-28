@@ -40,10 +40,16 @@ namespace QED
                     VisualStudio.Project vsproject = new VisualStudio.Project();
                     vsproject.Generate(project);
                 }
-                
+
+                // Project group setup
+                foreach (Core.ProjectGroup projectGroup in BuildTool.projectGroups)
+                {
+                    projectGroup.RetieveProjectGroupPath();
+                }
+
                 // Project group generation
                 VisualStudio.Solution solution = new VisualStudio.Solution();
-                solution.Generate(BuildTool.projectGroups[0].ProjectIDs);
+                solution.Generate(BuildTool.GetProjectGroup("QED"));
 
                 Console.ReadKey();
             }

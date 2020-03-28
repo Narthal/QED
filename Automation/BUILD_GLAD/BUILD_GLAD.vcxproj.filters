@@ -4,36 +4,36 @@
     <Filter Include="External">
       <UniqueIdentifier>{089DB854-F469-1360-1D83-010809AF48EE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies">
-      <UniqueIdentifier>{9E8515F1-0AF2-D0EB-D3E5-68493F11F353}</UniqueIdentifier>
+    <Filter Include="External\Vendor">
+      <UniqueIdentifier>{45264389-B1B1-B04D-BAC2-334226CD0C4E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\GLAD">
-      <UniqueIdentifier>{E5725A98-D182-0669-3A3C-6B87266BF501}</UniqueIdentifier>
+    <Filter Include="External\Vendor\GLAD">
+      <UniqueIdentifier>{EC939913-D822-23DD-8141-37D86DAF3383}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\GLAD\include">
-      <UniqueIdentifier>{58AF8AEA-44EB-8D54-ADFD-A54B9958366F}</UniqueIdentifier>
+    <Filter Include="External\Vendor\GLAD\include">
+      <UniqueIdentifier>{5FE7C16E-4BA2-B11A-F459-2A65E0F3FBAA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\GLAD\include\KHR">
-      <UniqueIdentifier>{CCA99D84-B8FB-7474-A11A-B2848D0B8E5D}</UniqueIdentifier>
+    <Filter Include="External\Vendor\GLAD\include\KHR">
+      <UniqueIdentifier>{538D2F42-3FDE-1A84-6842-094654F2ADED}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\GLAD\include\glad">
-      <UniqueIdentifier>{5FD96218-CB68-2403-D464-051B40735F0F}</UniqueIdentifier>
+    <Filter Include="External\Vendor\GLAD\include\glad">
+      <UniqueIdentifier>{C62D3188-329C-8607-7B85-4107E7327CA3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\GLAD\src">
-      <UniqueIdentifier>{7C1B8F54-6841-59BB-5187-DE863D4C7E87}</UniqueIdentifier>
+    <Filter Include="External\Vendor\GLAD\src">
+      <UniqueIdentifier>{0368F5AC-EF8C-442D-18D8-29BD045C434B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\External\Dependencies\GLAD\include\KHR\khrplatform.h">
-      <Filter>External\Dependencies\GLAD\include\KHR</Filter>
+    <ClInclude Include="..\..\External\Vendor\GLAD\include\KHR\khrplatform.h">
+      <Filter>External\Vendor\GLAD\include\KHR</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\GLAD\include\glad\glad.h">
-      <Filter>External\Dependencies\GLAD\include\glad</Filter>
+    <ClInclude Include="..\..\External\Vendor\GLAD\include\glad\glad.h">
+      <Filter>External\Vendor\GLAD\include\glad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\External\Dependencies\GLAD\src\glad.c">
-      <Filter>External\Dependencies\GLAD\src</Filter>
+    <ClCompile Include="..\..\External\Vendor\GLAD\src\glad.c">
+      <Filter>External\Vendor\GLAD\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

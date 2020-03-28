@@ -2,21 +2,21 @@
 #define APPLICATION_H
 
 
-#include "../Type/Type.h"
-#include "../Module/Kernel.h"
-#include "../Module/QEDApi.h"
-#include "../Window/CoreWindow.h"
-#include "../Event/WindowEvent.h"
-#include "../Layer/Layer.h"
-#include "../Layer/LayerStack.h"
-#include "../UI/ImGuiLayer.h"
+#include "Core/Type/Type.h"
+#include "Module/Kernel.h"
+#include "Module/QEDApi.h"
+#include "Window/CoreWindow.h"
+#include "Event/WindowEvent.h"
+#include "Layer/Layer.h"
+#include "Layer/LayerStack.h"
+#include "UI/ImGuiLayer.h"
 
 // Renderer
-#include "../Graphics/VertexArray.h"
-#include "../Graphics/VertexBuffer.h"
-#include "../Graphics/IndexBuffer.h"
-#include "../Graphics/Shader.h"
-#include "../Graphics/OrthographicCamera.h"
+#include "Graphics/VertexArray.h"
+#include "Graphics/VertexBuffer.h"
+#include "Graphics/IndexBuffer.h"
+#include "Graphics/Shader.h"
+#include "Graphics/OrthographicCamera.h"
 
 namespace QED
 {

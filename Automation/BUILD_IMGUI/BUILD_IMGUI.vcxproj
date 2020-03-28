@@ -76,7 +76,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>IMGUI_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\External\Vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -92,7 +92,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>IMGUI_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\External\Vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -112,7 +112,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>IMGUI_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\External\Dependencies\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\External\Vendor\ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -128,18 +128,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imconfig.h" />
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imgui.h" />
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imgui_internal.h" />
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_textedit.h" />
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_truetype.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imconfig.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imgui.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imgui_internal.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_textedit.h" />
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui.cpp" />
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui.cpp" />
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\premake5.lua" />

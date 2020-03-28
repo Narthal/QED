@@ -8,7 +8,7 @@ namespace QED
     {
         namespace Core
         {
-            public class Filter : ConditionalConfigurationData
+            public class Filter : ProjectConfigurationData
             {
                 public Filter(Architecture architecture, Platform platform, Configuration configuration)
                 {

@@ -19,61 +19,61 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8A1F3C3C-0137-4F1B-9152-FE757AB61486}</ProjectGuid>
+    <ProjectGuid>{26D526BB-4D26-45D3-98D9-D20CD37F1DE8}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>GLAD</RootNamespace>
+    <RootNamespace>GLFW</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.default.props" />
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Utility</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental />
-    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\</OutDir>
-    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\Intermediate\</IntDir>
-    <TargetName>GLAD</TargetName>
-    <TargetExt>.lib</TargetExt>
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\Intermediate\</IntDir>
+    <TargetName>GLFW</TargetName>
+    <TargetExt />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental />
-    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\</OutDir>
-    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\Intermediate\</IntDir>
-    <TargetName>GLAD</TargetName>
-    <TargetExt>.lib</TargetExt>
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\Intermediate\</IntDir>
+    <TargetName>GLFW</TargetName>
+    <TargetExt />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental />
-    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\</OutDir>
-    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\Intermediate\</IntDir>
-    <TargetName>GLAD</TargetName>
-    <TargetExt>.lib</TargetExt>
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\Intermediate\</IntDir>
+    <TargetName>GLFW</TargetName>
+    <TargetExt />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental />
-    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\</OutDir>
-    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\Intermediate\</IntDir>
-    <TargetName>GLAD</TargetName>
-    <TargetExt>.lib</TargetExt>
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\Intermediate\</IntDir>
+    <TargetName>GLFW</TargetName>
+    <TargetExt />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -82,7 +82,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -95,17 +95,17 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\rebuildGLFW.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -118,7 +118,7 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\rebuildGLFW.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,7 +128,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -141,17 +141,17 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\rebuildGLFW.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -164,16 +164,11 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\rebuildGLFW.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\src\glad.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include\glad\glad.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include\KHR\khrplatform.h" />
-  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
 </Project>

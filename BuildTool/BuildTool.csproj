@@ -1,18 +1,42 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project>
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>C:\Users\balas\source\GitHubRepos\QED\Build\BuildTool\</OutputPath>
+    <BaseIntermediateOutputPath>C:\Users\balas\source\GitHubRepos\QED\Build\BuildTool\Intermediate\</BaseIntermediateOutputPath>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+
+<Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
   <ItemGroup>
-    <Compile Include="..\BuildScripts\BuildScripts.cs" Link="BuildScripts.cs" />
-    <Compile Include="..\Build\BuildDirectory.cs" Link="BuildDirectory.cs" />
-    <Compile Include="..\External\Dependencies\GLAD\GLAD.cs" Link="GLAD.cs" />
-    <Compile Include="..\External\Dependencies\GLFW\GLFW.cs" Link="GLFW.cs" />
-    <Compile Include="..\External\External.cs" Link="External.cs" />
-    <Compile Include="..\External\Vendor\Vendor.cs" Link="Vendor.cs" />
-    <Compile Include="..\QED.cs" Link="QED.cs" />
+    <Compile Include="..\BuildScripts\BuildScripts.cs" Link="LinkedFiles\BuildScripts.cs" />
+    <Compile Include="..\Build\BuildDirectory.cs" Link="LinkedFiles\BuildDirectory.cs" />
+    <Compile Include="..\Common\Common.cs" Link="LinkedFiles\Common.cs" />
+    <Compile Include="..\Engine\Engine.cs" Link="LinkedFiles\Engine.cs" />
+    <Compile Include="..\External\Dependencies\GLAD\GLAD.cs" Link="LinkedFiles\GLAD.cs" />
+    <Compile Include="..\External\Dependencies\GLFW\GLFW.cs" Link="LinkedFiles\GLFW.cs" />
+    <Compile Include="..\External\Dependencies\ImGui\ImGui.cs" Link="LinkedFiles\ImGui.cs" />
+    <Compile Include="..\External\External.cs" Link="LinkedFiles\External.cs" />
+    <Compile Include="..\External\Vendor\Vendor.cs" Link="LinkedFiles\Vendor.cs" />
+    <Compile Include="..\QED.cs" Link="LinkedFiles\QED.cs" />
+    <Compile Include="..\Sandbox\Sandbox.cs" Link="LinkedFiles\Sandbox.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LinkedFiles\" />
   </ItemGroup>
 
 </Project>

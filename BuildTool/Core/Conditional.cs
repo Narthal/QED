@@ -8,7 +8,7 @@ namespace QED
     {
         namespace Core
         {
-            public class Conditional : ConditionalConfigurationData
+            public class Conditional : ProjectConfigurationData
             {
                 public Conditional(Architecture? architecture, Platform? platform, Configuration? configuration)
                 {

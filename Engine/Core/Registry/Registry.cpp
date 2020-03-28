@@ -15,7 +15,6 @@ namespace QED
 				void InitializeRegistry()
 				{
 					Core::Globals::registry->Set("EngineName", "QED");
-					Core::Globals::registry->Set("BuildOS", BUILD_OS);
 				}
 			}
 		}

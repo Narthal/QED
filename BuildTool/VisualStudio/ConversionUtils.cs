@@ -80,7 +80,19 @@ namespace QED
 
                 public static string GetOutputTypeString(Core.OutputType outputType)
                 {
-                    return Enum.GetName(outputType.GetType(), outputType);
+                    switch (outputType)
+                    {
+                        case Core.OutputType.Application:
+                            return "Application";
+                        case Core.OutputType.SharedLibrary:
+                            return "DynamicLibrary";
+                        case Core.OutputType.StaticLibrary:
+                            return "StaticLibrary";
+                        case Core.OutputType.Utility:
+                            return "Utility";
+                        default:
+                            throw new Exception("Unknown output type");
+                    }
                 }
 
                 public static string GetLanguageStandardString(Core.CppVersion cppVersion)

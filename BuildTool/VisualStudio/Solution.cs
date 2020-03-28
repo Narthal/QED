@@ -11,7 +11,7 @@ namespace QED
         {
             class Solution
             {
-                public void Generate(List<int> projectIDs)
+                public void Generate(Core.ProjectGroup projectGroup)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
                     using (StringWriter writer = new StringWriter(stringBuilder))
@@ -21,12 +21,11 @@ namespace QED
                         writer.WriteLine("# Visual Studio 16");
 
                         // Define projects
-                        foreach (int projectID in projectIDs)
+                        foreach (int projectID in projectGroup.ProjectIDs)
                         {
                             writer.WriteLine(String.Format("Project(\"{{{0}}}\") = \"" + BuildTool.projects[projectID].Name + "\", \"" + BuildTool.projects[projectID].Path + "\", \"{{{1}}}\"", GUID.ProjectGUID, GUID.predefinedGUIDs[projectID]));
                             writer.WriteLine("EndProject");
                         }
-
 
                         // Start global area
                         writer.WriteLine("Global");
@@ -45,7 +44,7 @@ namespace QED
                         // List all possible configs for all projects
                         writer.WriteLine("\tGlobalSection(ProjectConfigurationPlatforms) = postSolution");
 
-                        foreach (int projectID in projectIDs)
+                        foreach (int projectID in projectGroup.ProjectIDs)
                         {
                             foreach (Core.Filter filter in BuildTool.projects[projectID].Filters)
                             {
@@ -80,12 +79,11 @@ namespace QED
                     Console.ResetColor();
 
                     // Write solution to file
-                    string path = "../../../HelloSolution" + ".sln";
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(path))
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(projectGroup.Path))
                     {
                         file.Write(stringBuilder.ToString());
                     }
-                    Console.WriteLine("Done writing project file at " + path);
+                    Console.WriteLine("Done writing project file at " + projectGroup.Path);
                 }
             }
         }

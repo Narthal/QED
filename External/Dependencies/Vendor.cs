@@ -39,5 +39,38 @@ namespace QED
                 headers.AddFiles("GLAD\\*.h", true);
             }
         }
+
+        [RegisterPath]
+        public class VendorImGuiDirectory : Directory
+        {
+            public VendorImGuiDirectory()
+            {
+                SubDirectory = "ImGui";
+
+                FileGroup sources = new FileGroup(this, "ImGuiSrc");
+                sources.AddFiles("ImGui\\*.cpp", false);
+
+                FileGroup headers = new FileGroup(this, "ImGuiHead");
+                headers.AddFiles("ImGui\\*.h", false);
+            }
+        }
+
+        [RegisterPath]
+        public class VendorGLMDirectory : Directory
+        {
+            public VendorGLMDirectory()
+            {
+                SubDirectory = "GLM";
+            }
+        }
+
+        [RegisterPath]
+        public class VendorStbDirectory : Directory
+        {
+            public VendorStbDirectory()
+            {
+                SubDirectory = "stb";
+            }
+        }
     }
 }

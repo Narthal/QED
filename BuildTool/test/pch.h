@@ -1,4 +1,0 @@
-// PrecompiledHeader
-
-#include "iostream"
-

@@ -17,6 +17,7 @@ namespace BuildTool
             }
         }
 
+        [RegisterPath]
         [RegisterProjectGroup]
         public class QED : ProjectGroup
         {
@@ -24,8 +25,10 @@ namespace BuildTool
             {
                 AddProject("GLFW");
                 AddProject("GLAD");
+                AddProject("ImGui");
+                AddProject("Engine");
+                AddProject("Sandbox");
             }
         }
-
     }
 }

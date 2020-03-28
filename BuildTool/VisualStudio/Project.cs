@@ -336,8 +336,10 @@ namespace QED
                 {
                     writer.WriteStartElement("ItemGroup");
 
-                    foreach (int projectID in project.ReferencedProjectIDs)
+                    foreach (string projectName in project.AdditionalReferences)
                     {
+                        int projectID = BuildTool.GetProject(projectName).ProjectID;
+
                         writer.WriteStartElement("ProjectReference");
                         writer.WriteAttributeString("Include", BuildTool.projects[projectID].Path);
                         writer.WriteElementString("Project", '{' + GUID.predefinedGUIDs[projectID] + '}');

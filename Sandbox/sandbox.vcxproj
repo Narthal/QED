@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-16"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -9,157 +9,175 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|x64">
-      <Configuration>Distribution</Configuration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F4C124E3-60A1-A37E-69B9-2E55D5170AE0}</ProjectGuid>
+    <ProjectGuid>{1A366C3B-705D-43A0-B09F-74ED5241B5DE}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Sandbox</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.default.props" />
+  <PropertyGroup Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'" Label="Configuration">
+  <PropertyGroup Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\Build\Sandbox\Debug-windows-x86_64\</OutDir>
-    <IntDir>..\Build\Sandbox\Debug-windows-x86_64\Intermediate\</IntDir>
+    <LinkIncremental />
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Sandbox\Release-windows-x86_64\</OutDir>
-    <IntDir>..\Build\Sandbox\Release-windows-x86_64\Intermediate\</IntDir>
+    <LinkIncremental />
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\Build\Sandbox\Distribution-windows-x86_64\</OutDir>
-    <IntDir>..\Build\Sandbox\Distribution-windows-x86_64\Intermediate\</IntDir>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental />
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\Intermediate\</IntDir>
+    <TargetName>Sandbox</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental />
+    <OutDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\</OutDir>
+    <IntDir>C:\Users\balas\source\GitHubRepos\QED\Build\Sandbox\Intermediate\</IntDir>
     <TargetName>Sandbox</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Graphics;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Core\Time;..\Engine\Core\Type;..\Engine\Graphics\OpenGL;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>..\Build\Engine\Debug-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\Build\Sandbox\Debug-windows-x86_64\Sandbox.lib</ImportLibrary>
+      <AdditionalDependencies>C:\Users\balas\source\GitHubRepos\QED\Build\Engine\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Graphics;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Core\Time;..\Engine\Core\Type;..\Engine\Graphics\OpenGL;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Build\Engine\Release-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\Build\Sandbox\Release-windows-x86_64\Sandbox.lib</ImportLibrary>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Users\balas\source\GitHubRepos\QED\Build\Engine\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>SandboxPCH.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MAKE_MODULE;QED_WINDOWS;QED_SANDBOX_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Common;PCH;..\Engine\Core;..\Engine\Event;..\Engine\Graphics;..\Engine\Input;..\Engine\Layer;..\Engine\Module;..\Engine\PCH;..\Engine\SQLite;..\Engine\UI;..\Engine\Window;..\Engine\Core\Application;..\Engine\Core\Log;..\Engine\Core\Registry;..\Engine\Core\Time;..\Engine\Core\Type;..\Engine\Graphics\OpenGL;..\Engine\Module\Interfaces;..\External\Dependencies\ImGui;..\External\Dependencies\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Full</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/sdl- %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\Build\Engine\Distribution-windows-x86_64\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>..\Build\Sandbox\Distribution-windows-x86_64\Sandbox.lib</ImportLibrary>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Users\balas\source\GitHubRepos\QED\Build\Engine\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Users\balas\source\GitHubRepos\QED\Build\Engine\Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="PCH\SandboxPCH.h" />
+    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\Sandbox.cpp" />
+    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH\SandboxPCH.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PCH\SandboxPCH.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Sandbox.cpp" />
+    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH\SandboxPCH.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\premake5.lua" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Engine\Engine.vcxproj">
-      <Project>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</Project>
+    <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\Engine\Engine.vcxproj">
+      <Project>{E41E9B4A-D374-4D95-BA0C-FB1EAB657186}</Project>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
 </Project>

@@ -53,7 +53,7 @@ outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}/"
 -- base structure directories
 common = "Common"
 external = "External"
-dependancies = external .. "/" .. "Dependencies"
+dependancies = external .. "/" .. "Vendor"
 
 -- dependancy directory names
 GLFWDir = dependancies .. "/" .. "GLFW"

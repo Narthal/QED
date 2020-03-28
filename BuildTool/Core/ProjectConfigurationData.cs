@@ -8,9 +8,9 @@ namespace QED
     {
         namespace Core
         {
-            public class ConditionalConfigurationData
+            public class ProjectConfigurationData
             {
-                public ConditionalConfigurationData()
+                public ProjectConfigurationData()
                 {
                     CompilerOptions = new List<string>();
                     PreprocessorDefinitions = new List<string>();

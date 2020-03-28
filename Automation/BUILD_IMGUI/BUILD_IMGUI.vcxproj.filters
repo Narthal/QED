@@ -4,45 +4,45 @@
     <Filter Include="External">
       <UniqueIdentifier>{089DB854-F469-1360-1D83-010809AF48EE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies">
-      <UniqueIdentifier>{9E8515F1-0AF2-D0EB-D3E5-68493F11F353}</UniqueIdentifier>
+    <Filter Include="External\Vendor">
+      <UniqueIdentifier>{45264389-B1B1-B04D-BAC2-334226CD0C4E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="External\Dependencies\ImGui">
-      <UniqueIdentifier>{4839DFA3-B446-0D8A-3D2D-0975A939D940}</UniqueIdentifier>
+    <Filter Include="External\Vendor\ImGui">
+      <UniqueIdentifier>{2F7B0287-9BE7-BD81-64DB-55DFD006E0E9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imconfig.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imconfig.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imgui.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imgui.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imgui_internal.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imgui_internal.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_rectpack.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_rectpack.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_textedit.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_textedit.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\External\Dependencies\ImGui\imstb_truetype.h">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClInclude Include="..\..\External\Vendor\ImGui\imstb_truetype.h">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui.cpp">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui.cpp">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_demo.cpp">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_demo.cpp">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_draw.cpp">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_draw.cpp">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\External\Dependencies\ImGui\imgui_widgets.cpp">
-      <Filter>External\Dependencies\ImGui</Filter>
+    <ClCompile Include="..\..\External\Vendor\ImGui\imgui_widgets.cpp">
+      <Filter>External\Vendor\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -24,11 +24,12 @@ namespace QED
                 cpp17
             }
 
-            public abstract class Project : ConditionalConfigurationData
+            public abstract class Project : ProjectConfigurationData
             {
                 public Project()
                 {
                     ProjectID = BuildTool.projects.Count;
+                    Name = this.GetType().Name;
 
                     // Directories
                     SourceFileGroups = new List<string>();
@@ -37,7 +38,7 @@ namespace QED
                     // Conditionals
                     Conditionals = new List<Conditional>();
 
-                    ReferencedProjectIDs = new List<int>();
+                    ReferencedProjects = new List<string>();
                 }
 
                 public void RetieveProjectPath()
@@ -51,6 +52,11 @@ namespace QED
                             Path = System.IO.Directory.GetParent(PathAttribute.SourcePath).FullName + '\\' + Name + ".vcxproj";
                         }
                     }
+                }
+
+                public void ReferenceProject(string projectRef)
+                {
+                    ReferencedProjects.Add(projectRef);
                 }
 
                 #region Basic configuration
@@ -80,7 +86,7 @@ namespace QED
 
                 public List<Conditional> Conditionals { get; protected set; }
                 public List<Filter> Filters { get; set; }
-                public List<int> ReferencedProjectIDs { get; set; }
+                public List<string> ReferencedProjects { get; set; }
 
                 #endregion
 
@@ -115,7 +121,18 @@ namespace QED
                                             {
                                                 if (filterPropertyInfo.Name == conditionalPropertyInfo.Name)
                                                 {
-                                                    filterPropertyInfo.SetValue(Filters[Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                    // If fiend is list, then add each element, else just override field value
+                                                    if (filterPropertyInfo.PropertyType == typeof(List<string>))
+                                                    {
+                                                        foreach (string item in (List<string>)conditionalPropertyInfo.GetValue(conditional))
+                                                        {
+                                                            ((List<string>)filterPropertyInfo.GetValue(Filters[Filters.Count - 1])).Add(item);
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        filterPropertyInfo.SetValue(Filters[Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                    }
                                                 }
                                             }
                                         }
