@@ -96,13 +96,11 @@ namespace QED
                     Console.ResetColor();
 
                     // Write project to file
-                    string path = project.OutputDirectory.DirectoryPath + '\\' + project.Name + ".vcxproj";
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(path))
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(project.Path))
                     {
                         file.Write(sb.ToString());
                     }
-                    project.Path = path;
-                    Console.WriteLine("Done writing project file at " + path);
+                    Console.WriteLine("Done writing project file at " + project.Path);
                 }
 
                 private void WriteProjectHeader(XmlWriter writer)

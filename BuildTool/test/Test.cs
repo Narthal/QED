@@ -24,6 +24,7 @@ namespace QED
             }
         }
 
+        [RegisterPath]
         [RegisterProject]
         public class TestProject : Project
         {

@@ -40,6 +40,18 @@ namespace QED
                     ReferencedProjectIDs = new List<int>();
                 }
 
+                public void RetieveProjectPath()
+                {
+                    object[] customAttributes = GetType().GetCustomAttributes(true);
+                    foreach (Attribute attribute in customAttributes)
+                    {
+                        if (attribute.GetType() == typeof(RegisterPathAttribute))
+                        {
+                            var PathAttribute = (RegisterPathAttribute)attribute;
+                            Path = System.IO.Directory.GetParent(PathAttribute.SourcePath).FullName + '\\' + Name + ".vcxproj";
+                        }
+                    }
+                }
 
                 #region Basic configuration
 
@@ -73,7 +85,7 @@ namespace QED
                 #endregion
 
                 public int ProjectID { get; private set; }
-                public string Path { get; set; }
+                public string Path { get; private set; }
 
                 #region Utility
 

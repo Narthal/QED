@@ -25,18 +25,23 @@ namespace QED
                 int k = BuildTool.projects.Count;
                 int m = BuildTool.projectGroups.Count;
 
+
+
+                // Project setup
                 foreach (Core.Project project in BuildTool.projects)
                 {
                     project.CreateFilters();
+                    project.RetieveProjectPath();
                 }
-
+                
+                // Project generation
                 foreach (var project in BuildTool.projects)
                 {
                     VisualStudio.Project vsproject = new VisualStudio.Project();
                     vsproject.Generate(project);
                 }
                 
-
+                // Project group generation
                 VisualStudio.Solution solution = new VisualStudio.Solution();
                 solution.Generate(BuildTool.projectGroups[0].ProjectIDs);
 

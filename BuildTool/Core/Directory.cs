@@ -16,19 +16,13 @@ namespace QED
                 public string DirectoryPath { get; private set; }
 
                 public string SubDirectory = "";
-                
-                public void SetSubDirectory(string subDirectory)
-                {
-                    RetrieveDirectoryPath();
-                    DirectoryPath += '\\' + SubDirectory;
-                }
 
                 protected Directory()
                 {
                     RetrieveDirectoryPath();
                 }
 
-                private void RetrieveDirectoryPath()
+                public void RetrieveDirectoryPath()
                 {
                     object[] customAttributes = GetType().GetCustomAttributes(true);
                     foreach (Attribute attribute in customAttributes)
@@ -38,6 +32,11 @@ namespace QED
                             PathAttribute = (RegisterPathAttribute)attribute;
                             DirectoryPath = System.IO.Directory.GetParent(PathAttribute.SourcePath).FullName;
                         }
+                    }
+
+                    if (SubDirectory != "")
+                    {
+                        DirectoryPath += '\\' + SubDirectory;
                     }
                 }
             }

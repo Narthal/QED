@@ -52,7 +52,13 @@ namespace QED
                         }
                     }
 
+                    // Directory setup
                     InstantiateType(types, typeof(RegisterPathAttribute));
+                    foreach (Core.Directory dir in BuildTool.directories)
+                    {
+                        dir.RetrieveDirectoryPath();
+                    }
+
                     InstantiateType(types, typeof(RegisterProjectAttribute));
                     InstantiateType(types, typeof(RegisterProjectGroupAttribute));
 
@@ -64,6 +70,8 @@ namespace QED
                     // Write summary
                     Console.WriteLine("Created {0} build tool objects", buildTypeCounter);
                     Console.WriteLine("Created {0} build tool directory objects", BuildTool.directories.Count);
+                    Console.WriteLine("Created {0} build tool project objects", BuildTool.projects.Count);
+                    Console.WriteLine("Created {0} build tool projectGroup objects", BuildTool.projectGroups.Count);
                 }
 
                 private static void InstantiateType(Type[] types, Type attributeType)
@@ -81,7 +89,10 @@ namespace QED
                                         Console.WriteLine('\t' + type.ToString());
 
                                         // Create instance and add to list
-                                        BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
+                                        if (type.BaseType == typeof(Directory))
+                                        {
+                                            BuildTool.directories.Add((Directory)Activator.CreateInstance(type));
+                                        }
 
                                         // Increment build type counter
                                         buildTypeCounter++;

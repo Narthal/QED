@@ -23,6 +23,7 @@ namespace BuildTool
             public QED()
             {
                 AddProject("GLFW");
+                AddProject("GLAD");
             }
         }
 

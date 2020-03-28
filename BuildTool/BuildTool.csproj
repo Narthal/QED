@@ -8,7 +8,10 @@
   <ItemGroup>
     <Compile Include="..\BuildScripts\BuildScripts.cs" Link="BuildScripts.cs" />
     <Compile Include="..\Build\BuildDirectory.cs" Link="BuildDirectory.cs" />
-    <Compile Include="..\Dependencies\GLFW\GLFW.cs" Link="GLFW.cs" />
+    <Compile Include="..\External\Dependencies\GLAD\GLAD.cs" Link="GLAD.cs" />
+    <Compile Include="..\External\Dependencies\GLFW\GLFW.cs" Link="GLFW.cs" />
+    <Compile Include="..\External\External.cs" Link="External.cs" />
+    <Compile Include="..\External\Vendor\Vendor.cs" Link="Vendor.cs" />
     <Compile Include="..\QED.cs" Link="QED.cs" />
   </ItemGroup>
 
