@@ -1,19 +1,19 @@
 [submodule "External/Dependencies/pybind11"]
-	path = External/Dependencies/PyBind11
+	path = External/Vendor/PyBind11
 	url = https://github.com/pybind/pybind11
 [submodule "External/Dependencies/sqlite_amalgamation"]
-	path = External/Dependencies/SQLiteAmalgamation
+	path = External/Vendor/SQLiteAmalgamation
 	url = https://github.com/azadkuh/sqlite-amalgamation
 [submodule "External/Dependencies/GLFW"]
-	path = External/Dependencies/GLFW
+	path = External/Vendor/GLFW
 	url = https://github.com/glfw/glfw
 [submodule "External/Dependencies/ImGui"]
-	path = External/Dependencies/ImGui
+	path = External/Vendor/ImGui
 	url = https://github.com/ocornut/imgui
 	branch = docking
 [submodule "External/Dependencies/GLM"]
-	path = External/Dependencies/GLM
+	path = External/Vendor/GLM
 	url = https://github.com/g-truc/glm
 [submodule "External/Dependencies/stb"]
-	path = External/Dependencies/stb
+	path = External/Vendor/stb
 	url = https://github.com/nothings/stb
