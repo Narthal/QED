@@ -32,13 +32,13 @@ namespace QED
 					// TODO: assert status
 
 					// Log OpenGL vendor
-					LOG << Core::Log::Severity::Info << "OpenGL vendor : " << glGetString(GL_VENDOR);
+					LOG << "OpenGL vendor : " << glGetString(GL_VENDOR);
 
 					// Log OpenGL renderer
-					LOG << Core::Log::Severity::Info << "OpenGL renderer : " << glGetString(GL_RENDERER);
+					LOG  << "OpenGL renderer : " << glGetString(GL_RENDERER);
 
 					// Log OpenGL version
-					LOG << Core::Log::Severity::Info << "OpenGL version : " << glGetString(GL_VERSION);
+					LOG  << "OpenGL version : " << glGetString(GL_VERSION);
 
 
 				}

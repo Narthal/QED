@@ -164,11 +164,11 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="PCH\SandboxPCH.h" />
+    <ClInclude Include="pch\sandboxPCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sandbox.cpp" />
-    <ClCompile Include="PCH\SandboxPCH.cpp" />
+    <ClCompile Include="pch\sandboxPCH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\Engine\Engine.vcxproj">

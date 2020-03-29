@@ -183,7 +183,7 @@ namespace QED
 							glDeleteShader(shader);
 
 							// TODO: crash here!
-							LOG << "Shader compillation failure : " << Core::Log::Severity::Error << infoLog.data();
+							LOG << "Shader compillation failure : " << infoLog.data();
 
 							return;
 						}
@@ -213,7 +213,7 @@ namespace QED
 						}
 
 						// Use the infoLog as you see fit.
-						LOG << "Shader program linking failure : " << Core::Log::Severity::Error << infoLog.data();
+						LOG << "Shader program linking failure : " << infoLog.data();
 
 						// TODO: crash here!
 						return;
