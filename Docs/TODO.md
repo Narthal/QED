@@ -1,7 +1,7 @@
 # TODO
 
 ## Priority list
-- [ ] replace premake with build tool
+- [x] replace premake with build tool
 - [ ] generate build log file from vs
 - [ ] store build log in sqlite
 
