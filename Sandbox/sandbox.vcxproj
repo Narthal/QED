@@ -168,11 +168,11 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\Sandbox.cpp" />
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH\SandboxPCH.cpp" />
+    <ClInclude Include="PCH\SandboxPCH.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH\SandboxPCH.h" />
+    <ClCompile Include="Sandbox.cpp" />
+    <ClCompile Include="PCH\SandboxPCH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\Engine\Engine.vcxproj">

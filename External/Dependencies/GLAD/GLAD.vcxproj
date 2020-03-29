@@ -90,11 +90,10 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\src\glad.c" />
+    <ClInclude Include="..\..\Vendor\GLAD\include\glad\glad.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include\glad\glad.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include\KHR\khrplatform.h" />
+    <ClCompile Include="..\..\Vendor\GLAD\src\glad.c" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />

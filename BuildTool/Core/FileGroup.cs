@@ -67,11 +67,15 @@ namespace QED
                     }
 
                     string[] files = System.IO.Directory.GetFiles(Directory.DirectoryPath, searchString, searchOption);
-                    List<string> exceptFiles = new List<string>(System.IO.Directory.GetFiles(Directory.DirectoryPath, exceptString, searchOption));
+                    List<string> exceptFiles = new List<string>();
+                    if (exceptString != "")
+                    {
+                        exceptFiles = new List<string>(System.IO.Directory.GetFiles(Directory.DirectoryPath, exceptString, searchOption));
+                    } 
 
                     foreach (string file in files)
                     {
-                        if (!exceptFiles.Contains(file) || exceptString == "")
+                        if (!exceptFiles.Contains(file))
                         {
                             BuildTool.fileGroups[FileGroupName].Add(file);
                         }

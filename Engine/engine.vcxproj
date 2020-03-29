@@ -168,48 +168,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Main.cpp" />
-    <ClCompile Include="Event\ApplicationEvent.cpp" />
-    <ClCompile Include="Event\Event.cpp" />
-    <ClCompile Include="Event\KeyEvent.cpp" />
-    <ClCompile Include="Event\MouseEvent.cpp" />
-    <ClCompile Include="Event\WindowEvent.cpp" />
-    <ClCompile Include="Graphics\BufferLayout.cpp" />
-    <ClCompile Include="Graphics\IndexBuffer.cpp" />
-    <ClCompile Include="Graphics\OrthographicCamera.cpp" />
-    <ClCompile Include="Graphics\OrthographicCameraController.cpp" />
-    <ClCompile Include="Graphics\RenderCommand.cpp" />
-    <ClCompile Include="Graphics\Renderer.cpp" />
-    <ClCompile Include="Graphics\RendererAPI.cpp" />
-    <ClCompile Include="Graphics\Shader.cpp" />
-    <ClCompile Include="Graphics\ShaderLibrary.cpp" />
-    <ClCompile Include="Graphics\Texture.cpp" />
-    <ClCompile Include="Graphics\Texture2D.cpp" />
-    <ClCompile Include="Graphics\VertexArray.cpp" />
-    <ClCompile Include="Graphics\VertexBuffer.cpp" />
-    <ClCompile Include="Input\CoreInput.cpp" />
-    <ClCompile Include="Input\GLFWInput.cpp" />
-    <ClCompile Include="Layer\Layer.cpp" />
-    <ClCompile Include="Layer\LayerStack.cpp" />
-    <ClCompile Include="Module\Kernel.cpp" />
-    <ClCompile Include="Module\Module.cpp" />
-    <ClCompile Include="PCH\EnginePCH.cpp" />
-    <ClCompile Include="UI\ImGuiBuild.cpp" />
-    <ClCompile Include="UI\ImGuiLayer.cpp" />
-    <ClCompile Include="Window\GLFWWindow.cpp" />
-    <ClCompile Include="Core\Application\Application.cpp" />
-    <ClCompile Include="Core\Registry\Registry.cpp" />
-    <ClCompile Include="Core\Type\Type.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLTexture2D.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
-    <ClCompile Include="Module\Interfaces\ModuleInterface.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="QED.h" />
     <ClInclude Include="Core\Globals.h" />
     <ClInclude Include="Event\ApplicationEvent.h" />
@@ -257,6 +215,48 @@
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="Module\Interfaces\ModuleInterface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Event\ApplicationEvent.cpp" />
+    <ClCompile Include="Event\Event.cpp" />
+    <ClCompile Include="Event\KeyEvent.cpp" />
+    <ClCompile Include="Event\MouseEvent.cpp" />
+    <ClCompile Include="Event\WindowEvent.cpp" />
+    <ClCompile Include="Graphics\BufferLayout.cpp" />
+    <ClCompile Include="Graphics\IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OrthographicCamera.cpp" />
+    <ClCompile Include="Graphics\OrthographicCameraController.cpp" />
+    <ClCompile Include="Graphics\RenderCommand.cpp" />
+    <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\RendererAPI.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
+    <ClCompile Include="Graphics\ShaderLibrary.cpp" />
+    <ClCompile Include="Graphics\Texture.cpp" />
+    <ClCompile Include="Graphics\Texture2D.cpp" />
+    <ClCompile Include="Graphics\VertexArray.cpp" />
+    <ClCompile Include="Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="Input\CoreInput.cpp" />
+    <ClCompile Include="Input\GLFWInput.cpp" />
+    <ClCompile Include="Layer\Layer.cpp" />
+    <ClCompile Include="Layer\LayerStack.cpp" />
+    <ClCompile Include="Module\Kernel.cpp" />
+    <ClCompile Include="Module\Module.cpp" />
+    <ClCompile Include="PCH\EnginePCH.cpp" />
+    <ClCompile Include="UI\ImGuiBuild.cpp" />
+    <ClCompile Include="UI\ImGuiLayer.cpp" />
+    <ClCompile Include="Window\GLFWWindow.cpp" />
+    <ClCompile Include="Core\Application\Application.cpp" />
+    <ClCompile Include="Core\Registry\Registry.cpp" />
+    <ClCompile Include="Core\Type\Type.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLTexture2D.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
+    <ClCompile Include="Module\Interfaces\ModuleInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\GLFW.vcxproj">

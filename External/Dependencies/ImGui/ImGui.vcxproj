@@ -90,18 +90,18 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui.cpp" />
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui_widgets.cpp" />
+    <ClInclude Include="..\..\Vendor\ImGui\imconfig.h" />
+    <ClInclude Include="..\..\Vendor\ImGui\imgui.h" />
+    <ClInclude Include="..\..\Vendor\ImGui\imgui_internal.h" />
+    <ClInclude Include="..\..\Vendor\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="..\..\Vendor\ImGui\imstb_textedit.h" />
+    <ClInclude Include="..\..\Vendor\ImGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imconfig.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imgui_internal.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imstb_textedit.h" />
-    <ClInclude Include="C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui\imstb_truetype.h" />
+    <ClCompile Include="..\..\Vendor\ImGui\imgui.cpp" />
+    <ClCompile Include="..\..\Vendor\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="..\..\Vendor\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\Vendor\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />

@@ -33,10 +33,14 @@ namespace QED
                         // Define architecture / platform
                         writer.WriteLine("\tGlobalSection(SolutionConfigurationPlatforms) = preSolution");
 
+                        Core.Platform firtsPlatform = BuildTool.projects[0].Filters[0].PlatformFilter;
                         foreach (Core.Filter filter in BuildTool.projects[0].Filters)
                         {
-                            string configurationArchitecture = ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter);
-                            writer.WriteLine("\t\t" + configurationArchitecture + " = " + configurationArchitecture);
+                            if (filter.PlatformFilter == firtsPlatform)
+                            {
+                                string configurationArchitecture = ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter);
+                                writer.WriteLine("\t\t" + configurationArchitecture + " = " + configurationArchitecture);
+                            }
                         }
 
                         writer.WriteLine("\tEndGlobalSection");
@@ -51,6 +55,7 @@ namespace QED
                                 string configurationArchitecture = ConversionUtils.GetConfigurationString(filter.ConfigurationFilter) + '|' + ConversionUtils.GetArchitectureString(filter.ArchitectureFilter);
 
                                 writer.WriteLine("\t\t{{{0}}}." + configurationArchitecture + ".ActiveCfg = " + configurationArchitecture, GUID.predefinedGUIDs[projectID]);
+                                writer.WriteLine("\t\t{{{0}}}." + configurationArchitecture + ".Build.0 = " + configurationArchitecture, GUID.predefinedGUIDs[projectID]);
                             }
                         }
 

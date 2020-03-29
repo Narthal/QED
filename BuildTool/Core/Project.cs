@@ -95,6 +95,10 @@ namespace QED
 
                 #region Utility
 
+                public string GetProjectDirectory()
+                {
+                    return System.IO.Path.GetDirectoryName(Path);
+                }
                 public void CreateFilters()
                 {
                     // Create filters after conditionals are set

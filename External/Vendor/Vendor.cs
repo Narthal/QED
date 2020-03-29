@@ -36,7 +36,7 @@ namespace QED
                 sources.AddFiles("GLAD\\*.c", true);
 
                 FileGroup headers = new FileGroup(this, "GLADHead");
-                headers.AddFiles("GLAD\\*.h", true);
+                headers.AddFiles("GLAD\\*.h", true, "khrplatform.h");
             }
         }
 

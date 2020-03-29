@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QED.BuildTool.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
@@ -66,12 +67,12 @@ namespace QED
                         WriteCompilerConfig(writer, project);
 
                         // 10
-                        // Compiled files
-                        WriteIncludedSourceFiles(writer, project);
-
-                        // 11
                         // Included files
                         WriteIncludedHeaderFiles(writer, project);
+
+                        // 11
+                        // Source files
+                        WriteIncludedSourceFiles(writer, project);
 
                         // 12
                         // Add links to other projects
@@ -279,7 +280,26 @@ namespace QED
                         writer.WriteEndElement();
                     }
                 }
-                
+
+                private void WriteIncludedHeaderFiles(XmlWriter writer, Core.Project project)
+                {
+                    // Start itemgroup
+                    writer.WriteStartElement("ItemGroup");
+
+                    foreach (string fileGroup in project.HeaderFileGroups)
+                    {
+                        foreach (string filePath in BuildTool.fileGroups[fileGroup])
+                        {
+                            writer.WriteStartElement("ClInclude");
+                            writer.WriteAttributeString("Include", Utils.GetRelativePath(filePath, project.GetProjectDirectory()));
+                            writer.WriteEndElement();
+                        }
+                    }
+
+                    // End itemgroup
+                    writer.WriteEndElement();
+                }
+
                 private void WriteIncludedSourceFiles(XmlWriter writer, Core.Project project)
                 {
                     // Start itemgroup
@@ -290,7 +310,7 @@ namespace QED
                         foreach (string filePath in BuildTool.fileGroups[fileGroup])
                         {
                             writer.WriteStartElement("ClCompile");
-                            writer.WriteAttributeString("Include", filePath);
+                            writer.WriteAttributeString("Include", Utils.GetRelativePath(filePath, project.GetProjectDirectory()));
                             writer.WriteEndElement();
                         }
                     }
@@ -308,25 +328,6 @@ namespace QED
                         writer.WriteEndElement();
                     }
 
-
-                    // End itemgroup
-                    writer.WriteEndElement();
-                }
-
-                private void WriteIncludedHeaderFiles(XmlWriter writer, Core.Project project)
-                {
-                    // Start itemgroup
-                    writer.WriteStartElement("ItemGroup");
-
-                    foreach (string fileGroup in project.HeaderFileGroups)
-                    {
-                        foreach (string filePath in BuildTool.fileGroups[fileGroup])
-                        {
-                            writer.WriteStartElement("ClInclude");
-                            writer.WriteAttributeString("Include", filePath);
-                            writer.WriteEndElement();
-                        }
-                    }
 
                     // End itemgroup
                     writer.WriteEndElement();
