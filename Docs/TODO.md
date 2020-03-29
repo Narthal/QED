@@ -49,5 +49,6 @@
 - [x] precompiled heaers
 - [x] preprocessor defs
 - [x] sort conditionals to filters
+- [ ] Generate .filters file for visual studio solution
 
 
