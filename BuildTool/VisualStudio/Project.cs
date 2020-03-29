@@ -1,7 +1,9 @@
 ﻿using QED.BuildTool.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace QED
@@ -220,9 +222,20 @@ namespace QED
                         if (filter.EnablePrecompiledHeaders == true)
                         {
                             writer.WriteElementString("PrecompiledHeader", "Use");
-                        }
-                        writer.WriteElementString("PrecompiledHeaderFile", "pch.h"); // TODO: hardcoded pch name
 
+                            string pchh = "";
+                            var pchList = BuildTool.fileGroups[project.PreCompiledHeaderGroup];
+                            foreach (string pchItem in pchList)
+                            {
+                                var isMatch = Regex.IsMatch(pchItem, Utils.WildCardToRegular("*.h"));
+                                if (isMatch)
+                                {
+                                    pchh = pchItem;
+                                }
+                            }
+                            string fileName = System.IO.Path.GetFileName(pchh);
+                            writer.WriteElementString("PrecompiledHeaderFile", fileName) ; // TODO: hardcoded pch name
+                        }
                         // TODO: implement debug data handling
                         // <DebugInformationFormat> EditAndContinue / ProgramDatabase </DebugInformationFormat>
 
@@ -296,6 +309,25 @@ namespace QED
                         }
                     }
 
+                    if (project.PreCompiledHeaderGroup != null)
+                    {
+                        string pchh = "";
+                        var pchList = BuildTool.fileGroups[project.PreCompiledHeaderGroup];
+                        foreach (string pchItem in pchList)
+                        {
+                            var isMatch = Regex.IsMatch(pchItem, Utils.WildCardToRegular("*.h"));
+                            if (isMatch)
+                            {
+                                pchh = pchItem;
+                            }
+                        }
+                        string relativePch = Utils.GetRelativePath(pchh, project.GetProjectDirectory());
+
+                        writer.WriteStartElement("ClInclude");
+                        writer.WriteAttributeString("Include", relativePch);
+                        writer.WriteEndElement();
+                    }
+
                     // End itemgroup
                     writer.WriteEndElement();
                 }
@@ -317,13 +349,20 @@ namespace QED
 
                     if (project.PreCompiledHeaderGroup != null)
                     {
-                        if (BuildTool.fileGroups[project.PreCompiledHeaderGroup].Count != 1)
+                        string pchcpp = "";
+                        var pchList = BuildTool.fileGroups[project.PreCompiledHeaderGroup];
+                        foreach (string pchItem in pchList)
                         {
-                            throw new Exception("Only one pch.cpp is allowed");
+                            var isMatch = Regex.IsMatch(pchItem, Utils.WildCardToRegular("*.cpp"));
+                            if (isMatch)
+                            {
+                                pchcpp = pchItem;
+                            }
                         }
-                        string pchcpp = BuildTool.fileGroups[project.PreCompiledHeaderGroup][0];
+                        string relativePch = Utils.GetRelativePath(pchcpp, project.GetProjectDirectory());
+                        
                         writer.WriteStartElement("ClCompile");
-                        writer.WriteAttributeString("Include", pchcpp);
+                        writer.WriteAttributeString("Include", relativePch);
                         writer.WriteElementString("PrecompiledHeader", "Create");
                         writer.WriteEndElement();
                     }

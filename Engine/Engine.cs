@@ -13,15 +13,15 @@ namespace QED
             public EngineDirectory()
             {
                 FileGroup sources = new FileGroup(this, "EngineSrc");
-                sources.AddFiles("*.cpp", true, "enginePCH");
+                sources.AddFiles("*.cpp", true, "EnginePCH*");
 
                 FileGroup headers = new FileGroup(this, "EngineHead");
-                headers.AddFiles("*.h", true, "enginePCH");
+                headers.AddFiles("*.h", true, "EnginePCH*");
 
-                FileGroup pchHeader = new FileGroup(this, "EnginePCHHead");
+                FileGroup pchHeader = new FileGroup(this, "EnginePCH");
                 pchHeader.AddFile("PCH\\EnginePCH.h");
 
-                FileGroup pchSrc = new FileGroup(this, "EnginePCHSrc");
+                FileGroup pchSrc = new FileGroup(this, "EnginePCH");
                 pchSrc.AddFile("PCH\\EnginePCH.cpp");
             }
         }
@@ -41,6 +41,7 @@ namespace QED
                 OutputDirectory = BuildTool.GetDirectory("BuildEngineDirectory");
                 HeaderFileGroups.Add("EngineHead");
                 SourceFileGroups.Add("EngineSrc");
+                PreCompiledHeaderGroup = "EnginePCH";
 
                 // References
                 AdditionalReferences = new List<string>()
@@ -70,6 +71,8 @@ namespace QED
                         Configuration.Release | Configuration.Debug
                     )
                     {
+                        EnablePrecompiledHeaders = true,
+
                         PreprocessorDefinitions = new List<string>()
                         {
                             "MAKE_ENGINE",          // QED API

@@ -135,7 +135,11 @@ namespace QED
                                                     }
                                                     else
                                                     {
-                                                        filterPropertyInfo.SetValue(Filters[Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                        // If value is null, dont override
+                                                        if (conditionalPropertyInfo.GetValue(conditional) != null)
+                                                        {
+                                                            filterPropertyInfo.SetValue(Filters[Filters.Count - 1], conditionalPropertyInfo.GetValue(conditional));
+                                                        }
                                                     }
                                                 }
                                             }

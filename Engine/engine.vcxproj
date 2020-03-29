@@ -78,7 +78,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -101,7 +102,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -124,7 +126,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;GLFW_INCLUDE_NONE;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -147,7 +150,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;GLFW_INCLUDE_NONE;QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -197,7 +201,6 @@
     <ClInclude Include="Module\Kernel.h" />
     <ClInclude Include="Module\Module.h" />
     <ClInclude Include="Module\QEDApi.h" />
-    <ClInclude Include="PCH\enginePCH.h" />
     <ClInclude Include="SQLite\Database.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Graphics\OpenGL\OpenGLVertexBuffer.h" />
     <ClInclude Include="Module\Interfaces\ModuleInterface.h" />
+    <ClInclude Include="PCH\EnginePCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp" />
@@ -242,7 +246,6 @@
     <ClCompile Include="Layer\LayerStack.cpp" />
     <ClCompile Include="Module\Kernel.cpp" />
     <ClCompile Include="Module\Module.cpp" />
-    <ClCompile Include="PCH\EnginePCH.cpp" />
     <ClCompile Include="UI\ImGuiBuild.cpp" />
     <ClCompile Include="UI\ImGuiLayer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
@@ -257,6 +260,9 @@
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Graphics\OpenGL\OpenGLVertexBuffer.cpp" />
     <ClCompile Include="Module\Interfaces\ModuleInterface.cpp" />
+    <ClCompile Include="PCH\EnginePCH.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLFW\GLFW.vcxproj">

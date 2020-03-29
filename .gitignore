@@ -4,6 +4,9 @@ build/**
 ## push docs regardless of filetypes
 !/Docs/*.*
 
+## push buildTool .csproj as its cross platform and needed for bootstrapping the build system
+!/BuildTool/BuildTool.csproj
+
 
 
 

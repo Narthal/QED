@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace QED
 {
@@ -15,6 +16,11 @@ namespace QED
                 {
                     string relative = Path.GetRelativePath(relativeTo, path);
                     return relative;
+                }
+
+                public static String WildCardToRegular(String value)
+                {
+                    return "^" + Regex.Escape(value).Replace("\\?", ".").Replace("\\*", ".*") + "$";
                 }
             }
         }
