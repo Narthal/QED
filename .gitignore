@@ -8,7 +8,7 @@ build/**
 !/BuildTool/BuildTool.csproj
 
 ## External tools
-!External/Tools/cmake-3.16.2-win64-x64/bin/
+!/External/Tools/cmake-3.16.2-win64-x64/bin/*.*
 External/Tools/cmake-3.16.2-win64-x64/doc/
 External/Tools/cmake-3.16.2-win64-x64/man/
 External/Tools/cmake-3.16.2-win64-x64/share/
