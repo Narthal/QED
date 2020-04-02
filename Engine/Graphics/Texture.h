@@ -1,13 +1,15 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+#include "Module/QEDApi.h"
+
 namespace QED
 {
 	namespace Engine
 	{
 		namespace Graphics
 		{
-			class Texture
+			class QED_ENGINE_API Texture
 			{
 			public:
 				virtual ~Texture() = default;

@@ -266,6 +266,8 @@ namespace QED
 
                         writer.WriteElementString("LanguageStandard", ConversionUtils.GetLanguageStandardString(project.CppVersion));
 
+                        writer.WriteElementString("SDLCheck", "false");
+
                         writer.WriteEndElement();
 
                         // Link

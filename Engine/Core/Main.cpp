@@ -2,7 +2,7 @@
 
 #include "Application/Application.h"
 
-
+// TODO: make glm types to qed types (& resolve dll iterface problems with it)
 
 
 int main(int argc, char argv)

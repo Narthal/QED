@@ -84,8 +84,9 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_ENGINE_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLFW\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\stb;C:\Users\balas\source\GitHubRepos\QED\Engine\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/sdl-;%(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -108,8 +109,9 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_ENGINE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_ENGINE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLFW\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\stb;C:\Users\balas\source\GitHubRepos\QED\Engine\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/sdl-;%(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,6 +136,7 @@
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLFW\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\stb;C:\Users\balas\source\GitHubRepos\QED\Engine\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +161,7 @@
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLFW\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\stb;C:\Users\balas\source\GitHubRepos\QED\Engine\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

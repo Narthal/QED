@@ -118,7 +118,6 @@ namespace QED
 
                         AdditionalOptions = new List<string>()
                         {
-                            "/sdl-"
                         }
                     },
 
