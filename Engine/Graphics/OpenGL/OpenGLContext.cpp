@@ -2,10 +2,10 @@
 #include "OpenGLContext.h"
 
 // GLFW
-#include "GLFW/glfw3.h"
+#include <GLFW/glfw3.h>
 
 // GLAD
-#include "glad/glad.h"
+#include <glad/glad.h>
 
 #include "../Core/Log/Log.h"
 
@@ -19,7 +19,7 @@ namespace QED
 			{
 				OpenGLContext::OpenGLContext(GLFWwindow* windowHandle) : windowHandle(windowHandle)
 				{
-					// TODO: assert ceck window handle is valid
+					QED_CORE_ASSERT(windowHandle != nullptr, "OpenGLContext : window handle is null");
 				}
 
 				void OpenGLContext::Init()
@@ -30,6 +30,7 @@ namespace QED
 					// GLAD
 					int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 					// TODO: assert status
+					QED_CORE_ASSERT(status != NULL, "GLAD failed to load");
 
 					// Log OpenGL vendor
 					QED_CORE_LOG_INFO("OpenGL vendor : {0}", glGetString(GL_VENDOR));

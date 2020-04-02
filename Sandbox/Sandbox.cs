@@ -71,6 +71,7 @@ namespace QED
                         PreprocessorDefinitions = new List<string>()
                         {
                             "MAKE_MODULE",          // QED API
+                            "QED_ENABLE_ASSERTS",   // Asserts
                             "GLFW_INCLUDE_NONE",    // GLAD already includes OpenGL
                         },
 

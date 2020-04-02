@@ -1,6 +1,7 @@
 #include "enginePCH.h"
 #include "ShaderLibrary.h"
 
+#include "Core/Log/Log.h"
 
 namespace QED
 {
@@ -10,7 +11,7 @@ namespace QED
 		{
 			void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
 			{
-				// TODO: crash if Exists(name) == true, "shader already exists with name " << name;
+				QED_CORE_ASSERT(!Exists(name), "Shader already exists with name {0}", name);
 				shaders[name] = shader;
 			}
 
@@ -41,6 +42,10 @@ namespace QED
 			}
 			bool ShaderLibrary::Exists(const std::string& name)
 			{
+				if (shaders.size() == 0)
+				{
+					return false;
+				}
 				return shaders.find(name) != shaders.end();
 			}
 		}

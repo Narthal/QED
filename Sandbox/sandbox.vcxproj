@@ -80,7 +80,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -102,7 +102,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -124,7 +124,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -146,7 +146,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAKE_MODULE;QED_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>

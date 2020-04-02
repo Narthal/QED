@@ -8,6 +8,8 @@
 // Upload image to GPU
 #include <glad/glad.h>
 
+#include "Core/Log/Log.h"
+
 namespace QED
 {
 	namespace Engine
@@ -29,8 +31,8 @@ namespace QED
 
 						int width, height;
 						data = stbi_load(path.c_str(), &width, &height, &channels, 0);
-						// TODO: assert here if data is null
 
+						QED_CORE_ASSERT(data != nullptr, "Stb couldn't load image at path : {0}", path);
 						// Store width, height in member variables & dispose local width, height after scope
 						this->width = width;
 						this->height = height;

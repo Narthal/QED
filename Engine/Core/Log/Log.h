@@ -23,6 +23,15 @@
 #define QED_CLIENT_LOG_ERROR(...)	::QED::Engine::Core::Log::GetClientLogger()->error(__VA_ARGS__)
 #define QED_CLIENT_LOG_FATAL(...)	::QED::Engine::Core::Log::GetClientLogger()->fatal(__VA_ARGS__)
 
+// Asserts
+#ifdef QED_ENABLE_ASSERTS
+#	define QED_CLIENT_ASSERT(x, ...) { if(!(x)) { QED_CLIENT_LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#	define QED_CORE_ASSERT(x, ...) { if(!(x)) { QED_CORE_LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+#	define QED_ASSERT(x, ...)
+#	define QED_CORE_ASSERT(x, ...)
+#endif
+
 namespace QED
 {
 	namespace Engine

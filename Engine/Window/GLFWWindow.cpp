@@ -34,7 +34,9 @@ namespace QED
 				bool success = glfwInit();
 				if (!success)
 				{
-					// TODO: assert GLFW init
+					QED_CORE_ASSERT(success, "GLFW failed to initialize");
+
+					// TODO: set glfw error callback
 					//glfwSetErrorCallback()
 				}
 

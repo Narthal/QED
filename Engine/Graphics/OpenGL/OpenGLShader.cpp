@@ -75,28 +75,28 @@ namespace QED
 				void OpenGLShader::UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
-					// TODO: assert if location == -1
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 				}
 
 				void OpenGLShader::UploadUniformFloat4(const std::string& uniformName, const glm::vec4& vector)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
-					// TODO: assert if location == -1
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
 				}
 
 				void OpenGLShader::UploadUniformFloat3(const std::string& uniformName, const glm::vec3& vector)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
-					// TODO: assert if location == -1
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform3f(location, vector.x, vector.y, vector.z);
 				}
 
 				void OpenGLShader::UploadUniformInt(const std::string& uniformName, const uint32_t value)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
-					// TODO: assert if location == -1
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform1i(location, value);
 				}
 
@@ -137,11 +137,10 @@ namespace QED
 					while (pos != std::string::npos)
 					{
 						size_t eol = source.find_first_of("\r\n", pos);
-						// TODO: assert eol != std::string::npos, "Syntax error"
+						QED_CORE_ASSERT(eol != std::string::npos, "Syntax error");
 						size_t begin = pos + typeTokenLength + 1;
 						std::string type = source.substr(begin, eol - begin);
-						// TODO: assert type == "vertex" | type == "fragment", "Invalid shader type specifier"
-
+						QED_CORE_ASSERT(type == "vertex" | type == "fragment", "Invalid shader type specifier");
 						size_t nextLinePos = source.find_first_of("\r\n", eol);
 						pos = source.find(typeToken, nextLinePos);
 						shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
