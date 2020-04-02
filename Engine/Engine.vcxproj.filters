@@ -310,5 +310,6 @@
     <ClCompile Include="Window\GLFWWindow.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Log\Log.cpp" />
   </ItemGroup>
 </Project>

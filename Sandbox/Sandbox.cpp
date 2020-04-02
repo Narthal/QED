@@ -17,7 +17,7 @@ namespace QED
 			// Construtor
 			SandboxLayer() : Engine::Layer::Layer("SandboxLayer", true), cameraController(1280.0f / 720.0f, true)
 			{
-				LOG << "Sandbox layer ctor";
+				QED_CLIENT_LOG_INFO("Sandbox layer ctor");
 
 				// Test
 				vertexArray.reset(Engine::Graphics::VertexArray::Create());
@@ -162,7 +162,7 @@ namespace QED
 			// Override inherited pure virtual destructor
 			virtual ~SandboxLayer() override
 			{
-				LOG << "Sandbox layer dtor";
+				QED_CLIENT_LOG_INFO("Sandbox layer dtor");
 			};
 
 			// Get name for module interface

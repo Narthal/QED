@@ -81,7 +81,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -103,7 +103,7 @@
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_WINDOWS;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -125,7 +125,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -147,7 +147,7 @@
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>MAKE_MODULE;GLFW_INCLUDE_NONE;QED_SANDBOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\spdlog\include;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\ImGui;C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLM;C:\Users\balas\source\GitHubRepos\QED\Common;C:\Users\balas\source\GitHubRepos\QED\Sandbox\PCH;C:\Users\balas\source\GitHubRepos\QED\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -164,11 +164,11 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="pch\sandboxPCH.h" />
+    <ClInclude Include="pch\SandboxPCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sandbox.cpp" />
-    <ClCompile Include="pch\sandboxPCH.cpp" />
+    <ClCompile Include="pch\SandboxPCH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\Engine\Engine.vcxproj">

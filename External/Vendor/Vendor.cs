@@ -72,5 +72,14 @@ namespace QED
                 SubDirectory = "stb";
             }
         }
+
+        [RegisterPath]
+        public class VendorSPDLogDirectory : Directory
+        {
+            public VendorSPDLogDirectory()
+            {
+                SubDirectory = "spdlog";
+            }
+        }
     }
 }

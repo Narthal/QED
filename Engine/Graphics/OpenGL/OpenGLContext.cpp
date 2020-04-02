@@ -32,13 +32,13 @@ namespace QED
 					// TODO: assert status
 
 					// Log OpenGL vendor
-					LOG << "OpenGL vendor : " << glGetString(GL_VENDOR);
+					QED_CORE_LOG_INFO("OpenGL vendor : {0}", glGetString(GL_VENDOR));
 
 					// Log OpenGL renderer
-					LOG  << "OpenGL renderer : " << glGetString(GL_RENDERER);
+					QED_CORE_LOG_INFO("OpenGL renderer : {0}", glGetString(GL_RENDERER));
 
 					// Log OpenGL version
-					LOG  << "OpenGL version : " << glGetString(GL_VERSION);
+					QED_CORE_LOG_INFO("OpenGL version : {0}", glGetString(GL_VERSION));
 
 
 				}

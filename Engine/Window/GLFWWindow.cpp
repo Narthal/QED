@@ -55,7 +55,7 @@ namespace QED
 				// Set GLFW error callback
 				glfwSetErrorCallback([](int error, const char* msg)
 				{
-						LOG << "GLFW error : " << error << ' ' << msg;
+						QED_CORE_LOG_ERROR("GLFW error : {0} {1}", error, msg);
 				});
 
 				// Set GLFW resize event
@@ -160,7 +160,7 @@ namespace QED
 			{
 				delete context;
 				glfwDestroyWindow((GLFWwindow*)windowHandle);
-				LOG << "GLFW window is closing";
+				QED_CORE_LOG_INFO("GLFW window is closing");
 			}
 
 			void GLFWWindow::OnUpdate()

@@ -38,6 +38,10 @@ namespace QED
 				// Set up main loop variable
 				isRunning = true;
 
+				// Setup logger
+				Log::Initialize();
+				QED_CORE_LOG_INFO("Core logger initialized");
+
 				// Create window
 				window = std::make_unique<Window::GLFWWindow>();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
@@ -49,9 +53,10 @@ namespace QED
 				UILayer = new UI::ImGuiLayer();
 				PushOverlay(UILayer);
 
-				LOG << "init";
-
+				// Init kernel
 				kernel = new Module::Kernel;
+
+				QED_CORE_LOG_INFO("QED application initialization finished");
 			}
 
 			void Application::Application::OnEvent(Event::Event& event)
