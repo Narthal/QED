@@ -17,3 +17,6 @@
 [submodule "External/Dependencies/stb"]
 	path = External/Vendor/stb
 	url = https://github.com/nothings/stb
+[submodule "External\\Vendor\\spdlog"]
+	path = External\\Vendor\\spdlog
+	url = https://github.com/gabime/spdlog
