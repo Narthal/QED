@@ -1,12 +1,12 @@
 #include "EnginePCH.h"
 #include "ImGuiLayer.h"
+#undef new
 
 #include "../Core/Application/Application.h"
 
 #include "imgui.h"
 #include "examples/imgui_impl_glfw.h"
 #include "examples/imgui_impl_opengl3.h"
-
 
 // HACK: temporary
 #include <GLFW/glfw3.h>
@@ -20,7 +20,10 @@ namespace QED
 		{
 			ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer", true) {}
 
-			ImGuiLayer::~ImGuiLayer() {}
+			ImGuiLayer::~ImGuiLayer()
+			{
+				ImGui::DestroyContext();
+			}
 
 			void ImGuiLayer::OnAttach()
 			{

@@ -1,4 +1,5 @@
 #include "EnginePCH.h"
+#undef new
 
 #pragma warning(push, 0)
 

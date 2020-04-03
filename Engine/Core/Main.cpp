@@ -5,6 +5,11 @@
 // TODO: make glm types to qed types (& resolve dll iterface problems with it)
 
 
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
+
 int main(int argc, char argv)
 {
 	//_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
@@ -20,6 +25,8 @@ int main(int argc, char argv)
 
 	// Destroy application and all its components on exit
 	app.~Application();
+
+	_CrtDumpMemoryLeaks();
 
 	return 0;
 }

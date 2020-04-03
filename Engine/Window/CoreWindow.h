@@ -57,7 +57,7 @@ namespace QED
 			protected:
 				// Basic data
 				WindowData windowData;
-				Graphics::Context* context;
+				Graphics::Context* context = nullptr;
 
 				// Window implementation
 				void* windowHandle = nullptr;

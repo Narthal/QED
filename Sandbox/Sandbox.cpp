@@ -6,7 +6,6 @@
 #include <glm\ext\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
 
-
 namespace QED
 {
 	namespace Sandbox
