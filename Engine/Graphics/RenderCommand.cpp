@@ -11,7 +11,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			RendererAPI* RenderCommand::rendererAPI = new OpenGL::OpenGLRendererAPI;
+			Ref<RendererAPI> RenderCommand::rendererAPI = Core::Type::CreateRef<OpenGL::OpenGLRendererAPI>();
 		}
 	}
 }

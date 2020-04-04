@@ -9,7 +9,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Renderer::SceneData* Renderer::sceneData = new Renderer::SceneData;
+			Scope<Renderer::SceneData> Renderer::sceneData = Core::Type::CreateScope<Renderer::SceneData>();
 
 			void Renderer::Initialize()
 			{

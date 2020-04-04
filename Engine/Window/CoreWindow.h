@@ -7,6 +7,8 @@
 // Renderer
 #include "../Graphics/Context.h"
 
+#include "Core/Type/Type.h"
+
 namespace QED
 {
 	namespace Engine
@@ -57,7 +59,7 @@ namespace QED
 			protected:
 				// Basic data
 				WindowData windowData;
-				Graphics::Context* context = nullptr;
+				Scope<Graphics::Context> context;
 
 				// Window implementation
 				void* windowHandle = nullptr;

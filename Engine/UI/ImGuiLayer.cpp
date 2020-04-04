@@ -104,3 +104,5 @@ namespace QED
 		}
 	}
 }
+
+#define new DEBUG_NEW

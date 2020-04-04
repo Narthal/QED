@@ -2,6 +2,7 @@
 #define INPUT_H
 
 #include "../Module/QEDApi.h"
+#include "../Core/Type/Type.h"
 
 namespace QED
 {

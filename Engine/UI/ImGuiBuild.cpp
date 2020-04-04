@@ -12,3 +12,5 @@
 #include "examples/imgui_impl_glfw.cpp"
 
 #pragma warning(pop)
+
+#define new DEBUG_NEW

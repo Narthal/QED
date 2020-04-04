@@ -20,7 +20,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return std::make_shared<OpenGL::OpenGLShader>(path);
+					return Core::Type::CreateRef<OpenGL::OpenGLShader>(path);
 					break;
 
 					default:
@@ -43,7 +43,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return std::make_shared<OpenGL::OpenGLShader>(name, vertexSource, fragmentSource);
+					return Core::Type::CreateRef<OpenGL::OpenGLShader>(name, vertexSource, fragmentSource);
 					break;
 
 					default:

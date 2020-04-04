@@ -47,7 +47,7 @@ namespace QED
 			
 
 				// Create context
-				context = new Graphics::OpenGL::OpenGLContext((GLFWwindow*)windowHandle);
+				context = Core::Type::CreateScope<Graphics::OpenGL::OpenGLContext>((GLFWwindow*)windowHandle);
 				context->Init();
 
 
@@ -160,7 +160,7 @@ namespace QED
 
 			GLFWWindow::~GLFWWindow()
 			{
-				delete context;
+				context.release();
 				glfwDestroyWindow((GLFWwindow*)windowHandle);
 				QED_CORE_LOG_INFO("GLFW window is closing");
 			}
