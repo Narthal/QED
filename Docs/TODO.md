@@ -22,22 +22,21 @@
 - [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
 - [ ] remove visual studio region pch include
 - [ ] merge coreWindow and glfwWindow, remove support for multiple window creation
-- [ ] remove external tools unneccessary docs & files
+- [x] remove external tools unneccessary docs & files
 - [x] vertex buffer abstraction
 - [x] index buffer abstraction
 - [x] shader abstraction
 - [x] vertex buffer layout abstraction
 - [x] vertex array abstraction
 - [ ] maintenance : unify accessors
-- [ ] maintenace : delete / create constructors
 - [ ] utility : abort function
-- [ ] utility : assert function
+- [x] utility : assert function
 - [ ] utility : stack trace (through return macro)
-- [ ] move : input dir to event
 - [ ] rename : coreinput to input
 - [ ] create QED Commons lib that statically links to the engine and the client application (log, QED globals, memory allocator for both exe and each dll, etc)
-- [ ] separate shader functionality to separate preprocessor file
+- [x] separate shader functionality to separate preprocessor file
 - [ ] maintenance : make include paths absolute from project root
+- [ ] maintenance : rework layer and moduleInterface relation (new module interface for it, new push layer / overlay function exposition)
 
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
