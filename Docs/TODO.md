@@ -2,7 +2,7 @@
 
 ## Priority list
 - [x] replace premake with build tool
-- [ ] log.h redo
+- [x] log.h redo
 - [ ] generate build log file from vs
 - [ ] store build log in sqlite
 
