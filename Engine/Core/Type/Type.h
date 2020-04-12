@@ -38,9 +38,15 @@ namespace QED
 	template<typename T>
 	using Scope = Engine::Core::Type::Scope<T>;
 
+	template<typename T, typename ... Args>
+	constexpr auto CreateRef = Engine::Core::Type::CreateRef<T>(Args && ... args);
+
 	// Shorthand reference
 	template<typename T>
 	using Ref = Engine::Core::Type::Ref<T>;
+
+	template<typename T, typename ... Args>
+	constexpr auto CreateScope = Engine::Core::Type::CreateScope<T>(Args && ... args);
 #pragma endregion
 
 }

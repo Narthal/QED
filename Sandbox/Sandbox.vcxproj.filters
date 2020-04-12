@@ -9,14 +9,13 @@
     <ClInclude Include="PCH\SandboxPCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
+    <ClInclude Include="Sandbox2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PCH\SandboxPCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="Sandbox.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\premake5.lua" />
+    <ClCompile Include="Sandbox2D.cpp" />
   </ItemGroup>
 </Project>

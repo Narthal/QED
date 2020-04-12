@@ -11,7 +11,7 @@ namespace QED
 		{
 			namespace Interfaces
 			{
-				class ModuleInterface
+				class QED_ENGINE_API ModuleInterface
 				{
 					public:
 					// Releases resources of a module

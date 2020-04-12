@@ -15,8 +15,8 @@
 #include "Core/Time/TimeStep.h"
 
 // Globals
-#include "Core/Registry/Registry.h"
-#include "Core/Globals.h"
+//#include "Core/Registry/Registry.h"
+//#include "Core/Globals.h"
 
 // Input
 #include "Input/CoreInput.h"

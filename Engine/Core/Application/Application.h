@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-
+#include "Module/QEDApi.h"
 #include "Core/Type/Type.h"
 #include "Module/Kernel.h"
 #include "Module/QEDApi.h"
@@ -26,7 +26,7 @@ namespace QED
 		{
 			namespace Application
 			{
-				class Application
+				class QED_ENGINE_API Application
 				{
 				protected:
 					// Singleton istance

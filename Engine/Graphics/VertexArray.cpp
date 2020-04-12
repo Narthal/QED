@@ -11,7 +11,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			VertexArray* VertexArray::Create()
+			Ref<VertexArray> VertexArray::Create()
 			{
 				switch (Renderer::GetAPI())
 				{
@@ -21,7 +21,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return new OpenGL::OpenGLVertexArray();
+					return Core::Type::CreateRef<OpenGL::OpenGLVertexArray>();
 					break;
 
 					default:
