@@ -188,6 +188,7 @@
       <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="Core\Log\Log.h" />
+    <ClInclude Include="Graphics\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -311,5 +312,6 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="Core\Log\Log.cpp" />
+    <ClCompile Include="Graphics\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

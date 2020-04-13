@@ -16,31 +16,6 @@ namespace QED
 		void Sandbox2D::OnAttach()
 		{
 			QED_CLIENT_LOG_INFO("Sandbox2D layer attach");
-
-			vertexArray = Engine::Graphics::VertexArray::Create();
-			float vertices[3 * 4] =
-			{
-				-0.5f, -0.5f,  0.0f,
-				 0.5f, -0.5f,  0.0f,
-				 0.5f,  0.5f,  0.0f,
-				-0.5f,  0.5f,  0.0f,
-			};
-
-			Ref<Engine::Graphics::VertexBuffer> vertexBuffer;
-			vertexBuffer.reset(Engine::Graphics::VertexBuffer::Create(vertices, sizeof(vertices)));
-			vertexBuffer->SetLayout
-			({
-				{ Engine::Graphics::ShaderDataType::Float3, "aPosition" }
-			});
-			vertexArray->AddVertexBuffer(vertexBuffer);
-
-			unsigned int indices[6] = { 0, 1, 2, 2, 3, 0 };
-			Ref<Engine::Graphics::IndexBuffer> indexBuffer;
-			indexBuffer.reset(Engine::Graphics::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-			vertexArray->SetIndexBuffer(indexBuffer);
-
-			shader = Engine::Graphics::Shader::Create("FlatColor.glsl");
-
 		}
 
 		void Sandbox2D::OnDetach()
@@ -59,14 +34,11 @@ namespace QED
 			Engine::Graphics::RenderCommand::Clear();
 
 			// Scene
-			Engine::Graphics::Renderer::BeginScene(cameraController.GetCamera());
+			Engine::Graphics::Renderer2D::BeginScene(cameraController.GetCamera());
 
-			shader->Bind();
-			shader->UploadUniformFloat4("uColor", squareColor);
+			Engine::Graphics::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
 
-			Engine::Graphics::Renderer::Submit(shader, vertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.2f)));
-
-			Engine::Graphics::Renderer::EndScene();
+			Engine::Graphics::Renderer2D::EndScene();
 		}
 
 		void Sandbox2D::OnUIRender()

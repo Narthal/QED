@@ -2,6 +2,7 @@
 #include "Renderer.h"
 
 #include "RenderCommand.h"
+#include "Renderer2D.h"
 
 namespace QED
 {
@@ -14,6 +15,7 @@ namespace QED
 			void Renderer::Initialize()
 			{
 				RenderCommand::Initialize();
+				Renderer2D::Initialize();
 			}
 
 			void Renderer::OnWindowResize(uint32_t width, uint32_t height)

@@ -14,6 +14,7 @@
 // Time
 #include "Core/Time/TimeStep.h"
 
+// TODO: find out why cant include these
 // Globals
 //#include "Core/Registry/Registry.h"
 //#include "Core/Globals.h"
@@ -35,6 +36,7 @@
 // Graphics
 #include "Graphics/Renderer.h"
 #include "Graphics/RenderCommand.h"
+#include "Graphics/Renderer2D.h"
 
 #include "Graphics/VertexBuffer.h"
 #include "Graphics/IndexBuffer.h"
