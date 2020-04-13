@@ -16,6 +16,8 @@ namespace QED
 		void Sandbox2D::OnAttach()
 		{
 			QED_CLIENT_LOG_INFO("Sandbox2D layer attach");
+
+			texture = Engine::Graphics::Texture2D::Create("glider.png");
 		}
 
 		void Sandbox2D::OnDetach()
@@ -38,6 +40,7 @@ namespace QED
 
 			Engine::Graphics::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, 0.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
 			Engine::Graphics::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, counter, { 0.2f, 0.3f, 0.8f, 1.0f });
+			Engine::Graphics::Renderer2D::DrawQuad({ 0.2f, 0.5f }, { 0.5f, 0.5f }, 0.0f, texture);
 
 			counter++;
 
