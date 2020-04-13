@@ -42,6 +42,9 @@ namespace QED
 			Ref<Engine::Graphics::VertexArray> vertexArray;
 			Ref<Engine::Graphics::Shader> shader;
 			glm::vec4 squareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+			// TODO: remove this (test code)
+			int counter = 0;
 		};
 	}
 }

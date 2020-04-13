@@ -36,9 +36,9 @@ namespace QED
 			{
 				// Shader
 				shader->Bind();
-				shader->UploadUniformMat4("uViewProjection", sceneData->viewProjectionMatrix);
+				shader->SetMat4("uViewProjection", sceneData->viewProjectionMatrix);
 
-				shader->UploadUniformMat4("uTransform", transform);
+				shader->SetMat4("uTransform", transform);
 
 				// VAO
 				vertexArray->Bind();

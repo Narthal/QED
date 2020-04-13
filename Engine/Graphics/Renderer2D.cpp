@@ -57,23 +57,29 @@ namespace QED
 			void Renderer2D::BeginScene(const OrthographicCamera& camera)
 			{
 				renderer2D_Data->Shader->Bind();
-				renderer2D_Data->Shader->UploadUniformMat4("uViewProjection", camera.GetViewProjectionMatrix());
-				renderer2D_Data->Shader->UploadUniformMat4("uTransform", glm::mat4(1.0f));
+				renderer2D_Data->Shader->SetMat4("uViewProjection", camera.GetViewProjectionMatrix());
 			}
 
 			void Renderer2D::EndScene()
 			{
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color)
+			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
 			{
-				DrawQuad({ position.x, position.y, 0.0f }, size, color);
+				DrawQuad({ position.x, position.y, 0.0f }, size, rotation, color);
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
+			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
 			{
 				renderer2D_Data->Shader->Bind();
-				renderer2D_Data->Shader->UploadUniformFloat4("uColor", color);
+				renderer2D_Data->Shader->SetFloat4("uColor", color);
+
+				glm::mat4 transform = glm::identity<glm::mat4>();
+				transform = glm::translate(transform, position);
+				transform = glm::rotate(transform, glm::radians(rotation), { 0.0f, 0.0f, 1.0f });
+				transform = glm::scale(transform, { size.x, size.y, 1.0f });
+
+				renderer2D_Data->Shader->SetMat4("uTransform", transform);
 
 				renderer2D_Data->VertexArray->Bind();
 				RenderCommand::Draw(renderer2D_Data->VertexArray);

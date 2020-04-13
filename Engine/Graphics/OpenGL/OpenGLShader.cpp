@@ -72,28 +72,28 @@ namespace QED
 					glUseProgram(0);
 				}
 
-				void OpenGLShader::UploadUniformMat4(const std::string& uniformName, const glm::mat4& matrix)
+				void OpenGLShader::SetMat4(const std::string& uniformName, const glm::mat4& matrix)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 				}
 
-				void OpenGLShader::UploadUniformFloat4(const std::string& uniformName, const glm::vec4& vector)
+				void OpenGLShader::SetFloat4(const std::string& uniformName, const glm::vec4& vector)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
 				}
 
-				void OpenGLShader::UploadUniformFloat3(const std::string& uniformName, const glm::vec3& vector)
+				void OpenGLShader::SetFloat3(const std::string& uniformName, const glm::vec3& vector)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform3f(location, vector.x, vector.y, vector.z);
 				}
 
-				void OpenGLShader::UploadUniformInt(const std::string& uniformName, const uint32_t value)
+				void OpenGLShader::SetInt(const std::string& uniformName, const uint32_t value)
 				{
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
