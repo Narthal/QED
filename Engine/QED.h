@@ -49,6 +49,6 @@
 #include "Graphics/OrthographicCameraController.h"
 
 // Profiler
-#include "Profiler/Timer/Timer.h"
+#include "Profiler/Instrumentor.h"
 
 #endif // !QED_H

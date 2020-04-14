@@ -189,7 +189,7 @@
     </ClInclude>
     <ClInclude Include="Core\Log\Log.h" />
     <ClInclude Include="Graphics\Renderer2D.h" />
-    <ClInclude Include="Profiler\Timer\Timer.h" />
+    <ClInclude Include="Profiler\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -314,6 +314,5 @@
     </ClCompile>
     <ClCompile Include="Core\Log\Log.cpp" />
     <ClCompile Include="Graphics\Renderer2D.cpp" />
-    <ClCompile Include="Profiler\Timer\Timer.cpp" />
   </ItemGroup>
 </Project>

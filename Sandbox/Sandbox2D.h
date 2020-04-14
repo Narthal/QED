@@ -46,8 +46,6 @@ namespace QED
 
 			// TODO: remove this (test code)
 			int counter = 0;
-
-			std::vector<Engine::Profiler::ProfileResult> profileResults;
 		};
 	}
 }
