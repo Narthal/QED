@@ -39,8 +39,6 @@ namespace QED
 					}
 
 					// Set format data
-					GLenum internalFormat = 0;
-					GLenum dataFormat = 0;
 					if (channels == 4)
 					{
 						internalFormat = GL_RGBA8;
@@ -68,12 +66,31 @@ namespace QED
 
 					// Release data after OpenGL upload
 					stbi_image_free(data);
+				}
 
+				OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height) : width(width), height(height)
+				{
+					// Set format data
+					internalFormat = GL_RGBA8;
+					dataFormat = GL_RGBA;
+
+					// Create OpenGL texture
+					glCreateTextures(GL_TEXTURE_2D, 1, &RendererID);
+					glTextureStorage2D(RendererID, 1, internalFormat, width, height);
+
+					glTextureParameteri(RendererID, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+					glTextureParameteri(RendererID, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 				}
 
 				OpenGLTexture2D::~OpenGLTexture2D()
 				{
 					glDeleteTextures(1, &RendererID);
+				}
+
+				void OpenGLTexture2D::SetData(void* data, uint32_t size)
+				{
+					QED_CORE_ASSERT(size == width * height * (dataFormat == GL_RGBA ? 4 : 3), "Size must be equal to texture data size");
+					glTextureSubImage2D(RendererID, 0, 0, 0, width, height, dataFormat, GL_UNSIGNED_BYTE, data );
 				}
 
 				void OpenGLTexture2D::Bind(uint32_t slot) const

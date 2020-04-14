@@ -20,7 +20,30 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return std::make_shared<OpenGL::OpenGLTexture2D>(path);
+					return Core::Type::CreateRef<OpenGL::OpenGLTexture2D>(path);
+					break;
+
+					default:
+					// TODO: crash here
+					return nullptr;
+					break;
+				}
+
+				// TODO: crash here
+				return nullptr;
+			}
+
+			Ref<Texture2D> Texture2D::Create(uint32_t width, uint32_t height)
+			{
+				switch (Renderer::GetAPI())
+				{
+					case RendererAPI::API::NONE:
+					// TODO: crash here
+					return nullptr;
+					break;
+
+					case RendererAPI::API::OpenGL:
+					return Core::Type::CreateRef<OpenGL::OpenGLTexture2D>(width, height);
 					break;
 
 					default:
