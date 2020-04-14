@@ -44,6 +44,12 @@ namespace QED
 				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
 				glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
+
+				// Disable VSync
+				if (windowData.isVsync == false)
+				{
+					glfwSwapInterval(0);
+				}
 			
 
 				// Create context
