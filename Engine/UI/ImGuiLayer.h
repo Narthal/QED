@@ -22,7 +22,6 @@ namespace QED
 
 				virtual void OnAttach() override;
 				virtual void OnDetach() override;
-				virtual void OnUIRender() override;
 
 				void Begin();
 				void End();

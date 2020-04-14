@@ -67,12 +67,6 @@ namespace QED
 				ImGui::DestroyContext();
 			}
 
-			void ImGuiLayer::OnUIRender()
-			{
-				static bool show = true;
-				ImGui::ShowDemoWindow(&show);
-			}
-
 			void ImGuiLayer::Begin()
 			{
 				ImGui_ImplOpenGL3_NewFrame();
