@@ -40,7 +40,8 @@
 - [ ] maintenace : find out wtf is wrong with includeing globals and registry in QED.h
 - [ ] maintenace : custom math types decl in Types.h, set imgui math tipes to use new types
 - [ ] maintenace : corewindow create function similar to rendererAPI
-
+- [ ] maintenance : fixupe #include <instrumentor> to "instrumentor"
+- [ ] profiler : rewrite with log (collectors and sinks, writers)
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
 
