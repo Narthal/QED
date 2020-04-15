@@ -39,6 +39,7 @@
 - [ ] maintenance : rework layer and moduleInterface relation (new module interface for it, new push layer / overlay function exposition)
 - [ ] maintenace : find out wtf is wrong with includeing globals and registry in QED.h
 - [ ] maintenace : custom math types decl in Types.h, set imgui math tipes to use new types
+- [ ] maintenace : corewindow create function similar to rendererAPI
 
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
