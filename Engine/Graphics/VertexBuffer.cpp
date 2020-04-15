@@ -4,6 +4,8 @@
 #include "Renderer.h"
 #include "OpenGL/OpenGLVertexBuffer.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -12,6 +14,8 @@ namespace QED
 		{
 			VertexBuffer* VertexBuffer::Create(float* vertices, unsigned int size)
 			{
+				QED_PROFILE_FUNCTION();
+
 				switch (Renderer::GetAPI())
 				{
 					case RendererAPI::API::NONE:

@@ -12,6 +12,8 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -22,11 +24,15 @@ namespace QED
 
 			ImGuiLayer::~ImGuiLayer()
 			{
+				QED_PROFILE_FUNCTION();
+
 				ImGui::DestroyContext();
 			}
 
 			void ImGuiLayer::OnAttach()
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Setup Dear ImGui context
 				IMGUI_CHECKVERSION();
 				ImGui::CreateContext();
@@ -62,6 +68,8 @@ namespace QED
 
 			void ImGuiLayer::OnDetach()
 			{
+				QED_PROFILE_FUNCTION();
+
 				ImGui_ImplOpenGL3_Shutdown();
 				ImGui_ImplGlfw_Shutdown();
 				ImGui::DestroyContext();
@@ -69,6 +77,8 @@ namespace QED
 
 			void ImGuiLayer::Begin()
 			{
+				QED_PROFILE_FUNCTION();
+
 				ImGui_ImplOpenGL3_NewFrame();
 				ImGui_ImplGlfw_NewFrame();
 				ImGui::NewFrame();
@@ -76,6 +86,8 @@ namespace QED
 
 			void ImGuiLayer::End()
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Get ImGui io
 				ImGuiIO& io = ImGui::GetIO();
 				// Get Application

@@ -10,6 +10,8 @@
 // Log
 #include "../../Core/Log/Log.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -37,6 +39,8 @@ namespace QED
 
 				OpenGLShader::OpenGLShader(const std::string& path)
 				{
+					QED_PROFILE_FUNCTION();
+
 					std::string source = ReadFile(path);
 					auto shaderSources = PreProcess(source);
 					Compile(shaderSources);
@@ -51,6 +55,8 @@ namespace QED
 
 				OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource) : name(name)
 				{
+					QED_PROFILE_FUNCTION();
+
 					std::unordered_map<GLenum, std::string> shaderSources;
 					shaderSources[GL_VERTEX_SHADER] = vertexSource;
 					shaderSources[GL_FRAGMENT_SHADER] = fragmentSource;
@@ -59,21 +65,28 @@ namespace QED
 
 				OpenGLShader::~OpenGLShader()
 				{
+					QED_PROFILE_FUNCTION();
+
 					glDeleteProgram(rendererID);
 				}
 
 				void OpenGLShader::Bind() const
 				{
+					QED_PROFILE_FUNCTION();
 					glUseProgram(rendererID);
 				}
 
 				void OpenGLShader::Unbind() const
 				{
+					QED_PROFILE_FUNCTION();
+
 					glUseProgram(0);
 				}
 
 				void OpenGLShader::SetMat4(const std::string& uniformName, const glm::mat4& matrix)
 				{
+					QED_PROFILE_FUNCTION();
+
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
@@ -81,6 +94,8 @@ namespace QED
 
 				void OpenGLShader::SetFloat4(const std::string& uniformName, const glm::vec4& vector)
 				{
+					QED_PROFILE_FUNCTION();
+
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
@@ -88,6 +103,8 @@ namespace QED
 
 				void OpenGLShader::SetFloat3(const std::string& uniformName, const glm::vec3& vector)
 				{
+					QED_PROFILE_FUNCTION();
+
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform3f(location, vector.x, vector.y, vector.z);
@@ -95,6 +112,8 @@ namespace QED
 
 				void OpenGLShader::SetInt(const std::string& uniformName, const uint32_t value)
 				{
+					QED_PROFILE_FUNCTION();
+
 					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
 					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
 					glUniform1i(location, value);
@@ -102,6 +121,8 @@ namespace QED
 
 				std::string OpenGLShader::ReadFile(const std::string& path)
 				{
+					QED_PROFILE_FUNCTION();
+
 					std::string result;
 					std::ifstream in(path, std::ios::in | std::ios::binary);
 
@@ -128,6 +149,8 @@ namespace QED
 
 				std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
 				{
+					QED_PROFILE_FUNCTION();
+
 					std::unordered_map<GLenum, std::string> shaderSources;
 
 					const char* typeToken = "#type";
@@ -151,6 +174,8 @@ namespace QED
 
 				void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 				{
+					QED_PROFILE_FUNCTION();
+
 					GLuint programID = glCreateProgram();
 
 					std::vector<GLenum> shaderIDs;

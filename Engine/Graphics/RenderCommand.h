@@ -6,6 +6,8 @@
 
 #include "Renderer.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -15,7 +17,7 @@ namespace QED
 			class QED_ENGINE_API RenderCommand
 			{
 			public:
-				inline static void Initialize() { rendererAPI->Initialize(); }
+				inline static void Initialize() { QED_PROFILE_FUNCTION(); rendererAPI->Initialize(); }
 
 			public:
 				inline static void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) { rendererAPI->SetViewport(x, y, width, height); }

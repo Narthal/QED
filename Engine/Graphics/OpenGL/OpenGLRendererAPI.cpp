@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -13,6 +15,8 @@ namespace QED
 			{
 				void OpenGLRendererAPI::Initialize()
 				{
+					QED_PROFILE_FUNCTION();
+
 					// Enable blending (transparency)
 					glEnable(GL_BLEND);
 					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

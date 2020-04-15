@@ -10,6 +10,8 @@
 
 #include "Core/Log/Log.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -20,10 +22,14 @@ namespace QED
 			{
 				OpenGLTexture2D::OpenGLTexture2D(const std::string& path) : path(path)
 				{
+					QED_PROFILE_FUNCTION();
+
 					stbi_uc* data;
 					int channels;
 					// Scoped so local width, heigh can not be used (only the member width, height)
 					{
+						QED_PROFILE_SCOPE("OpenGLTexture2D::OpenGLTexture2D(const std::string& path) stbi_load");
+
 						// Default image load of stb is top to bottom,
 						// OpenGL loads textures bottom to top, so it need to be inverted somewhere.
 						// stb will flip images after load if this is set to true;
@@ -70,6 +76,8 @@ namespace QED
 
 				OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height) : width(width), height(height)
 				{
+					QED_PROFILE_FUNCTION();
+
 					// Set format data
 					internalFormat = GL_RGBA8;
 					dataFormat = GL_RGBA;
@@ -84,17 +92,23 @@ namespace QED
 
 				OpenGLTexture2D::~OpenGLTexture2D()
 				{
+					QED_PROFILE_FUNCTION();
+
 					glDeleteTextures(1, &RendererID);
 				}
 
 				void OpenGLTexture2D::SetData(void* data, uint32_t size)
 				{
+					QED_PROFILE_FUNCTION();
+
 					QED_CORE_ASSERT(size == width * height * (dataFormat == GL_RGBA ? 4 : 3), "Size must be equal to texture data size");
 					glTextureSubImage2D(RendererID, 0, 0, 0, width, height, dataFormat, GL_UNSIGNED_BYTE, data );
 				}
 
 				void OpenGLTexture2D::Bind(uint32_t slot) const
 				{
+					QED_PROFILE_FUNCTION();
+
 					glBindTextureUnit(slot, RendererID);
 				}
 			}

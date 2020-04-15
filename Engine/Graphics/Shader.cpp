@@ -4,6 +4,8 @@
 #include "Renderer.h"
 #include "OpenGL/OpenGLShader.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -12,6 +14,8 @@ namespace QED
 		{
 			Ref<Shader> Shader::Create(const std::string& path)
 			{
+				QED_PROFILE_FUNCTION();
+
 				switch (Renderer::GetAPI())
 				{
 					case RendererAPI::API::NONE:
@@ -35,6 +39,8 @@ namespace QED
 
 			Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
 			{
+				QED_PROFILE_FUNCTION();
+
 				switch (Renderer::GetAPI())
 				{
 					case RendererAPI::API::NONE:

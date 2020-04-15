@@ -9,6 +9,8 @@
 
 #include "../Core/Log/Log.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -24,6 +26,8 @@ namespace QED
 
 				void OpenGLContext::Init()
 				{
+					QED_PROFILE_FUNCTION();
+
 					// Set context to current
 					glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 
@@ -46,6 +50,8 @@ namespace QED
 
 				void OpenGLContext::SwapBuffers()
 				{
+					QED_PROFILE_FUNCTION();
+
 					glfwSwapBuffers(windowHandle);
 				}
 			}

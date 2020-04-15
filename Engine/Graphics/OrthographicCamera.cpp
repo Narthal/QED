@@ -1,6 +1,8 @@
 #include "EnginePCH.h"
 #include "OrthographicCamera.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -15,6 +17,8 @@ namespace QED
 
 			void OrthographicCamera::RecalculateViewMatrix()
 			{
+				QED_PROFILE_FUNCTION();
+
 				// TODO: do it like learnopengl
 				glm::mat4 transform =
 					glm::translate(glm::identity<glm::mat4>(), position) * glm::rotate(glm::identity<glm::mat4>(), glm::radians(rotation), glm::vec3(0, 0, 1));

@@ -29,8 +29,10 @@ namespace QED
 			QED_PROFILE_FUNCTION();
 
 			// Update camera
-			cameraController.OnUpdate(timeStep);
-
+			{
+				QED_PROFILE_SCOPE("Sandbox2D::OnUpdate Camera");
+				cameraController.OnUpdate(timeStep);
+			}
 			// Render
 
 			// Clear
@@ -38,15 +40,18 @@ namespace QED
 			Engine::Graphics::RenderCommand::Clear();
 
 			// Scene
-			Engine::Graphics::Renderer2D::BeginScene(cameraController.GetCamera());
+			{
+				QED_PROFILE_SCOPE("Sandbox2D::OnUpdate Render scene");
+				Engine::Graphics::Renderer2D::BeginScene(cameraController.GetCamera());
 
-			Engine::Graphics::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, 0.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-			Engine::Graphics::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, counter, { 0.2f, 0.3f, 0.8f, 1.0f });
-			Engine::Graphics::Renderer2D::DrawQuad({ 0.2f, 0.5f }, { 0.5f, 0.5f }, 0.0f, texture);
+				Engine::Graphics::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, 0.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
+				Engine::Graphics::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, counter, { 0.2f, 0.3f, 0.8f, 1.0f });
+				Engine::Graphics::Renderer2D::DrawQuad({ 0.2f, 0.5f }, { 0.5f, 0.5f }, 0.0f, texture);
 
-			counter++;
+				counter++;
 
-			Engine::Graphics::Renderer2D::EndScene();
+				Engine::Graphics::Renderer2D::EndScene();
+			}
 		}
 
 		void Sandbox2D::OnUIRender()

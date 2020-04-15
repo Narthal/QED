@@ -24,6 +24,8 @@
 #include "../Graphics/Renderer.h"
 #include "../Graphics/RenderCommand.h"
 
+#include <Profiler/Instrumentor.h>
+
 
 
 
@@ -35,6 +37,8 @@ namespace QED
 		{
 			void Application::Application::Initialize()
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Set up main loop variable
 				isRunning = true;
 
@@ -43,7 +47,7 @@ namespace QED
 				QED_CORE_LOG_INFO("Core logger initialized");
 
 				// Create window
-				window = std::make_unique<Window::GLFWWindow>();
+				window = Type::CreateScope<Window::GLFWWindow>();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
 
 				// Initialize renderer
@@ -61,6 +65,8 @@ namespace QED
 
 			void Application::Application::OnEvent(Event::Event& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Handle window close
 				Event::EventDispatcher dispatcher(event);
 				dispatcher.Dispatch<Event::WindowCloseEvent>(BIND_EVENT_FUCTION(Application::OnWindowClose));
@@ -79,46 +85,64 @@ namespace QED
 
 			void Application::Application::RunMainLoop()
 			{
+				QED_PROFILE_FUNCTION();
+
 				while (isRunning)
 				{
 					float time = (float)glfwGetTime();
 					Time::TimeStep timeStep = time - lastFrameTime;
 					lastFrameTime = time;
 
-					// OnUpdate loop
 					if (!minimized)
 					{
-						for (Layer::Layer* layer : layerStack)
 						{
-							layer->OnUpdate(timeStep);
+							QED_PROFILE_SCOPE("Application::RunMainLoop Update")
+							// OnUpdate loop
+
+							for (Layer::Layer* layer : layerStack)
+							{
+								layer->OnUpdate(timeStep);
+							}
+						}
+
+						{
+							QED_PROFILE_SCOPE("Application::RunMainLoop UIUpdate")
+							// OnUIRender loop
+							UILayer->Begin();
+							for (Layer::Layer* layer : layerStack)
+							{
+								layer->OnUIRender();
+							}
+							UILayer->End();
 						}
 					}
 
-					// OnUIRender loop
-					UILayer->Begin();
-					for (Layer::Layer* layer : layerStack)
 					{
-						layer->OnUIRender();
+						QED_PROFILE_SCOPE("Application::RunMainLoop WindowUpdate")
+						// Window update tick
+						window->OnUpdate();
 					}
-					UILayer->End();
-
-					// Window update tick
-					window->OnUpdate();
 				};
 			}
 
 			void Application::Application::PushLayer(Layer::Layer* layer)
 			{
+				QED_PROFILE_FUNCTION();
+
 				layerStack.PushLayer(layer);
 			}
 
 			void Application::Application::PushOverlay(Layer::Layer* overlay)
 			{
+				QED_PROFILE_FUNCTION();
+
 				layerStack.PushOverlay(overlay);
 			}
 
 			bool Application::Application::OnWindowClose(Event::WindowCloseEvent& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Set running flag to false (closing main loop)
 				isRunning = false;
 
@@ -133,6 +157,8 @@ namespace QED
 
 			bool Application::Application::OnWindowResize(Event::WindowResizeEvent& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				if (event.GetWidth() == 0 || event.GetHeight() == 0)
 				{
 					minimized = true;

@@ -12,22 +12,19 @@ namespace QED
 		{
 			class QED_ENGINE_API VertexBuffer
 			{
-				public:
-				virtual ~VertexBuffer() {}
-
-				public:
-				virtual void Bind() const = 0;
-
-				public:
-				virtual void Unbind() const = 0;
-
-				public:
+			public: // Ctor / Dtor
 				static VertexBuffer* Create(float* vertices, unsigned int size);
 
-				public:
+				virtual ~VertexBuffer() {}
+
+			public:
+				virtual void Bind() const = 0;
+
+				virtual void Unbind() const = 0;
+
+			public: // Get / Set
 				virtual void SetLayout(const BufferLayout& layout) = 0;
 
-				public:
 				virtual const BufferLayout& GetLayout() const = 0;
 			};
 		}

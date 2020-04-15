@@ -4,6 +4,8 @@
 #include "RenderCommand.h"
 #include "Renderer2D.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -14,6 +16,8 @@ namespace QED
 
 			void Renderer::Initialize()
 			{
+				QED_PROFILE_FUNCTION();
+
 				RenderCommand::Initialize();
 				Renderer2D::Initialize();
 			}

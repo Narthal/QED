@@ -6,6 +6,8 @@
 #include "Shader.h"
 #include "RenderCommand.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -23,6 +25,8 @@ namespace QED
 
 			void Renderer2D::Initialize()
 			{
+				QED_PROFILE_FUNCTION();
+
 				renderer2D_Data = new Renderer2D_Data();
 
 				renderer2D_Data->VertexArray = VertexArray::Create();
@@ -59,17 +63,21 @@ namespace QED
 
 			void Renderer2D::ShutDown()
 			{
+				QED_PROFILE_FUNCTION();
+
 				delete renderer2D_Data;
 			}
 
 			void Renderer2D::BeginScene(const OrthographicCamera& camera)
 			{
+				QED_PROFILE_FUNCTION();
 				renderer2D_Data->Shader->Bind();
 				renderer2D_Data->Shader->SetMat4("uViewProjection", camera.GetViewProjectionMatrix());
 			}
 
 			void Renderer2D::EndScene()
 			{
+				
 			}
 
 			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
@@ -99,6 +107,7 @@ namespace QED
 
 			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color)
 			{
+				QED_PROFILE_FUNCTION();
 				// Set color uniform
 				renderer2D_Data->Shader->SetFloat4("uColor", color);
 

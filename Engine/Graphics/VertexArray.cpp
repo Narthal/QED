@@ -5,6 +5,8 @@
 
 #include "OpenGL/OpenGLVertexArray.h"
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -13,6 +15,7 @@ namespace QED
 		{
 			Ref<VertexArray> VertexArray::Create()
 			{
+				QED_PROFILE_FUNCTION();
 				switch (Renderer::GetAPI())
 				{
 					case RendererAPI::API::NONE:

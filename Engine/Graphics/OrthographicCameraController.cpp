@@ -4,6 +4,8 @@
 #include "../Input/CoreInput.h"
 #include "../Input/Keycodes.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -18,6 +20,8 @@ namespace QED
 
 			void OrthographicCameraController::OnUpdate(Core::Time::TimeStep timeStep)
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Move camera
 				// Left / right
 				if (Input::CoreInput::IsKeyPressed(Input::key_A))
@@ -60,6 +64,8 @@ namespace QED
 
 			void OrthographicCameraController::OnEvent(Event::Event& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				Event::EventDispatcher dispatcher(event);
 				dispatcher.Dispatch<Event::MouseScrolledEvent>(BIND_EVENT_FUCTION(OrthographicCameraController::OnMouseScrolled));
 				dispatcher.Dispatch<Event::WindowResizeEvent>(BIND_EVENT_FUCTION(OrthographicCameraController::OnWindowResized));
@@ -67,6 +73,8 @@ namespace QED
 
 			bool OrthographicCameraController::OnMouseScrolled(Event::MouseScrolledEvent& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				zoomLevel -= event.GetYOffset();
 				camera.SetProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel, -zoomLevel, zoomLevel);
 				return false;
@@ -74,6 +82,8 @@ namespace QED
 
 			bool OrthographicCameraController::OnWindowResized(Event::WindowResizeEvent& event)
 			{
+				QED_PROFILE_FUNCTION();
+
 				aspectRatio = (float)event.GetWidth() / (float)event.GetHeight();
 				camera.SetProjection(-aspectRatio * zoomLevel, aspectRatio * zoomLevel, -zoomLevel, zoomLevel);
 				return false;

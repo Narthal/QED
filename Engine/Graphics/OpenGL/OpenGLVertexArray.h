@@ -14,37 +14,28 @@ namespace QED
 			{
 				class OpenGLVertexArray : public VertexArray
 				{
-					public:
+				public: // Ctor / Dtor
 					OpenGLVertexArray();
 
-					public:
 					~OpenGLVertexArray();
 
-					public:
+				public:
 					virtual void Bind() const override;
 
-					public:
 					virtual void Unbind() const override;
 
-					public:
+				public: // Get / Set
 					virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) override;
 
-					public:
 					virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) override;
 
-					public:
 					inline virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
 
-					public:
 					inline virtual const Ref<IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
-					private:
+				private:
 					uint32_t rendererID;
-
-					private:
 					std::vector<Ref<VertexBuffer>> vertexBuffers;
-
-					private:
 					Ref<IndexBuffer> indexBuffer;
 				};
 			}

@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 
+#include <Profiler/Instrumentor.h>
+
 namespace QED
 {
 	namespace Engine
@@ -52,26 +54,36 @@ namespace QED
 
 				OpenGLVertexArray::OpenGLVertexArray()
 				{
+					QED_PROFILE_FUNCTION();
+
 					glCreateVertexArrays(1, &rendererID);
 				}
 
 				OpenGLVertexArray::~OpenGLVertexArray()
 				{
+					QED_PROFILE_FUNCTION();
+
 					glDeleteVertexArrays(1, &rendererID);
 				}
 
 				void OpenGLVertexArray::Bind() const
 				{
+					QED_PROFILE_FUNCTION();
+
 					glBindVertexArray(rendererID);
 				}
 
 				void OpenGLVertexArray::Unbind() const
 				{
+					QED_PROFILE_FUNCTION();
+
 					glBindVertexArray(0);
 				}
 
 				void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
 				{
+					QED_PROFILE_FUNCTION();
+
 					glBindVertexArray(rendererID);
 					vertexBuffer->Bind();
 
@@ -99,6 +111,8 @@ namespace QED
 
 				void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 				{
+					QED_PROFILE_FUNCTION();
+
 					glBindVertexArray(rendererID);
 					indexBuffer->Bind();
 

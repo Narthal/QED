@@ -19,6 +19,9 @@
 #include "../Event/KeyEvent.h"
 #include "../Event/MouseEvent.h"
 
+// Profiler
+#include <Profiler/Instrumentor.h>
+
 
 
 
@@ -30,6 +33,8 @@ namespace QED
 		{
 			GLFWWindow::GLFWWindow()
 			{
+				QED_PROFILE_FUNCTION();
+
 				// Initialize GLFW
 				bool success = glfwInit();
 				if (!success)
@@ -40,13 +45,19 @@ namespace QED
 					//glfwSetErrorCallback()
 				}
 
+
 				// Create window
 				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
 				glfwMakeContextCurrent((GLFWwindow*)windowHandle);
 				glfwSetWindowUserPointer((GLFWwindow*)windowHandle, &windowData);
 
 				// Disable VSync
-				if (windowData.isVsync == false)
+				if (windowData.isVsync)
+				{
+					// TODO: fix VSync 
+					//glfwSwapInterval(1);
+				}
+				else
 				{
 					glfwSwapInterval(0);
 				}
@@ -166,6 +177,8 @@ namespace QED
 
 			GLFWWindow::~GLFWWindow()
 			{
+				QED_PROFILE_FUNCTION();
+
 				context.release();
 				glfwDestroyWindow((GLFWwindow*)windowHandle);
 				QED_CORE_LOG_INFO("GLFW window is closing");
@@ -173,6 +186,8 @@ namespace QED
 
 			void GLFWWindow::OnUpdate()
 			{
+				QED_PROFILE_FUNCTION();
+
 				glfwPollEvents();
 				context->SwapBuffers();
 			}

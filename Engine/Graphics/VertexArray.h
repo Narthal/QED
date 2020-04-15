@@ -14,29 +14,24 @@ namespace QED
 		{
 			class QED_ENGINE_API VertexArray
 			{
-				public:
+			public: // Ctor / Dtor
+				static Ref<VertexArray> Create();
+
 				~VertexArray() {}
 
-				public:
+			public:
 				virtual void Bind() const = 0;
 
-				public:
 				virtual void Unbind() const = 0;
 
-				public:
+			public: // Get / Set
 				virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) = 0;
 
-				public:
 				virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) = 0;
 
-				public:
 				virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const = 0;
 
-				public:
 				virtual const Ref<IndexBuffer>& GetIndexBuffer() const = 0;
-
-				public:
-				static Ref<VertexArray> Create();
 			};
 		}
 	}
