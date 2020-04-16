@@ -110,7 +110,16 @@ namespace QED
 					glUniform3f(location, vector.x, vector.y, vector.z);
 				}
 
-				void OpenGLShader::SetInt(const std::string& uniformName, const uint32_t value)
+				void OpenGLShader::SetFloat(const std::string& uniformName, float value)
+				{
+					QED_PROFILE_FUNCTION();
+
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
+					glUniform1f(location, value);
+				}
+
+				void OpenGLShader::SetInt(const std::string& uniformName, uint32_t value)
 				{
 					QED_PROFILE_FUNCTION();
 

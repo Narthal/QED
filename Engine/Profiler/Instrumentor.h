@@ -134,7 +134,7 @@ namespace QED
 	}
 }
 
-#define QED_PROFILE 1
+#define QED_PROFILE 0
 
 #if QED_PROFILE
 	#define QED_PROFILE_BEGIN_SESSION(name, filepath) ::QED::Engine::Profiler::Instrumentor::Get().BeginSession(name, filepath)

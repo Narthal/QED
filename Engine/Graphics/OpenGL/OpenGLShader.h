@@ -31,7 +31,8 @@ namespace QED
 					virtual void SetMat4(const std::string& uniformName, const glm::mat4& matrix) override;
 					virtual void SetFloat4(const std::string& uniformName, const glm::vec4& vector) override;
 					virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) override;
-					virtual void SetInt(const std::string& uniformName, const uint32_t value) override;
+					virtual void SetFloat(const std::string& uniformName, float value) override;
+					virtual void SetInt(const std::string& uniformName, uint32_t value) override;
 
 				private:
 					std::string ReadFile(const std::string& path);

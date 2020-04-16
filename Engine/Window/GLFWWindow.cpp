@@ -45,6 +45,7 @@ namespace QED
 					//glfwSetErrorCallback()
 				}
 
+				glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_TRUE);
 
 				// Create window
 				windowHandle = glfwCreateWindow(1280, 720, "My Title", NULL, NULL);
@@ -55,7 +56,7 @@ namespace QED
 				if (windowData.isVsync)
 				{
 					// TODO: fix VSync 
-					//glfwSwapInterval(1);
+					glfwSwapInterval(1);
 				}
 				else
 				{

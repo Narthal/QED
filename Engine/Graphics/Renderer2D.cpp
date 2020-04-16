@@ -90,26 +90,29 @@ namespace QED
 				DrawQuad(position, size, rotation, renderer2D_Data->Texture, color);
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture)
+			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, float tilingFactor)
 			{
-				DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, glm::vec4(1.0f));
+				DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, glm::vec4(1.0f), tilingFactor);
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture)
+			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, float tilingFactor)
 			{
-				DrawQuad(position, size, rotation, texture, glm::vec4(1.0f));
+				DrawQuad(position, size, rotation, texture, glm::vec4(1.0f), tilingFactor);
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color)
+			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color, float tilingFactor)
 			{
-				DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, color);
+				DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, color, tilingFactor);
 			}
 
-			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color)
+			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color, float tilingFactor)
 			{
 				QED_PROFILE_FUNCTION();
 				// Set color uniform
 				renderer2D_Data->Shader->SetFloat4("uColor", color);
+
+				// Set tiling factor uniform
+				renderer2D_Data->Shader->SetFloat("uTilingFactor", tilingFactor);
 
 				// Bind texture
 				texture->Bind();

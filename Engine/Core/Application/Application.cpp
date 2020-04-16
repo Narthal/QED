@@ -50,6 +50,8 @@ namespace QED
 				window = Type::CreateScope<Window::GLFWWindow>();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
 
+				Graphics::RenderCommand::SetViewport(0, 0, window->GetWidth(), window->GetHeight());
+
 				// Initialize renderer
 				Graphics::Renderer::Initialize();
 

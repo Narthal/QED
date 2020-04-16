@@ -67,6 +67,9 @@ namespace QED
 					glTextureParameteri(RendererID, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 					glTextureParameteri(RendererID, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+					glTextureParameteri(RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
+					glTextureParameteri(RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
 					// TODO: use GL_RGB / GL_RGBA based on channels == 3 or channels == 4
 					glTextureSubImage2D(RendererID, 0, 0, 0, width, height, dataFormat, GL_UNSIGNED_BYTE, data);
 
@@ -88,6 +91,9 @@ namespace QED
 
 					glTextureParameteri(RendererID, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 					glTextureParameteri(RendererID, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+					glTextureParameteri(RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
+					glTextureParameteri(RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 				}
 
 				OpenGLTexture2D::~OpenGLTexture2D()

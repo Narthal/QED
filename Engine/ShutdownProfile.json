@@ -1,1 +1,0 @@
-{"otherData": {},"traceEvents":[{"cat":"function","dur":51772,"name":"__cdecl QED::Engine::Window::GLFWWindow::~GLFWWindow(void)","ph":"X","pid":0,"tid":2775212963,"ts":2396231568976}]}
