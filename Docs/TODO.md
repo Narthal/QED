@@ -42,6 +42,8 @@
 - [ ] maintenace : corewindow create function similar to rendererAPI
 - [ ] maintenance : fixupe #include <instrumentor> to "instrumentor"
 - [ ] profiler : rewrite with log (collectors and sinks, writers)
+- [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
+- [ ] performance : make drawQuad functions in renderer2D that doesnt allow rotation and leaves out rotation transform
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
 
