@@ -1,10 +1,15 @@
 # TODO
 
 ## Priority list
-- [x] replace premake with build tool
-- [x] log.h redo
+- [ ] finish batch renderer
 - [ ] generate build log file from vs
+- [ ] create basic sqlite handlers 
 - [ ] store build log in sqlite
+- [ ] load textures from sqlite
+- [ ] create conductor
+- [ ] change buildtool to a dll and connect it with conductor
+- [ ] create simple assetPipelineTool
+- [ ] custom allocator
 
 ## Projects
 - [x] [c++] Engine as exe & static lib
@@ -18,25 +23,12 @@
 - [ ] [c#] ConfigTool as dll
 
 ## General
-- [x] finish imgui docking
-- [x] fixup github imgui submodule not pointing to correct branch (maybe re add the submodule)
 - [ ] remove visual studio region pch include
-- [ ] merge coreWindow and glfwWindow, remove support for multiple window creation
-- [x] remove external tools unneccessary docs & files
-- [x] vertex buffer abstraction
-- [x] index buffer abstraction
-- [x] shader abstraction
-- [x] vertex buffer layout abstraction
-- [x] vertex array abstraction
 - [ ] maintenance : unify accessors
 - [ ] utility : abort function
-- [x] utility : assert function
 - [ ] utility : stack trace (through return macro)
 - [ ] rename : coreinput to input
-- [ ] create QED Commons lib that statically links to the engine and the client application (log, QED globals, memory allocator for both exe and each dll, etc)
-- [x] separate shader functionality to separate preprocessor file
-- [ ] maintenance : make include paths absolute from project root
-- [ ] maintenance : rework layer and moduleInterface relation (new module interface for it, new push layer / overlay function exposition)
+- [ ] rework : rework layer and moduleInterface relation (new module interface for it, new push layer / overlay function exposition)
 - [ ] maintenace : find out wtf is wrong with includeing globals and registry in QED.h
 - [ ] maintenace : custom math types decl in Types.h, set imgui math tipes to use new types
 - [ ] maintenace : corewindow create function similar to rendererAPI
@@ -44,17 +36,16 @@
 - [ ] profiler : rewrite with log (collectors and sinks, writers)
 - [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
 - [ ] performance : make drawQuad functions in renderer2D that doesnt allow rotation and leaves out rotation transform
+- [ ] maintenace : create core graphics folder and move all classes that are base classes to there
+  
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
 
 ## Engine sanity
-- [ ] Visual Studio memory check integration
-- [ ] Valgrind integration
+- [ ] some form of mem check
 
 ## Build Tool
-- [x] precompiled heaers
-- [x] preprocessor defs
-- [x] sort conditionals to filters
 - [ ] Generate .filters file for visual studio solution
+- [ ] Allow virtual folders in solutions
 
 
