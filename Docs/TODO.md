@@ -11,6 +11,15 @@
 - [ ] create simple assetPipelineTool
 - [ ] custom allocator
 
+## Goal dependancies
+- SQLite integration
+  - Rewrite asset loading and caching
+- Allocator
+  - Basic ECS
+    - Basic scripting
+    - Threading
+
+
 ## Projects
 - [x] [c++] Engine as exe & static lib
 - [x] [c++] Client (sandbox) as dynamic lib
