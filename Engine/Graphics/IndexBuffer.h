@@ -2,6 +2,7 @@
 #define INDEX_BUFFER_H
 
 #include "../Module/QEDApi.h"
+#include "Core/Type/Type.h"
 
 namespace QED
 {
@@ -21,7 +22,7 @@ namespace QED
 				virtual void Unbind() const = 0;
 
 				public:
-				static IndexBuffer* Create(unsigned int* indices, unsigned int size);
+				static Ref<IndexBuffer> Create(unsigned int* indices, unsigned int size);
 
 				public:
 				virtual unsigned int GetCount() const = 0;

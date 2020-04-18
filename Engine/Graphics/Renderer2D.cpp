@@ -39,7 +39,7 @@ namespace QED
 				};
 
 				Ref<VertexBuffer> vertexBuffer;
-				vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+				vertexBuffer = VertexBuffer::Create(vertices, sizeof(vertices));
 				vertexBuffer->SetLayout
 				({
 					{ ShaderDataType::Float3, "aPosition" },
@@ -49,7 +49,7 @@ namespace QED
 
 				unsigned int indices[6] = { 0, 1, 2, 2, 3, 0 };
 				Ref<IndexBuffer> indexBuffer;
-				indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+				indexBuffer = IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 				renderer2D_Data->VertexArray->SetIndexBuffer(indexBuffer);
 
 				renderer2D_Data->Texture = Texture2D::Create(1, 1);

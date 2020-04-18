@@ -3,6 +3,7 @@
 
 #include "../Module/QEDApi.h"
 #include "BufferLayout.h"
+#include "Core/Type/Type.h"
 
 namespace QED
 {
@@ -13,7 +14,7 @@ namespace QED
 			class QED_ENGINE_API VertexBuffer
 			{
 			public: // Ctor / Dtor
-				static VertexBuffer* Create(float* vertices, unsigned int size);
+				static Ref<VertexBuffer> Create(float* vertices, unsigned int size);
 
 				virtual ~VertexBuffer() {}
 

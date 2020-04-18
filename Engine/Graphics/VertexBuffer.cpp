@@ -12,7 +12,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			VertexBuffer* VertexBuffer::Create(float* vertices, unsigned int size)
+			Ref<VertexBuffer> VertexBuffer::Create(float* vertices, unsigned int size)
 			{
 				QED_PROFILE_FUNCTION();
 
@@ -24,7 +24,7 @@ namespace QED
 					break;
 					
 					case RendererAPI::API::OpenGL:
-					return new OpenGL::OpenGLVertexBuffer(vertices, size);
+					return Core::Type::CreateRef<OpenGL::OpenGLVertexBuffer>(vertices, size);
 					break;
 					
 					default:
