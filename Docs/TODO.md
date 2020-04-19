@@ -45,6 +45,9 @@
 - [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
 - [ ] performance : make drawQuad functions in renderer2D that doesnt allow rotation and leaves out rotation transform
 - [ ] maintenace : create core graphics folder and move all classes that are base classes to there
+- [ ] feature : shader hot reload
+- [ ] feature : shader fallback system
+- [ ] feature : high level shader language that cross compiles to glsl
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
