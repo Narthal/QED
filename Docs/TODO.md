@@ -2,9 +2,7 @@
 
 ## Priority list
 - [ ] finish batch renderer
-- [ ] generate build log file from vs
 - [ ] create basic sqlite handlers 
-- [ ] store build log in sqlite
 - [ ] load textures from sqlite
 - [ ] create conductor
 - [ ] change buildtool to a dll and connect it with conductor
@@ -14,6 +12,7 @@
 ## Goal dependancies
 - SQLite integration
   - Rewrite asset loading and caching
+  - Rewrite profiler and logger
 - Allocator
   - Basic ECS
     - Basic scripting
