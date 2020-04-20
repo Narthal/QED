@@ -49,6 +49,7 @@
 - [ ] feature : shader fallback system
 - [ ] feature : high level shader language that cross compiles to glsl
 - [ ] QOL : create ref equals function (needed in drawQuad for instance)
+- [ ] rewrite : replace uint32 to int32 in setInt and setIntArray
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
