@@ -43,11 +43,13 @@
 - [ ] maintenance : fixupe #include <instrumentor> to "instrumentor"
 - [ ] profiler : rewrite with log (collectors and sinks, writers)
 - [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
-- [ ] performance : make drawQuad functions in renderer2D that doesnt allow rotation and leaves out rotation transform
+- [ ] maintenace : rewrite drawQuad function to be a templated function reducing overloads
 - [ ] maintenace : create core graphics folder and move all classes that are base classes to there
 - [ ] feature : shader hot reload
 - [ ] feature : shader fallback system
 - [ ] feature : high level shader language that cross compiles to glsl
+- [ ] QOL : create ref equals function (needed in drawQuad for instance)
+- [ ] rewrite : replace uint32 to int32 in setInt and setIntArray
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
