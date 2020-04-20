@@ -2,14 +2,22 @@
 
 ## Priority list
 - [ ] finish batch renderer
-- [ ] generate build log file from vs
 - [ ] create basic sqlite handlers 
-- [ ] store build log in sqlite
 - [ ] load textures from sqlite
 - [ ] create conductor
 - [ ] change buildtool to a dll and connect it with conductor
 - [ ] create simple assetPipelineTool
 - [ ] custom allocator
+
+## Goal dependancies
+- SQLite integration
+  - Rewrite asset loading and caching
+  - Rewrite profiler and logger
+- Allocator
+  - Basic ECS
+    - Basic scripting
+    - Threading
+
 
 ## Projects
 - [x] [c++] Engine as exe & static lib
@@ -37,6 +45,9 @@
 - [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
 - [ ] performance : make drawQuad functions in renderer2D that doesnt allow rotation and leaves out rotation transform
 - [ ] maintenace : create core graphics folder and move all classes that are base classes to there
+- [ ] feature : shader hot reload
+- [ ] feature : shader fallback system
+- [ ] feature : high level shader language that cross compiles to glsl
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
