@@ -13,26 +13,20 @@ namespace QED
 			{
 				class OpenGLIndexBuffer : public IndexBuffer
 				{
-					public:
-					OpenGLIndexBuffer(unsigned int* indices, unsigned int size);
-
-					public:
+				public:
+					OpenGLIndexBuffer(uint32_t* indices, uint32_t count);
 					virtual ~OpenGLIndexBuffer();
 
-					public:
+				public:
 					virtual void Bind() const;
-
-					public:
 					virtual void Unbind() const;
 
-					public:
-					virtual unsigned int GetCount() const { return count; }
+				public:
+					inline virtual uint32_t GetCount() const override { return count; }
 
-					private:
-					unsigned int rendererID;
-
-					private:
-					unsigned int count;
+				private:
+					uint32_t rendererID;
+					uint32_t count;
 				};
 			}
 		}

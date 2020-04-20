@@ -12,20 +12,16 @@ namespace QED
 		{
 			class QED_ENGINE_API IndexBuffer
 			{
-				public:
+			public:
+				static Ref<IndexBuffer> Create(uint32_t* indices, uint32_t count);
 				virtual ~IndexBuffer() {}
 
-				public:
+			public:
 				virtual void Bind() const = 0;
-
-				public:
 				virtual void Unbind() const = 0;
 
-				public:
-				static Ref<IndexBuffer> Create(unsigned int* indices, unsigned int size);
-
-				public:
-				virtual unsigned int GetCount() const = 0;
+			public:
+				virtual uint32_t GetCount() const = 0;
 			};
 		}
 	}

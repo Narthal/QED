@@ -10,7 +10,7 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Ref<IndexBuffer> IndexBuffer::Create(unsigned int* indices, unsigned int size)
+			Ref<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t count)
 			{
 				switch (Renderer::Renderer::GetAPI())
 				{
@@ -20,7 +20,7 @@ namespace QED
 					break;
 
 					case RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLIndexBuffer>(indices, size);
+					return Core::Type::CreateRef<OpenGL::OpenGLIndexBuffer>(indices, count);
 					break;
 
 					default:
