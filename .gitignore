@@ -15,6 +15,14 @@ External/Tools/cmake-3.16.2-win64-x64/doc/
 External/Tools/cmake-3.16.2-win64-x64/man/
 External/Tools/cmake-3.16.2-win64-x64/share/
 
+## Profiler output
+Engine/RuntimeProfile.json
+Engine/ShutdownProfile.json
+Engine/StartupProfile.json
+
+
+
+
 
 
 ## Ignore Visual Studio temporary files, build results, and
