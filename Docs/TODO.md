@@ -48,6 +48,7 @@
 - [ ] feature : shader hot reload
 - [ ] feature : shader fallback system
 - [ ] feature : high level shader language that cross compiles to glsl
+- [ ] QOL : create ref equals function (needed in drawQuad for instance)
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
