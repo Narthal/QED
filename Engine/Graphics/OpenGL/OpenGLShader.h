@@ -33,6 +33,7 @@ namespace QED
 					virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) override;
 					virtual void SetFloat(const std::string& uniformName, float value) override;
 					virtual void SetInt(const std::string& uniformName, uint32_t value) override;
+					virtual void SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count) override;
 
 				private:
 					std::string ReadFile(const std::string& path);

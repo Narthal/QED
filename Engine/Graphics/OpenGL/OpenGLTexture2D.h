@@ -19,7 +19,6 @@ namespace QED
 				public:
 					OpenGLTexture2D(const std::string& path);
 					OpenGLTexture2D(uint32_t width, uint32_t height);
-
 					virtual ~OpenGLTexture2D();
 
 				public:
@@ -28,7 +27,11 @@ namespace QED
 
 					virtual void SetData(void* data, uint32_t size) override;
 
+				public:
 					virtual void Bind(uint32_t slot = 0) const override;
+
+				public: // Operators
+					inline virtual bool operator==(const Texture& other) const override { return RendererID == ((OpenGLTexture2D&)other).RendererID; };
 
 				private:
 					// TODO: path should be stored in asset manager
@@ -38,7 +41,6 @@ namespace QED
 					uint32_t height;
 					GLenum internalFormat = 0;
 					GLenum dataFormat = 0;
-
 
 					uint32_t RendererID;
 				};

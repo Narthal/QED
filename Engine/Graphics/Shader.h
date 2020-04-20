@@ -33,6 +33,7 @@ namespace QED
 				virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) = 0;
 				virtual void SetFloat(const std::string& uniformName, float value) = 0;
 				virtual void SetInt(const std::string& uniformName, uint32_t value) = 0;
+				virtual void SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count) = 0;
 			};
 		}
 	}

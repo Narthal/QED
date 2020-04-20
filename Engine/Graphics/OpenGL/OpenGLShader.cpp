@@ -128,6 +128,15 @@ namespace QED
 					glUniform1i(location, value);
 				}
 
+				void OpenGLShader::SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count)
+				{
+					QED_PROFILE_FUNCTION();
+
+					GLint location = glGetUniformLocation(rendererID, uniformName.c_str());
+					QED_CORE_ASSERT(location != -1, "Couldn't find uniform with name : {0}", uniformName);
+					glUniform1iv(location, count, (GLint*)values);
+				}
+
 				std::string OpenGLShader::ReadFile(const std::string& path)
 				{
 					QED_PROFILE_FUNCTION();
