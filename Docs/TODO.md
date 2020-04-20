@@ -17,6 +17,8 @@
   - Basic ECS
     - Basic scripting
     - Threading
+  - Custom imgui allocator (give allocation functions to imgui (imgui has wrapper function))
+  - Custom pybind11 allocation (overload new operator with a macro for pybind files)
 
 
 ## Projects
