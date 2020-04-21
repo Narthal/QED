@@ -42,6 +42,8 @@ namespace QED
 
 				std::array<Ref<Texture2D>, maxTextureSlots> textureSlots;
 				uint32_t textureSlotIndex = 1;	// NOTE: 0 is a white texture
+
+				glm::vec4 quadVertexPositions[4];
 			};
 
 			static Renderer2DData renderer2DData;
@@ -99,6 +101,11 @@ namespace QED
 
 				// Set first texture slot to white texture
 				renderer2DData.textureSlots[0] = renderer2DData.whiteTexture;
+
+				renderer2DData.quadVertexPositions[0] = { -0.5f, -0.5f, 0.0f, 1.0f };
+				renderer2DData.quadVertexPositions[1] = { 0.5f, -0.5f, 0.0f, 1.0f };
+				renderer2DData.quadVertexPositions[2] = { 0.5f, 0.5f, 0.0f, 1.0f };
+				renderer2DData.quadVertexPositions[3] = { -0.5f, 0.5f, 0.0f, 1.0f };
 			}
 
 			void Renderer2D::ShutDown()
@@ -194,28 +201,34 @@ namespace QED
 					}
 				}
 
-				renderer2DData.quadVertexBufferPtr->position = position;
+				// Calculate transform
+				glm::mat4 transform = glm::identity<glm::mat4>();
+				transform = glm::translate(transform, position);
+				if (rotation != 0.0f) transform = glm::rotate(transform, glm::radians(rotation), { 0.0f, 0.0f, 1.0f });
+				transform = glm::scale(transform, { size.x, size.y, 1.0f });
+
+				renderer2DData.quadVertexBufferPtr->position = transform * renderer2DData.quadVertexPositions[0];
 				renderer2DData.quadVertexBufferPtr->color = color;
-				renderer2DData.quadVertexBufferPtr->textureCoordinate = {0.0f, 0.0f};
+				renderer2DData.quadVertexBufferPtr->textureCoordinate = { 0.0f, 0.0f };
 				renderer2DData.quadVertexBufferPtr->textureIndex = textureIndex;
 				renderer2DData.quadVertexBufferPtr->tilingFactor = tilingFactor;
 				renderer2DData.quadVertexBufferPtr++;
 
-				renderer2DData.quadVertexBufferPtr->position = { position.x + size.x, position.y, 0.0f };
+				renderer2DData.quadVertexBufferPtr->position = transform * renderer2DData.quadVertexPositions[1];
 				renderer2DData.quadVertexBufferPtr->color = color;
 				renderer2DData.quadVertexBufferPtr->textureCoordinate = { 1.0f, 0.0f };
 				renderer2DData.quadVertexBufferPtr->textureIndex = textureIndex;
 				renderer2DData.quadVertexBufferPtr->tilingFactor = tilingFactor;
 				renderer2DData.quadVertexBufferPtr++;
 
-				renderer2DData.quadVertexBufferPtr->position = { position.x + size.x, position.y + size.y, 0.0f };
+				renderer2DData.quadVertexBufferPtr->position = transform * renderer2DData.quadVertexPositions[2];
 				renderer2DData.quadVertexBufferPtr->color = color;
 				renderer2DData.quadVertexBufferPtr->textureCoordinate = { 1.0f, 1.0f };
 				renderer2DData.quadVertexBufferPtr->textureIndex = textureIndex;
 				renderer2DData.quadVertexBufferPtr->tilingFactor = tilingFactor;
 				renderer2DData.quadVertexBufferPtr++;
 
-				renderer2DData.quadVertexBufferPtr->position = { position.x, position.y + size.y, 0.0f };
+				renderer2DData.quadVertexBufferPtr->position = transform * renderer2DData.quadVertexPositions[3];
 				renderer2DData.quadVertexBufferPtr->color = color;
 				renderer2DData.quadVertexBufferPtr->textureCoordinate = { 0.0f, 1.0f };
 				renderer2DData.quadVertexBufferPtr->textureIndex = textureIndex;
@@ -223,25 +236,6 @@ namespace QED
 				renderer2DData.quadVertexBufferPtr++;
 
 				renderer2DData.quadIndexCount += 6;
-
-				//// Set tiling factor uniform
-				//renderer2DData.Shader->SetFloat("uTilingFactor", tilingFactor);
-
-				//// Bind texture
-				//texture->Bind();
-
-				//// Calculate transform
-				//glm::mat4 transform = glm::identity<glm::mat4>();
-				//transform = glm::translate(transform, position);
-				//transform = glm::rotate(transform, glm::radians(rotation), { 0.0f, 0.0f, 1.0f });
-				//transform = glm::scale(transform, { size.x, size.y, 1.0f });
-
-				//// Set transform uniform
-				//renderer2DData.Shader->SetMat4("uTransform", transform);
-
-				//// Draw
-				//renderer2DData.quadVertexArray->Bind();
-				//RenderCommand::Draw(renderer2DData.quadVertexArray);
 			}
 		}
 	}
