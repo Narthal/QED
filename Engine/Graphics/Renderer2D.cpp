@@ -25,9 +25,9 @@ namespace QED
 
 			struct Renderer2DData
 			{
-				const uint32_t maxQuads = 10000;
-				const uint32_t maxVertices = maxQuads * 4;
-				const uint32_t maxIndices = maxQuads * 6;
+				static const uint32_t maxQuads = 10000;
+				static const uint32_t maxVertices = maxQuads * 4;
+				static const uint32_t maxIndices = maxQuads * 6;
 				static const uint32_t maxTextureSlots = 32;	// TODO: get from graphics driver
 
 				Ref<VertexArray> quadVertexArray;
@@ -44,6 +44,8 @@ namespace QED
 				uint32_t textureSlotIndex = 1;	// NOTE: 0 is a white texture
 
 				glm::vec4 quadVertexPositions[4];
+
+				Renderer2D::Statistics statistics;
 			};
 
 			static Renderer2DData renderer2DData;
@@ -146,6 +148,21 @@ namespace QED
 				}
 
 				RenderCommand::Draw(renderer2DData.quadVertexArray, renderer2DData.quadIndexCount);
+
+				// Statistics
+				renderer2DData.statistics.drawCalls++;
+			}
+
+			void Renderer2D::FlushAndReset()
+			{
+				QED_PROFILE_FUNCTION();
+
+				EndScene();
+
+				renderer2DData.quadIndexCount = 0;
+				renderer2DData.quadVertexBufferPtr = renderer2DData.quadVertexBufferBase;
+
+				renderer2DData.textureSlotIndex = 1;
 			}
 
 			void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
@@ -176,6 +193,11 @@ namespace QED
 			void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Texture2D>& texture, const glm::vec4& color, float tilingFactor)
 			{
 				QED_PROFILE_FUNCTION();
+
+				if (renderer2DData.quadIndexCount >= Renderer2DData::maxIndices)
+				{
+					FlushAndReset();
+				}
 
 				// Local texture index
 				float textureIndex = 0.0f;
@@ -236,6 +258,19 @@ namespace QED
 				renderer2DData.quadVertexBufferPtr++;
 
 				renderer2DData.quadIndexCount += 6;
+
+				// Statistics
+				renderer2DData.statistics.quadCount++;
+			}
+			
+			void Renderer2D::ResetStatistics()
+			{
+				memset(&renderer2DData.statistics, 0, sizeof(Statistics));
+			}
+			
+			Renderer2D::Statistics Renderer2D::GetStatistics()
+			{
+				return renderer2DData.statistics;
 			}
 		}
 	}
