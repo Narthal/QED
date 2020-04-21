@@ -10,6 +10,10 @@
 - [ ] custom allocator
 
 ## Goal dependancies
+- render to frame buffer object (FBO)
+  - Render FBO in imgui viewport
+    - Set up imgui dockspace
+  - Introduce tests
 - SQLite integration
   - Rewrite asset loading and caching
   - Rewrite profiler and logger
