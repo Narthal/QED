@@ -32,8 +32,8 @@ namespace QED
 				static const uint32_t maxIndices = maxQuads * 6;
 				static const uint32_t maxTextureSlots = 32;	// TODO: get from graphics driver
 
-				Ref<VertexArray> quadVertexArray;
-				Ref<VertexBuffer> quadVertexBuffer;
+				Ref<Interface::Buffers::VertexArray> quadVertexArray;
+				Ref<Interface::Buffers::VertexBuffer> quadVertexBuffer;
 
 				Ref<Shader> shader;
 				Ref<Texture2D> whiteTexture;
@@ -56,16 +56,16 @@ namespace QED
 			{
 				QED_PROFILE_FUNCTION();
 
-				renderer2DData.quadVertexArray = VertexArray::Create();
+				renderer2DData.quadVertexArray = Interface::Buffers::VertexArray::Create();
 
-				renderer2DData.quadVertexBuffer = VertexBuffer::Create(renderer2DData.maxVertices * sizeof(QuadVertex));
+				renderer2DData.quadVertexBuffer = Interface::Buffers::VertexBuffer::Create(renderer2DData.maxVertices * sizeof(QuadVertex));
 				renderer2DData.quadVertexBuffer->SetLayout
 				({
-					{ ShaderDataType::Float3, "aPosition" },
-					{ ShaderDataType::Float4, "aColor" },
-					{ ShaderDataType::Float2, "aTextureCoordinate" },
-					{ ShaderDataType::Float, "aTextureIndex" },
-					{ ShaderDataType::Float, "aTilingFactor" }
+					{ Interface::Buffers::ShaderDataType::Float3, "aPosition" },
+					{ Interface::Buffers::ShaderDataType::Float4, "aColor" },
+					{ Interface::Buffers::ShaderDataType::Float2, "aTextureCoordinate" },
+					{ Interface::Buffers::ShaderDataType::Float, "aTextureIndex" },
+					{ Interface::Buffers::ShaderDataType::Float, "aTilingFactor" }
 				});
 				renderer2DData.quadVertexArray->AddVertexBuffer(renderer2DData.quadVertexBuffer);
 
@@ -85,7 +85,7 @@ namespace QED
 
 					offset += 4;
 				}
-				Ref<IndexBuffer> quadIndexBuffer = IndexBuffer::Create(quadIndices, renderer2DData.maxIndices);
+				Ref<Interface::Buffers::IndexBuffer> quadIndexBuffer = Interface::Buffers::IndexBuffer::Create(quadIndices, renderer2DData.maxIndices);
 				renderer2DData.quadVertexArray->SetIndexBuffer(quadIndexBuffer);
 				delete[] quadIndices;
 

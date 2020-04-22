@@ -39,7 +39,7 @@ namespace QED
 			Engine::Graphics::Camera::OrthographicCameraController cameraController;
 
 			// TODO: Temporary
-			Ref<Engine::Graphics::VertexArray> vertexArray;
+			Ref<Engine::Graphics::Interface::Buffers::VertexArray> vertexArray;
 			Ref<Engine::Graphics::Shader> shader;
 			glm::vec4 squareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 			Ref<Engine::Graphics::Texture2D> texture1;

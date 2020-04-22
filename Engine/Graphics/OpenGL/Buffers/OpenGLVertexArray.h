@@ -13,32 +13,35 @@ namespace QED
 		{
 			namespace OpenGL
 			{
-				class OpenGLVertexArray : public VertexArray
+				namespace Buffers
 				{
-				public: // Ctor / Dtor
-					OpenGLVertexArray();
+					class OpenGLVertexArray : public Interface::Buffers::VertexArray
+					{
+					public: // Ctor / Dtor
+						OpenGLVertexArray();
 
-					~OpenGLVertexArray();
+						~OpenGLVertexArray();
 
-				public:
-					virtual void Bind() const override;
+					public:
+						virtual void Bind() const override;
 
-					virtual void Unbind() const override;
+						virtual void Unbind() const override;
 
-				public: // Get / Set
-					virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) override;
+					public: // Get / Set
+						virtual void AddVertexBuffer(const Ref<Interface::Buffers::VertexBuffer>& vertexBuffer) override;
 
-					virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) override;
+						virtual void SetIndexBuffer(const Ref<Interface::Buffers::IndexBuffer>& indexBuffer) override;
 
-					inline virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
+						inline virtual const std::vector<Ref<Interface::Buffers::VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
 
-					inline virtual const Ref<IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
+						inline virtual const Ref<Interface::Buffers::IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
-				private:
-					uint32_t rendererID;
-					std::vector<Ref<VertexBuffer>> vertexBuffers;
-					Ref<IndexBuffer> indexBuffer;
-				};
+					private:
+						uint32_t rendererID;
+						std::vector<Ref<Interface::Buffers::VertexBuffer>> vertexBuffers;
+						Ref<Interface::Buffers::IndexBuffer> indexBuffer;
+					};
+				}
 			}
 		}
 	}

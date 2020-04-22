@@ -13,27 +13,33 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class QED_ENGINE_API VertexArray
+			namespace Interface
 			{
-			public: // Ctor / Dtor
-				static Ref<VertexArray> Create();
+				namespace Buffers
+				{
+					class QED_ENGINE_API VertexArray
+					{
+					public: // Ctor / Dtor
+						static Ref<VertexArray> Create();
 
-				~VertexArray() {}
+						~VertexArray() {}
 
-			public:
-				virtual void Bind() const = 0;
+					public:
+						virtual void Bind() const = 0;
 
-				virtual void Unbind() const = 0;
+						virtual void Unbind() const = 0;
 
-			public: // Get / Set
-				virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) = 0;
+					public: // Get / Set
+						virtual void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) = 0;
 
-				virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) = 0;
+						virtual void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) = 0;
 
-				virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const = 0;
+						virtual const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const = 0;
 
-				virtual const Ref<IndexBuffer>& GetIndexBuffer() const = 0;
-			};
+						virtual const Ref<IndexBuffer>& GetIndexBuffer() const = 0;
+					};
+				}
+			}
 		}
 	}
 }

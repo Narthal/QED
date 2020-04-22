@@ -12,28 +12,34 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Ref<VertexArray> VertexArray::Create()
+			namespace Interface
 			{
-				QED_PROFILE_FUNCTION();
-				switch (Renderer::GetAPI())
+				namespace Buffers
 				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
+					Ref<VertexArray> VertexArray::Create()
+					{
+						QED_PROFILE_FUNCTION();
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
 
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLVertexArray>();
-					break;
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Buffers::OpenGLVertexArray>();
+							break;
 
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
 				}
-
-				// TODO: crash here
-				return nullptr;
 			}
 		}
 	}

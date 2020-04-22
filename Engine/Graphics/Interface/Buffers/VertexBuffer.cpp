@@ -12,54 +12,60 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+			namespace Interface
 			{
-				QED_PROFILE_FUNCTION();
-
-				switch (Renderer::GetAPI())
+				namespace Buffers
 				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
+					Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+					{
+						QED_PROFILE_FUNCTION();
 
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLVertexBuffer>(size);
-					break;
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
 
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Buffers::OpenGLVertexBuffer>(size);
+							break;
+
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
+
+					Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
+					{
+						QED_PROFILE_FUNCTION();
+
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
+
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Buffers::OpenGLVertexBuffer>(vertices, size);
+							break;
+
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
 				}
-
-				// TODO: crash here
-				return nullptr;
-			}
-
-			Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
-			{
-				QED_PROFILE_FUNCTION();
-
-				switch (Renderer::GetAPI())
-				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
-					
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLVertexBuffer>(vertices, size);
-					break;
-					
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
-				}
-
-				// TODO: crash here
-				return nullptr;
 			}
 		}
 	}

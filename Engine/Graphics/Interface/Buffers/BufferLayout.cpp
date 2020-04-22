@@ -7,7 +7,13 @@ namespace QED
 	{
 		namespace Graphics
 		{
+			namespace Interface
+			{
+				namespace Buffers
+				{
 
+				}
+			}
 		}
 	}
 }
