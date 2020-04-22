@@ -36,7 +36,7 @@ namespace QED
 			}
 
 		private:
-			Engine::Graphics::Camera::OrthographicCameraController cameraController;
+			Interface::Graphics::Camera::OrthographicCameraController cameraController;
 
 			// TODO: Temporary
 			Ref<Engine::Graphics::Interface::Buffers::VertexArray> vertexArray;

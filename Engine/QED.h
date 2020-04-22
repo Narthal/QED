@@ -47,6 +47,7 @@
 
 #include "Graphics/Camera/OrthographicCamera.h"
 #include "Graphics/Camera/OrthographicCameraController.h"
+#include "Graphics/Camera/OrthographicCameraControllerInterface.h"
 
 // Profiler
 #include "Profiler/Instrumentor.h"

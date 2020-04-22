@@ -190,6 +190,7 @@
     <ClInclude Include="Graphics\Renderer\RenderCommand.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\Camera\OrthographicCameraControllerInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -314,5 +315,6 @@
     <ClCompile Include="Graphics\Renderer\RenderCommand.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Camera\OrthographicCameraControllerInterface.cpp" />
   </ItemGroup>
 </Project>

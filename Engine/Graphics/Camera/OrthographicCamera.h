@@ -15,7 +15,7 @@ namespace QED
 		{
 			namespace Camera
 			{
-				class QED_ENGINE_API OrthographicCamera
+				class OrthographicCamera
 				{
 				public: // Ctor
 					OrthographicCamera(float left, float right, float bottom, float top);

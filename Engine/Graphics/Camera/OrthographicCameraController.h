@@ -4,7 +4,6 @@
 // GLM
 #include <glm/glm.hpp>
 
-#include "Module/QEDApi.h"
 #include "Core/Time/TimeStep.h"
 #include "Event/MouseEvent.h"
 #include "Event/WindowEvent.h"
@@ -20,7 +19,7 @@ namespace QED
 		{
 			namespace Camera
 			{
-				class QED_ENGINE_API OrthographicCameraController
+				class OrthographicCameraController
 				{
 				public: // Ctor / Dtor
 					OrthographicCameraController(float aspectRatio, bool rotationEnabled = false);
