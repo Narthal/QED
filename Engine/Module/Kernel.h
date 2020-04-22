@@ -14,9 +14,7 @@ namespace QED
 		{
 			class Kernel
 			{
-				Module* mod = nullptr;
-
-				public:
+			public: // Ctor / Dtor
 				Kernel()
 				{
 					mod = new Module("C:\\Users\\balas\\source\\GitHubRepos\\QED\\Build\\Sandbox\\Sandbox");
@@ -25,11 +23,10 @@ namespace QED
 					QED_CORE_LOG_INFO("Module interface name : {0}", name);
 				}
 
-				public:
-				~Kernel()
-				{
-					delete mod;
-				}
+				~Kernel() { delete mod; }
+
+			private:
+				Module* mod = nullptr;
 			};
 		}
 	}

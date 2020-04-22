@@ -12,15 +12,17 @@ namespace QED
 		{
 			class LayerStack
 			{
-			public:
+			public: // Ctor / Dtor
 				LayerStack() = default;
 				~LayerStack();
 
+			public: // Push / Pop layer
 				void PushLayer(Layer* layer);
 				void PushOverlay(Layer* overlay);
 				void PopLayer(Layer* layer);
 				void PopOverlay(Layer* overlay);
 
+			public: // Iterator interface
 				// Must be lower case so it maches std implementation of iterator
 				std::vector<Layer*>::iterator begin() { return layers.begin(); }
 				std::vector<Layer*>::iterator end() { return layers.end(); }

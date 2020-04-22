@@ -12,8 +12,10 @@ namespace QED
 		{
 			class QED_ENGINE_API CoreInput
 			{			
-			public:
+			public: // Get instance
 				static CoreInput& GetInstance();
+
+			public: // Get
 				// Keyboard
 				inline static bool IsKeyPressed(int keycode) { return GetInstance().IsKeyPressedImplementation(keycode); }
 

@@ -137,40 +137,20 @@ namespace QED
 							CalculateOffsetAndStride();
 						}
 
-					public:
-						BufferLayout() {};
+						BufferLayout() = default;
 
-
-						// Iterators for elements
-					public:
+					public: // Iterators for elements
 						inline std::vector<BufferElement>::iterator begin() { return bufferElements.begin(); }
-
-					public:
 						inline std::vector<BufferElement>::iterator end() { return bufferElements.end(); }
-
-					public:
 						inline std::vector<BufferElement>::const_iterator begin() const { return bufferElements.begin(); }
-
-					public:
 						inline std::vector<BufferElement>::const_iterator end() const { return bufferElements.end(); }
 
-
+					public: // Get / Set
 						// bufferElements : buffer layout container
-					public:
-						// Get
 						inline const std::vector<BufferElement>& GetElements() const { return bufferElements; }
-					private:
-						// Container
-						std::vector<BufferElement> bufferElements;
-
-					public:
 						inline uint32_t GetStride() const { return stride; }
 
-					private:
-						uint32_t stride = 0;
-
-
-					private:
+					private: // Internal
 						void CalculateOffsetAndStride()
 						{
 							uint32_t offset = 0;
@@ -182,6 +162,10 @@ namespace QED
 								stride += element.size;
 							}
 						}
+
+					private:
+						std::vector<BufferElement> bufferElements;
+						uint32_t stride = 0;
 					};
 				}
 			}

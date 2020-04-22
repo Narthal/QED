@@ -18,17 +18,19 @@ namespace QED
 				{
 					class OpenGLShader : public Interface::Shaders::Shader
 					{
-					public:
+					public: // Ctor / Dtor
 						OpenGLShader(const std::string& path);
 						OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource);
 						virtual ~OpenGLShader();
 
-					public:
+					public: // Utility
 						inline virtual const std::string& GetName() const override { return name; }
 
+					public: // Graphics
 						virtual void Bind() const override;
 						virtual void Unbind() const override;
 
+					public: // Uniform setters
 						virtual void SetMat4(const std::string& uniformName, const glm::mat4& matrix) override;
 						virtual void SetFloat4(const std::string& uniformName, const glm::vec4& vector) override;
 						virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) override;

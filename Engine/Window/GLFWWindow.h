@@ -16,19 +16,18 @@ namespace QED
 		{
 			class GLFWWindow : public CoreWindow
 			{
-			public:
+			public: // Ctor / Dtor
 				GLFWWindow();
-
 				virtual ~GLFWWindow() override;
 
+			public: // Window events
 				virtual void OnUpdate() override;
 
+			public: // Callback setters
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) override;
 
+			public: // Get
 				inline virtual void* GetWindowHandle() const { return windowHandle; }
-
-			private:
-
 			};
 		}
 	}

@@ -24,16 +24,13 @@ namespace QED
 
 					public:
 						virtual void Bind() const override;
-
 						virtual void Unbind() const override;
 
 					public: // Get / Set
 						virtual void AddVertexBuffer(const Ref<Interface::Buffers::VertexBuffer>& vertexBuffer) override;
-
-						virtual void SetIndexBuffer(const Ref<Interface::Buffers::IndexBuffer>& indexBuffer) override;
-
 						inline virtual const std::vector<Ref<Interface::Buffers::VertexBuffer>>& GetVertexBuffers() const override { return vertexBuffers; };
 
+						virtual void SetIndexBuffer(const Ref<Interface::Buffers::IndexBuffer>& indexBuffer) override;
 						inline virtual const Ref<Interface::Buffers::IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
 					private:

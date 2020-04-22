@@ -12,32 +12,28 @@ namespace QED
 	{
 		namespace Layer
 		{
-
-
 			class QED_ENGINE_API Layer : public Module::Interfaces::ModuleInterface
 			{
-			public:
+			public: // Ctor / Dtor
 				Layer(const char* name = "layer", const bool isUI = false);
 				virtual ~Layer() = 0;
+				virtual void Initialize() override;
 
-			public:
+			public: // Layer events
 				virtual void OnAttach() {}
 				virtual void OnDetach() {}
 				virtual void OnUpdate(Core::Time::TimeStep timeStep) {}
 				virtual void OnUIRender() {}
 				virtual void OnEvent(Event::Event& event) {}
 
+			public: // Utility
 				inline const char* GetLayerName() const { return name; }
 
+			public: // Get / Set
 				bool IsUI() { return isUI; }
 
 			protected:
 				bool isUI;
-
-			public:
-				virtual void Initialize() override;
-
-			protected:
 				const char* name;
 			};
 		}

@@ -19,17 +19,19 @@ namespace QED
 				{
 					class QED_ENGINE_API Shader
 					{
-					public:
+					public: // Ctor / Dtor
 						static Ref<Shader> Create(const std::string& path);
 						static Ref<Shader> Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource);
 						virtual ~Shader() {}
 
-					public:
+					public: // Utility
 						virtual const std::string& GetName() const = 0;
 
+					public: // Graphics
 						virtual void Bind() const = 0;
 						virtual void Unbind() const = 0;
 
+					public: // Uniform setters
 						virtual void SetMat4(const std::string& uniformName, const glm::mat4& matrix) = 0;
 						virtual void SetFloat4(const std::string& uniformName, const glm::vec4& vector) = 0;
 						virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) = 0;

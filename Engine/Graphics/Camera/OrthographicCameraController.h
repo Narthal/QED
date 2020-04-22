@@ -22,7 +22,7 @@ namespace QED
 			{
 				class QED_ENGINE_API OrthographicCameraController
 				{
-				public:
+				public: // Ctor / Dtor
 					OrthographicCameraController(float aspectRatio, bool rotationEnabled = false);
 
 				public:

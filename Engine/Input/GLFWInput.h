@@ -22,9 +22,6 @@ namespace QED
 				virtual std::pair<float, float> GetMousePositionImplementation() override;
 				virtual float GetMouseXImplementation() override;
 				virtual float GetMouseYImplementation() override;
-
-			private:
-
 			};
 		}
 	}

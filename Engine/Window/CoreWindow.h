@@ -36,7 +36,7 @@ namespace QED
 
 			class CoreWindow
 			{
-			public:
+			public: // Ctor / Dtor
 				CoreWindow(int width = 1280, int height = 720, bool isVsync = true, bool isFullscreen = false)
 				{
 					windowData.width = width;
@@ -47,10 +47,13 @@ namespace QED
 
 				virtual ~CoreWindow() {};
 
+			public: // Window events
 				virtual void OnUpdate() = 0;
 
+			public: // Callback setters
 				virtual void SetEventCallback(std::function<void(Event::Event&)> callback) = 0;
 
+			public: // Get
 				inline int GetWidth() const { return windowData.width; }
 				inline int GetHeight() const { return windowData.height; }
 

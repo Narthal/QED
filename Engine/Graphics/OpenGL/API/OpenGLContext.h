@@ -19,13 +19,11 @@ namespace QED
 				{
 					class OpenGLContext : public Interface::API::Context
 					{
-					public:
+					public: // Ctor
 						OpenGLContext(GLFWwindow* windowHandle);
 
 					public:
 						virtual void Init() override;
-
-					public:
 						virtual void SwapBuffers() override;
 
 					private:

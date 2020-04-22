@@ -13,18 +13,15 @@ namespace QED
 			{
 				class QED_ENGINE_API ModuleInterface
 				{
-					public:
+				public: // Init / Dtor
+					// Initialize
+					virtual void Initialize() = 0;
 					// Releases resources of a module
 					virtual ~ModuleInterface() = 0;
 
-					public:
+				public: // Utility
 					// Gets the name of the module
 					virtual const char* GetName() const = 0;
-
-					public:
-					// Initialize
-					virtual void Initialize() = 0;
-
 				};
 			}
 		}

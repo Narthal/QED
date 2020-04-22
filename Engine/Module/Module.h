@@ -17,24 +17,19 @@ namespace QED
 		{
 			class Module
 			{
-				public:
+			public: // Typedefs
 				// Handle by which DLLs are referenced
 				typedef HMODULE HandleType;
 				// Store handle for unload & function lookup
-				HandleType handle;
-
-				public:
-				std::string moduleName;
-
-				public:
 				// Signature for the modules's registration function
 				typedef void Register(Module&);
-
-				public:
+			public:
+				HandleType handle;
+				std::string moduleName;
 				// Collection of implemented interfaces in module
 				std::vector<Interfaces::ModuleInterface*> interfaces;
 
-				public:
+			public: // Ctor / Dtor
 				// Constructor with string path arg
 				Module(const std::string& path)
 				{
@@ -45,13 +40,11 @@ namespace QED
 					std::function func = GetFunctionPointer<Register>(handle, "Register");
 					func(*this);
 				}
-
-				public:
 				// Destructor for module
 				~Module();
 
 
-				private:
+			private: // Internal
 				// Loads the DLL from the specified path
 				HandleType Load(const std::string& path)
 				{
@@ -66,7 +59,7 @@ namespace QED
 					return moduleHandle;
 				}
 
-				public:
+			public: // Unload module
 				// Unloads the DLL with the specified handle
 				void Unload()
 				{
@@ -77,7 +70,7 @@ namespace QED
 					}
 				}
 
-				public:
+			public: // Get function
 				// Looks up a function exported by the DLL
 				template<typename TFunctionSigniture>
 				TFunctionSigniture* GetFunctionPointer (HandleType sharedLibraryHandle, const std::string& functionName)

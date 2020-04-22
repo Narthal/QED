@@ -17,8 +17,7 @@ namespace QED
 
 				EVENT_CLASS_CATEGORY(Keyboard)
 			protected:
-				KeyEvent(int keycode)
-					: keyCode(keycode) {}
+				KeyEvent(int keycode) : keyCode(keycode) {}
 
 				int keyCode;
 			};
@@ -26,8 +25,7 @@ namespace QED
 			class KeyPressedEvent : public KeyEvent
 			{
 			public:
-				KeyPressedEvent(int keycode, int repeatCount)
-					: KeyEvent(keycode), repeatCount(repeatCount) {}
+				KeyPressedEvent(int keycode, int repeatCount) : KeyEvent(keycode), repeatCount(repeatCount) {}
 
 				inline int GetRepeatCount() const { return repeatCount; }
 
@@ -46,10 +44,9 @@ namespace QED
 			class KeyReleasedEvent : public KeyEvent
 			{
 			public:
-				KeyReleasedEvent(int keycode)
-					: KeyEvent(keycode) {}
+				KeyReleasedEvent(int keycode) : KeyEvent(keycode) {}
 
-				std::string ToString() const override
+				inline std::string ToString() const override
 				{
 					std::stringstream ss;
 					ss << "KeyReleasedEvent: " << keyCode;
@@ -64,7 +61,7 @@ namespace QED
 			public:
 				KeyTypedEvent(int keycode) : KeyEvent(keycode) {}
 
-				std::string ToString() const override
+				inline std::string ToString() const override
 				{
 					std::stringstream ss;
 					ss << "KeyTypedEvent: " << keyCode;
@@ -72,7 +69,6 @@ namespace QED
 				}
 
 				EVENT_CLASS_TYPE(KeyTyped)
-			private:
 			};
 		}
 	}

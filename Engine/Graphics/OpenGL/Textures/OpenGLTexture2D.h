@@ -19,18 +19,18 @@ namespace QED
 				{
 					class OpenGLTexture2D : public Interface::Textures::Texture2D
 					{
-					public:
+					public: // Ctor / Dtor
 						OpenGLTexture2D(const std::string& path);
 						OpenGLTexture2D(uint32_t width, uint32_t height);
 						virtual ~OpenGLTexture2D();
 
-					public:
+					public: // Get / Set
 						inline virtual uint32_t GetWidth() const override { return width; }
 						inline virtual uint32_t GetHeight() const override { return height; }
 
 						virtual void SetData(void* data, uint32_t size) override;
 
-					public:
+					public: // Graphics
 						virtual void Bind(uint32_t slot = 0) const override;
 
 					public: // Operators

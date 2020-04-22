@@ -60,9 +60,6 @@ namespace QED
 				}
 
 				bool handled = false;
-
-			private:
-
 			};
 
 			class EventDispatcher

@@ -16,20 +16,22 @@ namespace QED
 		{
 			class QED_ENGINE_API ImGuiLayer : public Layer::Layer
 			{
-			public:
+			public: // Ctor / Dtor / Init
 				ImGuiLayer();
 				~ImGuiLayer();
+				inline void Initialize() override {};
 
+			public: // Layer events
 				virtual void OnAttach() override;
 				virtual void OnDetach() override;
 
+			public: // UI
 				void Begin();
 				void End();
 
+			public: // Utility
 				// Define name as imguiLayer is inheriting from module interface
 				const char* GetName() const override { return "ImGuiLayerInterface"; }
-
-				void Initialize() override {}
 
 			private:
 				float time = 0.0f;

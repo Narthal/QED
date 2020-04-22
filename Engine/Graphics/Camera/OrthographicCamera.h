@@ -44,10 +44,8 @@ namespace QED
 					inline const glm::mat4& GetViewProjectionMatrix() const { return viewProjectionMatrix; }
 				#pragma endregion
 
-				private:
+				private: // Internal
 					void RecalculateViewMatrix();
-
-
 
 				private:
 					// Projection / view matrices
