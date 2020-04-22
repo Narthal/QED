@@ -14,30 +14,37 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class RendererAPI
+			namespace Interface
 			{
-			public:
-				enum class API
+				namespace API
 				{
-					NONE = 0,
-					OpenGL = 1,
-				};
 
-			public:
-				virtual void Initialize() = 0;
+					class RendererAPI
+					{
+					public:
+						enum class API
+						{
+							NONE = 0,
+							OpenGL = 1,
+						};
 
-			public:
-				virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) = 0;
-				virtual void Clear() = 0;
-				virtual void SetClearColor(const glm::vec4 color) = 0;
-				virtual void Draw(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) = 0;
+					public:
+						virtual void Initialize() = 0;
 
-			public:
-				inline static API GetAPI() { return api; }
+					public:
+						virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) = 0;
+						virtual void Clear() = 0;
+						virtual void SetClearColor(const glm::vec4 color) = 0;
+						virtual void Draw(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) = 0;
 
-			private:
-				static API api;
-			};
+					public:
+						inline static API GetAPI() { return api; }
+
+					private:
+						static API api;
+					};
+				}
+			}
 		}
 	}
 }

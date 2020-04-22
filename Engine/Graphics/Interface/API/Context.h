@@ -8,15 +8,21 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class Context
+			namespace Interface
 			{
-			public:
-				// Initialize context
-				// NOTE: Owner should call this after constructor
-				virtual void Init() = 0;
+				namespace API
+				{
+					class Context
+					{
+					public:
+						// Initialize context
+						// NOTE: Owner should call this after constructor
+						virtual void Init() = 0;
 
-				virtual void SwapBuffers() = 0;
-			};
+						virtual void SwapBuffers() = 0;
+					};
+				}
+			}
 		}
 	}
 }

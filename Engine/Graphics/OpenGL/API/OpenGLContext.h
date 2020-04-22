@@ -15,7 +15,7 @@ namespace QED
 		{
 			namespace OpenGL
 			{
-				class OpenGLContext : public Context
+				class OpenGLContext : public Interface::API::Context
 				{
 					public:
 					OpenGLContext(GLFWwindow* windowHandle);

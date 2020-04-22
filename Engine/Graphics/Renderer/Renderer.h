@@ -30,7 +30,7 @@ namespace QED
 				static void Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
 
 			public:
-				inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
+				inline static Interface::API::RendererAPI::API GetAPI() { return Interface::API::RendererAPI::GetAPI(); }
 
 			private:
 				struct SceneData

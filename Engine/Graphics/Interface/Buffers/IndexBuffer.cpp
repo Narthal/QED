@@ -14,12 +14,12 @@ namespace QED
 			{
 				switch (Renderer::Renderer::GetAPI())
 				{
-					case RendererAPI::API::NONE:
+					case Interface::API::RendererAPI::API::NONE:
 					// TODO: crash here
 					return nullptr;
 					break;
 
-					case RendererAPI::API::OpenGL:
+					case Interface::API::RendererAPI::API::OpenGL:
 					return Core::Type::CreateRef<OpenGL::OpenGLIndexBuffer>(indices, count);
 					break;
 

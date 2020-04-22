@@ -27,7 +27,7 @@ namespace QED
 				inline static void Draw(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) { rendererAPI->Draw(vertexArray, indexCount); }
 
 			private:
-				static Ref<RendererAPI> rendererAPI;
+				static Ref<Interface::API::RendererAPI> rendererAPI;
 			};
 		}
 	}

@@ -13,7 +13,7 @@ namespace QED
 		{
 			namespace OpenGL
 			{
-				class OpenGLRendererAPI : public RendererAPI
+				class OpenGLRendererAPI : public Interface::API::RendererAPI
 				{
 				public:
 					virtual void Initialize() override;

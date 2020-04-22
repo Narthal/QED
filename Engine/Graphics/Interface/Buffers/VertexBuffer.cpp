@@ -18,12 +18,12 @@ namespace QED
 
 				switch (Renderer::GetAPI())
 				{
-					case RendererAPI::API::NONE:
+					case Interface::API::RendererAPI::API::NONE:
 					// TODO: crash here
 					return nullptr;
 					break;
 
-					case RendererAPI::API::OpenGL:
+					case Interface::API::RendererAPI::API::OpenGL:
 					return Core::Type::CreateRef<OpenGL::OpenGLVertexBuffer>(size);
 					break;
 
@@ -43,12 +43,12 @@ namespace QED
 
 				switch (Renderer::GetAPI())
 				{
-					case RendererAPI::API::NONE:
+					case Interface::API::RendererAPI::API::NONE:
 					// TODO: crash here
 					return nullptr;
 					break;
 					
-					case RendererAPI::API::OpenGL:
+					case Interface::API::RendererAPI::API::OpenGL:
 					return Core::Type::CreateRef<OpenGL::OpenGLVertexBuffer>(vertices, size);
 					break;
 					

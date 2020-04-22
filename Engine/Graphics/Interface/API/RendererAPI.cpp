@@ -7,7 +7,13 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			RendererAPI::API RendererAPI::api = RendererAPI::API::OpenGL;
+			namespace Interface
+			{
+				namespace API
+				{
+					RendererAPI::API RendererAPI::api = RendererAPI::API::OpenGL;
+				}
+			}
 		}
 	}
 }
