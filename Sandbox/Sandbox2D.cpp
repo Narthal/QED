@@ -50,7 +50,6 @@ namespace QED
 				Engine::Graphics::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, 0.0f, { 0.2f, 0.3f, 0.8f, 1.0f });
 				Engine::Graphics::Renderer2D::DrawQuad({ 0.2f, 0.5f, -0.1f }, { 0.5f, 0.5f }, counter, texture, { 1.0f, 0.0f, 0.0f, 1.0f }, 2.0f);
 
-
 				counter++;
 
 				Engine::Graphics::Renderer2D::EndScene();
