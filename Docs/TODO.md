@@ -1,7 +1,10 @@
 # TODO
 
+## TODO Today
+- [ ] ref & scope equals function that determines equality between object values
+- [ ] reorganize graphics files as base classes, renderers
+
 ## Priority list
-- [ ] finish batch renderer
 - [ ] create basic sqlite handlers 
 - [ ] load textures from sqlite
 - [ ] create conductor
@@ -23,7 +26,6 @@
     - Threading
   - Custom imgui allocator (give allocation functions to imgui (imgui has wrapper function))
   - Custom pybind11 allocation (overload new operator with a macro for pybind files)
-
 
 ## Projects
 - [x] [c++] Engine as exe & static lib
