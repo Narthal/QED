@@ -1,8 +1,8 @@
 # TODO
 
 ## TODO Today
-- [ ] ref & scope equals function that determines equality between object values
-- [ ] reorganize graphics files as base classes, renderers
+- [ ] remove visual studio region pch include
+- [ ] maintenance : unify accessors
 
 ## Priority list
 - [ ] create basic sqlite handlers 
@@ -39,8 +39,6 @@
 - [ ] [c#] ConfigTool as dll
 
 ## General
-- [ ] remove visual studio region pch include
-- [ ] maintenance : unify accessors
 - [ ] utility : abort function
 - [ ] utility : stack trace (through return macro)
 - [ ] rename : coreinput to input
