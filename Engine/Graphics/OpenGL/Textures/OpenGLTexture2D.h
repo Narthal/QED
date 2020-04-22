@@ -15,36 +15,39 @@ namespace QED
 		{
 			namespace OpenGL
 			{
-				class OpenGLTexture2D : public Texture2D
+				namespace Textures
 				{
-				public:
-					OpenGLTexture2D(const std::string& path);
-					OpenGLTexture2D(uint32_t width, uint32_t height);
-					virtual ~OpenGLTexture2D();
+					class OpenGLTexture2D : public Interface::Textures::Texture2D
+					{
+					public:
+						OpenGLTexture2D(const std::string& path);
+						OpenGLTexture2D(uint32_t width, uint32_t height);
+						virtual ~OpenGLTexture2D();
 
-				public:
-					inline virtual uint32_t GetWidth() const override { return width; }
-					inline virtual uint32_t GetHeight() const override { return height; }
+					public:
+						inline virtual uint32_t GetWidth() const override { return width; }
+						inline virtual uint32_t GetHeight() const override { return height; }
 
-					virtual void SetData(void* data, uint32_t size) override;
+						virtual void SetData(void* data, uint32_t size) override;
 
-				public:
-					virtual void Bind(uint32_t slot = 0) const override;
+					public:
+						virtual void Bind(uint32_t slot = 0) const override;
 
-				public: // Operators
-					inline virtual bool operator==(const Texture& other) const override { return RendererID == ((OpenGLTexture2D&)other).RendererID; };
+					public: // Operators
+						inline virtual bool operator==(const Texture& other) const override { return RendererID == ((OpenGLTexture2D&)other).RendererID; };
 
-				private:
-					// TODO: path should be stored in asset manager
-					std::string path;
-					
-					uint32_t width;
-					uint32_t height;
-					GLenum internalFormat = 0;
-					GLenum dataFormat = 0;
+					private:
+						// TODO: path should be stored in asset manager
+						std::string path;
 
-					uint32_t RendererID;
-				};
+						uint32_t width;
+						uint32_t height;
+						GLenum internalFormat = 0;
+						GLenum dataFormat = 0;
+
+						uint32_t RendererID;
+					};
+				}
 			}
 		}
 	}

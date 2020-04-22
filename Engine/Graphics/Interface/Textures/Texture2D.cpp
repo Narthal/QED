@@ -10,50 +10,56 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Ref<Texture2D> Texture2D::Create(const std::string& path)
+			namespace Interface
 			{
-				switch (Renderer::GetAPI())
+				namespace Textures
 				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
+					Ref<Texture2D> Texture2D::Create(const std::string& path)
+					{
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
 
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLTexture2D>(path);
-					break;
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Textures::OpenGLTexture2D>(path);
+							break;
 
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
+
+					Ref<Texture2D> Texture2D::Create(uint32_t width, uint32_t height)
+					{
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
+
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Textures::OpenGLTexture2D>(width, height);
+							break;
+
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
 				}
-
-				// TODO: crash here
-				return nullptr;
-			}
-
-			Ref<Texture2D> Texture2D::Create(uint32_t width, uint32_t height)
-			{
-				switch (Renderer::GetAPI())
-				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
-
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLTexture2D>(width, height);
-					break;
-
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
-				}
-
-				// TODO: crash here
-				return nullptr;
 			}
 		}
 	}

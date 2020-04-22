@@ -12,12 +12,18 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class QED_ENGINE_API Texture2D : public Texture
+			namespace Interface
 			{
-			public:
-				static Ref<Texture2D> Create(const std::string& path);
-				static Ref<Texture2D> Create(uint32_t width, uint32_t height);
-			};
+				namespace Textures
+				{
+					class QED_ENGINE_API Texture2D : public Texture
+					{
+					public:
+						static Ref<Texture2D> Create(const std::string& path);
+						static Ref<Texture2D> Create(uint32_t width, uint32_t height);
+					};
+				}
+			}
 		}
 	}
 }
