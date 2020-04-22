@@ -1,7 +1,6 @@
 #ifndef RENDER_COMMAND_H
 #define RENDER_COMMAND_H
 
-#include "Module/QEDApi.h"
 #include "Core/Type/Type.h"
 
 #include "Graphics/Renderer/Renderer.h"
@@ -17,7 +16,7 @@ namespace QED
 		{
 			namespace Renderer
 			{
-				class QED_ENGINE_API RenderCommand
+				class RenderCommand
 				{
 				public:
 					inline static void Initialize() { QED_PROFILE_FUNCTION(); rendererAPI->Initialize(); }

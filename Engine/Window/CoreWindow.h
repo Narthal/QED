@@ -1,13 +1,11 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
-#include "Module/QEDApi.h"
+#include "Core/Type/Type.h"
 #include "Event/Event.h"
-
-// Renderer
 #include "Graphics/Interface/API/Context.h"
 
-#include "Core/Type/Type.h"
+
 
 namespace QED
 {
@@ -34,7 +32,7 @@ namespace QED
 				std::function<void(Event::Event&)> callback = nullptr;
 			};
 
-			class QED_ENGINE_API CoreWindow
+			class CoreWindow
 			{
 			public: // Ctor / Dtor
 				CoreWindow(int width = 1280, int height = 720, bool isVsync = true, bool isFullscreen = false)

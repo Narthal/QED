@@ -18,7 +18,7 @@ namespace QED
 		{
 			namespace Renderer
 			{
-				class QED_ENGINE_API Renderer
+				class Renderer
 				{
 				public:
 					static void Initialize();

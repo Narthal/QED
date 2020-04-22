@@ -97,7 +97,7 @@ namespace QED
 							{
 								case QED::Engine::Graphics::Interface::Buffers::ShaderDataType::NONE:
 								// TODO: crash here
-								break;
+								return 0;
 
 								// Floats												n
 								case QED::Engine::Graphics::Interface::Buffers::ShaderDataType::Float:		return 1;
@@ -117,13 +117,11 @@ namespace QED
 
 								// Boolean												n
 								case QED::Engine::Graphics::Interface::Buffers::ShaderDataType::Bool:		return 1;
-									break;
 
 								// Default
 								default:
 								// TODO: abort here
 								return 0;
-								break;
 							}
 						}
 					};

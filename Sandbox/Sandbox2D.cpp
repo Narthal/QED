@@ -39,8 +39,8 @@ namespace QED
 			Engine::Graphics::Renderer::Renderer2D::ResetStatistics();
 
 			// Clear
-			Engine::Graphics::Renderer::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
-			Engine::Graphics::Renderer::RenderCommand::Clear();
+			Interface::Graphics::Renderer::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1.0f });
+			Interface::Graphics::Renderer::RenderCommand::Clear();
 
 			// Scene
 			{
@@ -48,7 +48,7 @@ namespace QED
 				Engine::Graphics::Renderer::Renderer2D::BeginScene(cameraController.GetCamera());
 
 				Engine::Graphics::Renderer::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, 0.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-				Engine::Graphics::Renderer::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, 0.0f, { 0.2f, 0.3f, 0.8f, 1.0f });
+				Engine::Graphics::Renderer::Renderer2D::DrawQuad({ 0.0f, -0.5f }, { 0.5f, 0.75f }, 0.0f, squareColor);
 				Engine::Graphics::Renderer::Renderer2D::DrawQuad({ 0.2f, 0.5f, -0.1f }, { 0.5f, 0.5f }, counter, texture1, { 1.0f, 0.0f, 0.0f, 1.0f }, 2.0f);
 
 				counter++;

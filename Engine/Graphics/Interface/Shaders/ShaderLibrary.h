@@ -1,7 +1,6 @@
 #ifndef SHADER_LIBRARY_H
 #define SHADER_LIBRARY_H
 
-#include "Module/QEDApi.h"
 #include "Core/Type/Type.h"
 
 #include "Shader.h"
@@ -16,7 +15,7 @@ namespace QED
 			{
 				namespace Shaders
 				{
-					class QED_ENGINE_API ShaderLibrary
+					class ShaderLibrary
 					{
 					public: // Load
 						Ref<Shader> Load(const std::string& path);

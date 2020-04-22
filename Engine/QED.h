@@ -2,17 +2,15 @@
 #define QED_H
 
 
-// Application
+// Core
 #include "Core/Application/ApplicationInterface.h"
-
-// Log
 #include "Core/Log/Log.h"
-
-// Type
 #include "Core/Type/Type.h"
-
-// Time
 #include "Core/Time/TimeStep.h"
+
+// Module interfaces
+#include "Module/Interfaces/ModuleInterface.h"
+#include "Module/Module.h"
 
 // TODO: find out why cant include these
 // Globals
@@ -29,21 +27,14 @@
 #include <imgui.h>
 #include "UI/ImGuiLayer.h"
 
-// Module interfaces
-#include "Module/Interfaces/ModuleInterface.h"
-#include "Module/Module.h"
+
 
 
 // Graphics
-#include "Graphics/Renderer/Renderer.h"
-#include "Graphics/Renderer/RenderCommand.h"
+//#include "Graphics/Renderer/Renderer.h"
+#include "Graphics/Renderer/RenderCommandInterface.h"
 #include "Graphics/Renderer/Renderer2D.h"
 
-#include "Graphics/Interface/Buffers/VertexBuffer.h"
-#include "Graphics/Interface/Buffers/IndexBuffer.h"
-#include "Graphics/Interface/Buffers/VertexArray.h"
-#include "Graphics/Interface/Shaders/Shader.h"
-#include "Graphics/Interface/Shaders/ShaderLibrary.h"
 #include "Graphics/Interface/Textures/Texture2D.h"
 
 #include "Graphics/Camera/OrthographicCameraControllerInterface.h"

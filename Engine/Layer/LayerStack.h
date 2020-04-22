@@ -1,8 +1,6 @@
 #ifndef LAYER_STACK_H
 #define LAYER_STACK_H
 
-#include "Module/QEDApi.h"
-
 #include "Layer.h"
 
 
@@ -12,7 +10,7 @@ namespace QED
 	{
 		namespace Layer
 		{
-			class QED_ENGINE_API LayerStack
+			class LayerStack
 			{
 			public: // Ctor / Dtor
 				LayerStack() = default;
