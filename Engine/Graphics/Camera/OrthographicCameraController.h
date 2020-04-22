@@ -30,7 +30,7 @@ namespace QED
 
 				public:
 					inline OrthographicCamera& GetCamera() { return camera; }
-					inline const OrthographicCamera& GetCamera() const { return camera; }
+					inline const OrthographicCamera& GetCameraConst() const { return camera; }
 
 					inline float GetZoomLevel() { return zoomLevel; }
 					inline void SetZoomLevel(float zoomLevel) { this->zoomLevel = zoomLevel; }

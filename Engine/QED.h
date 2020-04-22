@@ -45,8 +45,6 @@
 #include "Graphics/Interface/Shaders/ShaderLibrary.h"
 #include "Graphics/Interface/Textures/Texture2D.h"
 
-#include "Graphics/Camera/OrthographicCamera.h"
-#include "Graphics/Camera/OrthographicCameraController.h"
 #include "Graphics/Camera/OrthographicCameraControllerInterface.h"
 
 // Profiler

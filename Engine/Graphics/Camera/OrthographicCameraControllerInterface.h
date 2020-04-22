@@ -3,17 +3,20 @@
 
 #include "Module/QEDApi.h"
 
-
-#include "Module/QEDApi.h"
-#include "Core/Time/TimeStep.h"
-#include "Event/MouseEvent.h"
-#include "Event/WindowEvent.h"
-
-#include "OrthographicCamera.h"
-
 namespace QED::Engine::Graphics::Camera
 {
 	class OrthographicCameraController;
+	class OrthographicCamera;
+}
+
+namespace QED::Engine::Core::Time
+{
+	class TimeStep;
+}
+
+namespace QED::Engine::Event
+{
+	class Event;
 }
 
 namespace QED
@@ -41,13 +44,6 @@ namespace QED
 				private:
 					Engine::Graphics::Camera::OrthographicCameraController* orthographicCameraController;
 				};
-
-				extern "C"
-				{
-					QED_ENGINE_API OrthographicCameraController* CreateOrthographicCameraController(float aspectRatio, bool rotationEnabled = false);
-
-					QED_ENGINE_API void DeleteOrthographicCameraController(OrthographicCameraController* orthographicCameraController);
-				}
 			}
 		}
 	}

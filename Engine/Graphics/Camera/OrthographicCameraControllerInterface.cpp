@@ -3,6 +3,11 @@
 
 #include "OrthographicCameraController.h"
 
+#include "OrthographicCamera.h"
+
+#include "Core/Time/TimeStep.h"
+#include "Event/Event.h"
+
 namespace QED
 {
 	namespace Interface
@@ -38,7 +43,7 @@ namespace QED
 
 				const Engine::Graphics::Camera::OrthographicCamera& OrthographicCameraController::GetCamera() const
 				{
-					return orthographicCameraController->GetCamera();
+					return orthographicCameraController->GetCameraConst();
 				}
 
 				QED_ENGINE_API OrthographicCameraController* CreateOrthographicCameraController(float aspectRatio, bool rotationEnabled)
