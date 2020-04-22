@@ -3,7 +3,7 @@
 
 
 // Application
-#include "Core/Application/Application.h"
+#include "Core/Application/ApplicationInterface.h"
 
 // Log
 #include "Core/Log/Log.h"
@@ -31,6 +31,7 @@
 
 // Module interfaces
 #include "Module/Interfaces/ModuleInterface.h"
+#include "Module/Module.h"
 
 
 // Graphics

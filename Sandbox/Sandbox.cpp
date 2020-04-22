@@ -30,7 +30,7 @@ namespace QED
 			// Module initialziation
 			QED_MODULE_API virtual void Initialize() override
 			{
-				auto& instance = QED::Engine::Core::Application::Application::GetInstance();
+				auto& instance = Interface::Core::Application::Application();
 
 				instance.PushLayer(new Sandbox2D());
 			}
