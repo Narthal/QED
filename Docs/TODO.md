@@ -8,10 +8,21 @@
 - [ ] load textures from sqlite
 - [ ] create conductor
 - [ ] change buildtool to a dll and connect it with conductor
+- [ ] replace directory specifier .cs files with .csx scripts, implement script runner
+- [ ] create .filters generator
+- [ ] write virtual directory support for solutions
 - [ ] create simple assetPipelineTool
+- [ ] rewrite logger, remove spdlog as dependancy
+- [ ] rewrite profiler
+- [ ] connect logger & profiler to sqlite
 - [ ] custom allocator
 
 ## Goal dependancies
+- create conductor
+  - change buildtool to a dll and connect it with conductor
+  -  replace directory specifier .cs files with .csx scripts, implement script runner
+    - create .filters generator
+    - write virtual directory support for solutions
 - render to frame buffer object (FBO)
   - Render FBO in imgui viewport
     - Set up imgui dockspace
