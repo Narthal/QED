@@ -16,7 +16,7 @@ namespace QED
 				{
 					Ref<Texture2D> Texture2D::Create(const std::string& path)
 					{
-						switch (Renderer::GetAPI())
+						switch (Renderer::Renderer::GetAPI())
 						{
 							case Interface::API::RendererAPI::API::NONE:
 							// TODO: crash here
@@ -39,7 +39,7 @@ namespace QED
 
 					Ref<Texture2D> Texture2D::Create(uint32_t width, uint32_t height)
 					{
-						switch (Renderer::GetAPI())
+						switch (Renderer::Renderer::GetAPI())
 						{
 							case Interface::API::RendererAPI::API::NONE:
 							// TODO: crash here

@@ -12,43 +12,46 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Scope<Renderer::SceneData> Renderer::sceneData = Core::Type::CreateScope<Renderer::SceneData>();
-
-			void Renderer::Initialize()
+			namespace Renderer
 			{
-				QED_PROFILE_FUNCTION();
+				Scope<Renderer::SceneData> Renderer::sceneData = Core::Type::CreateScope<Renderer::SceneData>();
 
-				RenderCommand::Initialize();
-				Renderer2D::Initialize();
-			}
+				void Renderer::Initialize()
+				{
+					QED_PROFILE_FUNCTION();
 
-			void Renderer::OnWindowResize(uint32_t width, uint32_t height)
-			{
-				RenderCommand::SetViewport(0, 0, width, height);
-			}
+					RenderCommand::Initialize();
+					Renderer2D::Initialize();
+				}
 
-			void Renderer::BeginScene(Camera::OrthographicCamera& camera)
-			{
-				sceneData->viewProjectionMatrix = camera.GetViewProjectionMatrix();
-			}
+				void Renderer::OnWindowResize(uint32_t width, uint32_t height)
+				{
+					RenderCommand::SetViewport(0, 0, width, height);
+				}
 
-			void Renderer::EndScene()
-			{
-			}
+				void Renderer::BeginScene(Camera::OrthographicCamera& camera)
+				{
+					sceneData->viewProjectionMatrix = camera.GetViewProjectionMatrix();
+				}
 
-			void Renderer::Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform)
-			{
-				// Shader
-				shader->Bind();
-				shader->SetMat4("uViewProjection", sceneData->viewProjectionMatrix);
+				void Renderer::EndScene()
+				{
+				}
 
-				shader->SetMat4("uTransform", transform);
+				void Renderer::Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform)
+				{
+					// Shader
+					shader->Bind();
+					shader->SetMat4("uViewProjection", sceneData->viewProjectionMatrix);
 
-				// VAO
-				vertexArray->Bind();
+					shader->SetMat4("uTransform", transform);
 
-				// Draw
-				RenderCommand::Draw(vertexArray);
+					// VAO
+					vertexArray->Bind();
+
+					// Draw
+					RenderCommand::Draw(vertexArray);
+				}
 			}
 		}
 	}

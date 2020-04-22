@@ -19,7 +19,7 @@ namespace QED
 					Ref<VertexArray> VertexArray::Create()
 					{
 						QED_PROFILE_FUNCTION();
-						switch (Renderer::GetAPI())
+						switch (Renderer::Renderer::GetAPI())
 						{
 							case Interface::API::RendererAPI::API::NONE:
 							// TODO: crash here

@@ -50,10 +50,10 @@ namespace QED
 				window = Type::CreateScope<Window::GLFWWindow>();
 				window->SetEventCallback(BIND_EVENT_FUCTION(Application::OnEvent));
 
-				Graphics::RenderCommand::SetViewport(0, 0, window->GetWidth(), window->GetHeight());
+				Graphics::Renderer::RenderCommand::SetViewport(0, 0, window->GetWidth(), window->GetHeight());
 
 				// Initialize renderer
-				Graphics::Renderer::Initialize();
+				Graphics::Renderer::Renderer::Initialize();
 
 				// Add ImGui layer to layer stack
 				UILayer = new UI::ImGuiLayer();
@@ -167,7 +167,7 @@ namespace QED
 					return false;
 				}
 
-				Graphics::Renderer::OnWindowResize(event.GetWidth(), event.GetHeight());
+				Graphics::Renderer::Renderer::OnWindowResize(event.GetWidth(), event.GetHeight());
 
 				minimized = false;
 				return false;

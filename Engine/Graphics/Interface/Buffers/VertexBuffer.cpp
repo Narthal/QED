@@ -20,7 +20,7 @@ namespace QED
 					{
 						QED_PROFILE_FUNCTION();
 
-						switch (Renderer::GetAPI())
+						switch (Renderer::Renderer::GetAPI())
 						{
 							case Interface::API::RendererAPI::API::NONE:
 							// TODO: crash here
@@ -45,7 +45,7 @@ namespace QED
 					{
 						QED_PROFILE_FUNCTION();
 
-						switch (Renderer::GetAPI())
+						switch (Renderer::Renderer::GetAPI())
 						{
 							case Interface::API::RendererAPI::API::NONE:
 							// TODO: crash here
