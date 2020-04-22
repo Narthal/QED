@@ -27,7 +27,7 @@ namespace QED
 				RenderCommand::SetViewport(0, 0, width, height);
 			}
 
-			void Renderer::BeginScene(OrthographicCamera& camera)
+			void Renderer::BeginScene(Camera::OrthographicCamera& camera)
 			{
 				sceneData->viewProjectionMatrix = camera.GetViewProjectionMatrix();
 			}

@@ -117,7 +117,7 @@ namespace QED
 				QED_PROFILE_FUNCTION();
 			}
 
-			void Renderer2D::BeginScene(const OrthographicCamera& camera)
+			void Renderer2D::BeginScene(const Camera::OrthographicCamera& camera)
 			{
 				QED_PROFILE_FUNCTION();
 

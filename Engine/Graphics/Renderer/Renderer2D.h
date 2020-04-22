@@ -19,7 +19,7 @@ namespace QED
 				static void ShutDown();
 
 			public: // Scene commands
-				static void BeginScene(const OrthographicCamera& camera);
+				static void BeginScene(const Camera::OrthographicCamera& camera);
 				static void EndScene();
 				static void Flush();
 
