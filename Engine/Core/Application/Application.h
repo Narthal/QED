@@ -86,4 +86,7 @@ namespace QED
 	}
 }
 
+
+
+
 #endif // !APPLICATION_H

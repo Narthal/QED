@@ -83,9 +83,8 @@ namespace QED
 						uint32_t offset;
 						bool normalized;
 
-					private:
-						// TODO: delete this ?
-						BufferElement() {}
+					public:
+						BufferElement() = delete;
 
 					public:
 						BufferElement(ShaderDataType shaderDataType, const std::string name, bool normalized = false)
@@ -122,6 +121,8 @@ namespace QED
 
 								// Default
 								default:
+								// TODO: abort here
+								return 0;
 								break;
 							}
 						}

@@ -1,6 +1,7 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
+#include "Module/QEDApi.h"
 
 namespace QED
 {
@@ -12,7 +13,7 @@ namespace QED
 			{
 				namespace API
 				{
-					class Context
+					class QED_ENGINE_API Context
 					{
 					public:
 						// Initialize context
