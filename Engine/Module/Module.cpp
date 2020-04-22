@@ -12,7 +12,7 @@ namespace QED
 	{
 		namespace Module
 		{
-			Module::~Module() {}
+			Module::~Module() { QED_PROFILE_FUNCTION(); }
 		}
 	}
 }

@@ -9,6 +9,8 @@
 
 #include "Interfaces/ModuleInterface.h"
 
+#include "Profiler/Instrumentor.h"
+
 namespace QED
 {
 	namespace Engine
@@ -33,9 +35,10 @@ namespace QED
 				// Constructor with string path arg
 				Module(const std::string& path)
 				{
+					QED_PROFILE_FUNCTION();
+
 					// Load module
 					handle = Load(path);
-
 					// Register module
 					std::function func = GetFunctionPointer<Register>(handle, "Register");
 					func(*this);
@@ -48,9 +51,15 @@ namespace QED
 				// Loads the DLL from the specified path
 				HandleType Load(const std::string& path)
 				{
+					QED_PROFILE_FUNCTION();
+
 					std::string pathWithExtension = path + ".dll";
 
-					HMODULE moduleHandle = LoadLibraryA(pathWithExtension.c_str());
+					HMODULE moduleHandle;
+					{
+						QED_PROFILE_SCOPE("Module::Load LoadLibraryA")
+						moduleHandle = LoadLibraryA(pathWithExtension.c_str());
+					}
 					if (moduleHandle == NULL)
 					{
 						throw std::runtime_error("Could not load DLL");
@@ -63,6 +72,8 @@ namespace QED
 				// Unloads the DLL with the specified handle
 				void Unload()
 				{
+					QED_PROFILE_FUNCTION();
+
 					BOOL result = FreeLibrary(handle);
 					if (result == FALSE)
 					{
@@ -75,6 +86,8 @@ namespace QED
 				template<typename TFunctionSigniture>
 				TFunctionSigniture* GetFunctionPointer (HandleType sharedLibraryHandle, const std::string& functionName)
 				{
+					QED_PROFILE_FUNCTION();
+
 					FARPROC functionAddress = GetProcAddress(sharedLibraryHandle, functionName.c_str());
 
 					if (functionAddress == NULL)
