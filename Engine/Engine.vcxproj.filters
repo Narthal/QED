@@ -154,9 +154,6 @@
     <ClInclude Include="Graphics\Interface\API\Context.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Interface\API\RenderCommand.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Interface\API\RendererAPI.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -189,6 +186,9 @@
     </ClInclude>
     <ClInclude Include="Graphics\OpenGL\Shaders\OpenGLShader.h">
       <Filter>Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Renderer\RenderCommand.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -284,9 +284,6 @@
     <ClCompile Include="Graphics\OpenGL\Textures\OpenGLTexture2D.cpp">
       <Filter>Graphics\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Interface\API\RenderCommand.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Interface\API\RendererAPI.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
@@ -312,6 +309,9 @@
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Interface\Textures\Texture2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Renderer\RenderCommand.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>

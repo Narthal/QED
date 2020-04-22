@@ -2,8 +2,7 @@
 #include "Renderer.h"
 
 #include "Renderer2D.h"
-
-#include "Graphics/Interface/API/RenderCommand.h"
+#include "RenderCommand.h"
 
 #include "Profiler/Instrumentor.h"
 

@@ -35,7 +35,7 @@
 
 // Graphics
 #include "Graphics/Renderer/Renderer.h"
-#include "Graphics/Interface/API/RenderCommand.h"
+#include "Graphics/Renderer/RenderCommand.h"
 #include "Graphics/Renderer/Renderer2D.h"
 
 #include "Graphics/Interface/Buffers/VertexBuffer.h"

@@ -22,7 +22,7 @@
 // Graphics
 #include "Graphics/Interface/Buffers/BufferLayout.h"
 #include "Graphics/Renderer/Renderer.h"
-#include "Graphics/Interface/API/RenderCommand.h"
+#include "Graphics/Renderer/RenderCommand.h"
 
 #include "Profiler/Instrumentor.h"
 

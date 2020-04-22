@@ -3,9 +3,10 @@
 
 #include "Core/Type/Type.h"
 
+#include "RenderCommand.h"
+
 #include "Graphics/Interface/Buffers/VertexArray.h"
 #include "Graphics/Interface/Shaders/Shader.h"
-#include "Graphics/Interface/API/RenderCommand.h"
 
 #include "Profiler/Instrumentor.h"
 
