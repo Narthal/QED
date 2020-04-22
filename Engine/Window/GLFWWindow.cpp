@@ -65,7 +65,7 @@ namespace QED
 			
 
 				// Create context
-				context = Core::Type::CreateScope<Graphics::OpenGL::OpenGLContext>((GLFWwindow*)windowHandle);
+				context = Core::Type::CreateScope<Graphics::OpenGL::API::OpenGLContext>((GLFWwindow*)windowHandle);
 				context->Init();
 
 

@@ -15,20 +15,23 @@ namespace QED
 		{
 			namespace OpenGL
 			{
-				class OpenGLContext : public Interface::API::Context
+				namespace API
 				{
+					class OpenGLContext : public Interface::API::Context
+					{
 					public:
-					OpenGLContext(GLFWwindow* windowHandle);
+						OpenGLContext(GLFWwindow* windowHandle);
 
 					public:
-					virtual void Init() override;
+						virtual void Init() override;
 
 					public:
-					virtual void SwapBuffers() override;
+						virtual void SwapBuffers() override;
 
 					private:
-					GLFWwindow* windowHandle;
-				};
+						GLFWwindow* windowHandle;
+					};
+				}
 			}
 		}
 	}
