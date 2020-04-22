@@ -1,8 +1,7 @@
 # TODO
 
 ## TODO Today
-- [ ] remove visual studio region pch include
-- [ ] maintenance : unify accessors
+
 
 ## Priority list
 - [ ] create basic sqlite handlers 
@@ -67,5 +66,6 @@
 ## Build Tool
 - [ ] Generate .filters file for visual studio solution
 - [ ] Allow virtual folders in solutions
+- [ ] Interface code generator
 
 
