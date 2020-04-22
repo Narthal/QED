@@ -207,7 +207,7 @@ namespace QED
 					// See if texture slots contain texture, and if so, set texture index to it
 					for (uint32_t i = 1; i < renderer2DData.textureSlotIndex; i++)
 					{
-						if (*renderer2DData.textureSlots[i].get() == *texture.get())
+						if (ObjectEquals(renderer2DData.textureSlots[i], texture))
 						{
 							textureIndex = (float)i;
 							break;

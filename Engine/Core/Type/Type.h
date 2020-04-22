@@ -20,6 +20,12 @@ namespace QED
 					return std::make_unique<T>(std::forward<Args>(args)...);
 				}
 
+				template<typename T>
+				constexpr bool ObjectEquals(Scope<T> a, Scope<T> b)
+				{
+					return *a.get() == *b.get();
+				}
+
 				// Reference
 				template<typename T>
 				using Ref = std::shared_ptr<T>;
@@ -29,26 +35,17 @@ namespace QED
 				{
 					return std::make_shared<T>(std::forward<Args>(args)...);
 				}
+
+				template<typename T>
+				constexpr bool ObjectEquals(Ref<T> a, Ref<T> b)
+				{
+					return *a.get() == *b.get();
+				}
 			}
 		}
 	}
 
-#pragma region NamespaceShortened
-	// Shorthand scope
-	template<typename T>
-	using Scope = Engine::Core::Type::Scope<T>;
-
-	template<typename T, typename ... Args>
-	constexpr auto CreateRef = Engine::Core::Type::CreateRef<T>(Args && ... args);
-
-	// Shorthand reference
-	template<typename T>
-	using Ref = Engine::Core::Type::Ref<T>;
-
-	template<typename T, typename ... Args>
-	constexpr auto CreateScope = Engine::Core::Type::CreateScope<T>(Args && ... args);
-#pragma endregion
-
+	using namespace QED::Engine::Core::Type;
 }
 
 
