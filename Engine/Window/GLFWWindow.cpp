@@ -8,19 +8,19 @@
 
 
 // Renderer
-#include "../Graphics/OpenGL/OpenGLContext.h"
+#include "Graphics/OpenGL/API/OpenGLContext.h"
 
 // Engine utils
-#include "../Core/Log/Log.h"
+#include "Core/Log/Log.h"
 
 // Events
-#include "../Event/Event.h"
-#include "../Event/WindowEvent.h"
-#include "../Event/KeyEvent.h"
-#include "../Event/MouseEvent.h"
+#include "Event/Event.h"
+#include "Event/WindowEvent.h"
+#include "Event/KeyEvent.h"
+#include "Event/MouseEvent.h"
 
 // Profiler
-#include <Profiler/Instrumentor.h>
+#include "Profiler/Instrumentor.h"
 
 
 

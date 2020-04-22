@@ -12,11 +12,11 @@
 #include "UI/ImGuiLayer.h"
 
 // Renderer
-#include "Graphics/VertexArray.h"
-#include "Graphics/VertexBuffer.h"
-#include "Graphics/IndexBuffer.h"
-#include "Graphics/Shader.h"
-#include "Graphics/OrthographicCamera.h"
+#include "Graphics/Interface/Buffers/VertexArray.h"
+#include "Graphics/Interface/Buffers/VertexBuffer.h"
+#include "Graphics/Interface/Buffers/IndexBuffer.h"
+#include "Graphics/Interface/Shaders/Shader.h"
+#include "Graphics/Camera/OrthographicCamera.h"
 
 namespace QED
 {

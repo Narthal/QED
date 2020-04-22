@@ -34,19 +34,19 @@
 
 
 // Graphics
-#include "Graphics/Renderer.h"
-#include "Graphics/RenderCommand.h"
-#include "Graphics/Renderer2D.h"
+#include "Graphics/Renderer/Renderer.h"
+#include "Graphics/Interface/API/RenderCommand.h"
+#include "Graphics/Renderer/Renderer2D.h"
 
-#include "Graphics/VertexBuffer.h"
-#include "Graphics/IndexBuffer.h"
-#include "Graphics/Shader.h"
-#include "Graphics/ShaderLibrary.h"
-#include "Graphics/Texture2D.h"
-#include "Graphics/VertexArray.h"
+#include "Graphics/Interface/Buffers/VertexBuffer.h"
+#include "Graphics/Interface/Buffers/IndexBuffer.h"
+#include "Graphics/Interface/Buffers/VertexArray.h"
+#include "Graphics/Interface/Shaders/Shader.h"
+#include "Graphics/Interface/Shaders/ShaderLibrary.h"
+#include "Graphics/Interface/Textures/Texture2D.h"
 
-#include "Graphics/OrthographicCamera.h"
-#include "Graphics/OrthographicCameraController.h"
+#include "Graphics/Camera/OrthographicCamera.h"
+#include "Graphics/Camera/OrthographicCameraController.h"
 
 // Profiler
 #include "Profiler/Instrumentor.h"

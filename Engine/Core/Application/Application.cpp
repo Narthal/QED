@@ -5,26 +5,26 @@
 #include <GLFW\glfw3.h>
 
 // Log
-#include "../Log/Log.h"
+#include "Core/Log/Log.h"
 
 // Window
-#include "../Window/GLFWWindow.h"
+#include "Window/GLFWWindow.h"
 
 // Time
-#include "../Time/TimeStep.h"
+#include "Core/Time/TimeStep.h"
 
 // Events
-#include "../Input/CoreInput.h"
+#include "Input/CoreInput.h"
 
 // UI
-#include "../../UI/ImGuiLayer.h"
+#include "UI/ImGuiLayer.h"
 
 // Graphics
-#include "../Graphics/BufferLayout.h"
-#include "../Graphics/Renderer.h"
-#include "../Graphics/RenderCommand.h"
+#include "Graphics/Interface/Buffers/BufferLayout.h"
+#include "Graphics/Renderer/Renderer.h"
+#include "Graphics/Interface/API/RenderCommand.h"
 
-#include <Profiler/Instrumentor.h>
+#include "Profiler/Instrumentor.h"
 
 
 
