@@ -36,7 +36,7 @@ namespace QED
 			{
 			}
 
-			void Renderer::Submit(const Ref<Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform)
+			void Renderer::Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform)
 			{
 				// Shader
 				shader->Bind();

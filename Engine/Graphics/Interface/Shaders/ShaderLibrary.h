@@ -12,20 +12,26 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			class QED_ENGINE_API ShaderLibrary
+			namespace Interface
 			{
-			public:
-				void Add(const std::string& name, const Ref<Shader>& shader);
-				void Add(const Ref<Shader>& shader);
-				Ref<Shader> Load(const std::string& path);
-				Ref<Shader> Load(const std::string& name, const std::string& path);
+				namespace Shaders
+				{
+					class QED_ENGINE_API ShaderLibrary
+					{
+					public:
+						void Add(const std::string& name, const Ref<Shader>& shader);
+						void Add(const Ref<Shader>& shader);
+						Ref<Shader> Load(const std::string& path);
+						Ref<Shader> Load(const std::string& name, const std::string& path);
 
-				Ref<Shader> Get(const std::string& name);
+						Ref<Shader> Get(const std::string& name);
 
-				bool Exists(const std::string& name);
-			private:
-				std::unordered_map<std::string, Ref<Shader>> shaders;
-			};
+						bool Exists(const std::string& name);
+					private:
+						std::unordered_map<std::string, Ref<Shader>> shaders;
+					};
+				}
+			}
 		}
 	}
 }

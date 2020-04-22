@@ -12,54 +12,60 @@ namespace QED
 	{
 		namespace Graphics
 		{
-			Ref<Shader> Shader::Create(const std::string& path)
+			namespace Interface
 			{
-				QED_PROFILE_FUNCTION();
-
-				switch (Renderer::GetAPI())
+				namespace Shaders
 				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
+					Ref<Shader> Shader::Create(const std::string& path)
+					{
+						QED_PROFILE_FUNCTION();
 
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLShader>(path);
-					break;
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
 
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Shaders::OpenGLShader>(path);
+							break;
+
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
+
+					Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
+					{
+						QED_PROFILE_FUNCTION();
+
+						switch (Renderer::GetAPI())
+						{
+							case Interface::API::RendererAPI::API::NONE:
+							// TODO: crash here
+							return nullptr;
+							break;
+
+							case Interface::API::RendererAPI::API::OpenGL:
+							return Core::Type::CreateRef<OpenGL::Shaders::OpenGLShader>(name, vertexSource, fragmentSource);
+							break;
+
+							default:
+							// TODO: crash here
+							return nullptr;
+							break;
+						}
+
+						// TODO: crash here
+						return nullptr;
+					}
 				}
-
-				// TODO: crash here
-				return nullptr;
-			}
-
-			Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
-			{
-				QED_PROFILE_FUNCTION();
-
-				switch (Renderer::GetAPI())
-				{
-					case Interface::API::RendererAPI::API::NONE:
-					// TODO: crash here
-					return nullptr;
-					break;
-
-					case Interface::API::RendererAPI::API::OpenGL:
-					return Core::Type::CreateRef<OpenGL::OpenGLShader>(name, vertexSource, fragmentSource);
-					break;
-
-					default:
-					// TODO: crash here
-					return nullptr;
-					break;
-				}
-
-				// TODO: crash here
-				return nullptr;
 			}
 		}
 	}

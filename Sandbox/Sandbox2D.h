@@ -40,7 +40,7 @@ namespace QED
 
 			// TODO: Temporary
 			Ref<Engine::Graphics::Interface::Buffers::VertexArray> vertexArray;
-			Ref<Engine::Graphics::Shader> shader;
+			Ref<Engine::Graphics::Interface::Shaders::Shader> shader;
 			glm::vec4 squareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 			Ref<Engine::Graphics::Texture2D> texture1;
 			Ref<Engine::Graphics::Texture2D> texture2;

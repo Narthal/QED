@@ -27,7 +27,7 @@ namespace QED
 			public:
 				static void BeginScene(Camera::OrthographicCamera& camera);
 				static void EndScene();
-				static void Submit(const Ref<Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
+				static void Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
 
 			public:
 				inline static Interface::API::RendererAPI::API GetAPI() { return Interface::API::RendererAPI::GetAPI(); }

@@ -35,7 +35,7 @@ namespace QED
 				Ref<Interface::Buffers::VertexArray> quadVertexArray;
 				Ref<Interface::Buffers::VertexBuffer> quadVertexBuffer;
 
-				Ref<Shader> shader;
+				Ref<Interface::Shaders::Shader> shader;
 				Ref<Texture2D> whiteTexture;
 
 				uint32_t quadIndexCount = 0;
@@ -99,7 +99,7 @@ namespace QED
 					samplers[i] = i;
 				}
 
-				renderer2DData.shader = Shader::Create("Renderer2D.glsl");
+				renderer2DData.shader = Interface::Shaders::Shader::Create("Renderer2D.glsl");
 				renderer2DData.shader->Bind();
 				renderer2DData.shader->SetIntArray("uTexture", samplers, renderer2DData.maxTextureSlots);
 
