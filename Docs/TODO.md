@@ -1,11 +1,10 @@
 # TODO
 
 ## TODO Today
-
-
-## Priority list
 - [ ] create basic sqlite handlers 
 - [ ] load textures from sqlite
+
+## Priority list
 - [ ] create conductor
 - [ ] change buildtool to a dll and connect it with conductor
 - [ ] replace directory specifier .cs files with .csx scripts, implement script runner
