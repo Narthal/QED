@@ -16,7 +16,7 @@ namespace QED
 			{
 				namespace Buffers
 				{
-					OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size)
+					OpenGLVertexBuffer::OpenGLVertexBuffer(UInt size)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -25,7 +25,7 @@ namespace QED
 						glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
 					}
 
-					OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size)
+					OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, UInt size)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -55,7 +55,7 @@ namespace QED
 						glBindBuffer(GL_ARRAY_BUFFER, 0);
 					}
 
-					void OpenGLVertexBuffer::SetData(const void* data, uint32_t size)
+					void OpenGLVertexBuffer::SetData(const void* data, UInt size)
 					{
 						glBindBuffer(GL_ARRAY_BUFFER, rendererID);
 						glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);

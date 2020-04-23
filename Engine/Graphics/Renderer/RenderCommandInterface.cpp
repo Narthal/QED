@@ -11,7 +11,7 @@ namespace QED
 		{
 			namespace Renderer
 			{
-				void RenderCommand::SetClearColor(const glm::vec4& color) { Engine::Graphics::Renderer::RenderCommand::SetClearColor(color); }
+				void RenderCommand::SetClearColor(const Vec4& color) { Engine::Graphics::Renderer::RenderCommand::SetClearColor(color); }
 				void RenderCommand::Clear() { Engine::Graphics::Renderer::RenderCommand::Clear(); }
 			}
 		}

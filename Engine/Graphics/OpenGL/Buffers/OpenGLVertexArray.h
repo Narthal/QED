@@ -34,7 +34,7 @@ namespace QED
 						inline virtual const Ref<Interface::Buffers::IndexBuffer>& GetIndexBuffer() const override { return indexBuffer; };
 
 					private:
-						uint32_t rendererID;
+						UInt rendererID;
 						std::vector<Ref<Interface::Buffers::VertexBuffer>> vertexBuffers;
 						Ref<Interface::Buffers::IndexBuffer> indexBuffer;
 					};

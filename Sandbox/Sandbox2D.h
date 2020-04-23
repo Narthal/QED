@@ -39,7 +39,7 @@ namespace QED
 			Interface::Graphics::Camera::OrthographicCameraController cameraController;
 
 			// TODO: remove this (test code)
-			glm::vec4 squareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+			Vec4 squareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 			Ref<Engine::Graphics::Interface::Textures::Texture2D> texture1;
 			Ref<Engine::Graphics::Interface::Textures::Texture2D> texture2;
 			int counter = 0;

@@ -1,8 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Module/QEDApi.h"
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 #include "Graphics/Interface/API/RendererAPI.h"
 #include "Graphics/Interface/Buffers/VertexArray.h"
@@ -24,12 +24,12 @@ namespace QED
 					static void Initialize();
 
 				public:
-					static void OnWindowResize(uint32_t width, uint32_t height);
+					static void OnWindowResize(UInt width, UInt height);
 
 				public:
 					static void BeginScene(Camera::OrthographicCamera& camera);
 					static void EndScene();
-					static void Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
+					static void Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const Mat4& transform = Mat4(1.0f));
 
 				public:
 					inline static Interface::API::RendererAPI::API GetAPI() { return Interface::API::RendererAPI::GetAPI(); }
@@ -37,7 +37,7 @@ namespace QED
 				private:
 					struct SceneData
 					{
-						glm::mat4 viewProjectionMatrix;
+						Mat4 viewProjectionMatrix;
 					};
 					static Scope<SceneData> sceneData;
 				};

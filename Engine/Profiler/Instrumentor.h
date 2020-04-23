@@ -9,6 +9,8 @@
 
 #include "Module/QEDApi.h"
 
+#include "Core/Type/Numeric.h"
+
 namespace QED
 {
 	namespace Engine
@@ -20,7 +22,7 @@ namespace QED
 			{
 				std::string Name;
 				long long Start, End;
-				uint32_t ThreadID;
+				UInt ThreadID;
 			};
 
 			struct QED_ENGINE_API InstrumentationSession
@@ -118,7 +120,7 @@ namespace QED
 					long long start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimepoint).time_since_epoch().count();
 					long long end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
 
-					uint32_t threadID = (uint32_t)std::hash<std::thread::id>{}(std::this_thread::get_id());
+					UInt threadID = (UInt)std::hash<std::thread::id>{}(std::this_thread::get_id());
 
 					auto& instrumentor = Instrumentor::Get();
 					instrumentor.WriteProfile({ m_Name, start, end, threadID });

@@ -24,7 +24,7 @@ namespace QED
 					Renderer2D::Initialize();
 				}
 
-				void Renderer::OnWindowResize(uint32_t width, uint32_t height)
+				void Renderer::OnWindowResize(UInt width, UInt height)
 				{
 					RenderCommand::SetViewport(0, 0, width, height);
 				}
@@ -38,7 +38,7 @@ namespace QED
 				{
 				}
 
-				void Renderer::Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const glm::mat4& transform)
+				void Renderer::Submit(const Ref<Interface::Shaders::Shader>& shader, const Ref<Interface::Buffers::VertexArray>& vertexArray, const Mat4& transform)
 				{
 					// Shader
 					shader->Bind();

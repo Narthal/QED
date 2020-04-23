@@ -1,10 +1,8 @@
 #ifndef RENDERER_API_H
 #define RENDERER_API_H
 
-// GLM
-#include <glm/glm.hpp>
-
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 #include "Graphics/Interface/Buffers/VertexArray.h"
 
@@ -31,10 +29,10 @@ namespace QED
 						virtual void Initialize() = 0;
 
 					public:
-						virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) = 0;
+						virtual void SetViewport(UInt x, UInt y, UInt width, UInt height) = 0;
 						virtual void Clear() = 0;
-						virtual void SetClearColor(const glm::vec4 color) = 0;
-						virtual void Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, uint32_t indexCount = 0) = 0;
+						virtual void SetClearColor(const Vec4 color) = 0;
+						virtual void Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, UInt indexCount = 0) = 0;
 
 					public:
 						inline static API GetAPI() { return api; }

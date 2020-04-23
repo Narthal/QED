@@ -1,8 +1,7 @@
 #ifndef ORTHOGRAPHIC_CAMERA_CONTROLLER_H
 #define ORTHOGRAPHIC_CAMERA_CONTROLLER_H
 
-// GLM
-#include <glm/glm.hpp>
+#include "Core/Type/Numeric.h"
 
 #include "Core/Time/TimeStep.h"
 #include "Event/MouseEvent.h"
@@ -45,7 +44,7 @@ namespace QED
 					float zoomLevel = 1.0f;
 					OrthographicCamera camera;
 
-					glm::vec3 cameraPosition = { 0.0f, 0.0f, 0.0f };
+					Vec3 cameraPosition = { 0.0f, 0.0f, 0.0f };
 					float cameraTranslationSpeed = 5.0f;
 					float cameraRotation = 0.0f;
 					float cameraRotationSpeed = 20.0f;

@@ -16,8 +16,8 @@ namespace QED
 					class OpenGLVertexBuffer : public Interface::Buffers::VertexBuffer
 					{
 					public:
-						OpenGLVertexBuffer(uint32_t size);
-						OpenGLVertexBuffer(float* vertices, uint32_t size);
+						OpenGLVertexBuffer(UInt size);
+						OpenGLVertexBuffer(float* vertices, UInt size);
 						virtual ~OpenGLVertexBuffer();
 
 					public:
@@ -28,7 +28,7 @@ namespace QED
 						inline virtual void SetLayout(const Interface::Buffers::BufferLayout& layout) override { this->layout = layout; };
 						inline virtual const Interface::Buffers::BufferLayout& GetLayout() const override { return layout; };
 
-						virtual void SetData(const void* data, uint32_t size) override;
+						virtual void SetData(const void* data, UInt size) override;
 
 					private:
 						Interface::Buffers::BufferLayout layout;

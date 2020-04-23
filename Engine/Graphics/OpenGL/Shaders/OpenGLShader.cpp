@@ -3,12 +3,11 @@
 
 
 
-// GLM
-#include <glm/glm.hpp>
+
 #include <glm/gtc/type_ptr.hpp>
 
-// Log
 #include "Core/Log/Log.h"
+#include "Core/Type/Numeric.h"
 
 #include "Profiler/Instrumentor.h"
 
@@ -85,7 +84,7 @@ namespace QED
 						glUseProgram(0);
 					}
 
-					void OpenGLShader::SetMat4(const std::string& uniformName, const glm::mat4& matrix)
+					void OpenGLShader::SetMat4(const std::string& uniformName, const Mat4& matrix)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -94,7 +93,7 @@ namespace QED
 						glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
 					}
 
-					void OpenGLShader::SetFloat4(const std::string& uniformName, const glm::vec4& vector)
+					void OpenGLShader::SetFloat4(const std::string& uniformName, const Vec4& vector)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -103,7 +102,7 @@ namespace QED
 						glUniform4f(location, vector.x, vector.y, vector.z, vector.w);
 					}
 
-					void OpenGLShader::SetFloat3(const std::string& uniformName, const glm::vec3& vector)
+					void OpenGLShader::SetFloat3(const std::string& uniformName, const Vec3& vector)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -121,7 +120,7 @@ namespace QED
 						glUniform1f(location, value);
 					}
 
-					void OpenGLShader::SetInt(const std::string& uniformName, uint32_t value)
+					void OpenGLShader::SetInt(const std::string& uniformName, UInt value)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -130,7 +129,7 @@ namespace QED
 						glUniform1i(location, value);
 					}
 
-					void OpenGLShader::SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count)
+					void OpenGLShader::SetIntArray(const std::string& uniformName, UInt* values, UInt count)
 					{
 						QED_PROFILE_FUNCTION();
 

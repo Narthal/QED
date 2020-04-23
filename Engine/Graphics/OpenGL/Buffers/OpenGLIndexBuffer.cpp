@@ -14,11 +14,11 @@ namespace QED
 			{
 				namespace Buffers
 				{
-					OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count) : count(count)
+					OpenGLIndexBuffer::OpenGLIndexBuffer(UInt* indices, UInt count) : count(count)
 					{
 						glCreateBuffers(1, &rendererID);
 						glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, rendererID);
-						glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), indices, GL_STATIC_DRAW);
+						glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(UInt), indices, GL_STATIC_DRAW);
 					}
 
 					OpenGLIndexBuffer::~OpenGLIndexBuffer()

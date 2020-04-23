@@ -79,7 +79,7 @@ namespace QED
 						stbi_image_free(data);
 					}
 
-					OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height) : width(width), height(height)
+					OpenGLTexture2D::OpenGLTexture2D(UInt width, UInt height) : width(width), height(height)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -105,7 +105,7 @@ namespace QED
 						glDeleteTextures(1, &RendererID);
 					}
 
-					void OpenGLTexture2D::SetData(void* data, uint32_t size)
+					void OpenGLTexture2D::SetData(void* data, UInt size)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -113,7 +113,7 @@ namespace QED
 						glTextureSubImage2D(RendererID, 0, 0, 0, width, height, dataFormat, GL_UNSIGNED_BYTE, data);
 					}
 
-					void OpenGLTexture2D::Bind(uint32_t slot) const
+					void OpenGLTexture2D::Bind(UInt slot) const
 					{
 						QED_PROFILE_FUNCTION();
 

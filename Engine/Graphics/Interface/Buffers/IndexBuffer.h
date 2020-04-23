@@ -3,6 +3,7 @@
 
 #include "Module/QEDApi.h"
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 namespace QED
 {
@@ -17,7 +18,7 @@ namespace QED
 					class QED_ENGINE_API IndexBuffer
 					{
 					public:
-						static Ref<IndexBuffer> Create(uint32_t* indices, uint32_t count);
+						static Ref<IndexBuffer> Create(UInt* indices, UInt count);
 						virtual ~IndexBuffer() {}
 
 					public:
@@ -25,7 +26,7 @@ namespace QED
 						virtual void Unbind() const = 0;
 
 					public:
-						virtual uint32_t GetCount() const = 0;
+						virtual UInt GetCount() const = 0;
 					};
 				}
 			}

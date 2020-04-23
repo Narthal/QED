@@ -3,6 +3,7 @@
 
 #include "Module/QEDApi.h"
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 #include "Texture.h"
 
@@ -20,7 +21,7 @@ namespace QED
 					{
 					public:
 						static Ref<Texture2D> Create(const std::string& path);
-						static Ref<Texture2D> Create(uint32_t width, uint32_t height);
+						static Ref<Texture2D> Create(UInt width, UInt height);
 					};
 				}
 			}

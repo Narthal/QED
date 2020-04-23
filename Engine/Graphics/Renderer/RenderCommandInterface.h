@@ -1,9 +1,9 @@
 #ifndef RENDER_COMMAND_INTERFACE_H
 #define RENDER_COMMAND_INTERFACE_H
 
-#include <glm/glm.hpp>
-
 #include "Module/QEDApi.h"
+
+#include "Core/Type/Numeric.h"
 
 namespace QED
 {
@@ -16,7 +16,7 @@ namespace QED
 				class QED_ENGINE_API RenderCommand
 				{
 				public:
-					static void SetClearColor(const glm::vec4& color);
+					static void SetClearColor(const Vec4& color);
 					static void Clear();
 				};
 			}

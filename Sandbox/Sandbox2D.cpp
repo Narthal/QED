@@ -63,7 +63,7 @@ namespace QED
 				{
 					for (float x = -5.0f; x < 5.0f; x += increment)
 					{
-						glm::vec4 rg = { (x + 5.0f) / 10.0f, (y + 5.0f) / 10.0f, 0.0f, 0.5f };
+						Vec4 rg = { (x + 5.0f) / 10.0f, (y + 5.0f) / 10.0f, 0.0f, 0.5f };
 						Engine::Graphics::Renderer::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, 0.0f, rg);
 						testCounter++;
 					}

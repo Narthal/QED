@@ -14,7 +14,7 @@ namespace QED
 			{
 				namespace Buffers
 				{
-					Ref<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t count)
+					Ref<IndexBuffer> IndexBuffer::Create(UInt* indices, UInt count)
 					{
 						switch (Renderer::Renderer::GetAPI())
 						{

@@ -2,6 +2,7 @@
 #include "Renderer2D.h"
 
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 #include "RenderCommand.h"
 
@@ -20,19 +21,19 @@ namespace QED
 			{
 				struct QuadVertex
 				{
-					glm::vec3 position;
-					glm::vec4 color;
-					glm::vec2 textureCoordinate;
+					Vec3 position;
+					Vec4 color;
+					Vec2 textureCoordinate;
 					float textureIndex;
 					float tilingFactor;
 				};
 
 				struct Renderer2DData
 				{
-					static const uint32_t maxQuads = 10000;
-					static const uint32_t maxVertices = maxQuads * 4;
-					static const uint32_t maxIndices = maxQuads * 6;
-					static const uint32_t maxTextureSlots = 32;	// TODO: get from graphics driver
+					static const UInt maxQuads = 10000;
+					static const UInt maxVertices = maxQuads * 4;
+					static const UInt maxIndices = maxQuads * 6;
+					static const UInt maxTextureSlots = 32;	// TODO: get from graphics driver
 
 					Ref<Interface::Buffers::VertexArray> quadVertexArray;
 					Ref<Interface::Buffers::VertexBuffer> quadVertexBuffer;
@@ -40,14 +41,14 @@ namespace QED
 					Ref<Interface::Shaders::Shader> shader;
 					Ref<Interface::Textures::Texture2D> whiteTexture;
 
-					uint32_t quadIndexCount = 0;
+					UInt quadIndexCount = 0;
 					QuadVertex* quadVertexBufferBase = nullptr;
 					QuadVertex* quadVertexBufferPtr = nullptr;
 
 					std::array<Ref<Interface::Textures::Texture2D>, maxTextureSlots> textureSlots;
-					uint32_t textureSlotIndex = 1;	// NOTE: 0 is a white texture
+					UInt textureSlotIndex = 1;	// NOTE: 0 is a white texture
 
-					glm::vec4 quadVertexPositions[4];
+					Vec4 quadVertexPositions[4];
 
 					Renderer2D::Statistics statistics;
 				};
@@ -73,9 +74,9 @@ namespace QED
 
 					renderer2DData.quadVertexBufferBase = new QuadVertex[renderer2DData.maxVertices];
 
-					uint32_t* quadIndices = new uint32_t[renderer2DData.maxIndices];
-					uint32_t offset = 0;
-					for (uint32_t i = 0; i < renderer2DData.maxIndices; i += 6)
+					UInt* quadIndices = new UInt[renderer2DData.maxIndices];
+					UInt offset = 0;
+					for (UInt i = 0; i < renderer2DData.maxIndices; i += 6)
 					{
 						quadIndices[i + 0] = offset + 0;
 						quadIndices[i + 1] = offset + 1;
@@ -92,11 +93,11 @@ namespace QED
 					delete[] quadIndices;
 
 					renderer2DData.whiteTexture = Interface::Textures::Texture2D::Create(1, 1);
-					uint32_t whiteTextureData = 0xffffffff;
-					renderer2DData.whiteTexture->SetData(&whiteTextureData, sizeof(uint32_t));
+					UInt whiteTextureData = 0xffffffff;
+					renderer2DData.whiteTexture->SetData(&whiteTextureData, sizeof(UInt));
 
-					uint32_t samplers[renderer2DData.maxTextureSlots];
-					for (uint32_t i = 0; i < renderer2DData.maxTextureSlots; i++)
+					UInt samplers[renderer2DData.maxTextureSlots];
+					for (UInt i = 0; i < renderer2DData.maxTextureSlots; i++)
 					{
 						samplers[i] = i;
 					}
@@ -136,7 +137,7 @@ namespace QED
 				{
 					QED_PROFILE_FUNCTION();
 
-					uint32_t dataSize = (uint8_t*)renderer2DData.quadVertexBufferPtr - (uint8_t*)renderer2DData.quadVertexBufferBase;
+					UInt dataSize = (uint8_t*)renderer2DData.quadVertexBufferPtr - (uint8_t*)renderer2DData.quadVertexBufferBase;
 					renderer2DData.quadVertexBuffer->SetData(renderer2DData.quadVertexBufferBase, dataSize);
 
 					Flush();
@@ -146,7 +147,7 @@ namespace QED
 				{
 					QED_PROFILE_FUNCTION();
 
-					for (uint32_t i = 0; i < renderer2DData.textureSlotIndex; i++)
+					for (UInt i = 0; i < renderer2DData.textureSlotIndex; i++)
 					{
 						renderer2DData.textureSlots[i]->Bind(i);
 					}
@@ -169,32 +170,32 @@ namespace QED
 					renderer2DData.textureSlotIndex = 1;
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
+				void Renderer2D::DrawQuad(const Vec2& position, const Vec2& size, const glm::float32 rotation, const Vec4& color)
 				{
 					DrawQuad({ position.x, position.y, 0.0f }, size, rotation, renderer2DData.whiteTexture, color);
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const glm::vec4& color)
+				void Renderer2D::DrawQuad(const Vec3& position, const Vec2& size, const glm::float32 rotation, const Vec4& color)
 				{
 					DrawQuad(position, size, rotation, renderer2DData.whiteTexture, color);
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, float tilingFactor)
+				void Renderer2D::DrawQuad(const Vec2& position, const Vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, float tilingFactor)
 				{
-					DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, glm::vec4(1.0f), tilingFactor);
+					DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, Vec4(1.0f), tilingFactor);
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, float tilingFactor)
+				void Renderer2D::DrawQuad(const Vec3& position, const Vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, float tilingFactor)
 				{
-					DrawQuad(position, size, rotation, texture, glm::vec4(1.0f), tilingFactor);
+					DrawQuad(position, size, rotation, texture, Vec4(1.0f), tilingFactor);
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, const glm::vec4& color, float tilingFactor)
+				void Renderer2D::DrawQuad(const Vec2& position, const Vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, const Vec4& color, float tilingFactor)
 				{
 					DrawQuad({ position.x, position.y, 0.0f }, size, rotation, texture, color, tilingFactor);
 				}
 
-				void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, const glm::vec4& color, float tilingFactor)
+				void Renderer2D::DrawQuad(const Vec3& position, const Vec2& size, const glm::float32 rotation, const Ref<Interface::Textures::Texture2D>& texture, const Vec4& color, float tilingFactor)
 				{
 					QED_PROFILE_FUNCTION();
 
@@ -209,7 +210,7 @@ namespace QED
 					if (texture != renderer2DData.whiteTexture)
 					{
 						// See if texture slots contain texture, and if so, set texture index to it
-						for (uint32_t i = 1; i < renderer2DData.textureSlotIndex; i++)
+						for (UInt i = 1; i < renderer2DData.textureSlotIndex; i++)
 						{
 							if (ObjectEquals(renderer2DData.textureSlots[i], texture))
 							{
@@ -228,7 +229,7 @@ namespace QED
 					}
 
 					// Calculate transform
-					glm::mat4 transform = glm::identity<glm::mat4>();
+					Mat4 transform = glm::identity<Mat4>();
 					transform = glm::translate(transform, position);
 					if (rotation != 0.0f) transform = glm::rotate(transform, glm::radians(rotation), { 0.0f, 0.0f, 1.0f });
 					transform = glm::scale(transform, { size.x, size.y, 1.0f });

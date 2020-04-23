@@ -2,7 +2,9 @@
 #define OPENGL_TEXTURE_H
 
 // GLAD
-#include <glad\glad.h>
+#include <glad/glad.h>
+
+#include "Core/Type/Numeric.h"
 
 #include "Graphics/Interface/Textures/Texture2D.h"
 
@@ -21,17 +23,17 @@ namespace QED
 					{
 					public: // Ctor / Dtor
 						OpenGLTexture2D(const std::string& path);
-						OpenGLTexture2D(uint32_t width, uint32_t height);
+						OpenGLTexture2D(UInt width, UInt height);
 						virtual ~OpenGLTexture2D();
 
 					public: // Get / Set
-						inline virtual uint32_t GetWidth() const override { return width; }
-						inline virtual uint32_t GetHeight() const override { return height; }
+						inline virtual UInt GetWidth() const override { return width; }
+						inline virtual UInt GetHeight() const override { return height; }
 
-						virtual void SetData(void* data, uint32_t size) override;
+						virtual void SetData(void* data, UInt size) override;
 
 					public: // Graphics
-						virtual void Bind(uint32_t slot = 0) const override;
+						virtual void Bind(UInt slot = 0) const override;
 
 					public: // Operators
 						inline virtual bool operator==(const Texture& other) const override { return RendererID == ((OpenGLTexture2D&)other).RendererID; };
@@ -40,12 +42,12 @@ namespace QED
 						// TODO: path should be stored in asset manager
 						std::string path;
 
-						uint32_t width;
-						uint32_t height;
+						UInt width;
+						UInt height;
 						GLenum internalFormat = 0;
 						GLenum dataFormat = 0;
 
-						uint32_t RendererID;
+						UInt RendererID;
 					};
 				}
 			}

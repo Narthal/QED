@@ -1,6 +1,7 @@
 #ifndef BUFFER_LAYOUT_H
 #define BUFFER_LAYOUT_H
 
+#include "Core/Type/Numeric.h"
 
 namespace QED
 {
@@ -37,7 +38,7 @@ namespace QED
 						Bool,
 					};
 
-					static uint32_t ShaderDataTypeSize(ShaderDataType shaderDataType)
+					static UInt ShaderDataTypeSize(ShaderDataType shaderDataType)
 					{
 						switch (shaderDataType)
 						{
@@ -79,8 +80,8 @@ namespace QED
 					{
 						std::string name;
 						ShaderDataType shaderDataType;
-						uint32_t size;
-						uint32_t offset;
+						UInt size;
+						UInt offset;
 						bool normalized;
 
 					public:
@@ -91,7 +92,7 @@ namespace QED
 							: name(name), shaderDataType(shaderDataType), size(ShaderDataTypeSize(shaderDataType)), offset(0), normalized(normalized) {}
 
 					public:
-						uint32_t GetComponentCount() const
+						UInt GetComponentCount() const
 						{
 							switch (shaderDataType)
 							{
@@ -147,12 +148,12 @@ namespace QED
 					public: // Get / Set
 						// bufferElements : buffer layout container
 						inline const std::vector<BufferElement>& GetElements() const { return bufferElements; }
-						inline uint32_t GetStride() const { return stride; }
+						inline UInt GetStride() const { return stride; }
 
 					private: // Internal
 						void CalculateOffsetAndStride()
 						{
-							uint32_t offset = 0;
+							UInt offset = 0;
 							stride = 0;
 							for (auto& element : bufferElements)
 							{
@@ -164,7 +165,7 @@ namespace QED
 
 					private:
 						std::vector<BufferElement> bufferElements;
-						uint32_t stride = 0;
+						UInt stride = 0;
 					};
 				}
 			}

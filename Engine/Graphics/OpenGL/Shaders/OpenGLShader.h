@@ -31,12 +31,12 @@ namespace QED
 						virtual void Unbind() const override;
 
 					public: // Uniform setters
-						virtual void SetMat4(const std::string& uniformName, const glm::mat4& matrix) override;
-						virtual void SetFloat4(const std::string& uniformName, const glm::vec4& vector) override;
-						virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) override;
+						virtual void SetMat4(const std::string& uniformName, const Mat4& matrix) override;
+						virtual void SetFloat4(const std::string& uniformName, const Vec4& vector) override;
+						virtual void SetFloat3(const std::string& uniformName, const Vec3& vector) override;
 						virtual void SetFloat(const std::string& uniformName, float value) override;
-						virtual void SetInt(const std::string& uniformName, uint32_t value) override;
-						virtual void SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count) override;
+						virtual void SetInt(const std::string& uniformName, UInt value) override;
+						virtual void SetIntArray(const std::string& uniformName, UInt* values, UInt count) override;
 
 					private:
 						std::string ReadFile(const std::string& path);

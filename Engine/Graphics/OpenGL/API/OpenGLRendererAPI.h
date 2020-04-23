@@ -21,10 +21,10 @@ namespace QED
 						virtual void Initialize() override;
 
 					public:
-						virtual void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) override;
+						virtual void SetViewport(UInt x, UInt y, UInt width, UInt height) override;
 						virtual void Clear() override;
-						virtual void SetClearColor(const glm::vec4 color) override;
-						virtual void Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, uint32_t indexCount) override;
+						virtual void SetClearColor(const Vec4 color) override;
+						virtual void Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, UInt indexCount) override;
 					};
 				}
 			}

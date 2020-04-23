@@ -93,7 +93,7 @@ namespace QED
 						// TODO: crash here
 						// if vertexBuffer->GetLayout().size() must not be 0 "vertexBuffer has no layout"
 
-						uint32_t index = 0;
+						UInt index = 0;
 						for (const auto& element : vertexBuffer->GetLayout())
 						{
 							glEnableVertexAttribArray(index);

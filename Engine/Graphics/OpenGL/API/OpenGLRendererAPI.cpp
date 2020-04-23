@@ -27,7 +27,7 @@ namespace QED
 						glEnable(GL_DEPTH_TEST);
 					}
 
-					void OpenGLRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
+					void OpenGLRendererAPI::SetViewport(UInt x, UInt y, UInt width, UInt height)
 					{
 						glViewport(x, y, width, height);
 					}
@@ -37,14 +37,14 @@ namespace QED
 						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 					}
 
-					void OpenGLRendererAPI::SetClearColor(const glm::vec4 color)
+					void OpenGLRendererAPI::SetClearColor(const Vec4 color)
 					{
 						glClearColor(color.r, color.g, color.g, color.a);
 					}
 
-					void OpenGLRendererAPI::Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, uint32_t indexCount)
+					void OpenGLRendererAPI::Draw(const Ref<Interface::Buffers::VertexArray>& vertexArray, UInt indexCount)
 					{
-						uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+						UInt count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
 						glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 					}
 				}

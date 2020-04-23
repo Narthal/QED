@@ -1,11 +1,9 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-// GLM
-#include <glm/glm.hpp>
 
-#include "Module/QEDApi.h"
 #include "Core/Type/Reference.h"
+#include "Core/Type/Numeric.h"
 
 namespace QED
 {
@@ -17,7 +15,7 @@ namespace QED
 			{
 				namespace Shaders
 				{
-					class QED_ENGINE_API Shader
+					class Shader
 					{
 					public: // Ctor / Dtor
 						static Ref<Shader> Create(const std::string& path);
@@ -32,12 +30,12 @@ namespace QED
 						virtual void Unbind() const = 0;
 
 					public: // Uniform setters
-						virtual void SetMat4(const std::string& uniformName, const glm::mat4& matrix) = 0;
-						virtual void SetFloat4(const std::string& uniformName, const glm::vec4& vector) = 0;
-						virtual void SetFloat3(const std::string& uniformName, const glm::vec3& vector) = 0;
+						virtual void SetMat4(const std::string& uniformName, const Mat4& matrix) = 0;
+						virtual void SetFloat4(const std::string& uniformName, const Vec4& vector) = 0;
+						virtual void SetFloat3(const std::string& uniformName, const Vec3& vector) = 0;
 						virtual void SetFloat(const std::string& uniformName, float value) = 0;
-						virtual void SetInt(const std::string& uniformName, uint32_t value) = 0;
-						virtual void SetIntArray(const std::string& uniformName, uint32_t* values, uint32_t count) = 0;
+						virtual void SetInt(const std::string& uniformName, UInt value) = 0;
+						virtual void SetIntArray(const std::string& uniformName, UInt* values, UInt count) = 0;
 					};
 				}
 			}

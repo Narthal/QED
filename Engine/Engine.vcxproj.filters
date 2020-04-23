@@ -193,6 +193,7 @@
     <ClInclude Include="Core\Type\Reference.h">
       <Filter>Core\Type</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Type\Numeric.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -320,5 +321,6 @@
     <ClCompile Include="Core\Type\Reference.cpp">
       <Filter>Core\Type</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Type\Numeric.cpp" />
   </ItemGroup>
 </Project>

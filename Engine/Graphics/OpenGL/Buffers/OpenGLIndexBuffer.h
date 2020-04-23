@@ -2,6 +2,7 @@
 #define OPENGL_INDEX_BUFFER_H
 
 #include "Graphics/Interface/Buffers/IndexBuffer.h"
+#include "Core/Type/Numeric.h"
 
 namespace QED
 {
@@ -16,7 +17,7 @@ namespace QED
 					class OpenGLIndexBuffer : public Interface::Buffers::IndexBuffer
 					{
 					public:
-						OpenGLIndexBuffer(uint32_t* indices, uint32_t count);
+						OpenGLIndexBuffer(UInt* indices, UInt count);
 						virtual ~OpenGLIndexBuffer();
 
 					public:
@@ -24,11 +25,11 @@ namespace QED
 						virtual void Unbind() const;
 
 					public:
-						inline virtual uint32_t GetCount() const override { return count; }
+						inline virtual UInt GetCount() const override { return count; }
 
 					private:
-						uint32_t rendererID;
-						uint32_t count;
+						UInt rendererID;
+						UInt count;
 					};
 				}
 			}

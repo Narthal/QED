@@ -3,6 +3,8 @@
 
 #include "Module/QEDApi.h"
 
+#include "Core/Type/Numeric.h"
+
 namespace QED
 {
 	namespace Engine
@@ -19,13 +21,13 @@ namespace QED
 						virtual ~Texture() = default;
 
 					public: // Get/ Set
-						virtual uint32_t GetWidth() const = 0;
-						virtual uint32_t GetHeight() const = 0;
+						virtual UInt GetWidth() const = 0;
+						virtual UInt GetHeight() const = 0;
 
-						virtual void SetData(void* data, uint32_t size) = 0;
+						virtual void SetData(void* data, UInt size) = 0;
 
 					public: // Graphics calls
-						virtual void Bind(uint32_t slot = 0) const = 0;
+						virtual void Bind(UInt slot = 0) const = 0;
 
 					public: // Operators
 						virtual bool operator==(const Texture& other) const = 0;

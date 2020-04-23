@@ -16,7 +16,7 @@ namespace QED
 			{
 				namespace Buffers
 				{
-					Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
+					Ref<VertexBuffer> VertexBuffer::Create(UInt size)
 					{
 						QED_PROFILE_FUNCTION();
 
@@ -41,7 +41,7 @@ namespace QED
 						return nullptr;
 					}
 
-					Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
+					Ref<VertexBuffer> VertexBuffer::Create(float* vertices, UInt size)
 					{
 						QED_PROFILE_FUNCTION();
 
