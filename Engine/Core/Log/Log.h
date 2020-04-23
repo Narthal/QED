@@ -16,7 +16,7 @@
 #pragma warning(pop)
 
 #include "Module/QEDApi.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 
 

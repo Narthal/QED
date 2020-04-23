@@ -1,7 +1,7 @@
 #ifndef CORE_WINDOW_H
 #define CORE_WINDOW_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 #include "Event/Event.h"
 #include "Graphics/Interface/API/Context.h"
 

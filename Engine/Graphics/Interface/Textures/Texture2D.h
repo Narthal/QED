@@ -2,7 +2,7 @@
 #define TEXTURE_2D_H
 
 #include "Module/QEDApi.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Texture.h"
 

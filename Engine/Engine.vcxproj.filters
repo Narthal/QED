@@ -63,9 +63,6 @@
     <ClInclude Include="Core\Time\TimeStep.h">
       <Filter>Core\Time</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Type\Type.h">
-      <Filter>Core\Type</Filter>
-    </ClInclude>
     <ClInclude Include="Event\ApplicationEvent.h">
       <Filter>Event</Filter>
     </ClInclude>
@@ -193,6 +190,9 @@
     <ClInclude Include="Graphics\Camera\OrthographicCameraControllerInterface.h" />
     <ClInclude Include="Core\Application\ApplicationInterface.h" />
     <ClInclude Include="Graphics\Renderer\RenderCommandInterface.h" />
+    <ClInclude Include="Core\Type\Reference.h">
+      <Filter>Core\Type</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -203,9 +203,6 @@
     </ClCompile>
     <ClCompile Include="Core\Registry\Registry.cpp">
       <Filter>Core\Registry</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Type\Type.cpp">
-      <Filter>Core\Type</Filter>
     </ClCompile>
     <ClCompile Include="Event\ApplicationEvent.cpp">
       <Filter>Event</Filter>
@@ -320,5 +317,8 @@
     <ClCompile Include="Graphics\Camera\OrthographicCameraControllerInterface.cpp" />
     <ClCompile Include="Core\Application\ApplicationInterface.cpp" />
     <ClCompile Include="Graphics\Renderer\RenderCommandInterface.cpp" />
+    <ClCompile Include="Core\Type\Reference.cpp">
+      <Filter>Core\Type</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

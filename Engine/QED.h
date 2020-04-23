@@ -5,7 +5,7 @@
 // Core
 #include "Core/Application/ApplicationInterface.h"
 #include "Core/Log/Log.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 #include "Core/Time/TimeStep.h"
 
 // Module interfaces

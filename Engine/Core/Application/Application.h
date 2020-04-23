@@ -1,7 +1,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 #include "Module/Kernel.h"
 #include "Window/CoreWindow.h"
 #include "Event/WindowEvent.h"

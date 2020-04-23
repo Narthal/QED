@@ -2,7 +2,7 @@
 #define RENDERER_H
 
 #include "Module/QEDApi.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Graphics/Interface/API/RendererAPI.h"
 #include "Graphics/Interface/Buffers/VertexArray.h"

@@ -1,7 +1,7 @@
 #ifndef OPENGL_RENDERER_API_H
 #define OPENGL_RENDERER_API_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Graphics/Interface/API/RendererAPI.h"
 

@@ -1,7 +1,7 @@
 #ifndef SHADER_LIBRARY_H
 #define SHADER_LIBRARY_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Shader.h"
 

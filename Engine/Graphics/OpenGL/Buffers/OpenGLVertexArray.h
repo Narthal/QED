@@ -1,7 +1,7 @@
 #ifndef OPENGL_VERTEX_ARRAY_H
 #define OPENGL_VERTEX_ARRAY_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Graphics/Interface/Buffers/VertexArray.h"
 

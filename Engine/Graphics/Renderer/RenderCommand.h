@@ -1,7 +1,7 @@
 #ifndef RENDER_COMMAND_H
 #define RENDER_COMMAND_H
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Graphics/Renderer/Renderer.h"
 #include "Graphics/Interface/Buffers/VertexArray.h"

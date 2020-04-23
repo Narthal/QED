@@ -1,8 +1,8 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "../Module/QEDApi.h"
-#include "../Core/Type/Type.h"
+#include "Module/QEDApi.h"
+#include "Core/Type/Reference.h"
 
 namespace QED
 {

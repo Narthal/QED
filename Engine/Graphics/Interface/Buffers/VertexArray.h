@@ -2,7 +2,7 @@
 #define VERTEX_ARRAY_H
 
 #include "Module/QEDApi.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"

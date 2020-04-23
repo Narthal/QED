@@ -4,7 +4,7 @@
 // GLM
 #include <glm/glm.hpp>
 
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 #include "Graphics/Interface/Buffers/VertexArray.h"
 

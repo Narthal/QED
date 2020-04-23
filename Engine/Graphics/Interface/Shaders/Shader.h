@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "Module/QEDApi.h"
-#include "Core/Type/Type.h"
+#include "Core/Type/Reference.h"
 
 namespace QED
 {
