@@ -1,6 +1,7 @@
 # TODO
 
 ## TODO Today
+- [ ] abstract away glm types
 - [ ] create basic sqlite handlers 
 - [ ] load textures from sqlite
 
