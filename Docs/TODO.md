@@ -80,4 +80,12 @@
 - [ ] Allow virtual folders in solutions
 - [ ] Interface code generator
 
+## Visual goals
+- [ ] autotiles
+- [ ] 2d shadow casting
+- [ ] normal mapping
+- [ ] 2d textured lights
+- [ ] line of sight grayscale effect
+- [ ] god rays from stars
+
 
