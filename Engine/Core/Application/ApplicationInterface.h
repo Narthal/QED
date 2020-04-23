@@ -24,7 +24,7 @@ namespace QED
 				class QED_ENGINE_API Application
 				{
 				public:
-					Application();
+					static Application& GetApplication();
 
 				public:
 					void PushLayer(QED::Engine::Layer::Layer* layer);

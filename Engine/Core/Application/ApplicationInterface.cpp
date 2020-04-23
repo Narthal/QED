@@ -11,9 +11,11 @@ namespace QED
 		{
 			namespace Application
 			{
-				Application::Application()
+				Application& Application::GetApplication()
 				{
-					application = &Engine::Core::Application::Application::GetInstance();
+					static Application applicationInterface;
+					applicationInterface.application = &Engine::Core::Application::Application::GetInstance();
+					return applicationInterface;
 				}
 
 				void Application::PushLayer(QED::Engine::Layer::Layer* layer)
