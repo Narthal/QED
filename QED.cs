@@ -28,6 +28,7 @@ namespace BuildTool
                 AddProject("ImGui");
                 AddProject("Engine");
                 AddProject("Sandbox");
+                AddProject("SQLite");
             }
         }
     }

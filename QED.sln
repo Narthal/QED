@@ -8,7 +8,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "C:\Users\balas\sou
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "C:\Users\balas\source\GitHubRepos\QED\Engine\Engine.vcxproj", "{E41E9B4A-D374-4D95-BA0C-FB1EAB657186}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "C:\Users\balas\source\GitHubRepos\QED\Sandbox\Sandbox.vcxproj", "{1A366C3B-705D-43A0-B09F-74ED5241B5DE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "C:\Users\balas\source\GitHubRepos\QED\Sandbox\Sandbox.vcxproj", "{65ACC16E-3E39-4959-9F34-EC23A200F02F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SQLite", "C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\SQLite\SQLite.vcxproj", "{1A366C3B-705D-43A0-B09F-74ED5241B5DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +38,14 @@ Global
 		{E41E9B4A-D374-4D95-BA0C-FB1EAB657186}.Debug|x64.Build.0 = Debug|x64
 		{E41E9B4A-D374-4D95-BA0C-FB1EAB657186}.Release|x64.ActiveCfg = Release|x64
 		{E41E9B4A-D374-4D95-BA0C-FB1EAB657186}.Release|x64.Build.0 = Release|x64
-		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Debug|x64.ActiveCfg = Debug|x64
-		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Debug|x64.Build.0 = Debug|x64
-		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|x64.ActiveCfg = Release|x64
-		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|x64.Build.0 = Release|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Debug|x64.ActiveCfg = Debug|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Debug|x64.Build.0 = Debug|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Release|x64.ActiveCfg = Release|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Release|x64.Build.0 = Release|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Debug|x64.ActiveCfg = Debug|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Debug|x64.Build.0 = Debug|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Release|x64.ActiveCfg = Release|x64
+		{65ACC16E-3E39-4959-9F34-EC23A200F02F}.Release|x64.Build.0 = Release|x64
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Debug|x64.ActiveCfg = Debug|x64
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Debug|x64.Build.0 = Debug|x64
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|x64.ActiveCfg = Release|x64

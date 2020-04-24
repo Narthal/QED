@@ -41,6 +41,15 @@ namespace QED
         }
 
         [RegisterPath]
+        public class BuildSQLiteDirectory : Directory
+        {
+            public BuildSQLiteDirectory()
+            {
+                SubDirectory = "SQLite";
+            }
+        }
+
+        [RegisterPath]
         public class BuildEngineDirectory : Directory
         {
             public BuildEngineDirectory()

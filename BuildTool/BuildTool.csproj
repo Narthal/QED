@@ -29,6 +29,7 @@
     <Compile Include="..\External\Dependencies\GLAD\GLAD.cs" Link="LinkedFiles\GLAD.cs" />
     <Compile Include="..\External\Dependencies\GLFW\GLFW.cs" Link="LinkedFiles\GLFW.cs" />
     <Compile Include="..\External\Dependencies\ImGui\ImGui.cs" Link="LinkedFiles\ImGui.cs" />
+    <Compile Include="..\External\Dependencies\SQLite\SQLite.cs" Link="LinkedFiles\SQLite.cs" />
     <Compile Include="..\External\External.cs" Link="LinkedFiles\External.cs" />
     <Compile Include="..\External\Vendor\Vendor.cs" Link="LinkedFiles\Vendor.cs" />
     <Compile Include="..\QED.cs" Link="LinkedFiles\QED.cs" />

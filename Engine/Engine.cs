@@ -48,7 +48,8 @@ namespace QED
                 {
                     "GLFW",
                     "GLAD",
-                    "ImGui"
+                    "ImGui",
+                    "SQLite"
                 };
 
                 // Targets
@@ -96,10 +97,11 @@ namespace QED
 
                         AdditionalReferences = new List<string>()
                         {
-                            "opengl32.lib",                                                                           // OpenGL                                                                              // GLFW
-                            BuildTool.GetDirectory("BuildGLFWDirectory").DirectoryPath + "/src/Debug/" + "glfw3.lib", // glfw3.lib                                                                            // GLAD
-                            BuildTool.GetDirectory("BuildGLADDirectory").DirectoryPath + "\\" + "glad.lib",           // glad.lib                                                                             // ImGui
-                            BuildTool.GetDirectory("BuildImGuiDirectory").DirectoryPath + "\\" + "imgui.lib"          // imgui.lib
+                            "opengl32.lib",                                                                             // OpenGL
+                            BuildTool.GetDirectory("BuildGLFWDirectory").DirectoryPath + "/src/Debug/" + "glfw3.lib",   // glfw3.lib
+                            BuildTool.GetDirectory("BuildGLADDirectory").DirectoryPath + "\\" + "glad.lib",             // glad.lib
+                            BuildTool.GetDirectory("BuildImGuiDirectory").DirectoryPath + "\\" + "imgui.lib",           // imgui.lib
+                            BuildTool.GetDirectory("BuildSQLiteDirectory").DirectoryPath + "\\Debug\\" + "sqlite3.lib"  // sqlite3.lib
                         }
                     },
 

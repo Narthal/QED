@@ -109,9 +109,6 @@
       <Filter>PCH</Filter>
     </ClInclude>
     <ClInclude Include="QED.h" />
-    <ClInclude Include="SQLite\Database.h">
-      <Filter>SQLite</Filter>
-    </ClInclude>
     <ClInclude Include="UI\ImGuiLayer.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -194,6 +191,9 @@
       <Filter>Core\Type</Filter>
     </ClInclude>
     <ClInclude Include="Core\Type\Numeric.h" />
+    <ClInclude Include="Database\Database.h">
+      <Filter>SQLite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -322,6 +322,6 @@
       <Filter>Core\Type</Filter>
     </ClCompile>
     <ClCompile Include="Core\Type\Numeric.cpp" />
-    <ClCompile Include="SQLite\Database.cpp" />
+    <ClCompile Include="Database\Database.cpp" />
   </ItemGroup>
 </Project>

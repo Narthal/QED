@@ -91,7 +91,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;C:\Users\balas\source\GitHubRepos\QED\Build\SQLite\Debug\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command />
@@ -116,7 +116,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;C:\Users\balas\source\GitHubRepos\QED\Build\SQLite\Debug\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command />
@@ -141,7 +141,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;C:\Users\balas\source\GitHubRepos\QED\Build\SQLite\Debug\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command />
@@ -166,7 +166,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLFW/src/Debug/glfw3.lib;C:\Users\balas\source\GitHubRepos\QED\Build\GLAD\glad.lib;C:\Users\balas\source\GitHubRepos\QED\Build\ImGui\imgui.lib;C:\Users\balas\source\GitHubRepos\QED\Build\SQLite\Debug\sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command />
@@ -178,6 +178,7 @@
   <ItemGroup>
     <ClInclude Include="QED.h" />
     <ClInclude Include="Core\Globals.h" />
+    <ClInclude Include="Database\Database.h" />
     <ClInclude Include="Event\ApplicationEvent.h" />
     <ClInclude Include="Event\Event.h" />
     <ClInclude Include="Event\KeyEvent.h" />
@@ -192,7 +193,6 @@
     <ClInclude Include="Module\Module.h" />
     <ClInclude Include="Module\QEDApi.h" />
     <ClInclude Include="Profiler\Instrumentor.h" />
-    <ClInclude Include="SQLite\Database.h" />
     <ClInclude Include="UI\ImGuiLayer.h" />
     <ClInclude Include="Window\CoreWindow.h" />
     <ClInclude Include="Window\GLFWWindow.h" />
@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Main.cpp" />
+    <ClCompile Include="Database\Database.cpp" />
     <ClCompile Include="Event\ApplicationEvent.cpp" />
     <ClCompile Include="Event\Event.cpp" />
     <ClCompile Include="Event\KeyEvent.cpp" />
@@ -243,7 +244,6 @@
     <ClCompile Include="Layer\LayerStack.cpp" />
     <ClCompile Include="Module\Kernel.cpp" />
     <ClCompile Include="Module\Module.cpp" />
-    <ClCompile Include="SQLite\Database.cpp" />
     <ClCompile Include="UI\ImGuiBuild.cpp" />
     <ClCompile Include="UI\ImGuiLayer.cpp" />
     <ClCompile Include="Window\GLFWWindow.cpp" />
@@ -290,6 +290,9 @@
     </ProjectReference>
     <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\ImGui\ImGui.vcxproj">
       <Project>{0BC71D75-C9D8-415A-9BBF-421E7C505D36}</Project>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\SQLite\SQLite.vcxproj">
+      <Project>{1A366C3B-705D-43A0-B09F-74ED5241B5DE}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />
