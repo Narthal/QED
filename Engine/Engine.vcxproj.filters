@@ -322,5 +322,6 @@
       <Filter>Core\Type</Filter>
     </ClCompile>
     <ClCompile Include="Core\Type\Numeric.cpp" />
+    <ClCompile Include="SQLite\Database.cpp" />
   </ItemGroup>
 </Project>

@@ -82,6 +82,7 @@ namespace QED
 
                         AdditionalIncludeDirs = new List<string>()
                         {
+                            BuildTool.GetDirectory("VendorSQLiteDirectory").DirectoryPath,
                             BuildTool.GetDirectory("VendorSPDLogDirectory").DirectoryPath + "\\" +"include",
                             BuildTool.GetDirectory("VendorGLFWDirectory").DirectoryPath + "\\" +"include",
                             BuildTool.GetDirectory("VendorGLADDirectory").DirectoryPath + "\\" + "include",

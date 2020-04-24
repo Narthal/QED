@@ -6,16 +6,15 @@ namespace QED
 {
 	namespace Engine
 	{
-		namespace SQLite
+		namespace Database
 		{
 			class Database
 			{
 			public:
-				Database();
-				~Database();
+				Database(std::string path);
+				~Database() = default;
 
 			private:
-
 			};
 		}
 	}

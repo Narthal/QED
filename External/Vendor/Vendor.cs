@@ -81,5 +81,14 @@ namespace QED
                 SubDirectory = "spdlog";
             }
         }
+
+        [RegisterPath]
+        public class VendorSQLiteDirectory : Directory
+        {
+            public VendorSQLiteDirectory()
+            {
+                SubDirectory = "SQLiteAmalgamation";
+            }
+        }
     }
 }
