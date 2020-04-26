@@ -20,7 +20,8 @@ Engine/RuntimeProfile.json
 Engine/ShutdownProfile.json
 Engine/StartupProfile.json
 
-
+## Assets database
+Assets/AssetDatabase.db
 
 
 

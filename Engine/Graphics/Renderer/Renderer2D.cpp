@@ -3,6 +3,7 @@
 
 #include "Core/Type/Reference.h"
 #include "Core/Type/Numeric.h"
+#include "IO/FileSystem/Paths.h"
 
 #include "RenderCommand.h"
 
@@ -102,7 +103,7 @@ namespace QED
 						samplers[i] = i;
 					}
 
-					renderer2DData.shader = Interface::Shaders::Shader::Create("Renderer2D.glsl");
+					renderer2DData.shader = Interface::Shaders::Shader::Create(IO::FileSystem::AssetsDirectory + "Renderer2D.glsl");
 					renderer2DData.shader->Bind();
 					renderer2DData.shader->SetIntArray("uTexture", samplers, renderer2DData.maxTextureSlots);
 

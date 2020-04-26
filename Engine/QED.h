@@ -28,6 +28,8 @@
 #include "UI/ImGuiLayer.h"
 
 
+// IO
+#include "IO/FileSystem/Paths.h"
 
 
 // Graphics

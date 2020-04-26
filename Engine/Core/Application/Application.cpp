@@ -19,7 +19,8 @@
 // UI
 #include "UI/ImGuiLayer.h"
 
-#include "Database/Database.h"
+#include "AssetManager/AssetManager.h"
+
 
 // Graphics
 #include "Graphics/Interface/Buffers/BufferLayout.h"
@@ -64,7 +65,7 @@ namespace QED
 				// Init kernel
 				kernel = new Module::Kernel;
 
-				Database::Database db("test.db");
+				Engine::AssetManager::Initialize();
 
 				QED_CORE_LOG_INFO("QED application initialization finished");
 			}

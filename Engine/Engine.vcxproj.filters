@@ -194,6 +194,8 @@
     <ClInclude Include="Database\Database.h">
       <Filter>SQLite</Filter>
     </ClInclude>
+    <ClInclude Include="IO\FileSystem\Paths.h" />
+    <ClInclude Include="AssetManager\AssetManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -323,5 +325,7 @@
     </ClCompile>
     <ClCompile Include="Core\Type\Numeric.cpp" />
     <ClCompile Include="Database\Database.cpp" />
+    <ClCompile Include="IO\FileSystem\Paths.cpp" />
+    <ClCompile Include="AssetManager\AssetManager.cpp" />
   </ItemGroup>
 </Project>

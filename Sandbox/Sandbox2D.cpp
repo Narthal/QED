@@ -17,8 +17,8 @@ namespace QED
 		{
 			QED_CLIENT_LOG_INFO("Sandbox2D layer attach");
 
-			texture1 = Engine::Graphics::Interface::Textures::Texture2D::Create("twitter.png");
-			texture2 = Engine::Graphics::Interface::Textures::Texture2D::Create("glider.png");
+			texture1 = Engine::Graphics::Interface::Textures::Texture2D::Create(Engine::IO::FileSystem::AssetsDirectory + "twitter.png");
+			texture2 = Engine::Graphics::Interface::Textures::Texture2D::Create(Engine::IO::FileSystem::AssetsDirectory + "glider.png");
 		}
 
 		void Sandbox2D::OnDetach()
