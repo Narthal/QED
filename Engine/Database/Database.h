@@ -53,6 +53,11 @@ namespace QED
 				
 				void Insert(std::string tableName, std::string value1, void* value2, int value2Size);
 
+				void GetBlobData(std::string tableName, std::string columnName, int row, void** data, int* size);
+
+			public: // Debug
+				void TraceTableRecords(std::string tableName);
+
 			private:
 				sqlite3* db = nullptr;
 				int errorCode = 0;

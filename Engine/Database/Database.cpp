@@ -11,13 +11,12 @@ namespace QED
 	{
 		namespace Database
 		{
-			static int callback(void* data, int numberOfColumns, char** fields, char** columnNames)
+			static int callback(void* data, int argc, char** argv, char** azColName)
 			{
-				for (int i = 0; i < numberOfColumns; i++)
+				for (int i = 0; i < argc; i++)
 				{
-					printf("%s = %s\n", columnNames[i], fields[i] ? fields[i] : "NULL");
+					QED_CORE_LOG_TRACE(std::string(azColName[i]) + " = " + std::string(argv[i] ? argv[i] : "NULL"));
 				}
-				printf("\n");
 				return 0;
 			}
 
@@ -27,7 +26,7 @@ namespace QED
 
 				if (errorCode)
 				{
-					QED_CORE_LOG_ERROR("Can't open database: {0}\n", sqlite3_errmsg(db));
+					QED_CORE_LOG_ERROR("Can't open database: " + std::string(sqlite3_errmsg(db)));
 				}
 				else
 				{
@@ -64,7 +63,7 @@ namespace QED
 					}
 				}
 
-				errorCode = sqlite3_exec(db, command.c_str(), callback, 0, &errorMsg);
+				errorCode = sqlite3_exec(db, command.c_str(), nullptr, nullptr, &errorMsg);
 			}
 
 			void Database::Insert(std::string tableName, std::string value1, void* value2, int value2Size)
@@ -83,6 +82,31 @@ namespace QED
 				errorCode = sqlite3_step(compiledStatement);
 
 				errorCode = sqlite3_finalize(compiledStatement);
+			}
+
+			void Database::GetBlobData(std::string tableName, std::string columnName, int row, void** data, int* size)
+			{
+				sqlite3_blob* blob;
+				sqlite3_blob_open(db, "main", tableName.c_str(), columnName.c_str(), row, 0, &blob);
+				int blobSize = sqlite3_blob_bytes(blob);
+
+				void* blobData = malloc(blobSize);
+
+				sqlite3_blob_read(blob, blobData, blobSize, 0);
+
+				sqlite3_blob_close(blob);
+
+				*size = blobSize;
+				*data = blobData;
+			}
+
+			void Database::TraceTableRecords(std::string tableName)
+			{
+				std::string command;
+
+				command += "SELECT * from " + tableName;
+
+				errorCode = sqlite3_exec(db, command.c_str(), callback, nullptr, &errorMsg);
 			}
 		}
 	}

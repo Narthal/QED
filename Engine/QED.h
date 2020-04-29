@@ -21,6 +21,9 @@
 #include "Input/CoreInput.h"
 #include "Input/Keycodes.h"
 
+// Asset
+#include "Asset/AssetManagerInterface.h"
+
 //TODO: remove
 #include "Event/ApplicationEvent.h"
 #include "UI/ImGuiLayer.h"

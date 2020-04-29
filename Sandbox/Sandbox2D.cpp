@@ -17,7 +17,16 @@ namespace QED
 		{
 			QED_CLIENT_LOG_INFO("Sandbox2D layer attach");
 
-			texture1 = Engine::Graphics::Interface::Textures::Texture2D::Create(Engine::IO::FileSystem::AssetsDirectory + "twitter.png");
+			Interface::Asset::AssetManager assetManager = Interface::Asset::AssetManager::GetAssetManagerInstance();
+			int size = 0;
+			void* data = nullptr;
+
+			data = assetManager.GetImageData(1, &size);
+
+			texture1 = Engine::Graphics::Interface::Textures::Texture2D::Create(400, 400);
+			texture1->SetData(data, size);
+
+			//texture1 = Engine::Graphics::Interface::Textures::Texture2D::Create(Engine::IO::FileSystem::AssetsDirectory + "twitter.png");
 			texture2 = Engine::Graphics::Interface::Textures::Texture2D::Create(Engine::IO::FileSystem::AssetsDirectory + "glider.png");
 		}
 
