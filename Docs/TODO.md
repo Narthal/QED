@@ -1,9 +1,12 @@
 # TODO
 
 ## TODO Today
-- [ ] abstract away glm types
-- [ ] create basic sqlite handlers 
-- [ ] load textures from sqlite
+- [ ] remove pybind11 from dependancies
+- [ ] add cpython to dependancies
+- [ ] build python
+- [ ] add glad as dependancy
+- [ ] run glad from local python
+- [ ] replace & remove current glad files
 
 ## Priority list
 - [ ] create conductor
