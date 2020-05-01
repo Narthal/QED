@@ -86,7 +86,7 @@ namespace QED
                             BuildTool.GetDirectory("VendorSQLiteDirectory").DirectoryPath,
                             BuildTool.GetDirectory("VendorSPDLogDirectory").DirectoryPath + "\\" +"include",
                             BuildTool.GetDirectory("VendorGLFWDirectory").DirectoryPath + "\\" +"include",
-                            BuildTool.GetDirectory("VendorGLADDirectory").DirectoryPath + "\\" + "include",
+                            BuildTool.GetDirectory("GLADCodeGenDirectory").DirectoryPath + "\\" + "include",
                             BuildTool.GetDirectory("VendorImGuiDirectory").DirectoryPath,
                             BuildTool.GetDirectory("CommonDirectory").DirectoryPath,
                             BuildTool.GetDirectory("VendorGLMDirectory").DirectoryPath,

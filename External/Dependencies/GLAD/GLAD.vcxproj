@@ -49,7 +49,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLAD\CodeGen\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <SDLCheck>false</SDLCheck>
@@ -63,7 +63,7 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLAD\buildGLAD.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -72,7 +72,7 @@
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLAD\CodeGen\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <SDLCheck>false</SDLCheck>
@@ -86,14 +86,15 @@
       <Command />
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command />
+      <Command>C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\GLAD\buildGLAD.bat</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Vendor\GLAD\include\glad\glad.h" />
+    <ClInclude Include="CodeGen\include\glad\glad.h" />
+    <ClInclude Include="CodeGen\include\KHR\khrplatform.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Vendor\GLAD\src\glad.c" />
+    <ClCompile Include="CodeGen\src\glad.c" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Targets" />

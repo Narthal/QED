@@ -31,12 +31,6 @@ namespace QED
             public VendorGLADDirectory()
             {
                 SubDirectory = "GLAD";
-
-                FileGroup sources = new FileGroup(this, "GLADSrc");
-                sources.AddFiles("GLAD\\*.c", true);
-
-                FileGroup headers = new FileGroup(this, "GLADHead");
-                headers.AddFiles("GLAD\\*.h", true, "khrplatform.h");
             }
         }
 

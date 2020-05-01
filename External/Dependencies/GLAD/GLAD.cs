@@ -17,6 +17,21 @@ namespace QED
         }
 
         [RegisterPath]
+        public class GLADCodeGenDirectory : Directory
+        {
+            public GLADCodeGenDirectory()
+            {
+                SubDirectory = "CodeGen";
+
+                FileGroup sources = new FileGroup(this, "GLADSrc");
+                sources.AddFiles("CodeGen\\*.c", true);
+
+                FileGroup headers = new FileGroup(this, "GLADHead");
+                headers.AddFiles("CodeGen\\*.h", true, "khrplatform.h");
+            }
+        }
+
+        [RegisterPath]
         [RegisterProject]
         public class GLAD : Project
         {
@@ -56,7 +71,9 @@ namespace QED
                         // Configuration
                         EnableOptimizations = false,
                         UseDebugStdLibrary = false,
-                        AdditionalIncludeDirs = new List<string>() { BuildTool.GetDirectory("VendorGLADDirectory").DirectoryPath + "\\" + "include" },
+                        AdditionalIncludeDirs = new List<string>() { BuildTool.GetDirectory("GLADCodeGenDirectory").DirectoryPath + "\\" + "include" },
+
+                        PreBuildCommand = BuildTool.GetDirectory("GLADDirectory").DirectoryPath + "\\" + "buildGLAD.bat"
                     },
 
                     // Release
@@ -71,7 +88,9 @@ namespace QED
                         // Configuration
                         EnableOptimizations = true,
                         UseDebugStdLibrary = false,
-                        AdditionalIncludeDirs = new List<string>() { BuildTool.GetDirectory("VendorGLADDirectory").DirectoryPath + "\\" + "include" },
+                        AdditionalIncludeDirs = new List<string>() { BuildTool.GetDirectory("GLADCodeGenDirectory").DirectoryPath + "\\" + "include" },
+
+                        PreBuildCommand = BuildTool.GetDirectory("GLADDirectory").DirectoryPath + "\\" + "buildGLAD.bat"
                     }
                 };
             }
