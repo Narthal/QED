@@ -18,5 +18,5 @@
 	path = External/Vendor/spdlog
 	url = https://github.com/gabime/spdlog
 [submodule "External//Vendor//cpython"]
-	path = External//Vendor//cpython
+	path = External/Vendor/cpython
 	url = https://github.com/python/cpython
