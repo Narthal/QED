@@ -20,3 +20,6 @@
 [submodule "External//Vendor//cpython"]
 	path = External/Vendor/cpython
 	url = https://github.com/python/cpython
+[submodule "External\\Vendor\\GLAD"]
+	path = External\\Vendor\\GLAD
+	url = https://github.com/Dav1dde/glad
