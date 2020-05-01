@@ -52,6 +52,7 @@
 - [ ] [c#] ConfigTool as dll
 
 ## General
+- [ ] build : copy lib directory from cpython to build/python
 - [ ] utility : abort function
 - [ ] utility : stack trace (through return macro)
 - [ ] rename : coreinput to input
