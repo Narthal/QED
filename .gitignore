@@ -20,6 +20,9 @@ Engine/RuntimeProfile.json
 Engine/ShutdownProfile.json
 Engine/StartupProfile.json
 
+## GLAD generated files
+External/Dependencies/GLAD/codeGen/*.*
+
 ## Assets database
 Assets/AssetDatabase.db
 
