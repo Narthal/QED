@@ -17,9 +17,9 @@
 [submodule "External/Vendor/spdlog"]
 	path = External/Vendor/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "External//Vendor//cpython"]
+[submodule "External/Vendor/cpython"]
 	path = External/Vendor/cpython
 	url = https://github.com/python/cpython
-[submodule "External\\Vendor\\GLAD"]
-	path = External\\Vendor\\GLAD
+[submodule "External/Vendor/GLAD"]
+	path = External/Vendor/GLAD
 	url = https://github.com/Dav1dde/glad
