@@ -1,12 +1,7 @@
 # TODO
 
 ## TODO Today
-- [ ] remove pybind11 from dependancies
-- [ ] add cpython to dependancies
-- [ ] build python
-- [ ] add glad as dependancy
-- [ ] run glad from local python
-- [ ] replace & remove current glad files
+- [ ] write conductor prototype in python 
 
 ## Priority list
 - [ ] create conductor
