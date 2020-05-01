@@ -10,11 +10,13 @@ namespace QED
 	{
 		Sandbox2D::Sandbox2D() : Engine::Layer::Layer("Sandbox2D"), cameraController(1280.0f / 720.0f, true)
 		{
-			
+			QED_PROFILE_FUNCTION();
 		}
 
 		void Sandbox2D::OnAttach()
 		{
+			QED_PROFILE_FUNCTION();
+
 			QED_CLIENT_LOG_INFO("Sandbox2D layer attach");
 
 			Interface::Asset::AssetManager assetManager = Interface::Asset::AssetManager::GetAssetManagerInstance();
@@ -32,6 +34,7 @@ namespace QED
 
 		void Sandbox2D::OnDetach()
 		{
+			QED_PROFILE_FUNCTION();
 		}
 
 		void Sandbox2D::OnUpdate(Engine::Core::Time::TimeStep timeStep)

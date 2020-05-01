@@ -3,7 +3,9 @@
 
 #include "Core/Log/Log.h"
 
-#include "sqlite3.h"
+#include <sqlite3.h>
+
+#include "Profiler/Instrumentor.h"
 
 namespace QED
 {
@@ -22,6 +24,10 @@ namespace QED
 
 			Database::Database(std::string path)
 			{
+				QED_PROFILE_FUNCTION();
+
+				sqlite3_config(SQLITE_CONFIG_MMAP_SIZE, 104857600, 1048576000);
+
 				errorCode = sqlite3_open(path.c_str(), &db);
 
 				if (errorCode)
@@ -36,11 +42,15 @@ namespace QED
 
 			Database::~Database()
 			{
+				QED_PROFILE_FUNCTION();
+
 				sqlite3_close(db);
 			}
 
 			void Database::CreateTable(std::string tableName, std::vector<Column> columns)
 			{
+				QED_PROFILE_FUNCTION();
+
 				std::string command;
 
 				command += "CREATE TABLE " + tableName + "(";
@@ -68,6 +78,8 @@ namespace QED
 
 			void Database::Insert(std::string tableName, std::string value1, void* value2, int value2Size)
 			{
+				QED_PROFILE_FUNCTION();
+
 				sqlite3_stmt* compiledStatement;
 				std::string command;
 
@@ -86,6 +98,8 @@ namespace QED
 
 			void Database::GetBlobData(std::string tableName, std::string columnName, int row, void** data, int* size)
 			{
+				QED_PROFILE_FUNCTION();
+
 				sqlite3_blob* blob;
 				sqlite3_blob_open(db, "main", tableName.c_str(), columnName.c_str(), row, 0, &blob);
 				int blobSize = sqlite3_blob_bytes(blob);
@@ -102,6 +116,8 @@ namespace QED
 
 			void Database::TraceTableRecords(std::string tableName)
 			{
+				QED_PROFILE_FUNCTION();
+
 				std::string command;
 
 				command += "SELECT * from " + tableName;
