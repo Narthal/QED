@@ -1,10 +1,14 @@
 # TODO
 
 ## TODO Today
-- [ ] write conductor prototype in python 
-
+- [ ] write conductor prototype in python
+- [ ] arg handler in conductor
+- [ ] run dynamic python script collection
+- [ ] build lst of paths
+- [ ] build database of paths
 ## Priority list
 - [ ] create conductor
+- [ ] c++ insert code in function begin
 - [ ] change buildtool to a dll and connect it with conductor
 - [ ] replace directory specifier .cs files with .csx scripts, implement script runner
 - [ ] create .filters generator
