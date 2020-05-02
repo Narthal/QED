@@ -10,7 +10,7 @@
 ## Priority list
 - [ ] create conductor in python
 - [ ] rewrite BuildTool in python & connect it to conductor
-- [ ] write bootstrap scripts
+- [ ] write bootstrap scripts (set pythonhome)
 - [ ] create simple assetPipelineTool & connect it to conductor
 
 - [ ] c++ insert code in function begin
@@ -50,7 +50,6 @@
 - [ ] [py] ConfigTool as dll
 
 ## General
-- [ ] build : copy lib directory from cpython to build/python
 - [ ] utility : abort function
 - [ ] utility : stack trace (through return macro)
 - [ ] rename : coreinput to input
