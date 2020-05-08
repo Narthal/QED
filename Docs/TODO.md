@@ -3,6 +3,8 @@
 ## TODO Today
 - [ ] basic python embeding
 
+- [ ] environmental variable option, work dir option for buildTool
+
 - [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
 
 - [ ] write conductor prototype in python
