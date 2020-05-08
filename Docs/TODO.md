@@ -1,26 +1,33 @@
 # TODO
 
 ## TODO Today
-- [ ] write conductor prototype in python 
+- [ ] basic python embeding
+
+- [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
+
+- [ ] write conductor prototype in python
+- [ ] arg handler in conductor
+- [ ] run dynamic python script collection
+- [ ] build lst of paths
+- [ ] build database of paths
 
 ## Priority list
-- [ ] create conductor
-- [ ] change buildtool to a dll and connect it with conductor
-- [ ] replace directory specifier .cs files with .csx scripts, implement script runner
+- [ ] create conductor in python
+- [ ] rewrite BuildTool in python & connect it to conductor
+- [ ] write bootstrap scripts (set pythonhome)
+- [ ] create simple assetPipelineTool & connect it to conductor
+
+- [ ] c++ insert code in function begin
+
 - [ ] create .filters generator
 - [ ] write virtual directory support for solutions
-- [ ] create simple assetPipelineTool
+
 - [ ] rewrite logger, remove spdlog as dependancy
 - [ ] rewrite profiler
 - [ ] connect logger & profiler to sqlite
 - [ ] custom allocator
 
 ## Goal dependancies
-- create conductor
-  - change buildtool to a dll and connect it with conductor
-  -  replace directory specifier .cs files with .csx scripts, implement script runner
-    - create .filters generator
-    - write virtual directory support for solutions
 - render to frame buffer object (FBO)
   - Render FBO in imgui viewport
     - Set up imgui dockspace
@@ -39,23 +46,22 @@
 - [x] [c++] Engine as exe & static lib
 - [x] [c++] Client (sandbox) as dynamic lib
 - [ ] [c++] Client (game core) as dynamic lib
-- [ ] [c++] Common as static lib
-- [ ] [c#] AssetPipelineTool as dynamic lib
-- [ ] [c#] BuildTool as dynamic lib
-- [ ] [c#] ConductorTool as exe
-- [ ] [c#] ReflectionTool as dll
-- [ ] [c#] ConfigTool as dll
+- [ ] [c++] Common files
+- [ ] [py] AssetPipelineTool as dynamic lib
+- [ ] [py] BuildTool as dynamic lib
+- [ ] [py] ConductorTool as exe
+- [ ] [py] ReflectionTool as dll
+- [ ] [py] ConfigTool as dll
 
 ## General
-- [ ] build : copy lib directory from cpython to build/python
 - [ ] utility : abort function
 - [ ] utility : stack trace (through return macro)
 - [ ] rename : coreinput to input
 - [ ] rework : rework layer and moduleInterface relation (new module interface for it, new push layer / overlay function exposition)
 - [ ] maintenace : find out wtf is wrong with includeing globals and registry in QED.h
-- [ ] maintenace : custom math types decl in Types.h, set imgui math tipes to use new types
+- [ ] maintenace : set imgui math tipes to use new math types
 - [ ] maintenace : corewindow create function similar to rendererAPI
-- [ ] maintenance : fixupe #include <instrumentor> to "instrumentor"
+- [ ] maintenance : fixup #include <instrumentor> to "instrumentor"
 - [ ] profiler : rewrite with log (collectors and sinks, writers)
 - [ ] QOL : make quadProperties struct and move most of the drawQuad args to there
 - [ ] maintenace : rewrite drawQuad function to be a templated function reducing overloads
@@ -80,7 +86,7 @@
 - [ ] Interface code generator
 
 ## Visual goals
-- [ ] autotiles
+- [ ] tiles
 - [ ] 2d shadow casting
 - [ ] normal mapping
 - [ ] 2d textured lights
