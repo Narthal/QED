@@ -84,5 +84,14 @@ namespace QED
                 SubDirectory = "SQLiteAmalgamation";
             }
         }
+
+        [RegisterPath]
+        public class VendorCPythonDirectory : Directory
+        {
+            public VendorCPythonDirectory()
+            {
+                SubDirectory = "cpython";
+            }
+        }
     }
 }

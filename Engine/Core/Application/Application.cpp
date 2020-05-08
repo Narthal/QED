@@ -19,6 +19,7 @@
 // UI
 #include "UI/ImGuiLayer.h"
 
+#include "Script/Runtime.h"
 
 // Graphics
 #include "Graphics/Interface/Buffers/BufferLayout.h"
@@ -62,6 +63,8 @@ namespace QED
 
 				// Init kernel
 				kernel = new Module::Kernel;
+
+				Script::Runtime runtime;
 
 				QED_CORE_LOG_INFO("QED application initialization finished");
 			}

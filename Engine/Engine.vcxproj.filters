@@ -108,7 +108,6 @@
     <ClInclude Include="PCH\EnginePCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="QED.h" />
     <ClInclude Include="UI\ImGuiLayer.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -195,10 +194,10 @@
       <Filter>SQLite</Filter>
     </ClInclude>
     <ClInclude Include="IO\FileSystem\Paths.h" />
-    <ClInclude Include="AssetManager\AssetManager.h" />
-    <ClInclude Include="AssetManager\AssetManagerInterface.h" />
     <ClInclude Include="Asset\AssetManager.h" />
     <ClInclude Include="Asset\AssetManagerInterface.h" />
+    <ClInclude Include="Script\Runtime.h" />
+    <ClInclude Include="Engine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Application\Application.cpp">
@@ -329,8 +328,8 @@
     <ClCompile Include="Core\Type\Numeric.cpp" />
     <ClCompile Include="Database\Database.cpp" />
     <ClCompile Include="IO\FileSystem\Paths.cpp" />
-    <ClCompile Include="AssetManager\AssetManager.cpp" />
     <ClCompile Include="Asset\AssetManager.cpp" />
     <ClCompile Include="Asset\AssetManagerInterface.cpp" />
+    <ClCompile Include="Script\Runtime.cpp" />
   </ItemGroup>
 </Project>

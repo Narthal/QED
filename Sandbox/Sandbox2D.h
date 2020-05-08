@@ -1,7 +1,7 @@
 #ifndef SANDBOX_2D_H
 #define SANDBOX_2D_H
 
-#include "QED.h"
+#include "Engine.h"
 
 namespace QED
 {
