@@ -1,6 +1,8 @@
 # TODO
 
 ## TODO Today
+- [ ] basic python embeding
+
 - [ ] write conductor prototype in python
 - [ ] arg handler in conductor
 - [ ] run dynamic python script collection
