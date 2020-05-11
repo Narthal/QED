@@ -22,8 +22,6 @@ namespace QED
 				PyObject* func;		// Main function to call in file
 				PyObject* args;		// Args to pass to main function
 				PyObject* value;	// Return value of main function
-				
-				int i;
 
 				// Initialize
 				size_t pythonHomeLocaleString;
@@ -31,6 +29,8 @@ namespace QED
 				Py_Initialize();
 				name = PyUnicode_DecodeFSDefault(scriptName.c_str());
 				// TODO: error check name
+
+				
 
 				// Load module
 				module = PyImport_Import(name);
@@ -44,7 +44,7 @@ namespace QED
 					if (func && PyCallable_Check(func))
 					{
 						args = PyTuple_New(2);
-						for (i = 0; i < funcArgs.size(); ++i)
+						for (int i = 0; i < funcArgs.size(); ++i)
 						{
 							value = PyLong_FromLong(funcArgs[i]);
 							if (!value)

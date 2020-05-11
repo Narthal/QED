@@ -332,4 +332,7 @@
     <ClCompile Include="Asset\AssetManagerInterface.cpp" />
     <ClCompile Include="Script\Runtime.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Build\Engine\multiply.py" />
+  </ItemGroup>
 </Project>
