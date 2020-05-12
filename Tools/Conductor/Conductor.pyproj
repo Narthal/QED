@@ -16,7 +16,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-o abcd --ifile=asdf</CommandLineArguments>
+    <CommandLineArguments>-h -i someFile.txt -o</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +28,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Conductor.py" />
+    <Compile Include="OptionToken.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TokenDefinitions.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|VisualStudio|QEDPython" />
