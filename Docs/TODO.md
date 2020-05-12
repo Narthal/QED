@@ -1,10 +1,6 @@
 # TODO
 
 ## TODO Today
-- [ ] basic python embeding
-
-- [ ] environmental variable option, work dir option for buildTool
-
 - [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
 
 - [ ] write conductor prototype in python
@@ -75,6 +71,7 @@
 - [ ] rewrite : replace uint32 to int32 in setInt and setIntArray
 - [ ] feature : render queue to sort all draw calls by z order, draw back to front so alpha blending works
 - [ ] rewrite renderer to give it some purpose
+- [ ] buildTool : environmental variable option, work dir option for buildTool
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
