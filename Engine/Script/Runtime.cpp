@@ -12,7 +12,7 @@ namespace QED
 		{
 			Runtime::Runtime()
 			{
-				std::string pythonHome = "C:\\Users\\balas\\source\\GitHubRepos\\QED\\External\\Vendor\\cpython";
+				//std::string pythonHome = "C:\\Users\\balas\\source\\GitHubRepos\\QED\\External\\Vendor\\cpython";
 				std::string scriptName = "multiply";
 				std::string mainFunctionName = "multiply";
 				std::vector<int> funcArgs = { 2, 3 };
@@ -24,8 +24,8 @@ namespace QED
 				PyObject* value;	// Return value of main function
 
 				// Initialize
-				size_t pythonHomeLocaleString;
-				Py_SetPythonHome(Py_DecodeLocale(pythonHome.c_str(), &pythonHomeLocaleString));
+				//size_t pythonHomeLocaleString;
+				//Py_SetPythonHome(Py_DecodeLocale(pythonHome.c_str(), &pythonHomeLocaleString));
 				Py_Initialize();
 				name = PyUnicode_DecodeFSDefault(scriptName.c_str());
 				// TODO: error check name
