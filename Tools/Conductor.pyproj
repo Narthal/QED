@@ -17,6 +17,7 @@
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <CommandLineArguments>-h -i someFile.txt -o</CommandLineArguments>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,16 +28,31 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Conductor.py" />
-    <Compile Include="OptionToken.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TokenDefinitions.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <InterpreterReference Include="Global|VisualStudio|QEDPython" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|QEDPython" />
+    <Folder Include="Conductor\" />
+    <Folder Include="ExternalScript\" />
+    <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conductor.py" />
+    <Compile Include="Conductor\OptionToken.py" />
+    <Compile Include="Conductor\TokenDefinitions.py" />
+    <Compile Include="Conductor\__init__.py" />
+    <Compile Include="Database\Database.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Database\RegisterDatabase.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Database\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExternalScript\BuildScriptAttributes.py" />
+    <Compile Include="ExternalScript\ExternalScript.py" />
+    <Compile Include="ExternalScript\ExternalScriptRunner.py" />
+    <Compile Include="ExternalScript\__init__.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -1,6 +1,6 @@
 # Define option tokens here
 
-from OptionToken import OptionToken
+from Conductor.OptionToken import OptionToken
 
 optionTokens = []
 

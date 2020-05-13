@@ -6,8 +6,10 @@ import getopt                   # Option handling
 from inspect import signature   # Function arg count
 
 # Tokens
-from TokenDefinitions import optionTokens
-from OptionToken import OptionToken
+from Conductor.TokenDefinitions import optionTokens
+from Conductor.OptionToken import OptionToken
+
+import ExternalScript.ExternalScriptRunner as ExternalScriptRunner
 
 def UnidentifiedOptionError():
     print("Unidentified option")
@@ -41,6 +43,12 @@ def main(argv):
                 # Call token function and pass arg to it, if it defines a function argument
                 if (len(signature(token.tokenFunc).parameters) == 0): token.tokenFunc()
                 else: token.tokenFunc(arg)
+
+    ExternalScriptRunner.GetRootDir()
+    ExternalScriptRunner.BuildScriptCollection()
+    ExternalScriptRunner.CallRegistrationFunctions()
+
+    print("")
 
 # Call main if this script is called
 if __name__ == "__main__":

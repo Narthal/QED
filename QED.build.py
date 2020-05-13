@@ -1,0 +1,4 @@
+
+
+rootDir = True
+searchDirs = ["Database"]
