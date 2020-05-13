@@ -3,8 +3,6 @@
 ## TODO Today
 - [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
 
-- [ ] write conductor prototype in python
-- [ ] arg handler in conductor
 - [ ] run dynamic python script collection
 - [ ] build lst of paths
 - [ ] build database of paths
