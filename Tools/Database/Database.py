@@ -1,13 +1,14 @@
 
 import sqlite3
 import os
+from pathlib import Path
 
 class Database:
 	# Ctor
 	def __init__(self, path):
 		# Set member variables
 		self.path = path
-
+		self.name = path.stem
 		# Create connection
 		self.connection = sqlite3.connect(path)
 		self.cursor = self.connection.cursor()
@@ -39,6 +40,9 @@ class Database:
 
 	# Add a row in a table
 	def AddRow(self, tableName, **kwargs):
+		# Log
+		print("Adding new row to table : " + tableName)
+
 		# Create command buffer
 		sqlCommand = ""
 		sqlCommandPlaceholders = ""
@@ -70,4 +74,28 @@ class Database:
 		sqlParams = tuple(argValues)
 
 		# Execute command with params
-		self.cursor.execute(sqlCommand, sqlParams)
+		try:
+			self.cursor.execute(sqlCommand, sqlParams)
+		except Exception as e:
+			print("SQL command failed : " + sqlCommand)
+			print("With parameters : " + str(argValues))
+			print(e)
+
+def DeleteRow(self, tableName, columnName, value):
+	# 'DELETE FROM tasks WHERE id=?'
+	# Log
+	print("Deleting row in table : " + tableName)
+
+	# Create command buffer
+	sqlCommand = ""
+
+	# Delete from table
+	sqlCommand += "DELETE FROM " + tableName + " WHERE " + columnName + "=?"
+
+	# Execute command with params
+	try:
+		self.cursor.execute(sqlCommand, value)
+	except Exception as e:
+		print("SQL command failed : " + sqlCommand)
+		print("With parameters : " + str(value))
+		print(e)

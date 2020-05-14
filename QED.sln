@@ -14,10 +14,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "C:\Users\balas\s
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SQLite", "C:\Users\balas\source\GitHubRepos\QED\External\Dependencies\SQLite\SQLite.vcxproj", "{1A366C3B-705D-43A0-B09F-74ED5241B5DE}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Conductor", "Tools\Conductor\Conductor.pyproj", "{0D46DDB8-8CFE-4DFC-A2C7-D496DC528B91}"
-EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PathFinder", "PathFinder\PathFinder.pyproj", "{7EA3B26F-B8BF-4A92-91C1-9FAD8E7232C8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,14 +58,6 @@ Global
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|Any CPU.ActiveCfg = Release|x64
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|x64.ActiveCfg = Release|x64
 		{1A366C3B-705D-43A0-B09F-74ED5241B5DE}.Release|x64.Build.0 = Release|x64
-		{0D46DDB8-8CFE-4DFC-A2C7-D496DC528B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D46DDB8-8CFE-4DFC-A2C7-D496DC528B91}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0D46DDB8-8CFE-4DFC-A2C7-D496DC528B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D46DDB8-8CFE-4DFC-A2C7-D496DC528B91}.Release|x64.ActiveCfg = Release|Any CPU
-		{7EA3B26F-B8BF-4A92-91C1-9FAD8E7232C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EA3B26F-B8BF-4A92-91C1-9FAD8E7232C8}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7EA3B26F-B8BF-4A92-91C1-9FAD8E7232C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EA3B26F-B8BF-4A92-91C1-9FAD8E7232C8}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

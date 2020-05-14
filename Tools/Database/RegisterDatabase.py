@@ -2,13 +2,21 @@
 from pathlib import Path
 
 from Database import Database
-from ExternalScript import ExternalScriptRunner
 
-def Register(path):
+databaseCollection = []
+databaseTags = []
+
+def Register(path, tags = ""):
 	# Connect to db
 	db = Database.Database(path)
 
-	# Get relative path of db
-	relPath = Path(path).relative_to(ExternalScriptRunner.rootPath)
-	db.AddRow("pathCollection", path = relPath, type = 1, generated = 1, tags = "Tools Engine")
-	db.Commit()
+	# Add to databases
+	databaseCollection.append(db)
+
+	# Add tags to databaseTags, these will be used when recording this database instance in registry
+	databaseTags.append(tags)
+
+def GetDatabase(dbName):
+	for database in databaseCollection:
+		if (database.name == dbName):
+			return database

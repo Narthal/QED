@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS pathCollection
 (
 	ID INTEGER PRIMARY KEY NOT NULL,
-	path TEXT,
+	path TEXT NOT NULL UNIQUE,
 	type NUMERIC,
 	generated NUMERIC,
 	tags TEXT

@@ -46,6 +46,9 @@
     <Compile Include="Database\RegisterDatabase.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Database\RegisterPaths.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Database\__init__.py">
       <SubType>Code</SubType>
     </Compile>

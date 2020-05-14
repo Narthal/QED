@@ -46,7 +46,8 @@ def main(argv):
 
     ExternalScriptRunner.GetRootDir()
     ExternalScriptRunner.BuildScriptCollection()
-    ExternalScriptRunner.CallRegistrationFunctions()
+    ExternalScriptRunner.RegisterDatabases()
+    ExternalScriptRunner.RegisterPaths()
 
     print("")
 
