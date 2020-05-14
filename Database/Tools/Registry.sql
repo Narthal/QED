@@ -1,5 +1,8 @@
-CREATE TABLE IF NOT EXISTS PathCollection
+CREATE TABLE IF NOT EXISTS pathCollection
 (
 	ID INTEGER PRIMARY KEY NOT NULL,
-	path TEXT
+	path TEXT,
+	type NUMERIC,
+	generated NUMERIC,
+	tags TEXT
 );
