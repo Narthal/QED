@@ -9,11 +9,12 @@ import ExternalScript.BuildScriptAttributes as BuildScriptAttributes
 rootPath = Path()
 scriptCollection = []
 
-# 1 Get root dir
+# 1 Get root script
 # 2 Compile and run all scripts from root, collect them to a list
 # 3 Call Registration functions from collection
-	# 1 Get handle database registrations
-	# 2 Populate databases by handling other registration functions
+	# 1 Handle Registry database function
+	# 2 Dump dirs / files created thus far
+	# 3 Add search dirs to registry
 
 
 def GetRootDir():
@@ -62,4 +63,4 @@ def CallRegistrationFunctions():
 	for script in scriptCollection:
 		success, attribute = script.GetAttribute(BuildScriptAttributes.registerDatabase)
 		if (success):
-			attribute()
+			attribute(script.path)

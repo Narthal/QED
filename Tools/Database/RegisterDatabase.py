@@ -1,5 +1,5 @@
 
-
+from Database import Database
 
 def Register(path):
-	print(path)
+	db = Database.Database(path)

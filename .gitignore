@@ -26,6 +26,9 @@ External/Dependencies/GLAD/codeGen/**
 ## Assets database
 Assets/AssetDatabase.db
 
+## Database files in Database dir
+Database/**/*.db
+
 
 
 
