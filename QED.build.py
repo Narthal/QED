@@ -8,5 +8,6 @@ searchDirs = ["Database"]
 def RegisterPaths(path):
 	# Get dir path from this script path
 	path = path.parent
-	# Register database
-	RegisterP.Register(path, "QED.sln", "Engine")
+	
+	# Register directories
+	RegisterP.RegisterDirectory(path.joinpath("Engine"), "EngineDir")

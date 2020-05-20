@@ -5,7 +5,7 @@ from pathlib import Path
 import ExternalScript.ExternalScriptRunner as scriptRunner
 from Database.RegisterDatabase import databaseCollection, GetDatabase
 
-def Register(dirPath, pathGlob, tags):
+def RegisterPaths(dirPath, pathGlob, tags):
 	# Get registry
 	registryDB = GetDatabase("Registry")
 	
@@ -18,5 +18,17 @@ def Register(dirPath, pathGlob, tags):
 
 		# If Registry doesn't contain this path, add it to Registry
 		registryDB.AddRow("pathCollection", path = relPath, type = 1, generated = 0, tags = tags)
+
+	registryDB.Commit()
+
+def RegisterDirectory(dirPath, tags):
+	# Get registry
+	registryDB = GetDatabase("Registry")
+
+	# Get relative path of db
+	relPath = dirPath.relative_to(scriptRunner.rootPath)
+
+	# If Registry doesn't contain this path, add it to Registry
+	registryDB.AddRow("pathCollection", path = relPath, type = 0, generated = 0, tags = tags)
 
 	registryDB.Commit()
