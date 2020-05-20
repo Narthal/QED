@@ -71,7 +71,7 @@ def RegisterDatabases():
 	for script in scriptCollection:
 		success, attribute = script.GetAttribute(BuildScriptAttributes.registerDatabase)
 		if (success):
-			attribute(script.path)
+			attribute()
 
 	# Get registry db
 	registryDB = GetDatabase("Registry")
@@ -93,4 +93,4 @@ def RegisterPaths():
 	for script in scriptCollection:
 		success, attribute = script.GetAttribute(BuildScriptAttributes.registerPaths)
 		if (success):
-			attribute(script.path)
+			attribute()

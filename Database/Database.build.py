@@ -1,8 +1,8 @@
 
 import Database.RegisterDatabase as RegisterDB
 
-def RegisterDatabase(path):
+def RegisterDatabase():
 	# Get dir path from this script path
-	path = path.parent
+	parentPath = path.parent
 	# Register database
-	RegisterDB.Register(path.joinpath("Tools/Registry.db"), "")
+	RegisterDB.Register(parentPath.joinpath("Tools/Registry.db"), "")

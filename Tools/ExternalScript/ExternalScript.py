@@ -7,8 +7,13 @@ class Script:
 		self.path = path
 		self.code = {}
 
-		# Compile and execute code
+		# Compile code
 		compiledCode = compile(open(path).read(), path, 'exec')
+
+		# Add variables to compiled code
+		self.code["path"] = self.path
+
+		# Execute code
 		exec(compiledCode, self.code)
 
 		# Log
@@ -30,6 +35,7 @@ class Script:
 
 		return success, value
 
+	# Search for attributes
 	def SearchForAttributes(self, matchString, filterCallable = 0):
 		attributes = []
 		for attribute in self.code:
