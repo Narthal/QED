@@ -34,6 +34,7 @@
     <Folder Include="Conductor\" />
     <Folder Include="ExternalScript\" />
     <Folder Include="Database\" />
+    <Folder Include="Registration\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conductor.py" />
@@ -43,10 +44,10 @@
     <Compile Include="Database\Database.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database\RegisterDatabase.py">
+    <Compile Include="Registration\RegisterDatabase.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database\RegisterPaths.py">
+    <Compile Include="Registration\RegisterPaths.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Database\__init__.py">
@@ -56,6 +57,9 @@
     <Compile Include="ExternalScript\ExternalScript.py" />
     <Compile Include="ExternalScript\ExternalScriptRunner.py" />
     <Compile Include="ExternalScript\__init__.py" />
+    <Compile Include="Registration\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

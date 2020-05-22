@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 import ExternalScript.ExternalScriptRunner as scriptRunner
-from Database.RegisterDatabase import databaseCollection, GetDatabase
+from Registration.RegisterDatabase import databaseCollection, GetDatabase
 
 registeredFiles = 0
 registeredDirs = 0

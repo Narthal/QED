@@ -5,8 +5,8 @@ from pathlib import Path
 from ExternalScript.ExternalScript import Script
 import ExternalScript.BuildScriptAttributes as BuildScriptAttributes
 
-from Database.RegisterDatabase import databaseCollection, databaseTags, GetDatabase
-import Database.RegisterPaths as RPath
+from Registration.RegisterDatabase import databaseCollection, databaseTags, GetDatabase
+import Registration.RegisterPaths as RPath
 
 rootPath = Path()
 scriptCollection = []

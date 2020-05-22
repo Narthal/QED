@@ -1,5 +1,5 @@
 
-import Database.RegisterDatabase as RegisterDB
+import Registration.RegisterDatabase as RegisterDB
 
 def RegisterDatabase():
 	# Get dir path from this script path

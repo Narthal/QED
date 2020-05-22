@@ -2,7 +2,7 @@
 
 import os
 
-import Database.RegisterPaths as RegisterP
+import Registration.RegisterPaths as RegisterP
 
 # Get dir path from this script path
 parentPath = path.parent

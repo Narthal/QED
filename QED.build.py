@@ -2,7 +2,7 @@
 
 import os
 
-import Database.RegisterPaths as RegisterP
+import Registration.RegisterPaths as RegisterP
 
 
 
