@@ -6,6 +6,7 @@ from ExternalScript.ExternalScript import Script
 import ExternalScript.BuildScriptAttributes as BuildScriptAttributes
 
 from Database.RegisterDatabase import databaseCollection, databaseTags, GetDatabase
+import Database.RegisterPaths as RPath
 
 rootPath = Path()
 scriptCollection = []
@@ -94,3 +95,5 @@ def RegisterPaths():
 		success, attribute = script.GetAttribute(BuildScriptAttributes.registerPaths)
 		if (success):
 			attribute()
+
+	print("Registered " + str(RPath.GetNewEntryCount()[0]) + " files and " + str(RPath.GetNewEntryCount()[1]) + " directories")

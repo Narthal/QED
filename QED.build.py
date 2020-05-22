@@ -21,11 +21,10 @@ for root, dirs, files in os.walk(parentPath):
 			rootDirs.append(dir)
 	break
 
-
 # Add all root directories to searchDirs
 searchDirs = rootDirs
 
 def RegisterPaths():
 	# Register root directories with tag dirName + Dir and RootDir
 	for rootDir in rootDirs:
-		RegisterP.RegisterDirectory(parentPath.joinpath(rootDir), rootDir + "Dir RootDir")
+		RegisterP.RegisterDirectory(parentPath, rootDir, rootDir + "Dir RootDir")

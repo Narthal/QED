@@ -49,8 +49,6 @@ def main(argv):
     ExternalScriptRunner.RegisterDatabases()
     ExternalScriptRunner.RegisterPaths()
 
-    print("")
-
 # Call main if this script is called
 if __name__ == "__main__":
     main(sys.argv[1:])

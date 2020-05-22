@@ -5,10 +5,11 @@ from pathlib import Path
 
 class Database:
 	# Ctor
-	def __init__(self, path):
+	def __init__(self, path, debug = False):
 		# Set member variables
 		self.path = path
 		self.name = path.stem
+		self.debug = debug
 		# Create connection
 		self.connection = sqlite3.connect(path)
 		self.cursor = self.connection.cursor()
@@ -41,7 +42,8 @@ class Database:
 	# Add a row in a table
 	def AddRow(self, tableName, **kwargs):
 		# Log
-		print("Adding new row to table : " + tableName)
+		if (self.debug == True):
+			print("Adding new row to table : " + tableName + " with args : " + str(kwargs))
 
 		# Create command buffer
 		sqlCommand = ""
@@ -77,9 +79,10 @@ class Database:
 		try:
 			self.cursor.execute(sqlCommand, sqlParams)
 		except Exception as e:
-			print("SQL command failed : " + sqlCommand)
-			print("With parameters : " + str(argValues))
-			print(e)
+			if (self.debug == True):
+				print("SQL command failed : " + sqlCommand)
+				print("With parameters : " + str(argValues))
+				print(e)
 
 def DeleteRow(self, tableName, columnName, value):
 	# 'DELETE FROM tasks WHERE id=?'
