@@ -48,6 +48,7 @@ def main(argv):
     ExternalScriptRunner.BuildScriptCollection()
     ExternalScriptRunner.RegisterDatabases()
     ExternalScriptRunner.RegisterPaths()
+    ExternalScriptRunner.PostPathRegistration()
 
 # Call main if this script is called
 if __name__ == "__main__":

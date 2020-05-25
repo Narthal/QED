@@ -34,6 +34,7 @@
     <Folder Include="Conductor\" />
     <Folder Include="ExternalScript\" />
     <Folder Include="Database\" />
+    <Folder Include="Utility\" />
     <Folder Include="Registration\" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,15 @@
     <Compile Include="ExternalScript\ExternalScriptRunner.py" />
     <Compile Include="ExternalScript\__init__.py" />
     <Compile Include="Registration\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utility\FileSystem.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utility\ShellTask.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utility\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

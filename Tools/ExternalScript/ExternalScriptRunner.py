@@ -41,6 +41,8 @@ def GetRootDir():
 
 	if (success == True and value == True):
 		print("Found root directory : " + str(rootPath))
+		os.chdir(rootPath)
+		print("Current directory set : " + str(os.getcwd()))
 		return rootPath
 	else:
 		raise Exception("No root directory found")
@@ -51,7 +53,7 @@ def AddScriptsInDirectoryToCollection(directory):
 
 	# Compile and run each script, add them to collection and check recursively check other directories defined in new scripts
 	for scriptPath in buildScriptPaths:
-		script = Script(scriptPath)
+		script = Script(scriptPath.relative_to(os.getcwd()))
 		scriptCollection.append(script)
 		success, value = script.GetAttribute(BuildScriptAttributes.searchDirs)
 		if (success and len(value) > 0):
@@ -79,11 +81,8 @@ def RegisterDatabases():
 
 	# Put database paths in Registry db
 	for database, tags in zip(databaseCollection, databaseTags):
-		# Get relative path of db
-		relPath = Path(database.path).relative_to(rootPath)
-
 		# If Registry doesn't contain this database path, add it to Registry
-		registryDB.AddRow("pathCollection", path = relPath, type = 1, generated = 1, tags = tags)
+		registryDB.AddRow("pathCollection", path = database.path, type = 1, generated = 1, tags = tags)
 		registryDB.Commit()
 
 def RegisterPaths():
@@ -97,3 +96,14 @@ def RegisterPaths():
 			attribute()
 
 	print("Registered " + str(RPath.GetNewEntryCount()[0]) + " files and " + str(RPath.GetNewEntryCount()[1]) + " directories")
+
+def PostPathRegistration():
+	# Log
+	print("Running post registering tasks")
+	
+	# Run PostPathRegistration functions
+	for script in scriptCollection:
+		success, attribute = script.GetAttribute(BuildScriptAttributes.postPathRegistration)
+		if (success):
+			attribute()
+

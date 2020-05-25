@@ -5,7 +5,7 @@ from pathlib import Path
 
 class Database:
 	# Ctor
-	def __init__(self, path, debug = False):
+	def __init__(self, path, debug = True):
 		# Set member variables
 		self.path = path
 		self.name = path.stem

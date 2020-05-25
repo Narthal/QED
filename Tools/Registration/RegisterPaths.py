@@ -20,19 +20,27 @@ def RegisterPaths(dirPath, pathGlob, tags):
 	# Get paths from pathGlob
 	paths = dirPath.glob(pathGlob)
 
+	# Flag for having modified the database
+	modifiedDB = False
+
 	for path in paths:
-		# Get relative path of db
-		relPath = path.relative_to(scriptRunner.rootPath)
+		# Check if path exists
+		exists = os.path.exists(path)
 
-		# If Registry doesn't contain this path, add it to Registry
-		registryDB.AddRow("pathCollection", path = relPath, type = 1, generated = 0, tags = tags)
+		if (exists == True):
+			# If Registry doesn't contain this path, add it to Registry
+			registryDB.AddRow("pathCollection", path = path, type = 1, generated = 0, tags = tags)
 
-		# Increment registered files
-		registeredFiles += 1
+			# Increment registered files
+			registeredFiles += 1
+			
+			# Set modified flag to true so commit will commence at the end of the glob iteration
+			modifiedDB = True
 
-	registryDB.Commit()
+	if (modifiedDB == True):
+		registryDB.Commit()
 
-def RegisterDirectory(parentPath, subDir, tags):
+def RegisterDirectory(parentPath, subDir, tags, generated = 0):
 	global registeredDirs
 
 	# Get path
@@ -41,13 +49,14 @@ def RegisterDirectory(parentPath, subDir, tags):
 	# Get registry
 	registryDB = GetDatabase("Registry")
 
-	# Get relative path of db
-	relPath = dirPath.relative_to(scriptRunner.rootPath)
+	# Check if path exists
+	exists = os.path.exists(dirPath)
+	
+	if (exists == True):
+		# If Registry doesn't contain this path, add it to Registry
+		registryDB.AddRow("pathCollection", path = dirPath, type = 0, generated = generated, tags = tags)
 
-	# If Registry doesn't contain this path, add it to Registry
-	registryDB.AddRow("pathCollection", path = relPath, type = 0, generated = 0, tags = tags)
+		# Increment registered files
+		registeredDirs += 1
 
-	# Increment registered files
-	registeredDirs += 1
-
-	registryDB.Commit()
+		registryDB.Commit()

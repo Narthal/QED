@@ -14,5 +14,3 @@ def RegisterPaths():
 	# Register cpps
 	RegisterP.RegisterPaths(parentPath, "**/*.cpp", "EngineSource Cpp")
 
-
-
