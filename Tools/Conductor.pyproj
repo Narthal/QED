@@ -64,7 +64,7 @@
     <Compile Include="Utility\FileSystem.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Utility\ShellTask.py">
+    <Compile Include="Utility\Shell.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Utility\__init__.py">

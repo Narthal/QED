@@ -5,7 +5,7 @@ from pathlib import Path
 
 class Database:
 	# Ctor
-	def __init__(self, path, debug = True):
+	def __init__(self, path, debug = False):
 		# Set member variables
 		self.path = path
 		self.name = path.stem
@@ -78,11 +78,13 @@ class Database:
 		# Execute command with params
 		try:
 			self.cursor.execute(sqlCommand, sqlParams)
-		except Exception as e:
+		except sqlite3.IntegrityError:
 			if (self.debug == True):
-				print("SQL command failed : " + sqlCommand)
-				print("With parameters : " + str(argValues))
-				print(e)
+				print("Row exists : " + str(argValues))
+		except Exception as e:
+			print("SQL command failed : " + sqlCommand)
+			print("With parameters : " + str(argValues))
+			print(e)
 
 def DeleteRow(self, tableName, columnName, value):
 	# 'DELETE FROM tasks WHERE id=?'
