@@ -1,26 +1,28 @@
 # TODO
 
 ## TODO Today
-- [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
+- [ ] convert to cmake
 
-- [ ] run dynamic python script collection
-- [ ] build lst of paths
-- [ ] build database of paths
+
 
 ## Priority list
-- [ ] create conductor in python
-- [ ] rewrite BuildTool in python & connect it to conductor
-- [ ] write bootstrap scripts (set pythonhome)
-- [ ] create simple assetPipelineTool & connect it to conductor
+CMake refactor
+- [ ] make conductor - cmake integration
+- [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
 
-- [ ] c++ insert code in function begin
+Static reflection and codeGen
+- [ ] conductor - libclang binding
+- [ ] custom attribute in libclang
+- [ ] store AST in serialized file
+- [ ] conductor codegen based on serialized AST
+- [ ] expose conductor codegen to cmake
 
-- [ ] create .filters generator
-- [ ] write virtual directory support for solutions
-
+Refactor / Remove dependancy
 - [ ] rewrite logger, remove spdlog as dependancy
 - [ ] rewrite profiler
 - [ ] connect logger & profiler to sqlite
+
+Addition
 - [ ] custom allocator
 
 ## Goal dependancies
