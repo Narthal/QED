@@ -4,25 +4,24 @@
 - [ ] convert to cmake
 
 
-
 ## Priority list
-CMake refactor
+### Build system
 - [ ] make conductor - cmake integration
 - [ ] create CodeGeneration & Database directories, redirect glad codegen to new dir
 
-Static reflection and codeGen
+### Static reflection and codeGen
 - [ ] conductor - libclang binding
 - [ ] custom attribute in libclang
 - [ ] store AST in serialized file
 - [ ] conductor codegen based on serialized AST
 - [ ] expose conductor codegen to cmake
 
-Refactor / Remove dependancy
+### Refactor / Remove dependancy
 - [ ] rewrite logger, remove spdlog as dependancy
 - [ ] rewrite profiler
 - [ ] connect logger & profiler to sqlite
 
-Addition
+### Addition
 - [ ] custom allocator
 
 ## Goal dependancies
@@ -38,18 +37,7 @@ Addition
     - Basic scripting
     - Threading
   - Custom imgui allocator (give allocation functions to imgui (imgui has wrapper function))
-  - Custom pybind11 allocation (overload new operator with a macro for pybind files)
-
-## Projects
-- [x] [c++] Engine as exe & static lib
-- [x] [c++] Client (sandbox) as dynamic lib
-- [ ] [c++] Client (game core) as dynamic lib
-- [ ] [c++] Common files
-- [ ] [py] AssetPipelineTool as dynamic lib
-- [ ] [py] BuildTool as dynamic lib
-- [ ] [py] ConductorTool as exe
-- [ ] [py] ReflectionTool as dll
-- [ ] [py] ConfigTool as dll
+  - Custom cPython allocator
 
 ## General
 - [ ] utility : abort function
@@ -75,21 +63,5 @@ Addition
   
 ## Have no idea
 - [ ] glfw vsync disable is absolute dogshit
-
-## Engine sanity
-- [ ] some form of mem check
-
-## Build Tool
-- [ ] Generate .filters file for visual studio solution
-- [ ] Allow virtual folders in solutions
-- [ ] Interface code generator
-
-## Visual goals
-- [ ] tiles
-- [ ] 2d shadow casting
-- [ ] normal mapping
-- [ ] 2d textured lights
-- [ ] line of sight grayscale effect
-- [ ] god rays from stars
 
 
