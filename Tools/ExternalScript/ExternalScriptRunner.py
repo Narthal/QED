@@ -82,7 +82,7 @@ def RegisterDatabases():
 	# Put database paths in Registry db
 	for database, tags in zip(databaseCollection, databaseTags):
 		# If Registry doesn't contain this database path, add it to Registry
-		registryDB.AddRow("pathCollection", path = database.path, type = 1, generated = 1, tags = tags)
+		registryDB.AddRow("pathCollection", path = database.path, type = 1, generated = "CONDUCTOR", tags = tags)
 		registryDB.Commit()
 
 def RegisterPaths():

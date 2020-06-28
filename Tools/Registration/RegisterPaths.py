@@ -29,7 +29,7 @@ def RegisterPaths(dirPath, pathGlob, tags):
 
 		if (exists == True):
 			# If Registry doesn't contain this path, add it to Registry
-			registryDB.AddRow("pathCollection", path = path, type = 1, generated = 0, tags = tags)
+			registryDB.AddRow("pathCollection", path = path, type = 1, generated = "", tags = tags)
 
 			# Increment registered files
 			registeredFiles += 1
@@ -40,7 +40,7 @@ def RegisterPaths(dirPath, pathGlob, tags):
 	if (modifiedDB == True):
 		registryDB.Commit()
 
-def RegisterDirectory(parentPath, subDir, tags, generated = 0):
+def RegisterDirectory(parentPath, subDir, tags, generated = ""):
 	global registeredDirs
 
 	# Get path

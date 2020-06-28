@@ -29,6 +29,9 @@ Assets/AssetDatabase.db
 ## Database files in Database dir
 Database/**/*.db
 
+## Ignore CMake
+CMakeFiles
+
 
 
 

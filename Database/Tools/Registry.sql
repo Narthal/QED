@@ -3,6 +3,6 @@ CREATE TABLE IF NOT EXISTS pathCollection
 	id INTEGER PRIMARY KEY NOT NULL,
 	path TEXT NOT NULL UNIQUE,
 	type NUMERIC,
-	generated NUMERIC,
+	generated TEXT,
 	tags TEXT
 );

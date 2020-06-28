@@ -10,3 +10,6 @@ def RegisterDatabase():
 	parentPath = path.parent
 	# Register database
 	RegisterDB.Register(parentPath.joinpath("Tools/Registry.db"), "")
+
+def PostPathRegistration():
+	FS.CreateDirectory(parentPath, "test", "test")
